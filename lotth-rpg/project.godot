@@ -14,6 +14,18 @@ config/name="LOTTH RPG"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+video/autoload_on_startup=true
+
+[display]
+
+window/size/always_on_top=true
+
+[editor]
+
+version_control/autoload_on_startup=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

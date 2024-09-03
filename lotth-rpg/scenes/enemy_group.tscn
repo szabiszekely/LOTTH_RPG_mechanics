@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://wpyfh8vp2c61"]
+
+[ext_resource type="Script" path="res://scripts/gd/enemy_group.gd" id="1_aff82"]
+[ext_resource type="PackedScene" uid="uid://dn0ihawxqec55" path="res://scenes/character.tscn" id="2_13exo"]
+[ext_resource type="Resource" uid="uid://dps5ywyu0gs31" path="res://scripts/resources/Baller_Figting_Stats.tres" id="3_laswx"]
+
+[node name="Enemy_group" type="Node2D"]
+script = ExtResource("1_aff82")
+
+[node name="Character" parent="." instance=ExtResource("2_13exo")]
+Fight_stats = ExtResource("3_laswx")
+
+[node name="Character2" parent="." instance=ExtResource("2_13exo")]
+Fight_stats = ExtResource("3_laswx")

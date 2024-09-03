@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Fighting_Stats" load_steps=2 format=3 uid="uid://dps5ywyu0gs31"]
+
+[ext_resource type="Script" path="res://scripts/resources/Basic_stats_resources.gd" id="1_urd4u"]
+
+[resource]
+script = ExtResource("1_urd4u")
+name = "Baller"
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 1
