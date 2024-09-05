@@ -18,3 +18,4 @@ EMP = 0
 Base_Phisical_Attack = 2
 Base_Magical_Attack = 1
 Speed = 2
+range_in_cm = 15

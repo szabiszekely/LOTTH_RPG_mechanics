@@ -155,4 +155,43 @@ position = Vector2(-3, 7)
 [node name="Indicator" parent="Character" index="3"]
 texture = ExtResource("4_piqjq")
 
+[node name="Character2" parent="." instance=ExtResource("1_w0cy1")]
+Fight_stats = ExtResource("2_sokk5")
+
+[node name="character_animator" parent="Character2" index="0"]
+sprite_frames = SubResource("SpriteFrames_23y2e")
+
+[node name="CollisionShape2D" parent="Character2" index="1"]
+position = Vector2(-3, 7)
+
+[node name="Indicator" parent="Character2" index="3"]
+texture = ExtResource("4_piqjq")
+
+[node name="Character3" parent="." instance=ExtResource("1_w0cy1")]
+Fight_stats = ExtResource("2_sokk5")
+
+[node name="character_animator" parent="Character3" index="0"]
+sprite_frames = SubResource("SpriteFrames_23y2e")
+
+[node name="CollisionShape2D" parent="Character3" index="1"]
+position = Vector2(-3, 7)
+
+[node name="Indicator" parent="Character3" index="3"]
+texture = ExtResource("4_piqjq")
+
+[node name="Character4" parent="." instance=ExtResource("1_w0cy1")]
+Fight_stats = ExtResource("2_sokk5")
+
+[node name="character_animator" parent="Character4" index="0"]
+sprite_frames = SubResource("SpriteFrames_23y2e")
+
+[node name="CollisionShape2D" parent="Character4" index="1"]
+position = Vector2(-3, 7)
+
+[node name="Indicator" parent="Character4" index="3"]
+texture = ExtResource("4_piqjq")
+
 [editable path="Character"]
+[editable path="Character2"]
+[editable path="Character3"]
+[editable path="Character4"]

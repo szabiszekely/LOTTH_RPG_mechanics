@@ -5,7 +5,7 @@ var index: int = 0
 
 func _ready() -> void:
 	enemies = get_children()
-	print(enemies)
+	#print(enemies)
 	enemies[0]._focus_indicator()
 	
 	
@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 		if index < enemies.size() - 1:
 			index += 1
 			switch_focus(index, index-1)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		enemies[index]._take_damage(4,4,index)
 			
 func switch_focus(x, y):
 	enemies[x]._focus_indicator()
