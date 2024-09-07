@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5aiqugqjqcnl"]
+
+[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_6pwov"]
+[ext_resource type="Texture2D" uid="uid://cjehnoyqibxsl" path="res://assets/sprite/Objects/rock_1.png" id="2_2gxiu"]
+
+[node name="Rock_1" type="StaticBody2D"]
+script = ExtResource("1_6pwov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2gxiu")
+offset = Vector2(0, -28)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(1, 2, -7, 2, -14, 5, -20, 4, -26, -1, -29, -12, 30, -11, 30, -6, 29, -2, 23, 3, 15, 3, 14, 4, 8, 4)

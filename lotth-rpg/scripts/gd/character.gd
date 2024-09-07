@@ -2,11 +2,13 @@ extends CharacterBody2D
 @onready var focus = $Indicator
 @onready var collision_radius = $Area2D/CollisionShape2D
 @onready var area_texture = $Area2D/CollisionShape2D/AnimatedSprite2D
+@onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
 
-var goal = Vector2()
+
 var distance = Vector2()
 var is_inside_the_range: bool = false
 
@@ -25,7 +27,7 @@ func _ready() -> void:
 	var scaleit = collision_radius.shape.radius /30
 	area_texture.scale = area_texture.scale * scaleit
 	
-	goal = position
+	
 	
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
@@ -41,19 +43,26 @@ func _ready() -> void:
 	
 	$character_animator.play("idle")
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
-	if position != goal and is_inside_the_range == true:
+	distance = Vector2(nav_agent.get_next_path_position() - position)
+	if nav_agent.is_navigation_finished():
+		return
+	velocity.x = distance.normalized().x * speed
+	velocity.y = distance.normalized().y * speed
+	move_and_slide()
+	#await get_tree().create_timer(3).timeout
+	#print("done") 
+	#goal = self.position
 		
-		distance = Vector2(goal - position)
-		velocity.x = distance.normalized().x * speed
-		velocity.y = distance.normalized().y * speed
-		move_and_slide()
 	
 	
 func _input(event) -> void:
 	if Input.is_action_just_pressed("clicked") and is_inside_the_range == true:
-		goal = get_global_mouse_position()
+		var map = get_world_2d().navigation_map
+		var p = NavigationServer2D.map_get_closest_point(map,get_global_mouse_position())
+		nav_agent.target_position = p
+	
 		
 
 func _play_animator_health_hit():

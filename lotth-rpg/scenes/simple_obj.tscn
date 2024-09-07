@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://djp2ejl0jqhrk"]
+
+[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_2hj14"]
+
+[node name="Simple_Obj" type="StaticBody2D"]
+script = ExtResource("1_2hj14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
