@@ -3,14 +3,18 @@ extends CharacterBody2D
 @onready var collision_radius = $Area2D/CollisionShape2D
 @onready var area_texture = $Area2D/CollisionShape2D/AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var movement_area: Node2D = $"Movement Area"
+
 
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
-
+@export var indicator : Indicator
+@export var moving_indicator : MovingIndicator
 
 var distance = Vector2()
 var is_inside_the_range: bool = false
+
 
 var health: int :
 	set(value_hp):
@@ -23,11 +27,11 @@ var energy: int:
 		
 
 func _ready() -> void:
+
 	collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
-	var scaleit = collision_radius.shape.radius /30
-	area_texture.scale = area_texture.scale * scaleit
 	
 	
+	indicator.set_reference(movement_area)
 	
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
@@ -45,6 +49,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	update(delta)
+	
 	distance = Vector2(nav_agent.get_next_path_position() - position)
 	if nav_agent.is_navigation_finished():
 		return
@@ -56,14 +62,16 @@ func _physics_process(delta: float) -> void:
 	#goal = self.position
 		
 	
-	
 func _input(event) -> void:
-	if Input.is_action_just_pressed("clicked") and is_inside_the_range == true:
+	if Input.is_action_just_pressed("clicked") and indicator.activated:
 		var map = get_world_2d().navigation_map
-		var p = NavigationServer2D.map_get_closest_point(map,get_global_mouse_position())
+		var p = NavigationServer2D.map_get_closest_point(map,moving_indicator.cursor_reference.global_position)
 		nav_agent.target_position = p
+		
 	
 		
+func update(delta):
+	indicator.update(movement_area,get_global_mouse_position(),delta,is_inside_the_range)
 
 func _play_animator_health_hit():
 	$animator.play("hit")

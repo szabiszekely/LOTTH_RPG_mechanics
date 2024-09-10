@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byktlw0iyu7xu"
-path="res://.godot/imported/lil_dude0180.png-0066fb7f46da234d96cacdd4fa16dc4a.ctex"
+uid="uid://du02kx154n068"
+path="res://.godot/imported/Cursor.png-35f55123202ea9596c58ae5c8ebe9c81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Player/all sprites/lil_dude0180.png"
-dest_files=["res://.godot/imported/lil_dude0180.png-0066fb7f46da234d96cacdd4fa16dc4a.ctex"]
+source_file="res://assets/sprite/Player/Cursor.png"
+dest_files=["res://.godot/imported/Cursor.png-35f55123202ea9596c58ae5c8ebe9c81.ctex"]
 
 [params]
 

@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7gvu14c4ge4w"]
+
+[ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="2_be8af"]
+[ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/Cursor.png" id="3_tvjs7"]
+
+[sub_resource type="GDScript" id="GDScript_j0roo"]
+script/source = "extends Node2D
+@onready var BG = $area
+@onready var curser = $indicator
+
+var mouse_in : bool
+
+func _ready():
+	pass # Replace with function body.
+
+
+func _physics_process(delta):
+	if mouse_in :
+		var mouse_pos = get_global_mouse_position()
+		var dir = (mouse_pos - global_position ).normalized()
+		var length = clamp((mouse_pos - global_position ).length(),0,75)
+		curser.position = Vector2(dir.x,dir.y) * length
+	else :
+		var mouse_pos = get_global_mouse_position()
+		var dir = (mouse_pos - global_position ).normalized()
+		var length = clamp((mouse_pos - global_position ).length(),0,75)
+		curser.position = Vector2(dir.x,dir.y/2) * length
+
+
+func _on_area_2d_mouse_entered():
+	mouse_in = true
+
+
+func _on_area_2d_mouse_exited():
+	mouse_in = false
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_j0roo")
+
+[node name="area" type="Sprite2D" parent="."]
+scale = Vector2(2.805, 1)
+texture = ExtResource("2_be8af")
+
+[node name="indicator" type="Sprite2D" parent="."]
+texture = ExtResource("3_tvjs7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.99, 1.99)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(2.805, 1)
+polygon = PackedVector2Array(4.63458, -32, -9.98217, -32, -17.1123, -27, -27.8075, -17, -32.4421, -4, -32.4421, 6, -15.2, 32, 5.34759, 32, 23.1729, 23, 32.4421, 6, 31.7291, -5, 29.2335, -14, 19.2513, -25)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

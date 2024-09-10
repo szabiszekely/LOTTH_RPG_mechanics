@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qo4wjj3dkffw"
-path="res://.godot/imported/lil_dude0170.png-d8d4f9fd052e6ede5ad5c04b89f392b8.ctex"
+uid="uid://dr0cf5xyohtag"
+path="res://.godot/imported/puddle.png-7a0ab11b0c7f019c121c0299a7cf3b5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Player/all sprites/lil_dude0170.png"
-dest_files=["res://.godot/imported/lil_dude0170.png-d8d4f9fd052e6ede5ad5c04b89f392b8.ctex"]
+source_file="res://assets/sprite/Objects/puddle.png"
+dest_files=["res://.godot/imported/puddle.png-7a0ab11b0c7f019c121c0299a7cf3b5c.ctex"]
 
 [params]
 

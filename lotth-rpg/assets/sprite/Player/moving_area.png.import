@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da6oa15wngfns"
-path="res://.godot/imported/lil_dude0110.png-8b1c94a9fe33b1fe6b5ecd48f082ccc5.ctex"
+uid="uid://cdss2ephsy84n"
+path="res://.godot/imported/moving_area.png-5172b8f7867d47639e05da3f866d3b0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Player/all sprites/lil_dude0110.png"
-dest_files=["res://.godot/imported/lil_dude0110.png-8b1c94a9fe33b1fe6b5ecd48f082ccc5.ctex"]
+source_file="res://assets/sprite/Player/moving_area.png"
+dest_files=["res://.godot/imported/moving_area.png-5172b8f7867d47639e05da3f866d3b0a.ctex"]
 
 [params]
 

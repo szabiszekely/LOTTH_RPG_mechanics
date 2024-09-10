@@ -3,6 +3,7 @@ extends NavigationRegion2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	var on_thread: bool = true
 	bake_navigation_polygon(on_thread)
 

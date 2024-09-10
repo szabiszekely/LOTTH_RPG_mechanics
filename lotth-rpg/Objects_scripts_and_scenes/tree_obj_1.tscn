@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4b1ac2fesxfc"]
+[gd_scene load_steps=4 format=3 uid="uid://b4b1ac2fesxfc"]
 
 [ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_lo7rl"]
 [ext_resource type="Texture2D" uid="uid://deum73oyj6b0n" path="res://assets/sprite/Objects/tree_1.png" id="2_yxwct"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sc4cw"]
 
 [node name="Tree_1" type="StaticBody2D"]
 script = ExtResource("1_lo7rl")
@@ -11,4 +13,7 @@ texture = ExtResource("2_yxwct")
 offset = Vector2(-4, -30.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-7, -6, -12, -3, -12, 1, -10, 4, -6, 5, -2, 6, 4, 6, 11, 1, 12, -2, 9, -6, 5, -6, -3, -6)
+polygon = PackedVector2Array(-6, -2, -5, -5, 4, -5, 5, -2, 6, 2, -7, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sc4cw")

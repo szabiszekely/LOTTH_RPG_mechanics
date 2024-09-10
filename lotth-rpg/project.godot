@@ -26,6 +26,19 @@ window/size/always_on_top=true
 
 version_control/autoload_on_startup=true
 
+[file_customization]
+
+folder_colors={
+"res://Objects_scripts_and_scenes/": "green",
+"res://assets/": "purple",
+"res://assets/sprite/": "pink",
+"res://scenes/": "red",
+"res://scripts/": "yellow",
+"res://scripts/gd/": "orange",
+"res://scripts/gdshader/": "teal",
+"res://scripts/resources/": "blue"
+}
+
 [input]
 
 clicked={

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diqbhx4waof0d"
-path="res://.godot/imported/lil_dude0050.png-b4df7e5869de8ea46d1376da1f559f44.ctex"
+uid="uid://bh5wg2ujuheua"
+path="res://.godot/imported/bush_1.png-ff18dd5ff9ea11293da5eb332cf93290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Player/all sprites/lil_dude0050.png"
-dest_files=["res://.godot/imported/lil_dude0050.png-b4df7e5869de8ea46d1376da1f559f44.ctex"]
+source_file="res://assets/sprite/Objects/bush_1.png"
+dest_files=["res://.godot/imported/bush_1.png-ff18dd5ff9ea11293da5eb332cf93290.ctex"]
 
 [params]
 

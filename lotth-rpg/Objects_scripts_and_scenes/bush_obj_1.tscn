@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://8fcmd0gtr56h"]
+
+[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_f4qrl"]
+[ext_resource type="Texture2D" uid="uid://bh5wg2ujuheua" path="res://assets/sprite/Objects/bush_1.png" id="2_pv4dk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqjc8"]
+
+[node name="Bush_1" type="StaticBody2D"]
+script = ExtResource("1_f4qrl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pv4dk")
+offset = Vector2(-4, -24)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, -5)
+polygon = PackedVector2Array(-5, 4, -7, 3, -9, 1, -9, -2, -8, -4, -4, -7, -1, -8, 2, -7, 6, -4, 7, -2, 7, 1, 5, 3, 2, 4, -1, 5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pqjc8")

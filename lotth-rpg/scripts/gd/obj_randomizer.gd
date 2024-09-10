@@ -1,6 +1,12 @@
 extends Node2D
 
-@onready var OBJ_randomizer: Array = [preload("res://Objects_scripts_and_scenes/rock_obj_1.tscn"),preload("res://Objects_scripts_and_scenes/tree_obj_1.tscn")] 
+@onready var OBJ_randomizer: Array = [preload("res://Objects_scripts_and_scenes/rock_obj_1.tscn")
+,preload("res://Objects_scripts_and_scenes/tree_obj_1.tscn")
+,preload("res://Objects_scripts_and_scenes/trunk_obj_1.tscn")
+,preload("res://Objects_scripts_and_scenes/bush_obj_1.tscn")
+,preload("res://Objects_scripts_and_scenes/puddle_obj.tscn")
+] 
+
 @onready var OBJ_spots: Array = [$Marker2D,$Marker2D2,$Marker2D3,$Marker2D4, $Marker2D5, $Marker2D6]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
