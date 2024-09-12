@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=13 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
 [ext_resource type="Texture2D" uid="uid://c0fst625d3t44" path="res://assets/sprite/BG and Tile/paralex Clouds.png" id="3_dbmdb"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/ground_tilemap.png" id="4_0sjap"]
 [ext_resource type="PackedScene" uid="uid://lj2tu1d6oo1c" path="res://scenes/obj_folder.tscn" id="6_5sxvt"]
+[ext_resource type="PackedScene" uid="uid://4k4g80ev3w75" path="res://scenes/Lil_guy_CH.tscn" id="6_b7i1r"]
 [ext_resource type="Script" path="res://scripts/gd/navigation_region_2d.gd" id="6_ibrbe"]
-[ext_resource type="PackedScene" uid="uid://4k4g80ev3w75" path="res://scenes/Lil_guy_CH.tscn" id="6_onmmf"]
+[ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="7_et5em"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5t4e0"]
 load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b670589d7e41.ctex"
@@ -71,10 +72,10 @@ sources/0 = SubResource("TileSetAtlasSource_et0t5")
 sources/1 = SubResource("TileSetAtlasSource_phn7g")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wueea"]
-vertices = PackedVector2Array(437, -15.0078, -371, -15.9766, -371, -276.008, 437, -276.977)
+vertices = PackedVector2Array(421.078, 120.078, -356.82, 122.898, -355.172, -112.023, 421.906, -112.961)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-381, -286, 447, -287, 447, -5, -381, -6)])
-agent_radius = 17.0
+outlines = Array[PackedVector2Array]([PackedVector2Array(-380, -137, 447, -138, 446, 145, -382, 148)])
+agent_radius = 25.0
 
 [node name="Simple_Test" type="Node2D"]
 y_sort_enabled = true
@@ -104,13 +105,13 @@ tile_set = SubResource("TileSet_i5ovn")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-6, -1)
+position = Vector2(-1, -150)
 navigation_polygon = SubResource("NavigationPolygon_wueea")
 script = ExtResource("6_ibrbe")
 
 [node name="OBJ_folder" parent="NavigationRegion2D" instance=ExtResource("6_5sxvt")]
 y_sort_enabled = true
-position = Vector2(0, -159)
+position = Vector2(0, -14)
 
 [node name="Marker2D" parent="NavigationRegion2D/OBJ_folder" index="0"]
 position = Vector2(387, -84)
@@ -131,13 +132,16 @@ position = Vector2(-206, 124)
 position = Vector2(383, 61)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(22, -206)
-limit_bottom = 106
+position = Vector2(22, 19)
+zoom = Vector2(1.1, 1.1)
+limit_bottom = 120
 drag_left_margin = 0.25
 drag_right_margin = 0.25
 drag_bottom_margin = 0.1
 
-[node name="Lil Guy" parent="." instance=ExtResource("6_onmmf")]
+[node name="Lil Guy" parent="." instance=ExtResource("6_b7i1r")]
+position = Vector2(0, -154)
+
+[node name="UI_battle_menu" parent="." instance=ExtResource("7_et5em")]
 
 [editable path="NavigationRegion2D/OBJ_folder"]
-[editable path="Lil Guy"]

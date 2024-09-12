@@ -3,7 +3,8 @@ extends CharacterBody2D
 @onready var collision_radius = $Area2D/CollisionShape2D
 @onready var area_texture = $Area2D/CollisionShape2D/AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var movement_area: Node2D = $"Movement Area"
+
+
 
 
 
@@ -31,7 +32,9 @@ func _ready() -> void:
 	collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
 	
 	
-	indicator.set_reference(movement_area)
+	indicator.set_reference(self)
+	move_child(indicator.indicator_reference,0)
+	move_child(moving_indicator.cursor_reference,1)
 	
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
@@ -71,7 +74,7 @@ func _input(event) -> void:
 	
 		
 func update(delta):
-	indicator.update(movement_area,get_global_mouse_position(),delta,is_inside_the_range)
+	indicator.update(self,get_global_mouse_position(),delta,is_inside_the_range)
 
 func _play_animator_health_hit():
 	$animator.play("hit")

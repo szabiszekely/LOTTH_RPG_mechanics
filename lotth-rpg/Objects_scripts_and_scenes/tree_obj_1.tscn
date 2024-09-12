@@ -13,7 +13,8 @@ texture = ExtResource("2_yxwct")
 offset = Vector2(-4, -30.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-6, -2, -5, -5, 4, -5, 5, -2, 6, 2, -7, 2)
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-8, -2, -8, -5, 9, -5, 9, -2, 9, 2, -8, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sc4cw")

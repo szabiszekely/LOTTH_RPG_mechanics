@@ -16,11 +16,11 @@ func update(source, mouse_position, delta,mouse_in):
 		if mouse_in:
 			var dir = (mouse_position - source.position).normalized()
 			var length = clamp((mouse_position - source.position).length(),0,150)
-			cursor_reference.position = Vector2(dir.x,dir.y)* length
+			cursor_reference.global_position  = source.position + Vector2(dir.x,dir.y) * length 
 		else:
 			var dir = (mouse_position - source.position).normalized()
-			var length = clamp((mouse_position - source.position).length(),0,150)
-			cursor_reference.position =source.position + Vector2(dir.x,dir.y/2)* length
+			var length = clamp((mouse_position - source.position).length(),140,150)
+			cursor_reference.position  = Vector2(dir.x,dir.y/2)* length
 		
 		
 		

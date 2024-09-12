@@ -23,7 +23,7 @@ func _physics_process(delta):
 	else :
 		var mouse_pos = get_global_mouse_position()
 		var dir = (mouse_pos - global_position ).normalized()
-		var length = clamp((mouse_pos - global_position ).length(),0,75)
+		var length = clamp((mouse_pos - global_position ).length(),60,75)
 		curser.position = Vector2(dir.x,dir.y/2) * length
 
 

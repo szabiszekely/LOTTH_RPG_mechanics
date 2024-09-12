@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://mykpbg8dew2g"]
+
+[node name="Abilities" type="Button"]
+offset_right = 294.0
+offset_bottom = 236.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Abilities"
+flat = true
+icon_alignment = 1
+expand_icon = true

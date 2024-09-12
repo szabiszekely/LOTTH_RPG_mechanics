@@ -1,0 +1,51 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b1uwt4fr61v7u"]
+
+[ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_mp5tv"]
+[ext_resource type="Texture2D" uid="uid://ctbd8wbgulew5" path="res://assets/sprite/UI/Button_BG_pressed.png" id="2_udvm6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvvds"]
+texture = ExtResource("1_mp5tv")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(1, 1, 0.615686, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rsw4"]
+texture = ExtResource("1_mp5tv")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_go2cr"]
+texture = ExtResource("1_mp5tv")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bsem"]
+texture = ExtResource("2_udvm6")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_roct1"]
+texture = ExtResource("1_mp5tv")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[resource]
+Button/colors/font_color = Color(0.862745, 0.862745, 0.862745, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.164706, 1)
+Button/font_sizes/font_size = 20
+Button/styles/focus = SubResource("StyleBoxTexture_fvvds")
+Button/styles/hover = SubResource("StyleBoxTexture_7rsw4")
+Button/styles/normal = SubResource("StyleBoxTexture_go2cr")
+Button/styles/pressed = SubResource("StyleBoxTexture_7bsem")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_roct1")
