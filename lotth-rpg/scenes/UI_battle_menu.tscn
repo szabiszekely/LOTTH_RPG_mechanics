@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=6 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
 [ext_resource type="Script" path="res://scripts/gd/action_button.gd" id="2_p8kw2"]
 [ext_resource type="Script" path="res://scripts/gd/bagpack_button.gd" id="3_xylpc"]
 [ext_resource type="Script" path="res://scripts/gd/run_button.gd" id="4_lsf7a"]
+[ext_resource type="PackedScene" uid="uid://cik4k3fvdqebn" path="res://scenes/order_counter.tscn" id="5_180k0"]
 
 [node name="UI_battle_menu" type="CanvasLayer"]
 follow_viewport_scale = 2.735
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Menu" type="PanelContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -20,18 +21,18 @@ offset_right = 449.5
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Abilities" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Abilities" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Run")
@@ -41,7 +42,7 @@ focus_previous = NodePath("../Run")
 text = "Abilities"
 script = ExtResource("1_f1usb")
 
-[node name="Action" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Action" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Abilities")
@@ -51,7 +52,7 @@ focus_previous = NodePath("../Abilities")
 text = "Action"
 script = ExtResource("2_p8kw2")
 
-[node name="Bagpack" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Bagpack" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Action")
@@ -61,7 +62,7 @@ focus_previous = NodePath("../Action")
 text = "Bagpack"
 script = ExtResource("3_xylpc")
 
-[node name="Run" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Run" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Bagpack")
@@ -73,11 +74,24 @@ shortcut_in_tooltip = false
 text = "Run"
 script = ExtResource("4_lsf7a")
 
-[connection signal="focus_entered" from="PanelContainer/MarginContainer/HBoxContainer/Abilities" to="PanelContainer/MarginContainer/HBoxContainer/Abilities" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PanelContainer/MarginContainer/HBoxContainer/Abilities" to="PanelContainer/MarginContainer/HBoxContainer/Abilities" method="_on_focus_exited"]
-[connection signal="focus_entered" from="PanelContainer/MarginContainer/HBoxContainer/Action" to="PanelContainer/MarginContainer/HBoxContainer/Action" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PanelContainer/MarginContainer/HBoxContainer/Action" to="PanelContainer/MarginContainer/HBoxContainer/Action" method="_on_focus_exited"]
-[connection signal="focus_entered" from="PanelContainer/MarginContainer/HBoxContainer/Bagpack" to="PanelContainer/MarginContainer/HBoxContainer/Bagpack" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PanelContainer/MarginContainer/HBoxContainer/Bagpack" to="PanelContainer/MarginContainer/HBoxContainer/Bagpack" method="_on_focus_exited"]
-[connection signal="focus_entered" from="PanelContainer/MarginContainer/HBoxContainer/Run" to="PanelContainer/MarginContainer/HBoxContainer/Run" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PanelContainer/MarginContainer/HBoxContainer/Run" to="PanelContainer/MarginContainer/HBoxContainer/Run" method="_on_focus_exited"]
+[node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -218.0
+offset_right = -4.0
+offset_bottom = 210.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Action" to="Menu/MarginContainer/HBoxContainer/Action" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Action" to="Menu/MarginContainer/HBoxContainer/Action" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Bagpack" to="Menu/MarginContainer/HBoxContainer/Bagpack" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Bagpack" to="Menu/MarginContainer/HBoxContainer/Bagpack" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Run" to="Menu/MarginContainer/HBoxContainer/Run" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Run" to="Menu/MarginContainer/HBoxContainer/Run" method="_on_focus_exited"]

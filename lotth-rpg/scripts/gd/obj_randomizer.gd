@@ -12,7 +12,7 @@ extends Node2D
 func _ready() -> void:
 	randomize()
 	var spot_randomizer = randi_range(0,OBJ_spots.size())
-	print(spot_randomizer)
+	#print(spot_randomizer)
 	for s in spot_randomizer:
 		randomize()
 		
@@ -20,7 +20,7 @@ func _ready() -> void:
 		var instance = OBJ_randomizer[object].instantiate()
 		add_child(instance)
 		var spot_pick = OBJ_spots.pick_random()
-		print(spot_pick)
+		#print(spot_pick)
 		instance.position = spot_pick.position
 		OBJ_spots.erase(spot_pick)
 		

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cipqac8u4pg0j"]
+
+[ext_resource type="Texture2D" uid="uid://m20ofr34obly" path="res://assets/sprite/UI/Portrait.png" id="1_scfl3"]
+[ext_resource type="Script" path="res://scripts/gd/portriat_contrainer.gd" id="2_jr6dd"]
+[ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/Portrait_Icon.png" id="2_n072u"]
+
+[node name="Container" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_scfl3")
+expand_mode = 4
+script = ExtResource("2_jr6dd")
+
+[node name="Portrait" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.870588)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 46.0
+offset_bottom = 48.0
+texture = ExtResource("2_n072u")
+expand_mode = 4
+stretch_mode = 4

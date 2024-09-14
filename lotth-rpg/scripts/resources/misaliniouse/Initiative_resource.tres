@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Initiative_class" load_steps=3 format=3 uid="uid://cavpus50mqa66"]
+
+[ext_resource type="Texture2D" uid="uid://m20ofr34obly" path="res://assets/sprite/UI/Portrait.png" id="1_6ajud"]
+[ext_resource type="Script" path="res://scripts/resources/misaliniouse/Initiative.gd" id="1_8psdp"]
+
+[resource]
+script = ExtResource("1_8psdp")
+bg_container = ExtResource("1_6ajud")

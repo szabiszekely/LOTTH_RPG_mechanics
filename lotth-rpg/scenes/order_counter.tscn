@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cik4k3fvdqebn"]
+
+[ext_resource type="Texture2D" uid="uid://bqtblo8a4vupn" path="res://assets/sprite/UI/Turn_BG.png" id="1_o28hd"]
+[ext_resource type="Script" path="res://scripts/gd/order_counter.gd" id="2_kdxbo"]
+[ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="3_rgvkf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xx7yl"]
+texture = ExtResource("1_o28hd")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[node name="Order_counter" type="PanelContainer"]
+offset_right = 104.0
+offset_bottom = 298.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xx7yl")
+script = ExtResource("2_kdxbo")
+Initiative = ExtResource("3_rgvkf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2

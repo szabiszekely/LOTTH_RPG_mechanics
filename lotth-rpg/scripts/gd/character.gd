@@ -10,8 +10,12 @@ extends CharacterBody2D
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
+@export var Turn_portriat: CompressedTexture2D
 @export var indicator : Indicator
 @export var moving_indicator : MovingIndicator
+@export var Initiative: Initiative_class
+
+
 
 var distance = Vector2()
 var is_inside_the_range: bool = false
@@ -28,7 +32,13 @@ var energy: int:
 		
 
 func _ready() -> void:
-
+	
+	var roll = Fight_stats.Speed + Fight_stats._Initiative()
+	print(roll)
+	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
+	Initiative.all_rolls.append(initiative_peronality)
+	
+	
 	collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
 	
 	

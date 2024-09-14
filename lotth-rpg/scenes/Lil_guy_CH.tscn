@@ -1,7 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://4k4g80ev3w75"]
+[gd_scene load_steps=30 format=3 uid="uid://4k4g80ev3w75"]
 
 [ext_resource type="Script" path="res://scripts/gd/character.gd" id="1_vg4yn"]
-[ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="2_vblf7"]
 [ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Moving.tres" id="3_tl3rs"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="4_8e33h"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="5_jcypl"]
@@ -238,7 +237,6 @@ _data = {
 
 [node name="Lil Guy" type="CharacterBody2D"]
 script = ExtResource("1_vg4yn")
-Fight_stats = ExtResource("2_vblf7")
 indicator = ExtResource("3_tl3rs")
 moving_indicator = ExtResource("3_tl3rs")
 

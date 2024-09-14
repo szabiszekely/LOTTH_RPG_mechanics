@@ -2,6 +2,7 @@ class_name Fighting_Stats
 extends Resource
 
 @export var name: String
+@export_enum("Friend","Enemy") var Friend_or_Foe
 @export var MAX_HP: int
 @export var MAX_ENG: int
 @export var HP: int
@@ -34,3 +35,8 @@ func _Damage_Taken(Self_HP:int,Self_ENG:int,Attacker_Base_Damage:int,Attacker_St
 		Total_damage = 1
 		
 	return Total_damage
+
+func _Initiative():
+	randomize()
+	var dice = randi_range(1,6)
+	return dice

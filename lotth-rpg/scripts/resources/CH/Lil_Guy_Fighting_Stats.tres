@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_yl8kg")
 name = "Lil Goofy Guy"
+Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
 HP = 25
