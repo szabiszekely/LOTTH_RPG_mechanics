@@ -20,7 +20,7 @@ extends Resource
 @export var Speed: int
 @export var range_in_cm: int
 
-func _Damage_Taken(Self_HP:int,Self_ENG:int,Attacker_Base_Damage:int,Attacker_Strengh:int,Self_Defense:int,Self_ATK_type:int,Attacker_ATK_type:int):
+func _Damage_Taken(Attacker_Base_Damage:int,Attacker_Strengh:int,Self_Defense:int,Self_ATK_type:int,Attacker_ATK_type:int):
 	var Damage_Type = 0
 	if Self_ATK_type == Attacker_ATK_type:
 		Damage_Type = 0

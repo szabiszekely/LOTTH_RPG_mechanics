@@ -38,6 +38,7 @@ func set_reference(source):
 	sprite_reference.texture = texture
 	sprite_reference.scale.y = 0.51
 	sprite_reference.scale = sprite_reference.scale * scaleit
+	sprite_reference.z_index = -1
 	indicator_reference = sprite_reference
 	source.add_child(sprite_reference)
  
