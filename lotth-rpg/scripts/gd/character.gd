@@ -1,7 +1,6 @@
 extends CharacterBody2D
 @onready var focus = $Indicator
 @onready var collision_radius = $Area2D/CollisionShape2D
-@onready var area_texture = $Area2D/CollisionShape2D/AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 

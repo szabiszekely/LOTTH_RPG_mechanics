@@ -1,5 +1,5 @@
 extends Control
-
+class_name Indicator_bar
 
 @export var assined_characters: Fighting_Stats
 
@@ -16,10 +16,10 @@ var offset_value : float
 var current_health: int
 
 func _ready():
-	
+	print(assined_characters.MAX_HP)
 	ENG_bar.material.set_shader_parameter("count",assined_characters.MAX_ENG)
-	HP_bar.material.set_shader_parameter("count",assined_characters.MAX_ENG)
-	
+	HP_bar.material.set_shader_parameter("count",assined_characters.MAX_HP)
+	print(HP_bar.material.get_shader_parameter("count"))
 	name_tag.text = assined_characters.name
 	energy_changed()
 	health_changed()
@@ -34,14 +34,11 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		if not ENG_bar.material.get_shader_parameter("value") < 0:
-			assined_characters.ENG -= 2
-			energy_changed()
-			print("?")
 			ENG_bar.material.set_shader_parameter("value",ENG_bar.material.get_shader_parameter("value") - offset_value)
+			
 		else:
 			HP_bar.material.set_shader_parameter("value",HP_bar.material.get_shader_parameter("value") - offset_value)
-			assined_characters.HP = assined_characters.HP - 1
-			#health_changed()
+			
 			
 func health_changed():
 	Health_number.text = str(assined_characters.HP) + "|" + str(assined_characters.MAX_HP)

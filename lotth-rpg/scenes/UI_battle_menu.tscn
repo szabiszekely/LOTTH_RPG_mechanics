@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=11 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
 [ext_resource type="Script" path="res://scripts/gd/action_button.gd" id="2_p8kw2"]
@@ -6,6 +6,48 @@
 [ext_resource type="Script" path="res://scripts/gd/run_button.gd" id="4_lsf7a"]
 [ext_resource type="PackedScene" uid="uid://cik4k3fvdqebn" path="res://scenes/order_counter.tscn" id="5_180k0"]
 [ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="6_a2nnn"]
+[ext_resource type="Resource" uid="uid://d1wwrnm5qafo3" path="res://scripts/resources/CH/Lil_Guy_Different_Fighting_Stats.tres" id="8_0mvx1"]
+[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_vmpxd"]
+
+[sub_resource type="Resource" id="Resource_ej2xd"]
+resource_local_to_scene = true
+script = ExtResource("8_vmpxd")
+name = "Baller Lazier"
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 0
+range_in_cm = 12
+
+[sub_resource type="Resource" id="Resource_pycxa"]
+resource_local_to_scene = true
+script = ExtResource("8_vmpxd")
+name = "Baller "
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 12
 
 [node name="UI_battle_menu" type="CanvasLayer"]
 follow_viewport_scale = 2.735
@@ -88,11 +130,32 @@ offset_bottom = 210.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="Bar_System2" parent="." instance=ExtResource("6_a2nnn")]
+offset_left = 3.0
+offset_top = 125.0
+offset_right = 250.0
+offset_bottom = 153.0
+assined_characters = ExtResource("8_0mvx1")
+
 [node name="Bar_System" parent="." instance=ExtResource("6_a2nnn")]
 offset_left = 3.0
-offset_top = 61.0
+offset_top = 48.0
 offset_right = 250.0
-offset_bottom = 89.0
+offset_bottom = 76.0
+
+[node name="Bar_System3" parent="." instance=ExtResource("6_a2nnn")]
+offset_left = 681.0
+offset_top = 48.0
+offset_right = 928.0
+offset_bottom = 76.0
+assined_characters = SubResource("Resource_ej2xd")
+
+[node name="Bar_System4" parent="." instance=ExtResource("6_a2nnn")]
+offset_left = 681.0
+offset_top = 125.0
+offset_right = 928.0
+offset_bottom = 153.0
+assined_characters = SubResource("Resource_pycxa")
 
 [connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_exited"]

@@ -358,9 +358,19 @@ texture = ExtResource("5_jcypl")
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Bar_system" parent="." instance=ExtResource("5_2fnw1")]
+offset_top = -2.0
+offset_bottom = -2.0
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false
+offset_left = -102.0
+offset_top = -55.0
+offset_right = -57.0
+offset_bottom = -44.0
+
+[node name="Label" parent="Bar_system/Name_tab" index="0"]
+offset_top = 0.0
+offset_bottom = 23.0
 
 [node name="Health" parent="Bar_system" index="1"]
 visible = false

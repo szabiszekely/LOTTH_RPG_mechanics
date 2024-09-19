@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=19 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
 [ext_resource type="Texture2D" uid="uid://c0fst625d3t44" path="res://assets/sprite/BG and Tile/paralex Clouds.png" id="3_dbmdb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="7_ksyfa"]
 [ext_resource type="PackedScene" uid="uid://dbcdiv14ua3cx" path="res://scenes/player_group.tscn" id="7_xsgs2"]
 [ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="8_r1uui"]
+[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="11_272v6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5t4e0"]
 load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b670589d7e41.ctex"
@@ -79,6 +80,46 @@ vertices = PackedVector2Array(421.078, 120.078, -356.82, 122.898, -355.172, -112
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-380, -137, 447, -138, 446, 145, -382, 148)])
 agent_radius = 17.0
+
+[sub_resource type="Resource" id="Resource_4jniu"]
+resource_local_to_scene = true
+script = ExtResource("11_272v6")
+name = "Baller Lazier"
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 0
+range_in_cm = 12
+
+[sub_resource type="Resource" id="Resource_fado7"]
+resource_local_to_scene = true
+script = ExtResource("11_272v6")
+name = "Baller "
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 12
 
 [node name="Simple_Test" type="Node2D"]
 y_sort_enabled = true
@@ -152,6 +193,12 @@ Turn_portriat = ExtResource("7_5i6n0")
 Initiative = ExtResource("8_r1uui")
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("7_et5em")]
+
+[node name="Bar_System3" parent="UI_battle_menu" index="4"]
+assined_characters = SubResource("Resource_4jniu")
+
+[node name="Bar_System4" parent="UI_battle_menu" index="5"]
+assined_characters = SubResource("Resource_fado7")
 
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="player_group"]

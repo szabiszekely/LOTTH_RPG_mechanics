@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://dpreubai0v75h"]
+[gd_scene load_steps=36 format=3 uid="uid://dpreubai0v75h"]
 
 [ext_resource type="Script" path="res://scripts/gd/Bar_system.gd" id="1_yiyad"]
 [ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="2_53byl"]
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="2_ct40t"]
 [ext_resource type="Texture2D" uid="uid://1hvah5xpvfsk" path="res://assets/sprite/UI/Null_Mater.png" id="3_ffwmv"]
+[ext_resource type="Script" path="res://scripts/gd/autosizer.gd" id="3_fw8gm"]
 [ext_resource type="Texture2D" uid="uid://bjlhludno8sn0" path="res://assets/sprite/UI/Name_plate.png" id="3_jh2vi"]
 [ext_resource type="Texture2D" uid="uid://c18t041tumpk" path="res://assets/sprite/UI/Health_BG.png" id="4_f2i6m"]
 [ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="4_memqs"]
@@ -74,7 +75,7 @@ resource_local_to_scene = true
 shader = ExtResource("4_memqs")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
-shader_parameter/count = 25
+shader_parameter/count = 20
 shader_parameter/margin = Vector2(0.28, 0)
 shader_parameter/shear_angle = 0.0
 shader_parameter/use_value_gradient = false
@@ -104,7 +105,7 @@ resource_local_to_scene = true
 shader = ExtResource("6_7o4wy")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
-shader_parameter/count = 25
+shader_parameter/count = 30
 shader_parameter/margin = Vector2(0.4, 0)
 shader_parameter/shear_angle = 0.0
 shader_parameter/use_value_gradient = false
@@ -126,7 +127,9 @@ texture_margin_bottom = 4.0
 layout_mode = 3
 anchors_preset = 0
 offset_left = 49.0
+offset_top = 43.0
 offset_right = 49.0
+offset_bottom = 43.0
 script = ExtResource("1_yiyad")
 assined_characters = ExtResource("2_ct40t")
 
@@ -155,6 +158,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
+script = ExtResource("3_fw8gm")
 
 [node name="Health" type="Panel" parent="."]
 layout_mode = 0
@@ -183,6 +187,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
+script = ExtResource("3_fw8gm")
 
 [node name="Energy" type="Panel" parent="."]
 layout_mode = 0
@@ -212,6 +217,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
+script = ExtResource("3_fw8gm")
 
 [node name="NULL" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_amyoh")
