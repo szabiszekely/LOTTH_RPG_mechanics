@@ -6,7 +6,7 @@ var all_rolls: Array = []
 
 func _getting_all_rolls(rolls:Array,source):
 	rolls.sort_custom(priority)
-	print(rolls)
+	
 	for portait in rolls:
 		var portrait_texture = portait[3]
 		var container = TextureRect.new()

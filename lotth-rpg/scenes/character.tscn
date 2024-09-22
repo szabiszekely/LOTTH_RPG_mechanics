@@ -1,105 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://dn0ihawxqec55"]
+[gd_scene load_steps=28 format=3 uid="uid://dn0ihawxqec55"]
 
-[ext_resource type="Script" path="res://scripts/gd/character.gd" id="1_sngww"]
-[ext_resource type="Resource" uid="uid://bv5qqforuv2i7" path="res://scripts/resources/Big_Guy_Fighting_Stats.tres" id="2_goxus"]
-[ext_resource type="Texture2D" uid="uid://bu752wonk41wp" path="res://assets/sprite/Player/moving_area_plus_shine.png" id="2_rum76"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="3_4liuj"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="4_r7x8p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
 radius = 30.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynfj8"]
-atlas = ExtResource("2_rum76")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gde8m"]
-atlas = ExtResource("2_rum76")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t076x"]
-atlas = ExtResource("2_rum76")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_876fb"]
-atlas = ExtResource("2_rum76")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l70sh"]
-atlas = ExtResource("2_rum76")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l44tb"]
-atlas = ExtResource("2_rum76")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mjudo"]
-atlas = ExtResource("2_rum76")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uweky"]
-atlas = ExtResource("2_rum76")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8uysf"]
-atlas = ExtResource("2_rum76")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5w8yq"]
-atlas = ExtResource("2_rum76")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k460u"]
-atlas = ExtResource("2_rum76")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rq33b"]
-atlas = ExtResource("2_rum76")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_032mr"]
-animations = [{
-"frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_ynfj8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gde8m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t076x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_876fb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l70sh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l44tb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mjudo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uweky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8uysf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5w8yq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k460u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rq33b")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yvys"]
 atlas = ExtResource("4_r7x8p")
@@ -329,8 +234,6 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
-script = ExtResource("1_sngww")
-Fight_stats = ExtResource("2_goxus")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -338,12 +241,6 @@ Fight_stats = ExtResource("2_goxus")
 position = Vector2(0, 7)
 scale = Vector2(1, 0.51)
 shape = SubResource("CircleShape2D_qs5gw")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D/CollisionShape2D"]
-sprite_frames = SubResource("SpriteFrames_032mr")
-autoplay = "default"
-frame_progress = 0.000933852
-speed_scale = 2.0
 
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.8, 11.2355)

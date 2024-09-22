@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbcdiv14ua3cx"]
+[gd_scene load_steps=2 format=3 uid="uid://co2g5udsxkc5r"]
 
-[ext_resource type="Script" path="res://scripts/gd/player_group.gd" id="1_c2mnn"]
-[ext_resource type="PackedScene" uid="uid://4k4g80ev3w75" path="res://scenes/Lil_guy_CH.tscn" id="2_jwb22"]
+[ext_resource type="Script" path="res://scripts/gd/player_group.gd" id="1_vu80q"]
 
-[node name="player_group" type="Node2D"]
-script = ExtResource("1_c2mnn")
-
-[node name="Lil Guy" parent="." instance=ExtResource("2_jwb22")]
+[node name="Player_Group" type="Node2D"]
+script = ExtResource("1_vu80q")

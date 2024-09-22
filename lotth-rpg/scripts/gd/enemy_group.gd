@@ -19,10 +19,18 @@ func _process(delta: float) -> void:
 			index += 1
 			switch_focus(index, index-1)
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		enemies[index]._take_damage(4,4,index)
+	#if Input.is_action_just_pressed("ui_accept"):
+		#enemies[index]._take_damage(4,4,index)
 			
 func switch_focus(x, y):
 	enemies[x]._focus_indicator()
 	enemies[y]._unfocus_indicator()
 	
+func _reset_focus():
+	index = 0
+	for enemy in enemies:
+		enemy.unfocus()
+
+func _start_choosing():
+	_reset_focus()
+	enemies[0].focus()

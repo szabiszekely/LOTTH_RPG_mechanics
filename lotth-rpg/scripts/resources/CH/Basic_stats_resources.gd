@@ -18,7 +18,7 @@ extends Resource
 @export var Base_Phisical_Attack: int
 @export var Base_Magical_Attack: int
 @export var Speed: int
-@export var range_in_cm: int
+@export var range_in_cm: float
 
 func _Damage_Taken(Attacker_Base_Damage:int,Attacker_Strengh:int,Self_Defense:int,Self_ATK_type:int,Attacker_ATK_type:int):
 	var Damage_Type = 0

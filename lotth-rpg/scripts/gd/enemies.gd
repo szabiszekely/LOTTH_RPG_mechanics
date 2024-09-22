@@ -1,13 +1,10 @@
 extends CharacterBody2D
-class_name Character_Controller
-
 @onready var focus = $Indicator
 
-
-@export var speed:int = 400
+#@export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
-@export var Bar: Indicator_bar
-
+@export var Turn_portriat: CompressedTexture2D
+@export var Initiative: Initiative_class
 
 var health: int :
 	set(value_hp):
@@ -21,6 +18,10 @@ var energy: int:
 
 func _ready() -> void:
 	
+	var roll = Fight_stats.Speed + Fight_stats._Initiative()
+	print(roll)
+	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
+	Initiative.all_rolls.append(initiative_peronality)
 	
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
@@ -36,7 +37,7 @@ func _ready() -> void:
 	
 	$character_animator.play("idle")
 
-
+		
 	
 
 func _play_animator_health_hit():
@@ -51,33 +52,27 @@ func _focus_indicator():
 func _unfocus_indicator():
 	focus.hide()
 
-func _take_damage(base_damage,strengh,index,attacker_type):
+func _take_damage(base_damage,strengh,index):
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
 	
-	var hit = Fight_stats._Damage_Taken(base_damage,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type)
+	var hit = Fight_stats._Damage_Taken(base_damage,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,1)
 	
-	#if Fight_stats.HP == 0:
-		#get_child(index).queue_free()
-		
-	Bar.bar_damage_taken(float(hit))
+	if Fight_stats.HP == 0:
+		get_child(index).queue_free()
+	
 	
 	if Fight_stats.ENG > 0:
 		_play_animator_energy_hit() 
-		for i in hit:
-			Fight_stats.ENG -= 1
-			await get_tree().create_timer(0.16).timeout
-			if Fight_stats.ENG <= 0:
-				Fight_stats.ENG = 0
-			
+		Fight_stats.ENG -= hit
+		if Fight_stats.ENG <= 0:
+			Fight_stats.ENG = 0
 	else:
 		_play_animator_health_hit()
-		for i in hit:
-			Fight_stats.HP -= 1
-			await get_tree().create_timer(0.16).timeout
-			if Fight_stats.HP <= 0:
-				Fight_stats.HP = 0
-				
+		Fight_stats.HP -= hit
+		if Fight_stats.HP <= 0:
+			Fight_stats.HP = 0
+			
 	print("----------------")
 	print("Stat Block")
 	print(Fight_stats.name)
