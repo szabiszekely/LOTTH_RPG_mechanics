@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Entity_finder" load_steps=2 format=3 uid="uid://bftwxcrhw2aqi"]
+
+[ext_resource type="Script" path="res://scripts/gd/Entity_finding_system.gd" id="1_i3y82"]
+
+[resource]
+script = ExtResource("1_i3y82")
+The_entire_list_of_all_that_is_alive = ["Baller ", "Baller Lazier"]
+dictionary_of_all_that_is_alive = [{
+0: "Talk",
+1: "Grab",
+2: "Ball"
+}, {
+0: "Talk",
+1: "Grab",
+3: "Sleep"
+}]

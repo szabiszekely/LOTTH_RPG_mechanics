@@ -21,6 +21,3 @@ func when_button_pressed(me):
 	
 	
 	
-
-func disable_button(button):
-	pass

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=8 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
+[ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/action_panel_choice.tscn" id="1_ypt22"]
 [ext_resource type="Script" path="res://scripts/gd/action_button.gd" id="2_p8kw2"]
 [ext_resource type="Script" path="res://scripts/gd/bagpack_button.gd" id="3_xylpc"]
 [ext_resource type="Script" path="res://scripts/gd/run_button.gd" id="4_lsf7a"]
@@ -10,7 +11,21 @@
 [node name="UI_battle_menu" type="CanvasLayer"]
 follow_viewport_scale = 2.735
 
+[node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = 5.0
+offset_right = 275.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="Menu" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

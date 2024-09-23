@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfnaj12a06bki"]
+
+[ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="1_0i5l2"]
+[ext_resource type="Script" path="res://scripts/gd/action_panel_choice.gd" id="2_rrqtj"]
+
+[sub_resource type="Gradient" id="Gradient_ytyhg"]
+offsets = PackedFloat32Array(0, 0.5, 0.6)
+colors = PackedColorArray(0.67, 0.00669999, 0.00669999, 1, 0.96, 0.00959999, 0.00959999, 1, 1, 0.00999999, 0.00999999, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3lwi"]
+gradient = SubResource("Gradient_ytyhg")
+width = 39
+height = 119
+fill = 1
+fill_from = Vector2(0.5, 0.135)
+fill_to = Vector2(0.37815, 1)
+
+[node name="Action_Panel_choice" type="PanelContainer"]
+offset_right = 550.0
+offset_bottom = 237.0
+theme = ExtResource("1_0i5l2")
+script = ExtResource("2_rrqtj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 25
+columns = 3
+
+[node name="Check" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../top_left")
+focus_neighbor_bottom = NodePath("../Focus")
+text = "Check"
+
+[node name="top_left" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "* Grab"
+
+[node name="top_right" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "test_button"
+alignment = 0
+
+[node name="Focus" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Check")
+focus_neighbor_right = NodePath("../middle_left")
+focus_neighbor_bottom = NodePath("../Guard")
+text = "Focus
+"
+
+[node name="middle_left" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "* Talk"
+
+[node name="middle_right" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "test_button"
+alignment = 0
+
+[node name="Guard" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Guard"
+
+[node name="bottom_left" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "test_button"
+alignment = 0
+
+[node name="bottom_right" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "test_button"
+alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(118, 131)
+scale = Vector2(0.646466, 2.36364)
+texture = SubResource("GradientTexture2D_y3lwi")

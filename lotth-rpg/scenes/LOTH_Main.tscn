@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=21 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_4v7gm"]
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_8fqrg"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="8_f3qq1"]
 [ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="9_8gb8r"]
+[ext_resource type="Resource" uid="uid://bftwxcrhw2aqi" path="res://scripts/resources/misaliniouse/Entity_finder.tres" id="10_ci1sa"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5t4e0"]
 load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b670589d7e41.ctex"
@@ -82,7 +83,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-380, -137, 447, -138, 446, 145, -382, 148)])
 agent_radius = 17.0
 
-[sub_resource type="Resource" id="Resource_vbamc"]
+[sub_resource type="Resource" id="Resource_rch2k"]
 resource_local_to_scene = true
 script = ExtResource("8_8fqrg")
 name = "Baller "
@@ -102,10 +103,10 @@ Base_Magical_Attack = 0
 Speed = 1
 range_in_cm = 12
 
-[sub_resource type="Resource" id="Resource_wveg3"]
+[sub_resource type="Resource" id="Resource_fnhv1"]
 resource_local_to_scene = true
 script = ExtResource("8_8fqrg")
-name = "Baller "
+name = "Baller Lazier"
 Friend_or_Foe = 1
 MAX_HP = 18
 MAX_ENG = 18
@@ -113,13 +114,13 @@ HP = 18
 ENG = 18
 Soul_Type = 0
 Attack_Type = 1
-Defense = 2
+Defense = 5
 Magic_Defense = 0
 MAX_EMP = 4
 EMP = 0
-Base_Phisical_Attack = 2
+Base_Phisical_Attack = 3
 Base_Magical_Attack = 0
-Speed = 1
+Speed = 0
 range_in_cm = 12
 
 [node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy")]
@@ -194,17 +195,23 @@ drag_bottom_margin = 0.1
 position = Vector2(0, -104)
 Bar = NodePath("../../UI_battle_menu/Bar_System")
 
-[node name="Enemy_Group" parent="." instance=ExtResource("9_8gb8r")]
+[node name="Enemy_Group" parent="." node_paths=PackedStringArray("act_options") instance=ExtResource("9_8gb8r")]
+act_options = NodePath("../UI_battle_menu/Action_Panel_choice")
+find_entity = ExtResource("10_ci1sa")
 
 [node name="Enemy" parent="Enemy_Group" instance=ExtResource("8_f3qq1")]
 position = Vector2(274, -127)
-Fight_stats = SubResource("Resource_vbamc")
+Fight_stats = SubResource("Resource_rch2k")
 
 [node name="Enemy2" parent="Enemy_Group" instance=ExtResource("8_f3qq1")]
 position = Vector2(-177, -158)
-Fight_stats = SubResource("Resource_wveg3")
+Fight_stats = SubResource("Resource_fnhv1")
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("6_fa6k6")]
 
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Check" to="Enemy_Group" method="_check_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="Enemy_Group" method="_on_action_pressed"]
+
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="UI_battle_menu"]
+[editable path="UI_battle_menu/Action_Panel_choice"]

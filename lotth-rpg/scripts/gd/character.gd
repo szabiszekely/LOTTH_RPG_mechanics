@@ -25,14 +25,6 @@ func _ready() -> void:
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
 	
-	print("----------------")
-	print("Stat Blog")
-	print(Fight_stats.name)
-	print("HP:",health," ","ENG:",energy)
-	print("PHIS_ATK:",Fight_stats.Base_Phisical_Attack, " ","MAG_ATK:", Fight_stats.Base_Magical_Attack)
-	print("ATK_Type:",Fight_stats.Attack_Type)
-	print("EMP:", Fight_stats.EMP)
-	print("----------------")
 	
 	$character_animator.play("idle")
 
@@ -78,11 +70,4 @@ func _take_damage(base_damage,strengh,index,attacker_type):
 			if Fight_stats.HP <= 0:
 				Fight_stats.HP = 0
 				
-	print("----------------")
-	print("Stat Block")
-	print(Fight_stats.name)
-	print("HP:",health," ","ENG:",energy)
-	print("PHIS_ATK:",Fight_stats.Base_Phisical_Attack, " ","MAG_ATK:", Fight_stats.Base_Magical_Attack)
-	print("ATK_Type:",Fight_stats.Attack_Type)
-	print("EMP:", Fight_stats.EMP)
-	print("----------------")
+	
