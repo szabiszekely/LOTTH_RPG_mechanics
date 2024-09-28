@@ -410,7 +410,7 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[sub_resource type="Resource" id="Resource_sooiy"]
+[sub_resource type="Resource" id="Resource_464xx"]
 resource_local_to_scene = true
 script = ExtResource("8_vgosh")
 name = "Baller "
@@ -546,7 +546,8 @@ libraries = {
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-3, -30)
+position = Vector2(-3, -56)
+scale = Vector2(3, 3)
 texture = ExtResource("2_htaiq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -554,11 +555,12 @@ avoidance_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Bar_system" parent="." instance=ExtResource("4_700jv")]
+visible = false
 offset_left = -69.0
 offset_top = -58.0
 offset_right = -69.0
 offset_bottom = -58.0
-assined_characters = SubResource("Resource_sooiy")
+assined_characters = SubResource("Resource_464xx")
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false

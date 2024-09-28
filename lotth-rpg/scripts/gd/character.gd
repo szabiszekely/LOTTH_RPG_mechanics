@@ -26,7 +26,7 @@ func _ready() -> void:
 	energy = Fight_stats.ENG
 	
 	
-	$character_animator.play("idle")
+	
 
 
 	

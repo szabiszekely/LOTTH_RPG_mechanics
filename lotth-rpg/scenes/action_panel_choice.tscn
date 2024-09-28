@@ -44,13 +44,11 @@ text = "Check"
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "* Grab"
 
 [node name="top_right" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "test_button"
 alignment = 0
 
 [node name="Focus" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -65,13 +63,11 @@ text = "Focus
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "* Talk"
 
 [node name="middle_right" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "test_button"
 alignment = 0
 
 [node name="Guard" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -82,14 +78,12 @@ text = "Guard"
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "test_button"
 alignment = 0
 
 [node name="bottom_right" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "test_button"
 alignment = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]

@@ -12,5 +12,6 @@ dictionary_of_all_that_is_alive = [{
 }, {
 0: "Talk",
 1: "Grab",
-3: "Sleep"
+3: "Sleep",
+4: "Twirl"
 }]

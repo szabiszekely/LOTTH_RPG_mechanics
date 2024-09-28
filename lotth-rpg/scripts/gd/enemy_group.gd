@@ -1,4 +1,5 @@
 extends Node2D
+class_name Enemy_group
 
 @onready var menu: PanelContainer = $"../UI_battle_menu/Menu"
 
@@ -9,6 +10,11 @@ var enemies: Array = []
 var index: int = 0
 var options_are_on = false
 
+var abi = false
+var act = false
+
+
+
 func _ready() -> void:
 	enemies = get_children()
 	#print(enemies)
@@ -16,22 +22,37 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if not menu.visible and options_are_on == false:
-		if Input.is_action_just_pressed("ui_up"):
+		
+		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
 			if index > 0:
 				index -= 1
 				switch_focus(index, index+1)
-		if Input.is_action_just_pressed("ui_down"):
+			else:
+				index = enemies.size() -1
+				switch_focus(index,0)
+		
+		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
 			if index < enemies.size() - 1:
 				index += 1
 				switch_focus(index, index-1)
-		if Input.is_action_just_pressed("ui_accept"):
-			
-			print(find_entity._finding_entity(enemies[index].Fight_stats.name))
-			act_options.act_add_actions(find_entity._finding_entity(enemies[index].Fight_stats.name))
-			enemies[index]._unfocus_indicator()
-			options_are_on = true
-			act_options.act_appear()
+			else:
+				index = 0
+				switch_focus(index,enemies.size() - 1)
 		
+		
+		if Input.is_action_just_pressed("ui_accept"):
+			if act == true:
+				act = false
+				print(find_entity._finding_entity(enemies[index].Fight_stats.name))
+				act_options.act_add_actions(find_entity._finding_entity(enemies[index].Fight_stats.name))
+				enemies[index]._unfocus_indicator()
+				options_are_on = true
+				menu.show()
+				var tweens = get_tree().create_tween()
+				tweens.tween_property(menu,"position",Vector2(menu.position.x,533),0.5).set_trans(Tween.TRANS_QUAD)
+				await tweens.finished
+				act_options.act_appear()
+			
 
 
 			
@@ -44,7 +65,7 @@ func show_choices():
 	menu.find_child("Abilities").grab_focus()
 
 func _reset_focus():
-	index = 0
+	#index = 0
 	for enemy in enemies:
 		enemy._unfocus_indicator()
 
@@ -53,9 +74,6 @@ func _start_choosing():
 	enemies[0]._focus_indicator()
 
 
-func _on_action_pressed() -> void:
-	menu.hide()
-	_start_choosing()
 
 
 func _check_pressed() -> void:
