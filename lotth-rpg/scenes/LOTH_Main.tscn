@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=24 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_4v7gm"]
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="11_rwar1"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="12_d6jy4"]
 [ext_resource type="Script" path="res://scripts/gd/menu.gd" id="13_yp76v"]
+[ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="15_kjj7c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5t4e0"]
 load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b670589d7e41.ctex"
@@ -175,7 +176,26 @@ tile_set = SubResource("TileSet_i5ovn")
 y_sort_enabled = true
 position = Vector2(-1, -120)
 navigation_polygon = SubResource("NavigationPolygon_wueea")
+enter_cost = 1.0
 script = ExtResource("6_ibrbe")
+
+[node name="Enemy_Group" parent="NavigationRegion2D" node_paths=PackedStringArray("act_options") instance=ExtResource("9_6inxr")]
+y_sort_enabled = true
+position = Vector2(1, 120)
+act_options = NodePath("../../UI_battle_menu/Action_Panel_choice")
+find_entity = ExtResource("10_mefao")
+
+[node name="Enemy" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+position = Vector2(237, -154)
+Fight_stats = SubResource("Resource_a7whm")
+
+[node name="Enemy2" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+position = Vector2(369, -122)
+Fight_stats = SubResource("Resource_gsh03")
+
+[node name="Enemy3" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+position = Vector2(334, -54)
+Fight_stats = SubResource("Resource_1rxa4")
 
 [node name="OBJ_folder" parent="NavigationRegion2D" instance=ExtResource("6_5sxvt")]
 y_sort_enabled = true
@@ -195,31 +215,28 @@ y_sort_enabled = true
 [node name="Player" parent="Player_group" instance=ExtResource("8_b022x")]
 position = Vector2(-76, -105)
 
-[node name="Enemy_Group" parent="." node_paths=PackedStringArray("act_options") instance=ExtResource("9_6inxr")]
-y_sort_enabled = true
-act_options = NodePath("../UI_battle_menu/Action_Panel_choice")
-find_entity = ExtResource("10_mefao")
-
-[node name="Enemy" parent="Enemy_Group" instance=ExtResource("10_r7jra")]
-position = Vector2(237, -154)
-Fight_stats = SubResource("Resource_a7whm")
-
-[node name="Enemy2" parent="Enemy_Group" instance=ExtResource("10_r7jra")]
-position = Vector2(369, -122)
-Fight_stats = SubResource("Resource_gsh03")
-
-[node name="Enemy3" parent="Enemy_Group" instance=ExtResource("10_r7jra")]
-position = Vector2(334, -54)
-Fight_stats = SubResource("Resource_1rxa4")
-
 [node name="UI_battle_menu" parent="." instance=ExtResource("12_d6jy4")]
+
+[node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
+text = "Focus"
 
 [node name="Menu" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("enemy_group", "player_group")]
 script = ExtResource("13_yp76v")
-enemy_group = NodePath("../../Enemy_Group")
+enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
 player_group = NodePath("../../Player_group")
+Action_button_handler = ExtResource("15_kjj7c")
 
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Check" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Focus" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Guard" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="UI_battle_menu/Menu" method="action_pressed"]
 
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="UI_battle_menu"]
+[editable path="UI_battle_menu/Action_Panel_choice"]

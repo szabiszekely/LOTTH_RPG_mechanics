@@ -410,7 +410,7 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[sub_resource type="Resource" id="Resource_464xx"]
+[sub_resource type="Resource" id="Resource_jib4d"]
 resource_local_to_scene = true
 script = ExtResource("8_vgosh")
 name = "Baller "
@@ -522,6 +522,7 @@ Bar = NodePath("Bar_system")
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(0, 7)
 scale = Vector2(1, 0.51)
 shape = SubResource("CircleShape2D_qs5gw")
@@ -560,7 +561,7 @@ offset_left = -69.0
 offset_top = -58.0
 offset_right = -69.0
 offset_bottom = -58.0
-assined_characters = SubResource("Resource_464xx")
+assined_characters = SubResource("Resource_jib4d")
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false
@@ -592,6 +593,14 @@ offset_bottom = 12.0
 [node name="Bar_Border" parent="Bar_system" index="6"]
 offset_right = 122.0
 offset_bottom = 14.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(-3.02646, -11)
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_f33j1")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Action_buttons_option_Handler" load_steps=2 format=3 uid="uid://iswm0dhbg2ce"]
+
+[ext_resource type="Script" path="res://scripts/resources/misaliniouse/action_button_option_handler.gd" id="1_c3kl3"]
+
+[resource]
+script = ExtResource("1_c3kl3")

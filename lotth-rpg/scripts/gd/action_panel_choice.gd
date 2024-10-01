@@ -44,8 +44,8 @@ func act_appear():
 	check.grab_focus()
 	self.show()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,self.position.y - 320),0.2).set_trans(Tween.TRANS_QUAD)
-	await tweens.finished
+	tweens.tween_property(self,"position",Vector2(self.position.x,333),0.3).set_trans(Tween.TRANS_QUAD)
+	#await tweens.finished
 
 func act_disappear():
 	list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
@@ -54,7 +54,7 @@ func act_disappear():
 		i.modulate = Color.TRANSPARENT
 		i.focus_mode = Control.FOCUS_NONE
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,self.position.y + 320),0.2).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,653),0.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
-	self.hide()
+	#self.hide()
 	

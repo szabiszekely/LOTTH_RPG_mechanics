@@ -1,7 +1,7 @@
 extends Node2D
 class_name Enemy_group
 
-@onready var menu: PanelContainer = $"../UI_battle_menu/Menu"
+@onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 
 @export var act_options: Action_control
 @export var find_entity: Entity_finder
@@ -48,10 +48,10 @@ func _process(delta: float) -> void:
 				enemies[index]._unfocus_indicator()
 				options_are_on = true
 				menu.show()
+				act_options.act_appear()
 				var tweens = get_tree().create_tween()
 				tweens.tween_property(menu,"position",Vector2(menu.position.x,533),0.5).set_trans(Tween.TRANS_QUAD)
 				await tweens.finished
-				act_options.act_appear()
 			
 
 
@@ -65,23 +65,10 @@ func show_choices():
 	menu.find_child("Abilities").grab_focus()
 
 func _reset_focus():
-	#index = 0
+	index = 0
 	for enemy in enemies:
 		enemy._unfocus_indicator()
 
 func _start_choosing():
 	_reset_focus()
 	enemies[0]._focus_indicator()
-
-
-
-
-func _check_pressed() -> void:
-	print("----------------")
-	print("Stat Block")
-	print(enemies[index].Fight_stats.name)
-	print("HP:",enemies[index].Fight_stats.HP," ","ENG:",enemies[index].Fight_stats.ENG)
-	print("PHIS_ATK:",enemies[index].Fight_stats.Base_Phisical_Attack, " ","MAG_ATK:", enemies[index].Fight_stats.Base_Magical_Attack)
-	print("ATK_Type:",enemies[index].Fight_stats.Attack_Type)
-	print("EMP:", enemies[index].Fight_stats.EMP)
-	print("----------------")
