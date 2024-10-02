@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjwyl8vf8tk5i"]
+
+[ext_resource type="Texture2D" uid="uid://28lmurol80mw" path="res://assets/sprite/UI/Cursor.png" id="1_jaldw"]
+[ext_resource type="Script" path="res://scripts/gd/mouse_pointer.gd" id="1_yauay"]
+[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_kfcex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arn3s"]
+radius = 14.0357
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 4096
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_yauay")
+
+[node name="PCamTarget" type="Node2D" parent="."]
+script = ExtResource("3_kfcex")
+radius = 100.0
+disable_outside_limits = false
+enabled = false
+priority = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_jaldw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_arn3s")

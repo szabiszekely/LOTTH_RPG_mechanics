@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=78 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="6_fua16"]
 [ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="7_1uto1"]
 [ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_vgosh"]
+[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
 radius = 30.0
@@ -410,7 +411,7 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[sub_resource type="Resource" id="Resource_jib4d"]
+[sub_resource type="Resource" id="Resource_kc5j6"]
 resource_local_to_scene = true
 script = ExtResource("8_vgosh")
 name = "Baller "
@@ -547,7 +548,7 @@ libraries = {
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-3, -56)
+position = Vector2(-3, -76)
 scale = Vector2(3, 3)
 texture = ExtResource("2_htaiq")
 
@@ -558,10 +559,10 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 [node name="Bar_system" parent="." instance=ExtResource("4_700jv")]
 visible = false
 offset_left = -69.0
-offset_top = -58.0
+offset_top = -48.0
 offset_right = -69.0
-offset_bottom = -58.0
-assined_characters = SubResource("Resource_jib4d")
+offset_bottom = -48.0
+assined_characters = SubResource("Resource_kc5j6")
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false
@@ -601,6 +602,11 @@ visible = false
 position = Vector2(-3.02646, -11)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
+
+[node name="PCamTarget" type="Node2D" parent="."]
+script = ExtResource("12_wuf5g")
+radius = 300.0
+enabled = false
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

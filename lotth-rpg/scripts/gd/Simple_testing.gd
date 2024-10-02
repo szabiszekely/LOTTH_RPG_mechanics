@@ -6,7 +6,7 @@ extends Node2D
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("ui_up"):
 		#player._take_damage(enemy.Fight_stats.Base_Phisical_Attack,4,0,enemy.Fight_stats.Attack_Type)
 	#

@@ -3,6 +3,7 @@ class_name Player
 
 @onready var collision_radius = $Area2D/CollisionShape2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var player_cam_target: Node2D = $PCamTarget
 
 @export var indicator : Indicator
 @export var moving_indicator : MovingIndicator
@@ -15,6 +16,7 @@ var is_inside_the_range: bool = false
 
 
 func _ready() -> void:
+	
 	$character_animator.play("idle")
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()
 	print(roll)
@@ -41,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 func _input(event) -> void:
-	if Input.is_action_just_pressed("clicked") and indicator.activated:
+	if event.is_action_pressed("clicked") and indicator.activated:
 		var map = get_world_2d().navigation_map
 		var p = NavigationServer2D.map_get_closest_point(map,moving_indicator.cursor_reference.global_position)
 		nav_agent.target_position = p

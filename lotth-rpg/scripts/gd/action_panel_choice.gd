@@ -36,7 +36,7 @@ func act_add_actions(list_of_added):
 	list_of_buttons = amount_of_options
 
 func act_appear():
-	list_of_buttons
+	#list_of_buttons
 	for i in list_of_buttons:
 		i.modulate = Color.WHITE
 		i.focus_mode = Control.FOCUS_ALL

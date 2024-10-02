@@ -20,17 +20,9 @@ var energy: int:
 		
 
 func _ready() -> void:
-	
-	
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
 	
-	
-	
-
-
-	
-
 func _play_animator_health_hit():
 	$animator.play("hit")
 
@@ -43,7 +35,7 @@ func _focus_indicator():
 func _unfocus_indicator():
 	focus.hide()
 
-func _take_damage(base_damage,strengh,index,attacker_type):
+func _take_damage(base_damage,strengh,_index,attacker_type):
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
 	

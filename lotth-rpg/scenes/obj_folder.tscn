@@ -22,3 +22,21 @@ position = Vector2(60, -156)
 
 [node name="Marker2D6" type="Marker2D" parent="."]
 position = Vector2(30, 29)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(-318, -183)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(0, -266)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(-30, -81)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(-421, -256)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+position = Vector2(-103, -339)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+position = Vector2(-133, -154)

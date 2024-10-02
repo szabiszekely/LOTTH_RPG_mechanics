@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://l5f740mb43yc"]
+[gd_scene load_steps=34 format=3 uid="uid://l5f740mb43yc"]
 
 [ext_resource type="Script" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="1_u1ato"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="3_ompdf"]
 [ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/Portrait_Icon.png" id="4_lp857"]
 [ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="5_b7dhk"]
+[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_ts1lj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
 radius = 30.0
@@ -280,6 +281,11 @@ texture = ExtResource("2_edjld")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="PCamTarget" type="Node2D" parent="."]
+script = ExtResource("8_ts1lj")
+radius = 300.0
+enabled = false
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

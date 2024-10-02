@@ -3,6 +3,8 @@ extends PanelContainer
 @export var enemy_group: Enemy_group
 @export var player_group: Player_group
 @export var Action_button_handler: Action_buttons_option_Handler
+@onready var GUI = owner
+var should_be_able_to_hide_menu = true
 
 @onready var check = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("Check")
 @onready var focus = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("Focus")
@@ -35,7 +37,8 @@ func bagpack_pressed() -> void:
 func run_pressed() -> void:
 	pass # Replace with function body.
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 #region Action Code Section
 		if enemy_group.act == true: # Getting out of choosing and backup to the menu
@@ -56,9 +59,34 @@ func _process(delta: float) -> void:
 			enemy_group.options_are_on = false
 			enemy_group.act = true
 #endregion
-			
-
-
+	if Input.is_action_just_pressed("Cam_change"):
+		if should_be_able_to_hide_menu == true:
+			should_be_able_to_hide_menu = !should_be_able_to_hide_menu
+			enemy_group.should_be_able_to_interact_with_menu = false
+			var tweens = get_tree().create_tween()
+			tweens.tween_property(self,"modulate",Color.TRANSPARENT,0.05).set_trans(Tween.TRANS_QUAD)
+			tweens.tween_property(GUI.find_child("Order_counter"),"modulate",Color.TRANSPARENT,0.05).set_trans(Tween.TRANS_QUAD)
+			tweens.tween_property(GUI.find_child("Bar_System"),"modulate",Color.TRANSPARENT,0.05).set_trans(Tween.TRANS_QUAD)
+			tweens.tween_property(GUI.find_child("Action_Panel_choice"),"modulate",Color.TRANSPARENT,0.05).set_trans(Tween.TRANS_QUAD)
+			var buttons_bc_I_m_lazy = [$MarginContainer/HBoxContainer/Abilities, $MarginContainer/HBoxContainer/Action, $MarginContainer/HBoxContainer/Bagpack, $MarginContainer/HBoxContainer/Run]
+			for i in buttons_bc_I_m_lazy:
+				i.process_mode = Node.PROCESS_MODE_DISABLED
+			GUI.find_child("Action_Panel_choice").process_mode = Node.PROCESS_MODE_DISABLED
+			await tweens.finished
+		else:
+			should_be_able_to_hide_menu = !should_be_able_to_hide_menu
+			enemy_group.should_be_able_to_interact_with_menu = true
+			var tweens = get_tree().create_tween()
+			tweens.tween_property(self,"modulate",Color.WHITE,0.05).set_trans(Tween.TRANS_QUAD)
+			tweens.tween_property(GUI.find_child("Order_counter"),"modulate",Color.WHITE,0.05).set_trans(Tween.TRANS_QUAD)
+			tweens.tween_property(GUI.find_child("Bar_System"),"modulate",Color.WHITE,0.05).set_trans(Tween.TRANS_QUAD)
+			tweens.tween_property(GUI.find_child("Action_Panel_choice"),"modulate",Color.WHITE,0.05).set_trans(Tween.TRANS_QUAD)
+			var buttons_bc_I_m_lazy = [$MarginContainer/HBoxContainer/Abilities, $MarginContainer/HBoxContainer/Action, $MarginContainer/HBoxContainer/Bagpack, $MarginContainer/HBoxContainer/Run]
+			for i in buttons_bc_I_m_lazy:
+				i.process_mode = Node.PROCESS_MODE_INHERIT
+			GUI.find_child("Action_Panel_choice").process_mode = Node.PROCESS_MODE_INHERIT
+			await tweens.finished
+	
 func action_button_pressed() -> void:
 	if check.is_pressed():
 		Action_button_handler._get_button_text_action(check.text,enemy_group.enemies[enemy_group.index])

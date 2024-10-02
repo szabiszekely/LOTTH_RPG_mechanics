@@ -7,7 +7,7 @@ extends Node2D
 ,preload("res://Objects_scripts_and_scenes/puddle_obj.tscn")
 ] 
 
-@onready var OBJ_spots: Array = [$Marker2D,$Marker2D2,$Marker2D3,$Marker2D4, $Marker2D5, $Marker2D6]
+@onready var OBJ_spots: Array = [$Marker2D,$Marker2D2,$Marker2D3,$Marker2D4, $Marker2D5, $Marker2D6,$Marker2D7, $Marker2D8, $Marker2D9, $Marker2D10, $Marker2D11, $Marker2D12]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
