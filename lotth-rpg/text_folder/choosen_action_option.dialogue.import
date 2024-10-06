@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://gnlgrtdgxtqi"
+path="res://.godot/imported/choosen_action_option.dialogue-c831270415a9c931c5ff97cb3e9ae027.tres"
+
+[deps]
+
+source_file="res://text_folder/choosen_action_option.dialogue"
+dest_files=["res://.godot/imported/choosen_action_option.dialogue-c831270415a9c931c5ff97cb3e9ae027.tres"]
+
+[params]
+
+defaults=true

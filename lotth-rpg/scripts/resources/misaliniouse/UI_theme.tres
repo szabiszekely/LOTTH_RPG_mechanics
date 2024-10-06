@@ -1,36 +1,26 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b1uwt4fr61v7u"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b1uwt4fr61v7u"]
 
 [ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_mp5tv"]
-[ext_resource type="Texture2D" uid="uid://ctbd8wbgulew5" path="res://assets/sprite/UI/Button_BG_pressed.png" id="2_udvm6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvvds"]
-texture = ExtResource("1_mp5tv")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-modulate_color = Color(1, 1, 0.615686, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83olh"]
+bg_color = Color(0.54, 0.50256, 0.2592, 0.211765)
+border_blend = true
+corner_radius_top_left = 400
+corner_radius_top_right = 100
+corner_radius_bottom_right = 400
+corner_radius_bottom_left = 100
+shadow_color = Color(0.43, 0.41022, 0.1333, 0.117647)
+shadow_size = 10
+shadow_offset = Vector2(7, 3)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rsw4"]
-texture = ExtResource("1_mp5tv")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xoryy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_go2cr"]
-texture = ExtResource("1_mp5tv")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goqiy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bsem"]
-texture = ExtResource("2_udvm6")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nmm3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_roct1"]
 texture = ExtResource("1_mp5tv")
@@ -41,11 +31,12 @@ texture_margin_bottom = 8.0
 
 [resource]
 Button/colors/font_color = Color(0.862745, 0.862745, 0.862745, 1)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.164706, 1)
 Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.164706, 1)
+Button/constants/outline_size = 3
 Button/font_sizes/font_size = 20
-Button/styles/focus = SubResource("StyleBoxTexture_fvvds")
-Button/styles/hover = SubResource("StyleBoxTexture_7rsw4")
-Button/styles/normal = SubResource("StyleBoxTexture_go2cr")
-Button/styles/pressed = SubResource("StyleBoxTexture_7bsem")
+Button/styles/focus = SubResource("StyleBoxFlat_83olh")
+Button/styles/hover = SubResource("StyleBoxFlat_xoryy")
+Button/styles/normal = SubResource("StyleBoxFlat_goqiy")
+Button/styles/pressed = SubResource("StyleBoxFlat_1nmm3")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_roct1")

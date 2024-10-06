@@ -22,6 +22,7 @@ video/autoload_on_startup=true
 [autoload]
 
 procam="*res://addons/ProCam2D/scripts/autoload.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
@@ -33,7 +34,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg")
+enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [file_customization]
 
@@ -46,7 +47,8 @@ folder_colors={
 "res://scripts/": "yellow",
 "res://scripts/gd/": "orange",
 "res://scripts/gdshader/": "teal",
-"res://scripts/resources/": "blue"
+"res://scripts/resources/": "blue",
+"res://text_folder/": "blue"
 }
 
 [gui]
@@ -108,6 +110,10 @@ Mouse_scroll_down={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(184, 15),"global_position":Vector2(193, 61),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://text_folder/testing_dialogue.dialogue", "res://text_folder/choosen_action_option.dialogue")
 
 [rendering]
 

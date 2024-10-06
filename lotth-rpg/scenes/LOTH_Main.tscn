@@ -146,9 +146,13 @@ Base_Magical_Attack = 0
 Speed = 1
 range_in_cm = 12
 
-[node name="Simple_Test" type="Node2D"]
+[node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu")]
 y_sort_enabled = true
+position = Vector2(0, -2)
 script = ExtResource("1_4v7gm")
+player = NodePath("Player_group/Player")
+enemy = NodePath("NavigationRegion2D/Enemy_Group/Enemy")
+menu = NodePath("UI_battle_menu/Menu")
 
 [node name="BG" type="Sprite2D" parent="."]
 z_index = -3
@@ -279,8 +283,9 @@ global_debug_draw = false
 [node name="Player_group" parent="." instance=ExtResource("7_0vdem")]
 y_sort_enabled = true
 
-[node name="Player" parent="Player_group" instance=ExtResource("8_b022x")]
+[node name="Player" parent="Player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("8_b022x")]
 position = Vector2(-452, -188)
+Bar = NodePath("../../UI_battle_menu/Bar_System")
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("12_d6jy4")]
 

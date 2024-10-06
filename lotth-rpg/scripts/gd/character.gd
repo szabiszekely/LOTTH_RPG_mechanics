@@ -35,7 +35,7 @@ func _focus_indicator():
 func _unfocus_indicator():
 	focus.hide()
 
-func _take_damage(base_damage,strengh,_index,attacker_type):
+func _take_damage(base_damage,strengh,attacker_type):
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
 	

@@ -1,16 +1,66 @@
-[gd_scene load_steps=10 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=14 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
 [ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/action_panel_choice.tscn" id="1_ypt22"]
 [ext_resource type="Script" path="res://scripts/gd/menu.gd" id="2_h6hhx"]
 [ext_resource type="Script" path="res://scripts/gd/action_button.gd" id="2_p8kw2"]
+[ext_resource type="StyleBox" uid="uid://b6k6fhduqhal3" path="res://scripts/resources/simple_menu_theme.tres" id="3_4xss1"]
 [ext_resource type="Script" path="res://scripts/gd/bagpack_button.gd" id="3_xylpc"]
 [ext_resource type="Script" path="res://scripts/gd/run_button.gd" id="4_lsf7a"]
 [ext_resource type="PackedScene" uid="uid://cik4k3fvdqebn" path="res://scenes/order_counter.tscn" id="5_180k0"]
 [ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="6_a2nnn"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="9_tjhqe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h407m"]
+bg_color = Color(0.631373, 0.607843, 0.290196, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.568627, 0.278431, 0.12549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0.17, 0.17, 0.1071, 0.27451)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83ulq"]
+bg_color = Color(0.63, 0.60732, 0.2898, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.568627, 0.278431, 0.12549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0.17, 0.167903, 0.1071, 0.27451)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dry1"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.568627, 0.278431, 0.12549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 50
+
 [node name="UI_battle_menu" type="CanvasLayer"]
+layer = 2
 follow_viewport_scale = 2.735
 
 [node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
@@ -27,7 +77,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Menu" type="PanelContainer" parent="."]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -58,6 +107,10 @@ focus_neighbor_left = NodePath("../Run")
 focus_neighbor_right = NodePath("../Action")
 focus_next = NodePath("../Action")
 focus_previous = NodePath("../Run")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/normal = ExtResource("3_4xss1")
 text = "Abilities"
 script = ExtResource("1_f1usb")
 
@@ -68,6 +121,10 @@ focus_neighbor_left = NodePath("../Abilities")
 focus_neighbor_right = NodePath("../Bagpack")
 focus_next = NodePath("../Bagpack")
 focus_previous = NodePath("../Abilities")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/normal = ExtResource("3_4xss1")
 text = "Action"
 script = ExtResource("2_p8kw2")
 
@@ -78,6 +135,10 @@ focus_neighbor_left = NodePath("../Action")
 focus_neighbor_right = NodePath("../Run")
 focus_next = NodePath("../Run")
 focus_previous = NodePath("../Action")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/normal = ExtResource("3_4xss1")
 text = "Bagpack"
 script = ExtResource("3_xylpc")
 
@@ -88,6 +149,10 @@ focus_neighbor_left = NodePath("../Bagpack")
 focus_neighbor_right = NodePath("../Abilities")
 focus_next = NodePath("../Abilities")
 focus_previous = NodePath("../Bagpack")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/normal = ExtResource("3_4xss1")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Run"

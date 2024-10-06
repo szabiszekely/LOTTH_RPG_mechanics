@@ -47,6 +47,7 @@ func _process(_delta: float) -> void:
 				print(find_entity._finding_entity(enemies[index].Fight_stats.name))
 				act_options.act_add_actions(find_entity._finding_entity(enemies[index].Fight_stats.name))
 				enemies[index]._unfocus_indicator()
+				
 				options_are_on = true
 				menu.show()
 				act_options.act_appear()

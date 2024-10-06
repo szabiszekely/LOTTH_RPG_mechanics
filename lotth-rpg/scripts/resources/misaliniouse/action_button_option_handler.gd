@@ -3,7 +3,10 @@ class_name Action_buttons_option_Handler
 var enemy_stats
 var enemy_seperate
 
+
+
 func _get_button_text_action(Button_text: String, Stats):
+	
 	enemy_seperate = Stats
 	enemy_stats = Stats.Fight_stats
 	call(Button_text)
@@ -30,12 +33,18 @@ func Guard():
 	print("----------------")
 	
 func Talk():
+	DialogueManager.get_current_scene
+	DialogueManager.show_dialogue_balloon(preload("res://text_folder/choosen_action_option.dialogue"),"Talk")
 	print("Hello o/")
 
 func Grab():
+	#DialogueManager.get_current_scene
+	DialogueManager.show_dialogue_balloon(preload("res://text_folder/choosen_action_option.dialogue"),"Grab")
 	print("*squek sfx*")
 	
 func Ball():
+	DialogueManager.get_current_scene
+	DialogueManager.show_dialogue_balloon(preload("res://text_folder/choosen_action_option.dialogue"),"Ball")
 	print("He Do be balling")
 	
 func Sleep():
