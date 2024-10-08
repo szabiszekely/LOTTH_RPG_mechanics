@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://cism7iwpf2pi"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_dgtu0"]
+
+[resource]
+script = ExtResource("1_dgtu0")
+starts = {
+"1": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-291, -331),
+"start_id": "1"
+},
+"1_1": {
+"dialogue": "A Group of Ballers attacked you! [br]
+What will you do?",
+"offset": Vector2(0, -240),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+}
+}
+variables = {}
+strays = Array[String]([])
+characters = ""

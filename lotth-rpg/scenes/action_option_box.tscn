@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3 uid="uid://drwei0kix2h5l"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="1_42d8i"]
+[ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_lq827"]
+[ext_resource type="Resource" uid="uid://dgi8d073mj0o2" path="res://text_folder/action_options.tres" id="2_pp2ik"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="3_apwc2"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="4_uk73d"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="5_1twdc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqtwg"]
+texture = ExtResource("1_lq827")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_3b11x"]
+script = ExtResource("3_apwc2")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_iios4"]
+script = ExtResource("4_uk73d")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_8f2qw"]
+script = ExtResource("5_1twdc")
+
+[node name="Action_option_box" type="Panel"]
+visible = false
+offset_right = 601.0
+offset_bottom = 174.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kqtwg")
+script = ExtResource("1_42d8i")
+data = ExtResource("2_pp2ik")
+hide_portrait = true
+skip_input_action = "ui_cancel"
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_3b11x"), SubResource("RichTextEffect_iios4"), SubResource("RichTextEffect_8f2qw")])
+max_options_count = 1
+options_vertical = true
+focusable = true
+options_position = 2

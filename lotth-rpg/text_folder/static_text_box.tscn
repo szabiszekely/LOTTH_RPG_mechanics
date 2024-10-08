@@ -1,0 +1,46 @@
+[gd_scene load_steps=13 format=3 uid="uid://diogqwfdea76u"]
+
+[ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_b426p"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="2_2bnh7"]
+[ext_resource type="Resource" uid="uid://cism7iwpf2pi" path="res://text_folder/menu.tres" id="3_f7o2c"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_rpt5c"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_awq7j"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_jlkcr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1qbh"]
+texture = ExtResource("1_b426p")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2x64y"]
+script = ExtResource("4_rpt5c")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_w883v"]
+script = ExtResource("5_awq7j")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_l6xr8"]
+script = ExtResource("6_jlkcr")
+
+[sub_resource type="Gradient" id="Gradient_fwcor"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tdle7"]
+gradient = SubResource("Gradient_fwcor")
+
+[node name="Static_Dialogue_Box" type="Panel"]
+visible = false
+offset_right = 583.0
+offset_bottom = 164.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a1qbh")
+script = ExtResource("2_2bnh7")
+data = ExtResource("3_f7o2c")
+start_id = "1"
+hide_portrait = true
+skip_input_action = "ui_cancel"
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_2x64y"), SubResource("RichTextEffect_w883v"), SubResource("RichTextEffect_l6xr8")])
+max_options_count = 1
+next_icon = SubResource("GradientTexture1D_tdle7")
+options_alignment = 1
+hide_on_dialogue_end = false

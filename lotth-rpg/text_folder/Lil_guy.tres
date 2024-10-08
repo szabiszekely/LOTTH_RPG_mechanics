@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://bgtn8qu6pwlth"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_iojg8"]
+[ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/Portrait_Icon.png" id="1_m36hr"]
+
+[resource]
+script = ExtResource("1_iojg8")
+name = "Lil Guy"
+image = ExtResource("1_m36hr")
+color = Color(1, 1, 1, 1)

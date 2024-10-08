@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dgi8d073mj0o2"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_sxe2c"]
+
+[resource]
+script = ExtResource("1_sxe2c")
+starts = {
+"Grab": &"0_2",
+"Talk": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-351.471, -313.475),
+"start_id": "Talk"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(-316.425, 126.957),
+"start_id": "Grab"
+},
+"1_1": {
+"dialogue": "> You started Talking about your favorite food[br]
+> Baller became calmer!
+",
+"offset": Vector2(57.7293, -208.975),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+"1_2": {
+"dialogue": "> You Grabbed the Baller![br]
+> It let out a little squek sound. ",
+"offset": Vector2(-55.1983, 205.967),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+}
+}
+variables = {}
+strays = Array[String]([])
+characters = ""
