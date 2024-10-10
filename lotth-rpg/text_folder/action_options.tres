@@ -5,25 +5,49 @@
 [resource]
 script = ExtResource("1_sxe2c")
 starts = {
+"Ball": &"0_4",
+"Check": &"0_3",
 "Grab": &"0_2",
-"Talk": &"0_1"
+"Sleep": &"0_5",
+"Talk": &"0_1",
+"Twirl": &"0_6"
 }
 nodes = {
 "0_1": {
 "link": &"1_1",
-"offset": Vector2(-351.471, -313.475),
+"offset": Vector2(-340, -140),
 "start_id": "Talk"
 },
 "0_2": {
 "link": &"1_2",
-"offset": Vector2(-316.425, 126.957),
+"offset": Vector2(-320, 300),
 "start_id": "Grab"
+},
+"0_3": {
+"link": &"1_3",
+"offset": Vector2(-360, -520),
+"start_id": "Check"
+},
+"0_4": {
+"link": &"1_6",
+"offset": Vector2(540, 160),
+"start_id": "Ball"
+},
+"0_5": {
+"link": &"1_7",
+"offset": Vector2(540, 540),
+"start_id": "Sleep"
+},
+"0_6": {
+"link": &"1_8",
+"offset": Vector2(-320, 680),
+"start_id": "Twirl"
 },
 "1_1": {
 "dialogue": "> You started Talking about your favorite food[br]
 > Baller became calmer!
 ",
-"offset": Vector2(57.7293, -208.975),
+"offset": Vector2(60, -20),
 "options": {
 0: {
 "condition": {},
@@ -37,7 +61,7 @@ nodes = {
 "1_2": {
 "dialogue": "> You Grabbed the Baller![br]
 > It let out a little squek sound. ",
-"offset": Vector2(-55.1983, 205.967),
+"offset": Vector2(60, 380),
 "options": {
 0: {
 "condition": {},
@@ -47,8 +71,129 @@ nodes = {
 },
 "size": Vector2(300, 240),
 "speaker": ""
+},
+"1_3": {
+"dialogue": "Species: {{name}}[br]
+ATK: {{Base_Phisical_Attack}}, M.ATK: {{Base_Magical_Attack}}[br]
+DEF: {{Defense}}, M.DEF: {{Magic_Defense}}[br]
+Emphaty is {{EMP}}/{{MAX_EMP}}",
+"offset": Vector2(40, -580),
+"options": {
+0: {
+"condition": {},
+"link": &"5_1",
+"text": ""
+}
+},
+"size": Vector2(400, 300),
+"speaker": ""
+},
+"1_4": {
+"dialogue": "> They don't have arms so they never were able to experience the art of touch!",
+"offset": Vector2(900, -520),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+"1_5": {
+"dialogue": "> Lazy ballers are quite the sleeper and don't like being touched or exercise!",
+"offset": Vector2(900, -220),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+"1_6": {
+"dialogue": "> You tried to bounce him on the groud![br]
+> But you accidentally poked yourself!",
+"offset": Vector2(1020, 160),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+"1_7": {
+"dialogue": "> You closed your eyes and pretended to be asleep![br]
+> Lazy Baller got sleepier!",
+"offset": Vector2(1000, 580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+"1_8": {
+"dialogue": "> You span around in place encouraging him to do the same![br]
+> He doesn't seem to happy about it! ",
+"offset": Vector2(60, 740),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": ""
+},
+"5_1": {
+"false": &"1_5",
+"offset": Vector2(500, -460),
+"operator": 0,
+"true": &"1_4",
+"value1": "{{name}}",
+"value2": "Baller"
 }
 }
-variables = {}
+variables = {
+"Base_Magical_Attack": {
+"type": 2,
+"value": 1
+},
+"Base_Phisical_Attack": {
+"type": 2,
+"value": 1
+},
+"Defense": {
+"type": 2,
+"value": 1
+},
+"EMP": {
+"type": 2,
+"value": 0
+},
+"MAX_EMP": {
+"type": 2,
+"value": 1
+},
+"Magic_Defense": {
+"type": 2,
+"value": 1
+},
+"name": {
+"type": 4,
+"value": "Baller"
+}
+}
 strays = Array[String]([])
 characters = ""

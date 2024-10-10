@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_i3y82")
-The_entire_list_of_all_that_is_alive = ["Baller ", "Baller Lazier"]
+The_entire_list_of_all_that_is_alive = ["Baller", "Baller Lazier"]
 dictionary_of_all_that_is_alive = [{
 0: "Talk",
 1: "Grab",

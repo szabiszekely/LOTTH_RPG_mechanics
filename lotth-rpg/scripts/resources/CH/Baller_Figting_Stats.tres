@@ -5,7 +5,7 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_urd4u")
-name = "Baller "
+name = "Baller"
 Friend_or_Foe = 1
 MAX_HP = 18
 MAX_ENG = 18

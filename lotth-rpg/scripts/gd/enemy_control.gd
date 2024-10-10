@@ -1,6 +1,6 @@
 extends Character_Controller
 class_name Enemy
-
+#This is the enemy Controller!
 @export var Turn_portriat: CompressedTexture2D
 @export var Initiative: Initiative_class
 @onready var Enemy_health_bar = $Bar_system
@@ -8,7 +8,7 @@ class_name Enemy
 
 
 func _ready() -> void:
-	 
+	 #hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
 	Enemy_health_bar.hide()
 	$character_animator.play("idle")
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()

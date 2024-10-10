@@ -1,6 +1,6 @@
 extends Menu_buttons
 
-
+#Extends from Menu and plays a tween!
 func _pressed() -> void:
 	if self.focus_entered:
 		when_button_pressed(self)

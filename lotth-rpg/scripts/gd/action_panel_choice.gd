@@ -11,19 +11,21 @@ class_name Action_control
 @onready var bottom_left: Button = $MarginContainer/VBoxContainer/bottom_left
 @onready var bottom_right: Button = $MarginContainer/VBoxContainer/bottom_right
 
+#Getting a basic order down and I will use it later!
 @onready var list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	# hide it when scene starts!
 	self.hide()
-	
+	# also disable all buttons!
 	for i in list_of_buttons:
 		i.disabled = true
 		i.modulate = Color.TRANSPARENT
 		i.focus_mode = Control.FOCUS_NONE
-
+# When the ACT option is pressed and the enemy is determend I add all the buttons from the left side
+# to the right going top to bottom! I also set the first 3 to the basic's, than I change the text to 
+# the proper one until I don't have anymore names, THIS entire thing is stored in dict's called Entity_finder.tres
 func act_add_actions(list_of_added):
 	#["Talk","Grab","Ball"]
 	var amount_of_options = [check,focus,guard]
@@ -35,6 +37,7 @@ func act_add_actions(list_of_added):
 		amount_of_options.append(change)
 	list_of_buttons = amount_of_options
 
+#Simple tween that brings up the ACT options!
 func act_appear():
 	#list_of_buttons
 	for i in list_of_buttons:
@@ -47,6 +50,7 @@ func act_appear():
 	tweens.tween_property(self,"position",Vector2(self.position.x,333),0.3).set_trans(Tween.TRANS_QUAD)
 	#await tweens.finished
 
+#AND this does the opposite IF YOU HAVE NO IDEA HOW IT WORKS JUST SIMPLY pulling it up and hiding all the posibilits to see it!
 func act_disappear():
 	list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
 	for i in list_of_buttons:
