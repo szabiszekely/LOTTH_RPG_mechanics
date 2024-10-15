@@ -18,23 +18,27 @@ var energy: int:
 		#print("hey I was startled! I'm ENG")
 		energy = value_eng
 		
-
+# when the scene starts it will set up some health velues to play animation...
+# I might need to take them out later bc I don't really see the point but we will see!
 func _ready() -> void:
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG
-	
+
+#plays either health hit animation or energy drain animation!
 func _play_animator_health_hit():
 	$animator.play("hit")
 
 func _play_animator_energy_hit():
 	$animator.play("eng_hit")
 
+# used to grab focus indicator on characters!
 func _focus_indicator():
 	focus.show()
 
 func _unfocus_indicator():
 	focus.hide()
 
+#take damage function is here to make everything work what is conected to health or energy!
 func _take_damage(base_damage,strengh,attacker_type):
 	health = Fight_stats.HP
 	energy = Fight_stats.ENG

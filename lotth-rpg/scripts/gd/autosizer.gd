@@ -1,5 +1,7 @@
 class_name AutoSizeLabel extends Label
 
+#I HAVE NO IDEA HOW THIS WORKS IF SOMETHING GOES WRONG I WILL NOT BE ABLE TO FIX IT!
+
 @export var min_font_size := 8 :
 	set(v):
 		min_font_size = clampi(v, 1, max_font_size)

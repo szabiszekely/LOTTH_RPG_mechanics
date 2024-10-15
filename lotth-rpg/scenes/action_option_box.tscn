@@ -24,6 +24,7 @@ script = ExtResource("4_uk73d")
 script = ExtResource("5_1twdc")
 
 [node name="Action_option_box" type="Panel"]
+visible = false
 offset_right = 601.0
 offset_bottom = 174.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kqtwg")

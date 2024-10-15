@@ -2,7 +2,7 @@ extends Indicator
 class_name PointingIndicator
  
  
-func update(source, mouse_position, delta):
+func update(source, mouse_position, delta,_mouse_in):
 	spawn_point = source.global_position
 	direction = (mouse_position - spawn_point).normalized()
  

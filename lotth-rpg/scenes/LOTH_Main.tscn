@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=28 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_4v7gm"]
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scripts/gd/navigation_region_2d.gd" id="6_ibrbe"]
 [ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="7_0vdem"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="8_b022x"]
+[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="9_0ikde"]
 [ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="9_6inxr"]
-[ext_resource type="Resource" uid="uid://jx37d3qx2jdf" path="res://scripts/resources/CH/Baller_Lazier_Figting_Stats.tres" id="9_8hxps"]
 [ext_resource type="Resource" uid="uid://bftwxcrhw2aqi" path="res://scripts/resources/misaliniouse/Entity_finder.tres" id="10_mefao"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="10_r7jra"]
 [ext_resource type="Script" path="res://addons/ProCam2D/scripts/procam2d.gd" id="11_82rqm"]
@@ -89,6 +89,66 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-670, -234, 702, -234, 702, 145, -672, 148)])
 agent_radius = 21.0
 
+[sub_resource type="Resource" id="Resource_v5xsg"]
+resource_local_to_scene = true
+script = ExtResource("9_0ikde")
+name = "Baller"
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 2
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 2
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 12
+
+[sub_resource type="Resource" id="Resource_e2gf7"]
+resource_local_to_scene = true
+script = ExtResource("9_0ikde")
+name = "Baller Lazier"
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 0
+range_in_cm = 12
+
+[sub_resource type="Resource" id="Resource_xdxq4"]
+resource_local_to_scene = true
+script = ExtResource("9_0ikde")
+name = "Baller"
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 2
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 2
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 12
+
 [node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu")]
 y_sort_enabled = true
 position = Vector2(0, -2)
@@ -135,13 +195,15 @@ find_entity = ExtResource("10_mefao")
 
 [node name="Enemy" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
 position = Vector2(319, -256)
+Fight_stats = SubResource("Resource_v5xsg")
 
 [node name="Enemy2" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
 position = Vector2(448, -167)
-Fight_stats = ExtResource("9_8hxps")
+Fight_stats = SubResource("Resource_e2gf7")
 
 [node name="Enemy3" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
 position = Vector2(379, -72)
+Fight_stats = SubResource("Resource_xdxq4")
 
 [node name="OBJ_folder" parent="NavigationRegion2D" instance=ExtResource("6_5sxvt")]
 y_sort_enabled = true
@@ -244,7 +306,6 @@ offset_top = 36.0
 offset_bottom = 64.0
 
 [node name="Action_option_box" parent="UI_battle_menu" instance=ExtResource("17_xxuhp")]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

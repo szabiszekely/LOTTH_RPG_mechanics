@@ -1,7 +1,6 @@
 extends StaticBody2D
 
-
-# Called when the node enters the scene tree for the first time.
+#this is a script for the obj_s not much for now 
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 		

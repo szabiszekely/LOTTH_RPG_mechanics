@@ -13,5 +13,7 @@ func _ready() -> void:
 	$character_animator.play("idle")
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()
 	print(roll)
+	# this is where the rolls and other stats that needs them to be determend are stored
+	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
 	Initiative.all_rolls.append(initiative_peronality)

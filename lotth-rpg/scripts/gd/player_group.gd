@@ -6,7 +6,7 @@ class_name  Player_group
 var player: Array = []
 var index: int = 0
 
-# Called when the node enters the scene tree for the first time.
+# when the game starts than grab player! if its his turn
 func _ready() -> void:
 	player = get_children()
 	player[0].player_cam_target.enabled = true

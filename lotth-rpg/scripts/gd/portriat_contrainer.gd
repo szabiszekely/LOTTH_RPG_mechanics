@@ -1,7 +1,6 @@
 extends TextureRect
 
-
-# Called when the node enters the scene tree for the first time.
+ # same as last time with indicator but this is for he portrait it self!... idk
 func _ready() -> void:
 	await get_tree().create_timer(0.2).timeout
 	self.position.x = 100
