@@ -411,7 +411,7 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[sub_resource type="Resource" id="Resource_kc5j6"]
+[sub_resource type="Resource" id="Resource_wial8"]
 resource_local_to_scene = true
 script = ExtResource("8_vgosh")
 name = "Baller "
@@ -431,17 +431,17 @@ Base_Magical_Attack = 0
 Speed = 1
 range_in_cm = 12
 
-[sub_resource type="Gradient" id="Gradient_usdmt"]
+[sub_resource type="Gradient" id="Gradient_klmtg"]
 colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1, 0.0509804, 0.0509804, 0.0509804, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m5uam"]
-gradient = SubResource("Gradient_usdmt")
+gradient = SubResource("Gradient_klmtg")
 
-[sub_resource type="Gradient" id="Gradient_uru2j"]
+[sub_resource type="Gradient" id="Gradient_wbj3g"]
 colors = PackedColorArray(0.04, 0.04, 0.04, 0.588235, 0.06, 0.06, 0.06, 0.588235)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d0qvl"]
-gradient = SubResource("Gradient_uru2j")
+gradient = SubResource("Gradient_wbj3g")
 fill_from = Vector2(0.543011, 0.543011)
 fill_to = Vector2(0.537634, 0)
 
@@ -458,17 +458,17 @@ shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
 
-[sub_resource type="Gradient" id="Gradient_mchuc"]
+[sub_resource type="Gradient" id="Gradient_voo0t"]
 colors = PackedColorArray(0.890196, 0.235294, 0.160784, 1, 0.890196, 0.235294, 0.160784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kjh8r"]
-gradient = SubResource("Gradient_mchuc")
+gradient = SubResource("Gradient_voo0t")
 
-[sub_resource type="Gradient" id="Gradient_dcg5r"]
+[sub_resource type="Gradient" id="Gradient_plcdc"]
 colors = PackedColorArray(0.7, 0.1204, 0.056, 0.784314, 0.91, 0.35308, 0.2912, 0.588235)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xn2i6"]
-gradient = SubResource("Gradient_dcg5r")
+gradient = SubResource("Gradient_plcdc")
 fill_from = Vector2(0.505376, 0.672043)
 fill_to = Vector2(0.526882, 0)
 
@@ -485,17 +485,17 @@ shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_kjh8r")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_xn2i6")
 
-[sub_resource type="Gradient" id="Gradient_bqwyj"]
+[sub_resource type="Gradient" id="Gradient_cjxav"]
 colors = PackedColorArray(0.207843, 0.890196, 0.160784, 1, 0.207843, 0.890196, 0.160784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lgqhl"]
-gradient = SubResource("Gradient_bqwyj")
+gradient = SubResource("Gradient_cjxav")
 
-[sub_resource type="Gradient" id="Gradient_vwbua"]
+[sub_resource type="Gradient" id="Gradient_iavw6"]
 colors = PackedColorArray(0.0989333, 0.7, 0.056, 0.784314, 0.332453, 0.91, 0.2912, 0.588235)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_i1bxa"]
-gradient = SubResource("Gradient_vwbua")
+gradient = SubResource("Gradient_iavw6")
 fill_from = Vector2(0.494624, 0.66129)
 fill_to = Vector2(0.483871, 0)
 
@@ -562,7 +562,7 @@ offset_left = -69.0
 offset_top = -48.0
 offset_right = -69.0
 offset_bottom = -48.0
-assined_characters = SubResource("Resource_kc5j6")
+assined_characters = SubResource("Resource_wial8")
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false

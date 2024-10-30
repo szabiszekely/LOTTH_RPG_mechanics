@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=26 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_4v7gm"]
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
@@ -16,9 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="12_d6jy4"]
 [ext_resource type="Script" path="res://scripts/gd/ui_battle_menu.gd" id="15_d5w0o"]
 [ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="15_kjj7c"]
-[ext_resource type="PackedScene" uid="uid://diogqwfdea76u" path="res://text_folder/static_text_box.tscn" id="16_f8xte"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="17_k3a18"]
-[ext_resource type="PackedScene" uid="uid://drwei0kix2h5l" path="res://scenes/action_option_box.tscn" id="17_xxuhp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5t4e0"]
 load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b670589d7e41.ctex"
@@ -149,12 +147,11 @@ Base_Magical_Attack = 0
 Speed = 1
 range_in_cm = 12
 
-[node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu")]
+[node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "menu")]
 y_sort_enabled = true
 position = Vector2(0, -2)
 script = ExtResource("1_4v7gm")
 player = NodePath("Player_group/Player")
-enemy = NodePath("NavigationRegion2D/Enemy_Group/Enemy")
 menu = NodePath("UI_battle_menu/Menu")
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -187,21 +184,22 @@ navigation_polygon = SubResource("NavigationPolygon_wueea")
 enter_cost = 1.0
 script = ExtResource("6_ibrbe")
 
-[node name="Enemy_Group" parent="NavigationRegion2D" node_paths=PackedStringArray("act_options") instance=ExtResource("9_6inxr")]
+[node name="Enemy_Group" parent="NavigationRegion2D" node_paths=PackedStringArray("act_options", "menu_system") instance=ExtResource("9_6inxr")]
 y_sort_enabled = true
 position = Vector2(1, 120)
 act_options = NodePath("../../UI_battle_menu/Action_Panel_choice")
 find_entity = ExtResource("10_mefao")
+menu_system = NodePath("../../UI_battle_menu/Menu")
 
-[node name="Enemy" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+[node name="Enemy4" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
 position = Vector2(319, -256)
 Fight_stats = SubResource("Resource_v5xsg")
 
-[node name="Enemy2" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+[node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
 position = Vector2(448, -167)
 Fight_stats = SubResource("Resource_e2gf7")
 
-[node name="Enemy3" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+[node name="Enemy6" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
 position = Vector2(379, -72)
 Fight_stats = SubResource("Resource_xdxq4")
 
@@ -293,49 +291,26 @@ Bar = NodePath("../../UI_battle_menu/Bar_System")
 [node name="UI_battle_menu" parent="." instance=ExtResource("12_d6jy4")]
 script = ExtResource("15_d5w0o")
 
+[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("enemy_group", "get_the_children", "Mouse_camera_toggler")]
+enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
+Action_button_handler = ExtResource("15_kjj7c")
+get_the_children = NodePath("MarginContainer/HBoxContainer")
+Mouse_camera_toggler = NodePath("../../Mouse Pointer")
+
 [node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
 text = "Focus"
 
-[node name="Menu" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("enemy_group", "player_group")]
-enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
-player_group = NodePath("../../Player_group")
-Action_button_handler = ExtResource("15_kjj7c")
-
-[node name="Bar_System" parent="UI_battle_menu" index="3"]
+[node name="Bar_System" parent="UI_battle_menu" index="4"]
 offset_top = 36.0
 offset_bottom = 64.0
-
-[node name="Action_option_box" parent="UI_battle_menu" instance=ExtResource("17_xxuhp")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -295.5
-offset_top = -171.0
-offset_right = 295.5
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Static_Dialogue_Box" parent="UI_battle_menu" instance=ExtResource("16_f8xte")]
-z_index = -10
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -291.5
-offset_top = -214.0
-offset_right = 291.5
-offset_bottom = -50.0
-grow_horizontal = 2
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("17_k3a18")]
 do_i_need_it = true
 
+[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Abilities" to="UI_battle_menu/Menu" method="abilities_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="UI_battle_menu/Menu" method="action_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Bagpack" to="UI_battle_menu/Menu" method="bagpack_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Run" to="UI_battle_menu/Menu" method="run_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Check" to="UI_battle_menu/Menu" method="action_button_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
@@ -345,7 +320,6 @@ do_i_need_it = true
 [connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Guard" to="UI_battle_menu/Menu" method="action_button_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="UI_battle_menu/Menu" method="action_pressed"]
 
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="UI_battle_menu"]

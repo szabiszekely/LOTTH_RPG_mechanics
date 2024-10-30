@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv2u0cptbyxq5"]
+
+[ext_resource type="PackedScene" uid="uid://drsb61u4ojdtf" path="res://scenes/run_panel_choice.tscn" id="8_5desi"]
+[ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/action_panel_choice.tscn" id="9_wkml8"]
+
+[node name="Control" type="CanvasLayer"]
+
+[node name="Run_Panel_choice" parent="." instance=ExtResource("8_5desi")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -5.0
+offset_right = 275.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Action_Panel_choice" parent="." instance=ExtResource("9_wkml8")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = 5.0
+offset_right = 275.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 0

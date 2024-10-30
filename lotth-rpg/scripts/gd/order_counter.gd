@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @export var Initiative: Initiative_class
-# this is the UI that is important to add the icons and the turn order to the UI
+# this is the UI that is important to add the icons and the turn order to the UIí
 func _ready() -> void:
 	Initiative._getting_all_rolls(Initiative.all_rolls,$VBoxContainer)
 	

@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://drsb61u4ojdtf"]
+
+[ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="1_cc6km"]
+[ext_resource type="Script" path="res://scripts/gd/run_panel_choice.gd" id="2_p4fjq"]
+
+[sub_resource type="Gradient" id="Gradient_ytyhg"]
+offsets = PackedFloat32Array(0, 0.5, 0.6)
+colors = PackedColorArray(0.67, 0.00669999, 0.00669999, 1, 0.96, 0.00959999, 0.00959999, 1, 1, 0.00999999, 0.00999999, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3lwi"]
+gradient = SubResource("Gradient_ytyhg")
+width = 39
+height = 119
+fill = 1
+fill_from = Vector2(0.5, 0.135)
+fill_to = Vector2(0.37815, 1)
+
+[node name="Run_Panel_choice" type="PanelContainer"]
+z_index = -1
+offset_right = 550.0
+offset_bottom = 237.0
+theme = ExtResource("1_cc6km")
+script = ExtResource("2_p4fjq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Break_out" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Spare")
+text = "Break out"
+
+[node name="Spare" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Break_out")
+text = "Spare"
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(118, 131)
+scale = Vector2(0.646466, 2.36364)
+texture = SubResource("GradientTexture2D_y3lwi")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Break_out" to="." method="breaking_out_func"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Spare" to="." method="spare_func"]
