@@ -147,11 +147,12 @@ Base_Magical_Attack = 0
 Speed = 1
 range_in_cm = 12
 
-[node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "menu")]
+[node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu")]
 y_sort_enabled = true
 position = Vector2(0, -2)
 script = ExtResource("1_4v7gm")
 player = NodePath("Player_group/Player")
+enemy = NodePath("NavigationRegion2D/Enemy_Group/Enemy4")
 menu = NodePath("UI_battle_menu/Menu")
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -296,6 +297,10 @@ enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
 Action_button_handler = ExtResource("15_kjj7c")
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../../Mouse Pointer")
+
+[node name="Run_Panel_choice" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("get_players", "get_enemies")]
+get_players = NodePath("../../Player_group")
+get_enemies = NodePath("../../NavigationRegion2D/Enemy_Group")
 
 [node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
 text = "Focus"

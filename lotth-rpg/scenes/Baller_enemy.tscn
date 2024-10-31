@@ -411,7 +411,7 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[sub_resource type="Resource" id="Resource_wial8"]
+[sub_resource type="Resource" id="Resource_sa3bs"]
 resource_local_to_scene = true
 script = ExtResource("8_vgosh")
 name = "Baller "
@@ -557,12 +557,12 @@ avoidance_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Bar_system" parent="." instance=ExtResource("4_700jv")]
-visible = false
-offset_left = -69.0
-offset_top = -48.0
-offset_right = -69.0
-offset_bottom = -48.0
-assined_characters = SubResource("Resource_wial8")
+offset_left = -114.0
+offset_top = -66.0
+offset_right = -114.0
+offset_bottom = -66.0
+scale = Vector2(1.74, 1.74)
+assined_characters = SubResource("Resource_sa3bs")
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false

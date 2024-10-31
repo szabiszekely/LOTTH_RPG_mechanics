@@ -35,21 +35,21 @@ func _process(_delta: float) -> void:
 			if index > 0:
 				index -= 1
 				switch_focus(index, index+1)
-				print("why")
+				#print("why")
 			else:
 				index = enemies.size() -1
 				switch_focus(index,0)
-				print("not")
+				#print("not")
 		
 		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
 			if index < enemies.size() - 1:
 				index += 1
 				switch_focus(index, index-1)
-				print("do")
+				#print("do")
 			else:
 				index = 0
 				switch_focus(index,enemies.size() - 1)
-				print("you work?")
+				#print("you work?")
 		# When you press space than it changes and brings up the action options!
 		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			if menu_system.act == true:
@@ -74,7 +74,7 @@ func _process(_delta: float) -> void:
 
 # this is where you switch indicator focus from on enemy and switch to the next!
 func switch_focus(x, y):
-	print(x," ",y)
+	#print(x," ",y)
 	enemies[x]._focus_indicator()
 	enemies[x].cam_target.enabled = true
 	enemies[y]._unfocus_indicator()

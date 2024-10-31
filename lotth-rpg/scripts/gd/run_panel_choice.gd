@@ -1,8 +1,8 @@
 extends PanelContainer
 class_name Run_control
 
-@export var get_players = Player_group
-@export var get_enemies = Enemy_group
+@export var get_players: Player_group
+@export var get_enemies: Enemy_group
 var players: Array
 var enemies: Array
 @onready var break_out: Button = $MarginContainer/VBoxContainer/Break_out
@@ -42,12 +42,31 @@ func run_disappear():
 	
 	
 func breaking_out_func() -> void:
-	pass
-
-
+	var percentage:float = 1
+	var running_attempt_counter_enemy: float = 0
+	var running_attempt_counter_player: float = 0
+	var all_p: int = 0
+	var all_e: int = 0
+	
+	for player in get_players.player:
+		all_p = all_p + player.Fight_stats.Speed
+	for enemy in get_enemies.enemies:
+		all_e = all_e + enemy.Fight_stats.Speed
+	
+	running_attempt_counter_player = all_p * 5
+	running_attempt_counter_enemy = all_e * 10
+	
+	running_attempt_counter_enemy = running_attempt_counter_enemy / 100
+	running_attempt_counter_player = running_attempt_counter_player / 100
+	
+	percentage = percentage - running_attempt_counter_enemy
+	percentage = percentage + running_attempt_counter_player
+	print(percentage)
+	# Run code and precentage check HERE
 func spare_func() -> void:
-	for enemy in get_enemies.enemy_group.enemies:
+	for enemy in get_enemies.enemies:
 		if enemy.Fight_stats.EMP >= enemy.Fight_stats.MAX_EMP:
 			print("DONE")
+			# EMP reached, fight end HERE
 		else:
 			print_debug("Can't let them go, they still not reached they Max EMP?")

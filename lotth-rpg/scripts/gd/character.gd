@@ -51,7 +51,7 @@ func _take_damage(base_damage,strengh,attacker_type):
 	Bar.bar_damage_taken(float(hit))
 	
 	if Fight_stats.ENG > 0:
-		_play_animator_energy_hit() 
+		#_play_animator_energy_hit() 
 		for i in hit:
 			Fight_stats.ENG -= 1
 			await get_tree().create_timer(0.16).timeout
@@ -59,7 +59,7 @@ func _take_damage(base_damage,strengh,attacker_type):
 				Fight_stats.ENG = 0
 			
 	else:
-		_play_animator_health_hit()
+		#_play_animator_health_hit()
 		for i in hit:
 			Fight_stats.HP -= 1
 			await get_tree().create_timer(0.16).timeout

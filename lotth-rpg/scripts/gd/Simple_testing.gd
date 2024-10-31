@@ -10,10 +10,10 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	
-		
-	#if Input.is_action_just_pressed("ui_up"):
-		#player._take_damage(enemy.Fight_stats.Base_Phisical_Attack,4,enemy.Fight_stats.Attack_Type)
-	#
-	#if Input.is_action_just_pressed("ui_down"):
-		#enemy._take_damage(player.Fight_stats.Base_Phisical_Attack,4,player.Fight_stats.Attack_Type)
 	pass
+	if Input.is_action_just_pressed("debug_button"):
+		player._take_damage(enemy.Fight_stats.Base_Phisical_Attack,4,enemy.Fight_stats.Attack_Type)
+		enemy._take_damage(player.Fight_stats.Base_Phisical_Attack,4,player.Fight_stats.Attack_Type)
+	if Input.is_action_just_pressed("debug_button_2"):
+		pass
+	
