@@ -22,6 +22,7 @@ video/autoload_on_startup=true
 [autoload]
 
 procam="*res://addons/ProCam2D/scripts/autoload.gd"
+ItemData="*res://scripts/data/data.gd"
 
 [display]
 

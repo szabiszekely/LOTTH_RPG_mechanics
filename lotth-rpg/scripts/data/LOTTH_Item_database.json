@@ -1,0 +1,40 @@
+{
+"Sheet1":[
+ {
+  "Id": 0,
+  "Name": "Meat",
+  "Texture": "meat.png",
+  "Hp": 0,
+  "Eng": 4,
+  "Dmg": 0,
+  "Description": "Beef jerky or maybe I jerked my beef?"
+ },
+ {
+  "Id": 1,
+  "Name": "Knife",
+  "Texture": "knife.png",
+  "Hp": 0,
+  "Eng": 0,
+  "Dmg": 3,
+  "Description": "Sharp but it looks ass"
+ },
+ {
+  "Id": 2,
+  "Name": "Heart Breaker",
+  "Texture": "heart_breaker.png",
+  "Hp": 2,
+  "Eng": 0,
+  "Dmg": 2,
+  "Description": "Looks like a can of coke but for your tounge "
+ },
+ {
+  "Id": 3,
+  "Name": "Apple",
+  "Texture": "apple.png",
+  "Hp": 0,
+  "Eng": 3,
+  "Dmg": 0,
+  "Description": "An apple a day keeps the programming bugs away"
+ }
+]
+}
