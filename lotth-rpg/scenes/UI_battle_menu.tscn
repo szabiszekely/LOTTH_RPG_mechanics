@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=20 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
 [ext_resource type="Script" path="res://scripts/gd/menu_new_system.gd" id="1_f5k7w"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cik4k3fvdqebn" path="res://scenes/order_counter.tscn" id="5_180k0"]
 [ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="6_a2nnn"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="9_tjhqe"]
+[ext_resource type="PackedScene" uid="uid://blvji106ulh0d" path="res://scenes/bag_panel_choice.tscn" id="10_4fxo3"]
 [ext_resource type="PackedScene" uid="uid://drwei0kix2h5l" path="res://scenes/action_option_box.tscn" id="12_1fmx7"]
 [ext_resource type="PackedScene" uid="uid://diogqwfdea76u" path="res://text_folder/static_text_box.tscn" id="13_np6xt"]
 
@@ -151,10 +152,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -275.0
+offset_left = -318.0
 offset_top = -5.0
-offset_right = 275.0
-offset_bottom = 232.0
+offset_right = 314.0
+offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -171,6 +172,11 @@ offset_right = 275.0
 offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
+z_index = -1
+offset_top = 3.0
+offset_bottom = 358.0
 
 [node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
 anchors_preset = 6

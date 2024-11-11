@@ -18,3 +18,9 @@ func _ready() -> void:
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
 	Initiative.all_rolls.append(initiative_peronality)
 	
+func emp_gained(gained_EMP: int):
+	if not Fight_stats.MAX_EMP <= Fight_stats.EMP:
+		Fight_stats.EMP += gained_EMP
+	else:
+		print("EMP gain has reached the maximum or something went wrong in the code!")
+	print(str(Fight_stats.EMP) + " / " + str(Fight_stats.MAX_EMP))

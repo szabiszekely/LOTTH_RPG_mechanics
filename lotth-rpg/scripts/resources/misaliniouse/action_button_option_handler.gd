@@ -53,6 +53,7 @@ func Guard():
 func Talk():
 	active_dialogue_box.start("Talk")
 	print("Hello o/")
+	enemy_seperate.emp_gained(1)
 
 func Grab():
 	active_dialogue_box.start("Grab")
@@ -66,15 +67,19 @@ func Grab():
 	await source.get_tree().create_timer(1).timeout
 	audio.queue_free()
 	print("*squek sfx*")
+	enemy_seperate.emp_gained(1)
 	
 func Ball():
 	active_dialogue_box.start("Ball")
 	print("He Do be balling")
+	enemy_seperate.emp_gained(2)
 	
 func Sleep():
 	active_dialogue_box.start("Sleep")
 	print("Hank shu")
+	enemy_seperate.emp_gained(2)
 	
 func Twirl():
 	active_dialogue_box.start("Twirl")
 	print("You span around")
+	enemy_seperate.emp_gained(-1)

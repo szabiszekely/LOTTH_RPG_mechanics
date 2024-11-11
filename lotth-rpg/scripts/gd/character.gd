@@ -44,7 +44,7 @@ func _take_damage(base_damage,strengh,attacker_type):
 	energy = Fight_stats.ENG
 	
 	var hit = Fight_stats._Damage_Taken(base_damage,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type)
-	
+	print(str(Fight_stats.name)+": "+str(hit))
 	#if Fight_stats.HP == 0:
 		#get_child(index).queue_free()
 		

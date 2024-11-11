@@ -14,8 +14,9 @@ class_name Menu_system
 
 # Panels !
 #@onready var action_choice: Action_control = $"../Action_Panel_choice"
-@onready var run_choice: Run_control = $"../Run_Panel_choice"
 @onready var action_choice: Action_control = $"../Action_Panel_choice"
+@onready var bagpack_choice: Bagpack_controls = $"../Bagpack"
+@onready var run_choice: Run_control = $"../Run_Panel_choice"
 
 # ugly but it does its job! aka All ACTION BUTTONS
 @onready var GUI = owner
@@ -89,10 +90,15 @@ func _process(_delta: float) -> void:
 		Menu_state.ACTIONS:
 			current_memory_state = current_state
 			if act_container == true:
+				menu.show()
 				action_choice.act_appear()
 				act_container = false
 		Menu_state.BAG:
-			pass
+			current_memory_state = current_state
+			if bag_container == true:
+				menu.show()
+				bagpack_choice.bag_appear()
+				bag_container = false
 		Menu_state.RUN:
 			current_memory_state = current_state
 			if run_container == true:
@@ -113,7 +119,10 @@ func _input(event: InputEvent) -> void:
 			Menu_state.ABILITES:
 				pass
 			Menu_state.BAG:
-				pass
+				menu_index = 2
+				vanish()
+				switching_buttons()
+				current_state = Memory_state.MENU
 			Menu_state.RUN:
 				menu_index = 3
 				vanish()
@@ -170,6 +179,7 @@ func _input(event: InputEvent) -> void:
 func vanish():
 	menu.hide()
 	action_choice.act_disappear()
+	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
 	static_dialogue_box.hide()
 	act_dialogue_box.hide()
@@ -180,6 +190,7 @@ func all_gone():
 	bagpack.process_mode = Node.PROCESS_MODE_DISABLED
 	run.process_mode = Node.PROCESS_MODE_DISABLED
 	action_choice.process_mode = Node.PROCESS_MODE_DISABLED
+	bagpack_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	run_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	enemy_group.start_choosing = false
 	
@@ -191,6 +202,7 @@ func back_to_normal():
 	bagpack.process_mode = Node.PROCESS_MODE_INHERIT
 	run.process_mode = Node.PROCESS_MODE_INHERIT
 	action_choice.process_mode = Node.PROCESS_MODE_INHERIT
+	bagpack_choice.process_mode = Node.PROCESS_MODE_INHERIT
 	run_choice.process_mode = Node.PROCESS_MODE_INHERIT
 	switching_buttons()
 
@@ -213,8 +225,9 @@ func _on_action_pressed() -> void:
 
 
 func _on_bagpack_pressed() -> void:
-	pass # Replace with function body.
-
+	vanish()
+	bag_container = true
+	current_state = Menu_state.BAG
 
 func _on_run_pressed() -> void:
 	vanish()

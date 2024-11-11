@@ -20,7 +20,7 @@
  },
  {
   "Id": 2,
-  "Name": "Heart Breaker",
+  "Name": "Heart_Breaker",
   "Texture": "heart_breaker.png",
   "Hp": 2,
   "Eng": 0,

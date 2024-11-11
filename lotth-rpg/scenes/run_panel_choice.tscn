@@ -18,7 +18,7 @@ fill_to = Vector2(0.37815, 1)
 
 [node name="Run_Panel_choice" type="PanelContainer"]
 z_index = -1
-offset_right = 550.0
+offset_right = 629.0
 offset_bottom = 237.0
 theme = ExtResource("1_cc6km")
 script = ExtResource("2_p4fjq")

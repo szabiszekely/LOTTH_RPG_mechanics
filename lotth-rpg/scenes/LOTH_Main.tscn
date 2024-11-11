@@ -305,7 +305,7 @@ get_enemies = NodePath("../../NavigationRegion2D/Enemy_Group")
 [node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
 text = "Focus"
 
-[node name="Bar_System" parent="UI_battle_menu" index="4"]
+[node name="Bar_System" parent="UI_battle_menu" index="5"]
 offset_top = 36.0
 offset_bottom = 64.0
 

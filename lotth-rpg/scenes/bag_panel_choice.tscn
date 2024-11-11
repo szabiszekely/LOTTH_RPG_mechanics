@@ -1,55 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://blvji106ulh0d"]
+[gd_scene load_steps=4 format=3 uid="uid://blvji106ulh0d"]
 
 [ext_resource type="Script" path="res://scripts/gd/bag_panel_choice.gd" id="1_uq5ff"]
 [ext_resource type="Script" path="res://scripts/gd/Inventory.gd" id="2_lvs21"]
+[ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="2_s3bwt"]
 
 [node name="Bagpack" type="PanelContainer"]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -346.0
+offset_top = -355.0
+offset_right = 335.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("1_uq5ff")
 
 [node name="test" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 120
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 150
 
 [node name="Inventory" type="ItemList" parent="test"]
 layout_mode = 2
+theme = ExtResource("2_s3bwt")
 theme_override_constants/v_separation = 20
-theme_override_constants/h_separation = 20
-theme_override_font_sizes/font_size = 30
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 22
 max_columns = 3
 same_column_width = true
-fixed_column_width = 300
-icon_scale = 2.25
+fixed_column_width = 200
+icon_scale = 1.2
 script = ExtResource("2_lvs21")
 
 [node name="Label" type="Label" parent="test"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.21, 0.21, 0.21, 0.670588)
-theme_override_colors/font_outline_color = Color(0.27, 0.27, 0.27, 0.380392)
+theme_override_colors/font_color = Color(0.95, 0.7904, 0.418, 0.670588)
+theme_override_colors/font_outline_color = Color(0.34, 0.218393, 0.0884, 0.380392)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 50
 text = "No Items!"
 horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="AddButton" type="Button" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 545.0
-offset_right = 250.0
-offset_bottom = 614.0
-theme_override_font_sizes/font_size = 50
+offset_left = 305.0
+offset_top = 567.0
+offset_right = 539.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 30
+disabled = true
 text = "Add Item!
+"
+
+[node name="SaveButton" type="Button" parent="CanvasLayer"]
+offset_left = 588.0
+offset_top = 565.0
+offset_right = 863.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Save Items!
 "
 
 [connection signal="gui_input" from="test/Inventory" to="." method="_on_item_list_gui_input"]
 [connection signal="item_activated" from="test/Inventory" to="." method="_on_item_list_item_activated"]
 [connection signal="item_selected" from="test/Inventory" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="CanvasLayer/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/SaveButton" to="." method="_on_save_button_pressed"]
