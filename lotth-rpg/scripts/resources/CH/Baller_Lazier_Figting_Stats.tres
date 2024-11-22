@@ -6,6 +6,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_a1dqe")
 name = "Baller Lazier"
+Id = 1
 Friend_or_Foe = 1
 MAX_HP = 18
 MAX_ENG = 18
@@ -20,4 +21,4 @@ EMP = 0
 Base_Phisical_Attack = 3
 Base_Magical_Attack = 0
 Speed = 0
-range_in_cm = 12
+range_in_cm = 0.0

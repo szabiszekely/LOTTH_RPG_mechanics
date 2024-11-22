@@ -6,6 +6,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_urd4u")
 name = "Baller"
+Id = 0
 Friend_or_Foe = 1
 MAX_HP = 18
 MAX_ENG = 18
@@ -20,4 +21,4 @@ EMP = 0
 Base_Phisical_Attack = 2
 Base_Magical_Attack = 0
 Speed = 1
-range_in_cm = 12
+range_in_cm = 0.0

@@ -39,6 +39,7 @@ func Check():
 	print("EMP: "+ str(enemy_stats.EMP) + " Speed: " + str(enemy_stats.Speed))
 	print("----------------")
 	enemy_seperate.Enemy_health_bar.show()
+	
 
 func Focus():
 	print("----------------")

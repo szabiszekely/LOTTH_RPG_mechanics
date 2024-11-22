@@ -1,5 +1,5 @@
 {
-"Sheet1":[
+"Items":[
  {
   "Id": 0,
   "Name": "Meat",
@@ -7,6 +7,8 @@
   "Hp": 0,
   "Eng": 4,
   "Dmg": 0,
+  "Usage": 0,
+  "Emp": 0,
   "Description": "Beef jerky or maybe I jerked my beef?"
  },
  {
@@ -16,6 +18,8 @@
   "Hp": 0,
   "Eng": 0,
   "Dmg": 3,
+  "Usage": 1,
+  "Emp": 0,
   "Description": "Sharp but it looks ass"
  },
  {
@@ -25,6 +29,8 @@
   "Hp": 2,
   "Eng": 0,
   "Dmg": 2,
+  "Usage": 1,
+  "Emp": 0,
   "Description": "Looks like a can of coke but for your tounge "
  },
  {
@@ -34,7 +40,31 @@
   "Hp": 0,
   "Eng": 3,
   "Dmg": 0,
+  "Usage": 0,
+  "Emp": 0,
   "Description": "An apple a day keeps the programming bugs away"
+ }
+],
+"Actions":[
+ {
+  "Id": 0,
+  "Enemy": "Baller",
+  "Action 1": "Talk",
+  "Action 2": "Grab",
+  "Action 3": "Ball",
+  "Action 4": " ",
+  "Action 5": " ",
+  "Action 6": " "
+ },
+ {
+  "Id": 1,
+  "Enemy": "Baller Lazier",
+  "Action 1": "Talk ",
+  "Action 2": "Grab",
+  "Action 3": "Sleep",
+  "Action 4": "Twirl",
+  "Action 5": " ",
+  "Action 6": " "
  }
 ]
 }

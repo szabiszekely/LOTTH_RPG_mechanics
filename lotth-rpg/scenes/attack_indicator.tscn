@@ -1,25 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1qv0jnx6ca1n"]
+[gd_scene load_steps=5 format=3 uid="uid://b1qv0jnx6ca1n"]
 
-[ext_resource type="Texture2D" uid="uid://bp4c8bdiiaauw" path="res://assets/sprite/UI/Attack_indicator_small.png" id="1_eesnd"]
-[ext_resource type="Texture2D" uid="uid://ctot8y0ymwjkl" path="res://assets/sprite/UI/Attack_indicator_huge.png" id="1_faxir"]
-[ext_resource type="Texture2D" uid="uid://c6p1htqj8ssul" path="res://assets/sprite/UI/Attack_indicator_big.png" id="1_x3oc4"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6ws6y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_eesnd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_x3oc4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_faxir")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://scripts/gd/attack_indicator.gd" id="1_7momn"]
+[ext_resource type="Texture2D" uid="uid://doqipbkiexdhn" path="res://assets/sprite/UI/Attack_indicator_sprite_sheet_with_true_damage.png" id="2_7aaev"]
 
 [sub_resource type="FontVariation" id="FontVariation_hty4a"]
 variation_embolden = 2.0
@@ -28,17 +10,20 @@ spacing_glyph = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_oqjbo"]
 font = SubResource("FontVariation_hty4a")
+font_color = Color(0.97, 0.97, 0.97, 1)
+outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
-shadow_color = Color(0.07, 0.07, 0.07, 0.862745)
-shadow_offset = Vector2(1.795, 1.215)
+shadow_color = Color(0.096, 0.1312, 0.16, 0.917647)
 
 [node name="Attack_indicator" type="Node2D"]
+script = ExtResource("1_7momn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6ws6y")
-frame = 2
-frame_progress = 0.350153
-speed_scale = 0.1
+[node name="Attack_indicator" type="Sprite2D" parent="."]
+scale = Vector2(0.725, 0.725)
+texture = ExtResource("2_7aaev")
+hframes = 4
+frame = 3
+region_rect = Rect2(140, 0, 70, 70)
 
 [node name="Label" type="Label" parent="."]
 offset_left = -37.0
@@ -46,11 +31,12 @@ offset_top = -13.0
 offset_right = 33.0
 offset_bottom = 15.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.190762, 0.190762, 0.190762, 1)
 theme_override_constants/shadow_outline_size = 2
-text = "100"
+text = "1"
 label_settings = SubResource("LabelSettings_oqjbo")
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.82, 2.82)

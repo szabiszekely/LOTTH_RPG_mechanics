@@ -1,7 +1,10 @@
 extends PanelContainer
 class_name Bagpack_controls
+
 @onready var inventory: ItemList = $test/Inventory
 @onready var no_items: Label = $test/Label
+@export var menu_system: Menu_system
+@export var item_handler: Item_handler
 var item_list: Array = []
 
 func _ready() -> void:
@@ -11,15 +14,15 @@ func _ready() -> void:
 	
 	for i in item_list:
 		inventory.add_slot(i)
-	inventory.select(0)
-	inventory.ensure_current_is_visible()
+	#inventory.ensure_current_is_visible()
+	#inventory.select(0)
 	item_count_check()
 	
 
 func bag_appear():
 	inventory.grab_focus()
-	self.show()
 	inventory.select(0)
+	self.show()
 	inventory.ensure_current_is_visible()
 	item_count_check()
 	
@@ -34,8 +37,10 @@ func bag_disappear():
 	await tweens.finished
 
 func _on_item_list_item_activated(index: int) -> void:
-	var my_data = ItemData.get_item_name(item_list[index])
-	print(my_data)
+	var my_data = ItemData.get_item_data(item_list[index])
+	
+	
+	item_handler._get_item_and_redirect_it(my_data,menu_system.player_group,menu_system.enemy_group)
 	inventory.remove_item(index)
 	item_list.remove_at(index)
 	inventory.select(index)

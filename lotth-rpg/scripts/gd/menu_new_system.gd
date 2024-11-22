@@ -2,6 +2,7 @@ extends PanelContainer
 class_name Menu_system
 
 @export var enemy_group: Enemy_group
+@export var player_group: Player_group
 @export var Action_button_handler: Action_buttons_option_Handler
 @export var get_the_children: HBoxContainer
 @export var Mouse_camera_toggler: Mouse_Camera
@@ -77,6 +78,7 @@ func _ready() -> void:
 	menu_buttons = get_the_children.get_children()
 	print(menu_buttons)
 	switching_buttons()
+	
 
 func _process(_delta: float) -> void:
 	#print(current_state)

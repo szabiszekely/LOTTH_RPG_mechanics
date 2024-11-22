@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://fpli1abm1x6y"]
+
+[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="1_0c5ue"]
+[ext_resource type="Script" path="res://scripts/gd/emp_bar_system.gd" id="1_u2v5j"]
+[ext_resource type="Texture2D" uid="uid://1hvah5xpvfsk" path="res://assets/sprite/UI/Null_Mater.png" id="2_whjf2"]
+[ext_resource type="Texture2D" uid="uid://dimsay5i63jqa" path="res://assets/sprite/UI/EMP_Bar_border.png" id="3_3cf3t"]
+
+[sub_resource type="Gradient" id="Gradient_hx3s4"]
+colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1, 0.0509804, 0.0509804, 0.0509804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5uam"]
+gradient = SubResource("Gradient_hx3s4")
+
+[sub_resource type="Gradient" id="Gradient_lpl5w"]
+colors = PackedColorArray(0.04, 0.04, 0.04, 0.588235, 0.06, 0.06, 0.06, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0qvl"]
+gradient = SubResource("Gradient_lpl5w")
+fill_from = Vector2(0.543011, 0.543011)
+fill_to = Vector2(0.537634, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24g75"]
+resource_local_to_scene = true
+shader = ExtResource("1_0c5ue")
+shader_parameter/stepify = true
+shader_parameter/value = 1.0
+shader_parameter/count = 1
+shader_parameter/margin = null
+shader_parameter/shear_angle = 0.0
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
+shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
+shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7q1v"]
+texture = ExtResource("2_whjf2")
+
+[sub_resource type="Gradient" id="Gradient_m8nwp"]
+colors = PackedColorArray(1, 0.54902, 0, 1, 1, 0.55, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_utu2i"]
+gradient = SubResource("Gradient_m8nwp")
+
+[sub_resource type="Gradient" id="Gradient_j2g7i"]
+offsets = PackedFloat32Array(0, 0.508197, 1)
+colors = PackedColorArray(0, 0, 0, 0.156863, 1, 1, 1, 0.313726, 1, 1, 1, 0.196078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fuois"]
+gradient = SubResource("Gradient_j2g7i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x13f2"]
+shader = ExtResource("1_0c5ue")
+shader_parameter/stepify = true
+shader_parameter/value = 1.0
+shader_parameter/count = 4
+shader_parameter/margin = Vector2(0.18, 0)
+shader_parameter/shear_angle = 0.0750001
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
+shader_parameter/gradient_x = SubResource("GradientTexture2D_utu2i")
+shader_parameter/gradient_y = SubResource("GradientTexture2D_fuois")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sie5"]
+texture = ExtResource("3_3cf3t")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="EMP Bar System" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_u2v5j")
+
+[node name="NULL" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_24g75")
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 20.0
+offset_bottom = 93.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_n7q1v")
+
+[node name="EMP_meter" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_x13f2")
+layout_mode = 0
+offset_left = 3.0
+offset_top = 94.0
+offset_right = 96.0
+offset_bottom = 110.0
+rotation = 4.71239
+
+[node name="Bar_Border" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 86.0
+scale = Vector2(1.1, 1.1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_4sie5")

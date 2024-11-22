@@ -1,8 +1,8 @@
 extends PanelContainer
 class_name Run_control
 
-@export var get_players: Player_group
-@export var get_enemies: Enemy_group
+@export var get_menu: Menu_system
+
 var players: Array
 var enemies: Array
 @onready var break_out: Button = $MarginContainer/VBoxContainer/Break_out
@@ -48,9 +48,9 @@ func breaking_out_func() -> void:
 	var all_p: int = 0
 	var all_e: int = 0
 	
-	for player in get_players.player:
+	for player in get_menu.player_group.player:
 		all_p = all_p + player.Fight_stats.Speed
-	for enemy in get_enemies.enemies:
+	for enemy in get_menu.player_group.player:
 		all_e = all_e + enemy.Fight_stats.Speed
 	
 	running_attempt_counter_player = all_p * 5
@@ -64,7 +64,7 @@ func breaking_out_func() -> void:
 	print(percentage)
 	# Run code and precentage check HERE
 func spare_func() -> void:
-	for enemy in get_enemies.enemies:
+	for enemy in get_menu.enemy_group.enemies:
 		if enemy.Fight_stats.EMP >= enemy.Fight_stats.MAX_EMP:
 			print("DONE")
 			# EMP reached, fight end HERE

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=76 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
@@ -10,7 +10,6 @@
 [ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="5_grx1e"]
 [ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="6_fua16"]
 [ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="7_1uto1"]
-[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_vgosh"]
 [ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
@@ -411,26 +410,6 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[sub_resource type="Resource" id="Resource_lluyh"]
-resource_local_to_scene = true
-script = ExtResource("8_vgosh")
-name = "Baller "
-Friend_or_Foe = 1
-MAX_HP = 18
-MAX_ENG = 18
-HP = 18
-ENG = 18
-Soul_Type = 0
-Attack_Type = 1
-Defense = 2
-Magic_Defense = 0
-MAX_EMP = 4
-EMP = 0
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 0
-Speed = 1
-range_in_cm = 12
-
 [sub_resource type="Gradient" id="Gradient_klmtg"]
 colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1, 0.0509804, 0.0509804, 0.0509804, 1)
 
@@ -556,13 +535,13 @@ texture = ExtResource("2_htaiq")
 avoidance_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
-[node name="Bar_system" parent="." instance=ExtResource("4_700jv")]
+[node name="Bar_system" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("4_700jv")]
 offset_left = -114.0
-offset_top = -66.0
+offset_top = -83.0
 offset_right = -114.0
-offset_bottom = -66.0
+offset_bottom = -83.0
 scale = Vector2(1.74, 1.74)
-assined_characters = SubResource("Resource_lluyh")
+assined_characters = NodePath("..")
 
 [node name="Name_tab" parent="Bar_system" index="0"]
 visible = false

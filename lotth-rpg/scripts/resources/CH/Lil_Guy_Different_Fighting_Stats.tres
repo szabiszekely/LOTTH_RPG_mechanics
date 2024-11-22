@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_yyslg")
 name = "Lil Goofy Different Guy"
+Id = -1
 Friend_or_Foe = 0
 MAX_HP = 20
 MAX_ENG = 30
@@ -19,4 +20,4 @@ EMP = 0
 Base_Phisical_Attack = 4
 Base_Magical_Attack = 3
 Speed = 3
-range_in_cm = 15
+range_in_cm = 0.0

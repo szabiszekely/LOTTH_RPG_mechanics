@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="1_yl8kg"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_yl8kg")
 name = "Lil Goofy Guy"
+Id = -1
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -19,4 +21,4 @@ EMP = 0
 Base_Phisical_Attack = 2
 Base_Magical_Attack = 1
 Speed = 2
-range_in_cm = 15
+range_in_cm = 15.0
