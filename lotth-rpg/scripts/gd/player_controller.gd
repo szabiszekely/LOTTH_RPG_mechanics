@@ -16,6 +16,7 @@ var is_inside_the_range: bool = false
 
 
 func _ready() -> void:
+	
 	#when game start start idle get roll
 	$character_animator.play("idle")
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()

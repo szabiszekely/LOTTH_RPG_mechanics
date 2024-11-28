@@ -15,6 +15,7 @@ class_name Menu_system
 
 # Panels !
 #@onready var action_choice: Action_control = $"../Action_Panel_choice"
+@onready var ability_card_choice: Ability_control = $"../Ability_Card_choice"
 @onready var action_choice: Action_control = $"../Action_Panel_choice"
 @onready var bagpack_choice: Bagpack_controls = $"../Bagpack"
 @onready var run_choice: Run_control = $"../Run_Panel_choice"
@@ -76,19 +77,23 @@ func _ready() -> void:
 	current_state = Menu_state.MENU
 	current_memory_state = current_state
 	menu_buttons = get_the_children.get_children()
-	print(menu_buttons)
+	
 	switching_buttons()
 	
 
 func _process(_delta: float) -> void:
-	#print(current_state)
+	
 	match current_state:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			static_dialogue_box.show()
 			
 		Menu_state.ABILITES:
-			pass
+			current_memory_state = current_state
+			if abi_container == true:
+				menu.show()
+				ability_card_choice.abi_appear()
+				abi_container = false
 		Menu_state.ACTIONS:
 			current_memory_state = current_state
 			if act_container == true:
@@ -119,12 +124,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		match current_state:
 			Menu_state.ABILITES:
-				pass
+				menu_index = 0
+				vanish()
+				switching_buttons()
+				current_state = Menu_state.MENU
 			Menu_state.BAG:
 				menu_index = 2
 				vanish()
 				switching_buttons()
-				current_state = Memory_state.MENU
+				current_state = Menu_state.MENU
 			Menu_state.RUN:
 				menu_index = 3
 				vanish()
@@ -144,11 +152,13 @@ func _input(event: InputEvent) -> void:
 					enemy_group._reset_focus()
 					menu.show()
 					vanish()
+					abi = false
 					current_state = Menu_state.ABILITES
 				elif bag == true:
 					enemy_group._reset_focus()
 					menu.show()
 					vanish()
+					bag = false
 					current_state = Menu_state.BAG
 				else:
 					print("SOMETHING WRONG!")
@@ -180,6 +190,7 @@ func _input(event: InputEvent) -> void:
 	
 func vanish():
 	menu.hide()
+	ability_card_choice.abi_disappear()
 	action_choice.act_disappear()
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
@@ -187,10 +198,12 @@ func vanish():
 	act_dialogue_box.hide()
 
 func all_gone():
+	
 	abilities.process_mode = Node.PROCESS_MODE_DISABLED
 	action.process_mode = Node.PROCESS_MODE_DISABLED
 	bagpack.process_mode = Node.PROCESS_MODE_DISABLED
 	run.process_mode = Node.PROCESS_MODE_DISABLED
+	ability_card_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	action_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	bagpack_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	run_choice.process_mode = Node.PROCESS_MODE_DISABLED
@@ -203,6 +216,7 @@ func back_to_normal():
 	action.process_mode = Node.PROCESS_MODE_INHERIT
 	bagpack.process_mode = Node.PROCESS_MODE_INHERIT
 	run.process_mode = Node.PROCESS_MODE_INHERIT
+	ability_card_choice.process_mode = Node.PROCESS_MODE_INHERIT
 	action_choice.process_mode = Node.PROCESS_MODE_INHERIT
 	bagpack_choice.process_mode = Node.PROCESS_MODE_INHERIT
 	run_choice.process_mode = Node.PROCESS_MODE_INHERIT
@@ -214,8 +228,10 @@ func switching_buttons():
 		menu.show()
 
 func _on_abilities_pressed() -> void:
-	pass # Replace with function body.
-
+	vanish()
+	abi = true
+	abi_container = true
+	current_state = Menu_state.ABILITES
 
 func _on_action_pressed() -> void:
 	vanish()
@@ -228,6 +244,7 @@ func _on_action_pressed() -> void:
 
 func _on_bagpack_pressed() -> void:
 	vanish()
+	bag = true
 	bag_container = true
 	current_state = Menu_state.BAG
 
@@ -241,7 +258,7 @@ func _on_run_pressed() -> void:
 func hide_after_act_pressed_for_Text():
 	enemy_group.act_options.act_disappear()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,753),0.2).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.2).set_trans(Tween.TRANS_QUAD)
 	
 	menu.hide()
 	await tweens.finished

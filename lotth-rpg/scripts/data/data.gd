@@ -13,7 +13,10 @@ func _ready() -> void:
 	content = JSON.parse_string(file.get_as_text())
 	
 	file.close()
-	
+
+ 
+# Item-------------------------------------------
+
 func get_texture_name(ID = 0):
 	return content["Items"][ID]["Texture"]
 	
@@ -26,6 +29,8 @@ func get_item_id(ID = 0):
 func get_item_data(ID = 0):
 	return content["Items"][ID]
 
+# Actions-------------------------------------------
+
 func get_actions_of_enemy(ID = 0):
 	var content_list = []
 	for i in [content["Actions"][ID]["Action 1"],content["Actions"][ID]["Action 2"],content["Actions"][ID]["Action 3"],content["Actions"][ID]["Action 4"],content["Actions"][ID]["Action 5"],content["Actions"][ID]["Action 6"]]:
@@ -33,7 +38,18 @@ func get_actions_of_enemy(ID = 0):
 			content_list.append(i)
 	return content_list
 
-# SAVES THE GAME
+# Cards-------------------------------------------
+
+func get_card_energy(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Eng"]
+		
+	return -1
+
+
+# SAVES THE GAME-------------------------------------------
+
 func save_data(list_of_items:Array):
 	var file = FileAccess.open(SAVE_FILE,FileAccess.WRITE)
 	

@@ -26,7 +26,7 @@
   "Id": 2,
   "Name": "Heart_Breaker",
   "Texture": "heart_breaker.png",
-  "Hp": 2,
+  "Hp": 0,
   "Eng": 0,
   "Dmg": 2,
   "Usage": 1,
@@ -65,6 +65,78 @@
   "Action 4": "Twirl",
   "Action 5": " ",
   "Action 6": " "
+ }
+],
+"Abilities":[
+ {
+  "Name": "Mile Punch",
+  "Dmg": 5,
+  "T.Dmg": 0,
+  "Eng": 3,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Melee"
+ },
+ {
+  "Name": "Funny Magic",
+  "Dmg": 4,
+  "T.Dmg": 0,
+  "Eng": 3,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Magic"
+ },
+ {
+  "Name": "Agressive Stomp",
+  "Dmg": 0,
+  "T.Dmg": 3,
+  "Eng": 6,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Melee"
+ },
+ {
+  "Name": "Byecicle",
+  "Dmg": 3,
+  "T.Dmg": 0,
+  "Eng": 6,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": 4,
+  "Type": "Melee"
+ },
+ {
+  "Name": "Curved Slash",
+  "Dmg": 1,
+  "T.Dmg": 0,
+  "Eng": 1,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": 4,
+  "Type": "Melee"
+ },
+ {
+  "Name": "Dual Wielding",
+  "Dmg": 1,
+  "T.Dmg": 0,
+  "Eng": 2,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": 4,
+  "Type": "Melee"
+ },
+ {
+  "Name": "Thunder Song",
+  "Dmg": 7,
+  "T.Dmg": 0,
+  "Eng": 10,
+  "Hp": 0,
+  "Emp": 0,
+  "Range": 20,
+  "Type": "Magic"
  }
 ]
 }

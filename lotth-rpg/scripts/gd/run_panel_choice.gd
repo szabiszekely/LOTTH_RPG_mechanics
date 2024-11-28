@@ -26,7 +26,7 @@ func run_appear():
 	break_out.grab_focus()
 	self.show()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,333),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,527),0.3).set_trans(Tween.TRANS_QUAD)
 	#print("Run Apear")
 	
 func run_disappear():
@@ -36,7 +36,7 @@ func run_disappear():
 		i.focus_mode = Control.FOCUS_NONE
 	break_out.release_focus()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,653),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
 	#self.hide()
 	

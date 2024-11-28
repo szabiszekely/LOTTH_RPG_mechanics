@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LOTTH RPG"
-run/main_scene="res://scenes/LOTH_Main.tscn"
+run/main_scene="res://scenes/LOTTH_Main.tscn"
 config/custom_user_dir_name="LOTTH_RPG_Mechanic"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -23,11 +23,16 @@ video/autoload_on_startup=true
 [autoload]
 
 procam="*res://addons/ProCam2D/scripts/autoload.gd"
-ItemData="*res://scripts/data/data.gd"
+Data="*res://scripts/data/data.gd"
 
 [display]
 
+window/size/viewport_width=1640
+window/size/viewport_height=840
 window/size/always_on_top=true
+window/size/window_width_override=1230
+window/size/window_height_override=630
+window/stretch/mode="viewport"
 
 [editor]
 

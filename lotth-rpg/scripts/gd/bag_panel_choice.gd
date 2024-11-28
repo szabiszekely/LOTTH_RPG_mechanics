@@ -10,7 +10,7 @@ var item_list: Array = []
 func _ready() -> void:
 	self.hide()
 	$CanvasLayer.hide()
-	item_list = ItemData.load_data(item_list)
+	item_list = Data.load_data(item_list)
 	
 	for i in item_list:
 		inventory.add_slot(i)
@@ -27,17 +27,18 @@ func bag_appear():
 	item_count_check()
 	
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,333),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,519),0.3).set_trans(Tween.TRANS_QUAD)
 	#print("Run Apear")
 	
 func bag_disappear():
+	
 	inventory.release_focus()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,653),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
 
 func _on_item_list_item_activated(index: int) -> void:
-	var my_data = ItemData.get_item_data(item_list[index])
+	var my_data = Data.get_item_data(item_list[index])
 	
 	
 	item_handler._get_item_and_redirect_it(my_data,menu_system.player_group,menu_system.enemy_group)
@@ -51,7 +52,7 @@ func _on_add_button_pressed() -> void:
 	
 	if not inventory.item_count >= 24:
 		inventory.add_slot(random_item)
-		item_list.append(ItemData.get_item_id(random_item))
+		item_list.append(Data.get_item_id(random_item))
 		print(item_list)
 		no_items.hide()
 		
@@ -66,4 +67,4 @@ func item_count_check():
 		no_items.show()
 
 func _on_save_button_pressed() -> void:
-	ItemData.save_data(item_list)
+	Data.save_data(item_list)

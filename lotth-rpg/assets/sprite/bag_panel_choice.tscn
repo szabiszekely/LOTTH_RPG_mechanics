@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://blvji106ulh0d"]
 
-[ext_resource type="Script" path="res://scripts/gd/bag_panel_choice.gd" id="1_uq5ff"]
-[ext_resource type="Script" path="res://scripts/gd/Inventory.gd" id="2_lvs21"]
-[ext_resource type="Script" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="2_qpq30"]
-[ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="2_s3bwt"]
+[ext_resource type="Script" path="res://scripts/gd/bag_panel_choice.gd" id="1_jq0df"]
+[ext_resource type="Script" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="2_l5qul"]
+[ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="3_e3rlx"]
+[ext_resource type="Script" path="res://scripts/gd/Inventory.gd" id="4_pguct"]
 
 [sub_resource type="Resource" id="Resource_ql7ep"]
-script = ExtResource("2_qpq30")
+script = ExtResource("2_l5qul")
 
 [node name="Bagpack" type="PanelContainer"]
 anchors_preset = 7
@@ -19,7 +19,7 @@ offset_top = -355.0
 offset_right = 335.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("1_uq5ff")
+script = ExtResource("1_jq0df")
 item_handler = SubResource("Resource_ql7ep")
 
 [node name="test" type="MarginContainer" parent="."]
@@ -31,7 +31,7 @@ theme_override_constants/margin_bottom = 150
 
 [node name="Inventory" type="ItemList" parent="test"]
 layout_mode = 2
-theme = ExtResource("2_s3bwt")
+theme = ExtResource("3_e3rlx")
 theme_override_constants/v_separation = 20
 theme_override_constants/h_separation = 0
 theme_override_font_sizes/font_size = 22
@@ -39,7 +39,7 @@ max_columns = 3
 same_column_width = true
 fixed_column_width = 200
 icon_scale = 1.2
-script = ExtResource("2_lvs21")
+script = ExtResource("4_pguct")
 
 [node name="Label" type="Label" parent="test"]
 layout_mode = 2

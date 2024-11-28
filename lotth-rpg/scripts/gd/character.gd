@@ -26,19 +26,20 @@ func _unfocus_indicator():
 
 #take damage function is here to make everything work what is conected to health or energy!
 func _take_damage(base_damage,strengh,attacker_type):
-	
 	var hit = Fight_stats._Damage_Taken(base_damage,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type)
 	#var hit = strengh
 	print(str(Fight_stats.name)+": "+str(hit))
 	#if Fight_stats.HP == 0:
-		#get_child(index).queue_free()
-		
+		#death 
 	Bar.bar_damage_taken(hit)
-	
-	
 	var got_damage = damage_indicator.instantiate()
 	self.add_child(got_damage)
 	got_damage.taken_damage(hit)
+
+func _use_card(Name):
+	var hit = Data.get_card_energy(Name)
+	#print(hit)
+	Bar.bar_damage_taken(hit)
 
 func _take_true_damage(base_damage,attacker_type):
 	var hit = Fight_stats._True_Damage_Taken(base_damage,Fight_stats.Attack_Type,attacker_type)

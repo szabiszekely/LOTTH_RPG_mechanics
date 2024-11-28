@@ -55,8 +55,8 @@ func _process(_delta: float) -> void:
 				menu_system.act = false
 				menu_system.current_state = menu_system.Menu_state.ACTIONS
 				# the enemy has its own act options other than check,focus and guard and than that is send to act_options where it gets added!
-				print(ItemData.get_actions_of_enemy(enemies[index].Fight_stats.Id))
-				act_options.act_add_actions(ItemData.get_actions_of_enemy(enemies[index].Fight_stats.Id))
+				print(Data.get_actions_of_enemy(enemies[index].Fight_stats.Id))
+				act_options.act_add_actions(Data.get_actions_of_enemy(enemies[index].Fight_stats.Id))
 				enemies[index]._unfocus_indicator()
 				enemies[index].cam_target.enabled = false
 				start_choosing = false

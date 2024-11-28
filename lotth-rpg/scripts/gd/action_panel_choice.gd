@@ -50,7 +50,7 @@ func act_appear():
 	check.grab_focus()
 	self.show()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,333),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,526),0.3).set_trans(Tween.TRANS_QUAD)
 	#await tweens.finished
 
 #AND this does the opposite IF YOU HAVE NO IDEA HOW IT WORKS JUST SIMPLY pulling it up and hiding all the posibilits to see it!
@@ -63,7 +63,7 @@ func act_disappear():
 		i.focus_mode = Control.FOCUS_NONE
 	var tweens = get_tree().create_tween()
 	check.release_focus()
-	tweens.tween_property(self,"position",Vector2(self.position.x,653),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
 	#self.hide()
 	

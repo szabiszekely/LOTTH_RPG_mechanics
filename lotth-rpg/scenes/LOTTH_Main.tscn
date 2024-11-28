@@ -1,24 +1,24 @@
 [gd_scene load_steps=44 format=4 uid="uid://cxspq5due67jr"]
 
-[ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_4v7gm"]
-[ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_a3sq4"]
-[ext_resource type="Texture2D" uid="uid://c0fst625d3t44" path="res://assets/sprite/BG and Tile/paralex Clouds.png" id="3_dbmdb"]
-[ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/ground_tilemap.png" id="4_0sjap"]
-[ext_resource type="PackedScene" uid="uid://lj2tu1d6oo1c" path="res://scenes/obj_folder.tscn" id="6_5sxvt"]
-[ext_resource type="Script" path="res://scripts/gd/navigation_region_2d.gd" id="6_ibrbe"]
-[ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="7_0vdem"]
-[ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="8_b022x"]
-[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="9_0ikde"]
-[ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="9_6inxr"]
-[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="10_oqnmi"]
-[ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="10_r7jra"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/procam2d.gd" id="11_82rqm"]
-[ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="11_mwonj"]
-[ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="12_d6jy4"]
-[ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="12_hkdt7"]
-[ext_resource type="Script" path="res://scripts/gd/ui_battle_menu.gd" id="15_d5w0o"]
-[ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="15_kjj7c"]
-[ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="17_k3a18"]
+[ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
+[ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_rnh8o"]
+[ext_resource type="Texture2D" uid="uid://c0fst625d3t44" path="res://assets/sprite/BG and Tile/paralex Clouds.png" id="3_ttdbb"]
+[ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/ground_tilemap.png" id="4_wunvi"]
+[ext_resource type="Script" path="res://scripts/gd/navigation_region_2d.gd" id="5_ga4m6"]
+[ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="6_djyy6"]
+[ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="7_xtgrh"]
+[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_77yi2"]
+[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="9_graho"]
+[ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="10_l3tb4"]
+[ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="11_kpiaw"]
+[ext_resource type="PackedScene" uid="uid://lj2tu1d6oo1c" path="res://scenes/obj_folder.tscn" id="12_xbkon"]
+[ext_resource type="Script" path="res://addons/ProCam2D/scripts/procam2d.gd" id="13_htdc0"]
+[ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="14_i48of"]
+[ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="15_7vocu"]
+[ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="16_fvjuy"]
+[ext_resource type="Script" path="res://scripts/gd/ui_battle_menu.gd" id="17_eljyc"]
+[ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="18_ai41k"]
+[ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="19_rqvbx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5t4e0"]
 load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b670589d7e41.ctex"
@@ -53,7 +53,7 @@ texture_region_size = Vector2i(32, 32)
 4:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phn7g"]
-texture = ExtResource("4_0sjap")
+texture = ExtResource("4_wunvi")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -91,7 +91,7 @@ agent_radius = 21.0
 
 [sub_resource type="Resource" id="Resource_c8nm6"]
 resource_local_to_scene = true
-script = ExtResource("9_0ikde")
+script = ExtResource("8_77yi2")
 name = "Baller"
 Id = 0
 Friend_or_Foe = 1
@@ -112,7 +112,7 @@ range_in_cm = 0.0
 
 [sub_resource type="Resource" id="Resource_ha4fi"]
 resource_local_to_scene = true
-script = ExtResource("9_0ikde")
+script = ExtResource("8_77yi2")
 name = "Baller Lazier"
 Id = 1
 Friend_or_Foe = 1
@@ -147,7 +147,7 @@ fill_to = Vector2(0.537634, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_df1jc"]
 resource_local_to_scene = true
-shader = ExtResource("10_oqnmi")
+shader = ExtResource("9_graho")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 1
@@ -174,7 +174,7 @@ fill_to = Vector2(0.526882, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cva5k"]
 resource_local_to_scene = true
-shader = ExtResource("11_mwonj")
+shader = ExtResource("10_l3tb4")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 20
@@ -201,7 +201,7 @@ fill_to = Vector2(0.483871, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wrq0q"]
 resource_local_to_scene = true
-shader = ExtResource("12_hkdt7")
+shader = ExtResource("11_kpiaw")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 30
@@ -214,7 +214,7 @@ shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
 
 [sub_resource type="Resource" id="Resource_knrse"]
 resource_local_to_scene = true
-script = ExtResource("9_0ikde")
+script = ExtResource("8_77yi2")
 name = "Baller"
 Id = 0
 Friend_or_Foe = 1
@@ -235,7 +235,7 @@ range_in_cm = 0.0
 
 [sub_resource type="Resource" id="Resource_lkirq"]
 resource_local_to_scene = true
-script = ExtResource("9_0ikde")
+script = ExtResource("8_77yi2")
 name = "Lil Goofy Guy"
 Id = -1
 Friend_or_Foe = 0
@@ -257,7 +257,7 @@ range_in_cm = 15.0
 [node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu")]
 y_sort_enabled = true
 position = Vector2(0, -2)
-script = ExtResource("1_4v7gm")
+script = ExtResource("1_84k3t")
 player = NodePath("Player_group/Player")
 enemy = NodePath("NavigationRegion2D/Enemy_Group/Enemy4")
 menu = NodePath("UI_battle_menu/Menu")
@@ -265,7 +265,7 @@ menu = NodePath("UI_battle_menu/Menu")
 [node name="BG" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(0, -338)
-texture = ExtResource("2_a3sq4")
+texture = ExtResource("2_rnh8o")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -3
@@ -277,7 +277,7 @@ repeat_times = 3
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(0, -454)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_dbmdb")
+texture = ExtResource("3_ttdbb")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -290,19 +290,19 @@ y_sort_enabled = true
 position = Vector2(-1, -120)
 navigation_polygon = SubResource("NavigationPolygon_wueea")
 enter_cost = 1.0
-script = ExtResource("6_ibrbe")
+script = ExtResource("5_ga4m6")
 
-[node name="Enemy_Group" parent="NavigationRegion2D" node_paths=PackedStringArray("act_options", "menu_system") instance=ExtResource("9_6inxr")]
+[node name="Enemy_Group" parent="NavigationRegion2D" node_paths=PackedStringArray("act_options", "menu_system") instance=ExtResource("6_djyy6")]
 y_sort_enabled = true
 position = Vector2(1, 120)
 act_options = NodePath("../../UI_battle_menu/Action_Panel_choice")
 menu_system = NodePath("../../UI_battle_menu/Menu")
 
-[node name="Enemy4" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+[node name="Enemy4" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(319, -256)
 Fight_stats = SubResource("Resource_c8nm6")
 
-[node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+[node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(448, -167)
 Fight_stats = SubResource("Resource_ha4fi")
 
@@ -315,11 +315,11 @@ material = SubResource("ShaderMaterial_cva5k")
 [node name="ENG_Segmented_Bar" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="5"]
 material = SubResource("ShaderMaterial_wrq0q")
 
-[node name="Enemy6" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("10_r7jra")]
+[node name="Enemy6" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(379, -72)
 Fight_stats = SubResource("Resource_knrse")
 
-[node name="OBJ_folder" parent="NavigationRegion2D" instance=ExtResource("6_5sxvt")]
+[node name="OBJ_folder" parent="NavigationRegion2D" instance=ExtResource("12_xbkon")]
 y_sort_enabled = true
 position = Vector2(0, 21)
 
@@ -364,7 +364,7 @@ unique_name_in_owner = true
 visible = false
 z_index = 4096
 position = Vector2(22, -141)
-script = ExtResource("11_82rqm")
+script = ExtResource("13_htdc0")
 process_frame = 2
 follow_mode = 0
 drag_type = 0
@@ -397,39 +397,39 @@ bottom_margin = 0.05
 working_radius = 2000.0
 global_debug_draw = false
 
-[node name="Player_group" parent="." instance=ExtResource("7_0vdem")]
+[node name="Player_group" parent="." instance=ExtResource("14_i48of")]
 y_sort_enabled = true
 
-[node name="Player" parent="Player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("8_b022x")]
+[node name="Player" parent="Player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("15_7vocu")]
 position = Vector2(-452, -188)
 Fight_stats = SubResource("Resource_lkirq")
 Bar = NodePath("../../UI_battle_menu/Bar_System")
 
-[node name="UI_battle_menu" parent="." instance=ExtResource("12_d6jy4")]
-script = ExtResource("15_d5w0o")
+[node name="UI_battle_menu" parent="." instance=ExtResource("16_fvjuy")]
+script = ExtResource("17_eljyc")
 
 [node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("enemy_group", "player_group", "get_the_children", "Mouse_camera_toggler")]
 enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
 player_group = NodePath("../../Player_group")
-Action_button_handler = ExtResource("15_kjj7c")
+Action_button_handler = ExtResource("18_ai41k")
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../../Mouse Pointer")
 
 [node name="Run_Panel_choice" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("get_menu")]
 get_menu = NodePath("../Menu")
 
+[node name="Bagpack" parent="UI_battle_menu" index="2" node_paths=PackedStringArray("menu_system")]
+menu_system = NodePath("../Menu")
+
 [node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
 text = "Focus"
 
-[node name="Bagpack" parent="UI_battle_menu" index="3" node_paths=PackedStringArray("menu_system")]
-menu_system = NodePath("../Menu")
-
-[node name="Bar_System" parent="UI_battle_menu" index="5" node_paths=PackedStringArray("assined_characters")]
+[node name="Bar_System" parent="UI_battle_menu" index="6" node_paths=PackedStringArray("assined_characters")]
 offset_top = 36.0
 offset_bottom = 64.0
 assined_characters = NodePath("../../Player_group/Player")
 
-[node name="Mouse Pointer" parent="." instance=ExtResource("17_k3a18")]
+[node name="Mouse Pointer" parent="." instance=ExtResource("19_rqvbx")]
 do_i_need_it = true
 
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Abilities" to="UI_battle_menu/Menu" method="abilities_pressed"]
