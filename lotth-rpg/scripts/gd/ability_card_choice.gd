@@ -31,10 +31,10 @@ var page_turn = false
 @onready var page_1: Label = $"PanelContainer/MarginContainer/Grid 1_2/Label"
 @onready var page_2: Label = $"PanelContainer/MarginContainer/Grid 2_2/Label"
 @export var menu: Menu_system 
+@export var ability_func: Ability_Handler
 
 @onready var ability_inventory = [button,button_2,button_3,button_4,button_5,button_6,button_7,button_8,button_9,button_10,button_11,button_12,button_13,button_14,button_15,button_16,button_17,button_18] 
-var deck = ["Mile Punch","Funny Magic","Agressive Stomp","Curved Slash","Byecicle","Dual Wielding","Thunder Song","BAM","SEX","Goober"]
-
+var deck = preload("res://scripts/resources/Decks/Lil_guy_deck.tres").Deck
 func _ready() -> void:
 	for i in ability_inventory:
 		i.disabled = true
@@ -118,4 +118,24 @@ func focused() -> void:
 func pressed() -> void:
 	#print(get_viewport().gui_get_focus_owner().text)
 	var used_card_name = get_viewport().gui_get_focus_owner().text
-	menu.player_group.player[0]._use_card(used_card_name)
+	var hit = Data.get_card_energy(used_card_name)
+	var target = Data.get_card_range(used_card_name)
+	
+	
+	menu.vanish()
+	if str(target) == "Self":
+		print("GAHoy")
+		menu.player_group.player[0]._use_card_and_gain_eng(used_card_name,Data.get_card_eng_or_hp(used_card_name))
+	else:
+		menu.choose_enemy_container = true
+		menu.enemy_group.card_againts_enemies = used_card_name
+		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
+		menu.player_group.player[0]._camera_off()
+		menu.enemy_group.enemies[menu.enemy_group.index]._camera_on()
+		await get_tree().create_timer(2).timeout
+		menu.enemy_group.enemies[menu.enemy_group.index]._camera_off()
+		menu.player_group.player[0]._camera_on()
+		print("Derek")
+		
+	
+	ability_func._get_what_ability_got_used(used_card_name,menu,menu.enemy_group,menu.player_group)

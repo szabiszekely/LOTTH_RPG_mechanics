@@ -34,12 +34,29 @@ func get_item_data(ID = 0):
 func get_actions_of_enemy(ID = 0):
 	var content_list = []
 	for i in [content["Actions"][ID]["Action 1"],content["Actions"][ID]["Action 2"],content["Actions"][ID]["Action 3"],content["Actions"][ID]["Action 4"],content["Actions"][ID]["Action 5"],content["Actions"][ID]["Action 6"]]:
-		if not i == "" and not i ==  " ":
+		if str(i) != str(0):
 			content_list.append(i)
 	return content_list
 
 # Cards-------------------------------------------
 
+func get_card_damage(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			if 0 < i["T.Dmg"]:
+				return i["T.Dmg"]
+			else:
+				return i["Dmg"]
+			
+func get_card_damage_type(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			if 0 < i["T.Dmg"]:
+				return true
+			else:
+				return false
+			
+			
 func get_card_energy(Name: String):
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
@@ -47,6 +64,25 @@ func get_card_energy(Name: String):
 		
 	return -1
 
+func get_card_range(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Range"]
+			
+func get_card_eng_or_hp(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Eng_or_Hp"]
+			
+func get_card_eng_healed(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Eng_healed"]
+			
+func get_card_hp_healed(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Hp_healed"]
 
 # SAVES THE GAME-------------------------------------------
 

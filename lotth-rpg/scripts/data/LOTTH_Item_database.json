@@ -52,9 +52,9 @@
   "Action 1": "Talk",
   "Action 2": "Grab",
   "Action 3": "Ball",
-  "Action 4": " ",
-  "Action 5": " ",
-  "Action 6": " "
+  "Action 4": 0,
+  "Action 5": 0,
+  "Action 6": 0
  },
  {
   "Id": 1,
@@ -63,8 +63,12 @@
   "Action 2": "Grab",
   "Action 3": "Sleep",
   "Action 4": "Twirl",
-  "Action 5": " ",
-  "Action 6": " "
+  "Action 5": 0,
+  "Action 6": 0
+ },
+ null,
+ {
+  "Action 5": " "
  }
 ],
 "Abilities":[
@@ -73,70 +77,104 @@
   "Dmg": 5,
   "T.Dmg": 0,
   "Eng": 3,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": "Target",
-  "Type": "Melee"
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  },
  {
   "Name": "Funny Magic",
   "Dmg": 4,
   "T.Dmg": 0,
   "Eng": 3,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": "Target",
-  "Type": "Magic"
+  "Type": "Magic",
+  "Eng_or_Hp": 0
  },
  {
   "Name": "Agressive Stomp",
   "Dmg": 0,
   "T.Dmg": 3,
   "Eng": 6,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": "Target",
-  "Type": "Melee"
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  },
  {
   "Name": "Byecicle",
   "Dmg": 3,
   "T.Dmg": 0,
   "Eng": 6,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": 4,
-  "Type": "Melee"
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  },
  {
   "Name": "Curved Slash",
   "Dmg": 1,
   "T.Dmg": 0,
   "Eng": 1,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": 4,
-  "Type": "Melee"
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  },
  {
   "Name": "Dual Wielding",
   "Dmg": 1,
   "T.Dmg": 0,
   "Eng": 2,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": 4,
-  "Type": "Melee"
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  },
  {
   "Name": "Thunder Song",
   "Dmg": 7,
   "T.Dmg": 0,
   "Eng": 10,
+  "Eng_healed": 0,
   "Hp": 0,
+  "Hp_healed": 0,
   "Emp": 0,
   "Range": 20,
-  "Type": "Magic"
+  "Type": "Magic",
+  "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Healling care",
+  "Dmg": 0,
+  "T.Dmg": 0,
+  "Eng": 8,
+  "Eng_healed": 14,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": "Self",
+  "Type": "Magic",
+  "Eng_or_Hp": 1
  }
 ]
 }

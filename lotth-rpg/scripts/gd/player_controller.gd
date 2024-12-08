@@ -10,7 +10,7 @@ class_name Player
 @export var Turn_portriat: CompressedTexture2D
 @export var Initiative: Initiative_class
 
-
+#var load_lil_guy_control = preload("res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres")
 var distance = Vector2()
 var is_inside_the_range: bool = false
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 	#when game start start idle get roll
 	$character_animator.play("idle")
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()
-	print(roll)
+	print(Fight_stats.name," ",roll)
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
 	Initiative.all_rolls.append(initiative_peronality)
 	

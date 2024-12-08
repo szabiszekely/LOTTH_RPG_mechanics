@@ -239,13 +239,14 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target")]
 script = ExtResource("1_1byu4")
 indicator = ExtResource("2_ukgfx")
 moving_indicator = ExtResource("2_ukgfx")
 Turn_portriat = ExtResource("4_lp857")
 Initiative = ExtResource("5_b7dhk")
 Fight_stats = ExtResource("3_ompdf")
+cam_target = NodePath("PCamTarget")
 
 [node name="Area2D" type="Area2D" parent="."]
 

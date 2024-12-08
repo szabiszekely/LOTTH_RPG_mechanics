@@ -258,7 +258,7 @@ range_in_cm = 15.0
 y_sort_enabled = true
 position = Vector2(0, -2)
 script = ExtResource("1_84k3t")
-player = NodePath("Player_group/Player")
+player = NodePath("NavigationRegion2D/Player_group/Player")
 enemy = NodePath("NavigationRegion2D/Enemy_Group/Enemy4")
 menu = NodePath("UI_battle_menu/Menu")
 
@@ -286,6 +286,7 @@ tile_map_data = PackedByteArray("AAD5//7/AAABAAEAAAD5////AAABAAEAAAD6//7/AAABAAE
 tile_set = SubResource("TileSet_i5ovn")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+top_level = true
 y_sort_enabled = true
 position = Vector2(-1, -120)
 navigation_polygon = SubResource("NavigationPolygon_wueea")
@@ -359,6 +360,15 @@ position = Vector2(-331, -205)
 [node name="Marker2D12" parent="NavigationRegion2D/OBJ_folder" index="11"]
 position = Vector2(-233, -77)
 
+[node name="Player_group" parent="NavigationRegion2D" instance=ExtResource("14_i48of")]
+y_sort_enabled = true
+position = Vector2(1, 120)
+
+[node name="Player" parent="NavigationRegion2D/Player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("15_7vocu")]
+position = Vector2(-452, -188)
+Fight_stats = SubResource("Resource_lkirq")
+Bar = NodePath("../../../UI_battle_menu/Bar_System")
+
 [node name="ProCam" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -397,20 +407,12 @@ bottom_margin = 0.05
 working_radius = 2000.0
 global_debug_draw = false
 
-[node name="Player_group" parent="." instance=ExtResource("14_i48of")]
-y_sort_enabled = true
-
-[node name="Player" parent="Player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("15_7vocu")]
-position = Vector2(-452, -188)
-Fight_stats = SubResource("Resource_lkirq")
-Bar = NodePath("../../UI_battle_menu/Bar_System")
-
 [node name="UI_battle_menu" parent="." instance=ExtResource("16_fvjuy")]
 script = ExtResource("17_eljyc")
 
 [node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("enemy_group", "player_group", "get_the_children", "Mouse_camera_toggler")]
 enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
-player_group = NodePath("../../Player_group")
+player_group = NodePath("../../NavigationRegion2D/Player_group")
 Action_button_handler = ExtResource("18_ai41k")
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../../Mouse Pointer")
@@ -418,16 +420,13 @@ Mouse_camera_toggler = NodePath("../../Mouse Pointer")
 [node name="Run_Panel_choice" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("get_menu")]
 get_menu = NodePath("../Menu")
 
-[node name="Bagpack" parent="UI_battle_menu" index="2" node_paths=PackedStringArray("menu_system")]
-menu_system = NodePath("../Menu")
-
 [node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
 text = "Focus"
 
 [node name="Bar_System" parent="UI_battle_menu" index="6" node_paths=PackedStringArray("assined_characters")]
 offset_top = 36.0
 offset_bottom = 64.0
-assined_characters = NodePath("../../Player_group/Player")
+assined_characters = NodePath("../../NavigationRegion2D/Player_group/Player")
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("19_rqvbx")]
 do_i_need_it = true

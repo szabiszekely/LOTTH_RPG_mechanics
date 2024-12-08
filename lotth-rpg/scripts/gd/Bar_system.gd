@@ -54,7 +54,7 @@ func bar_damage_taken(damage:int):
 			await get_tree().create_timer(0.32).timeout
 			if assined_characters.Fight_stats.ENG <= 0:
 				assined_characters.Fight_stats.ENG = 0
-			print("INSIDE: ",assined_characters.Fight_stats.ENG)
+			#print("INSIDE: ",assined_characters.Fight_stats.ENG)
 		# same here but with the heart!
 		elif not HP_bar.material.get_shader_parameter("value") < 0:
 			HP_bar.material.set_shader_parameter("value",HP_bar.material.get_shader_parameter("value") - offset_value)
@@ -69,14 +69,14 @@ func bar_damage_taken(damage:int):
 				assined_characters.Fight_stats.HP = 0
 
 func bar_health_restored(health_gain:int,heal_eng_or_health: int):
-	print("Hi I'm: ", health_gain)
+	#print("Hi I'm: ", health_gain)
 	for i in health_gain:
 		# same here but with the heart!
 		match heal_eng_or_health:
 			1:
 				# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
 				if not assined_characters.Fight_stats.ENG >= assined_characters.Fight_stats.MAX_ENG:
-					print(assined_characters.Fight_stats.ENG)
+					#print(assined_characters.Fight_stats.ENG)
 					ENG_bar.material.set_shader_parameter("value",ENG_bar.material.get_shader_parameter("value") + offset_value)
 					assined_characters.Fight_stats.ENG += 1
 					await get_tree().create_timer(0.15).timeout

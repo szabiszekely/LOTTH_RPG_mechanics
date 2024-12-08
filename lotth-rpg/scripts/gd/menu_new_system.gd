@@ -82,7 +82,7 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
-	
+	#print(current_state)
 	match current_state:
 		Menu_state.MENU:
 			current_memory_state = current_state
@@ -91,6 +91,7 @@ func _process(_delta: float) -> void:
 		Menu_state.ABILITES:
 			current_memory_state = current_state
 			if abi_container == true:
+				abi = true
 				menu.show()
 				ability_card_choice.abi_appear()
 				abi_container = false
@@ -124,6 +125,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		match current_state:
 			Menu_state.ABILITES:
+				
+					
 				menu_index = 0
 				vanish()
 				switching_buttons()
@@ -149,10 +152,10 @@ func _input(event: InputEvent) -> void:
 					current_state = Menu_state.MENU
 					#switching_buttons()
 				elif abi == true:
-					enemy_group._reset_focus()
-					menu.show()
 					vanish()
+					enemy_group._reset_focus()
 					abi = false
+					abi_container = true
 					current_state = Menu_state.ABILITES
 				elif bag == true:
 					enemy_group._reset_focus()
@@ -229,7 +232,8 @@ func switching_buttons():
 
 func _on_abilities_pressed() -> void:
 	vanish()
-	abi = true
+	
+	
 	abi_container = true
 	current_state = Menu_state.ABILITES
 
@@ -257,11 +261,9 @@ func _on_run_pressed() -> void:
 
 func hide_after_act_pressed_for_Text():
 	enemy_group.act_options.act_disappear()
-	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.2).set_trans(Tween.TRANS_QUAD)
 	
 	menu.hide()
-	await tweens.finished
+	
 
 func action_button_pressed() -> void:
 	
@@ -293,3 +295,7 @@ func action_button_pressed() -> void:
 	if bottom_right.is_pressed():
 		hide_after_act_pressed_for_Text()
 		Action_button_handler._get_button_text_action(bottom_right.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
+	player_group.player[0]._camera_off()
+	enemy_group.enemies[enemy_group.index]._camera_on()
+	
+	

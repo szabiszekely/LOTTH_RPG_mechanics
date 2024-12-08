@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Deck_builder" load_steps=2 format=3 uid="uid://elxbtr5j0ugc"]
+
+[ext_resource type="Script" path="res://scripts/resources/Decks/Decks.gd" id="1_hsudt"]
+
+[resource]
+script = ExtResource("1_hsudt")
+Deck = PackedStringArray()

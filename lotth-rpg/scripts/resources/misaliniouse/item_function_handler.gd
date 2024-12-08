@@ -25,7 +25,7 @@ func Knife():
 	print("knife arrived")
 	
 func Heart_Breaker():
-	enemy_handeler.enemies[0]._take_true_damage(item_data["Dmg"],enemy_handeler.enemies[0].Fight_stats.Attack_Type)
+	enemy_handeler.enemies[0]._take_true_damage(item_data["Dmg"])
 	print("Heart Breaker arrived")
 	
 func Apple():

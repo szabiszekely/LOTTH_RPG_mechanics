@@ -43,19 +43,10 @@ func _Damage_Taken(Attacker_Base_Damage:int,Attacker_Strengh:int,Self_Defense:in
 		
 	return Total_damage
 
-func _True_Damage_Taken(Attacker_Base_Damage: int,Self_ATK_type:int,Attacker_ATK_type:int):
-	var Damage_Type = 0
-	# if they have the same number than nothing happens 0 bonus!
-	if Self_ATK_type == Attacker_ATK_type:
-		Damage_Type = 0
-	# if the damage dealer has a bigger number OR the own type is 2 and the dealer is 0 than the attack dealer gets +1 damage!
-	elif Self_ATK_type < Attacker_ATK_type or Self_ATK_type == 2 and Attacker_ATK_type == 0:
-		Damage_Type = 1
-	# however if this the self type is higher than the dealers attack will be down by 1
-	elif Self_ATK_type > Attacker_ATK_type or Self_ATK_type == 0 and Attacker_ATK_type == 2: 
-		Damage_Type = -1
+func _True_Damage_Taken(Attacker_Base_Damage: int):
 	
-	var Total_damage = Attacker_Base_Damage + (Damage_Type)
+	
+	var Total_damage = Attacker_Base_Damage 
 	return Total_damage
 
 # you throw a 1-6 dice and this will be you starting position!

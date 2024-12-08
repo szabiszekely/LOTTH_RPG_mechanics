@@ -33,6 +33,7 @@ func act_add_actions(list_of_added):
 	var amount_of_options = [check,focus,guard]
 	list_of_buttons = [top_left,middle_left,bottom_left,top_right,middle_right,bottom_right]
 	for i in list_of_added:
+	
 		var index_of_string = list_of_added.find(i)
 		var change = list_of_buttons[index_of_string]
 		change.text = i

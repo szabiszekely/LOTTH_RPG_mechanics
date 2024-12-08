@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Deck_builder" load_steps=2 format=3 uid="uid://crwr284rccjgq"]
+
+[ext_resource type="Script" path="res://scripts/resources/Decks/Decks.gd" id="1_x7ng8"]
+
+[resource]
+script = ExtResource("1_x7ng8")
+Deck = PackedStringArray("Agressive Stomp", "Byecicle", "Curved Slash", "Dual Wielding", "Funny Magic", "Healling care", "Mile Punch", "Thunder Song")

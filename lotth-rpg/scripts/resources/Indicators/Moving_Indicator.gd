@@ -20,14 +20,14 @@ func update(source, mouse_position, delta,mouse_in):
 			var dir = (mouse_position - source.position).normalized()
 			# get the length which I clamp between the same dir but this time I get the lenght which is just a flat number and than
 			# set it between 0 and 150
-			var length = clamp((mouse_position - source.position).length(),0,150)
+			var length = clamp((mouse_position - source.position).length(),0,Fight_stats.range_in_cm * 10)
 			# and finally the cursor position must be inside the ellipse which is determend by this formula... DO NOT ASK
 			cursor_reference.global_position  = source.position + Vector2(dir.x,dir.y) * length 
 		else:
 			# if the cursor is outside the ellipse we want it to cap it at the edge of the ellipse so we just change the clamp value
 			var dir = (mouse_position - source.position).normalized()
 			#															HERE to not go anywhere else!
-			var length = clamp((mouse_position - source.position).length(),140,150)
+			var length = clamp((mouse_position - source.position).length(),(Fight_stats.range_in_cm * 10)-10,Fight_stats.range_in_cm * 10)
 			# finally we just cap the y value to half bc ellipse is just circle with half of much hight!
 			cursor_reference.position  = Vector2(dir.x,dir.y/2)* length
 		

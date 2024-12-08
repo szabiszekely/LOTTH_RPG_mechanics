@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw51ahvw65b5x"]
+
+[ext_resource type="Script" path="res://scripts/gd/battle_spawnpoint.gd" id="1_ci2ms"]
+
+[node name="Battle_Spawnpoint" type="Marker2D"]
+script = ExtResource("1_ci2ms")

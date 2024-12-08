@@ -491,12 +491,13 @@ shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target")]
 script = ExtResource("1_pbqx5")
 Turn_portriat = ExtResource("2_gg1ba")
 Initiative = ExtResource("3_gt5bv")
 Fight_stats = ExtResource("4_ndcdo")
 Bar = NodePath("Bar_system")
+cam_target = NodePath("PCamTarget")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

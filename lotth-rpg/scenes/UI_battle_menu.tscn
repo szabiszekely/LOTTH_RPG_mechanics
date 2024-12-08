@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=23 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
 [ext_resource type="Script" path="res://scripts/gd/menu_new_system.gd" id="1_f5k7w"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://blvji106ulh0d" path="res://assets/sprite/bag_panel_choice.tscn" id="10_4fxo3"]
 [ext_resource type="PackedScene" uid="uid://cjwahpm5wkav5" path="res://scenes/ability_card_choice.tscn" id="11_jdhws"]
 [ext_resource type="PackedScene" uid="uid://drwei0kix2h5l" path="res://scenes/action_option_box.tscn" id="12_1fmx7"]
+[ext_resource type="Script" path="res://scripts/resources/misaliniouse/ability_function_handler.gd" id="12_aptlp"]
 [ext_resource type="PackedScene" uid="uid://diogqwfdea76u" path="res://text_folder/static_text_box.tscn" id="13_np6xt"]
 
 [sub_resource type="Resource" id="Resource_klhjk"]
@@ -67,6 +68,9 @@ corner_radius_bottom_left = 5
 corner_detail = 4
 shadow_color = Color(0, 0, 0, 0.392157)
 shadow_size = 50
+
+[sub_resource type="Resource" id="Resource_bx048"]
+script = ExtResource("12_aptlp")
 
 [node name="UI_battle_menu" type="CanvasLayer"]
 layer = 2
@@ -160,10 +164,11 @@ offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
+[node name="Bagpack" parent="." node_paths=PackedStringArray("menu_system") instance=ExtResource("10_4fxo3")]
 z_index = -1
 offset_top = 3.0
 offset_bottom = 358.0
+menu_system = NodePath("../Menu")
 
 [node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
 z_index = -1
@@ -185,6 +190,7 @@ offset_top = -128.0
 offset_right = 75.0
 offset_bottom = -128.0
 menu = NodePath("../Menu")
+ability_func = SubResource("Resource_bx048")
 
 [node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
 anchors_preset = 6
