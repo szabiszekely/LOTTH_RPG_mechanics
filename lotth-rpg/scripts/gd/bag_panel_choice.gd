@@ -40,12 +40,13 @@ func bag_disappear():
 func _on_item_list_item_activated(index: int) -> void:
 	var my_data = Data.get_item_data(item_list[index])
 	
+	menu_system.vanish()
 	
-	item_handler._get_item_and_redirect_it(my_data,menu_system.player_group,menu_system.enemy_group)
-	inventory.remove_item(index)
-	item_list.remove_at(index)
-	inventory.select(index)
-	item_count_check()
+	item_handler._get_item_and_redirect_it(my_data,menu_system,menu_system.player_group,menu_system.enemy_group)
+	#inventory.remove_item(index)
+	#item_list.remove_at(index)
+	#inventory.select(index)
+	#item_count_check()
 	
 func _on_add_button_pressed() -> void:
 	var random_item = randi() % 4

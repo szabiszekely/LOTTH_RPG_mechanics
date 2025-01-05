@@ -29,6 +29,40 @@ func get_item_id(ID = 0):
 func get_item_data(ID = 0):
 	return content["Items"][ID]
 
+func get_item_dmg(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["Dmg"]
+func get_item_t_dmg(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["T.Dmg"]
+func get_item_eng(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["Eng"]
+
+func get_item_hp(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["Hp"]
+
+func get_item_damage_type(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			if 0 < i["T.Dmg"]:
+				return true
+			else:
+				return false
+
+func get_item_health_type(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			if 0 < i["Hp"]:
+				return true
+			else:
+				return false
+
 # Actions-------------------------------------------
 
 func get_actions_of_enemy(ID = 0):

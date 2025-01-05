@@ -14,7 +14,8 @@ class_name Indicator_bar
 @onready var energy_text: Panel = $Energy
 # this value is the one that will have a float number to decrease it or increase the health!
 var offset_value : float
-
+var constant_damage = 0 
+var constant_health = 0
 var current_health: int
 
 func _ready():
@@ -42,14 +43,22 @@ func _process(_delta: float) -> void:
 		
 func bar_damage_taken(damage:int):
 	#every damage I took I do this so... animation!
+	#constant_damage += damage
+	#constant_damage -= 1
+	
 	for i in damage:
+		#print("DAMAGE: ",constant_damage)
+		#if constant_damage < 0:
+			#print("megszegte!!!")
+			#break
 		# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
 		if not ENG_bar.material.get_shader_parameter("value") < 0:
 			ENG_bar.material.set_shader_parameter("value",ENG_bar.material.get_shader_parameter("value") - offset_value)
+			var energy_text_pos = 238
 			var tweens = get_tree().create_tween()
 			tweens.tween_property(energy_text,"position",Vector2(energy_text.position.x - 10,energy_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			tweens.tween_property(energy_text,"position",Vector2(energy_text.position.x + 10,energy_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
-			tweens.tween_property(energy_text,"position",Vector2(energy_text.position.x + 0,energy_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
+			tweens.tween_property(energy_text,"position",Vector2(energy_text_pos,energy_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			assined_characters.Fight_stats.ENG -= 1
 			await get_tree().create_timer(0.32).timeout
 			if assined_characters.Fight_stats.ENG <= 0:
@@ -58,19 +67,26 @@ func bar_damage_taken(damage:int):
 		# same here but with the heart!
 		elif not HP_bar.material.get_shader_parameter("value") < 0:
 			HP_bar.material.set_shader_parameter("value",HP_bar.material.get_shader_parameter("value") - offset_value)
+			var hp_text_pos = 147
 			var tweens = get_tree().create_tween()
 			tweens.tween_property(health_text,"position",Vector2(health_text.position.x - 10,health_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			tweens.tween_property(health_text,"position",Vector2(health_text.position.x + 10,health_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
-			tweens.tween_property(health_text,"position",Vector2(health_text.position.x + 0,health_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
+			tweens.tween_property(health_text,"position",Vector2(hp_text_pos,health_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			assined_characters.Fight_stats.HP -= 1
 			await get_tree().create_timer(0.32).timeout
 			
 			if assined_characters.Fight_stats.HP <= 0:
 				assined_characters.Fight_stats.HP = 0
-
 func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 	#print("Hi I'm: ", health_gain)
+	#constant_health += health_gain
+	#await get_tree().create_timer(1).timeout
 	for i in health_gain:
+		#if constant_health < 0:
+			#print("megszegte!!!")
+			#break
+		#constant_health -= 1
+		#print("HEALTH: ",constant_health)
 		# same here but with the heart!
 		match heal_eng_or_health:
 			1:
@@ -86,7 +102,6 @@ func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 					HP_bar.material.set_shader_parameter("value",HP_bar.material.get_shader_parameter("value") + offset_value)
 					assined_characters.Fight_stats.HP += 1
 					await get_tree().create_timer(0.15).timeout
-			
 			
 			
 

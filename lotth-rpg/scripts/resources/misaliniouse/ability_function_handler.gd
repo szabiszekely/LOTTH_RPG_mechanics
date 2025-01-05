@@ -6,10 +6,6 @@ var enemy
 var player
 var menu_system
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 func _get_what_ability_got_used(Name_of_Ability_Card,Menu,enemy_group,player_group):
 	print(enemy_group.enemies," ",player_group)
 	name_of_abi = Name_of_Ability_Card

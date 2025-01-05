@@ -528,7 +528,7 @@ libraries = {
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-3, -76)
+position = Vector2(-3, -54)
 scale = Vector2(3, 3)
 texture = ExtResource("2_htaiq")
 
@@ -538,9 +538,9 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Bar_system" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("4_700jv")]
 offset_left = -114.0
-offset_top = -83.0
+offset_top = -107.0
 offset_right = -114.0
-offset_bottom = -83.0
+offset_bottom = -107.0
 scale = Vector2(1.74, 1.74)
 assined_characters = NodePath("..")
 

@@ -13,7 +13,7 @@ class_name Player
 #var load_lil_guy_control = preload("res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres")
 var distance = Vector2()
 var is_inside_the_range: bool = false
-
+var player_active = false
 
 func _ready() -> void:
 	
@@ -24,27 +24,26 @@ func _ready() -> void:
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
 	Initiative.all_rolls.append(initiative_peronality)
 	
-	# also set the collision shape up and the area
-	collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
-	indicator.set_reference(self)
+	
 
 func _physics_process(delta: float) -> void:
-	# update the indicator
-	update(delta)
-	# get the distance for the navigation and a bunch of nav stuff I don't entirely understand! and just move there!
-	distance = Vector2(nav_agent.get_next_path_position() - position)
-	if nav_agent.is_navigation_finished():
-		return
-	velocity.x = distance.normalized().x * speed
-	velocity.y = distance.normalized().y * speed
-	move_and_slide()
-	#await get_tree().create_timer(3).timeout
-	#print("done") 
-	#goal = self.position
-		
-	# when I click then the navigation gets the position ect, ect I don't get it too much
+	
+	if player_active:
+		# update the indicator
+		update(delta)
+		# get the distance for the navigation and a bunch of nav stuff I don't entirely understand! and just move there!
+		distance = Vector2(nav_agent.get_next_path_position() - position)
+		if nav_agent.is_navigation_finished():
+			return
+		velocity.x = distance.normalized().x * speed
+		velocity.y = distance.normalized().y * speed
+		move_and_slide()
+		#await get_tree().create_timer(3).timeout
+		#print("done") 
+		#goal = self.position
+		# when I click then the navigation gets the position ect, ect I don't get it too much
 func _input(event) -> void:
-	if event.is_action_pressed("clicked") and indicator.activated:
+	if event.is_action_pressed("clicked") and indicator.activated and player_active:
 		var map = get_world_2d().navigation_map
 		var p = NavigationServer2D.map_get_closest_point(map,moving_indicator.cursor_reference.global_position)
 		nav_agent.target_position = p
@@ -58,3 +57,14 @@ func _on_area_2d_mouse_entered() -> void:
 	is_inside_the_range = true
 func _on_area_2d_mouse_exited() -> void:
 	is_inside_the_range = false
+
+func player_switch_on():
+	collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
+	indicator.set_reference(self)
+	player_active = true
+	_camera_on()
+
+func player_switch_off():
+	indicator.reset()
+	player_active = false
+	_camera_off()

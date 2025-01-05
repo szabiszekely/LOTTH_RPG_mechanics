@@ -6,6 +6,7 @@
   "Texture": "meat.png",
   "Hp": 0,
   "Eng": 4,
+  "T.Dmg": 0,
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
@@ -17,10 +18,11 @@
   "Texture": "knife.png",
   "Hp": 0,
   "Eng": 0,
+  "T.Dmg": 0,
   "Dmg": 3,
   "Usage": 1,
   "Emp": 0,
-  "Description": "Sharp but it looks ass"
+  "Description": "Sharp and it looks ass"
  },
  {
   "Id": 2,
@@ -28,7 +30,8 @@
   "Texture": "heart_breaker.png",
   "Hp": 0,
   "Eng": 0,
-  "Dmg": 2,
+  "T.Dmg": 2,
+  "Dmg": 0,
   "Usage": 1,
   "Emp": 0,
   "Description": "Looks like a can of coke but for your tounge "
@@ -39,6 +42,7 @@
   "Texture": "apple.png",
   "Hp": 0,
   "Eng": 3,
+  "T.Dmg": 0,
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
@@ -66,10 +70,6 @@
   "Action 5": 0,
   "Action 6": 0
  },
- null,
- {
-  "Action 5": " "
- }
 ],
 "Abilities":[
  {

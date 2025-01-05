@@ -33,6 +33,7 @@ func _unfocus_indicator():
 func _camera_off():
 	cam_target.enabled = false
 #take damage function is here to make everything work what is conected to health or energy!
+
 func _take_damage(base_damage,strengh,attacker_type):
 	var hit = Fight_stats._Damage_Taken(base_damage,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type)
 	#var hit = strengh
@@ -50,9 +51,9 @@ func _use_card_and_lose_eng(Name:String):
 	Bar.bar_damage_taken(hit)
 
 func _use_card_and_gain_eng(Name:String,Heart_or_Eng: int):
-	var hit =  Data.get_card_energy(Name)
-	print(hit)
-	Bar.bar_damage_taken(hit)
+	#var hit =  Data.get_card_energy(Name)
+	#print(hit)
+	#Bar.bar_damage_taken(hit)
 	Bar.bar_health_restored(Data.get_card_eng_healed(Name),Heart_or_Eng)
 
 func _take_true_damage(base_damage):

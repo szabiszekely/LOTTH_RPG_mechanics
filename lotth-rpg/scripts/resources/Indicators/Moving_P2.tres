@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MovingIndicator" load_steps=5 format=3 uid="uid://dek0aksv1a17e"]
+
+[ext_resource type="Resource" uid="uid://bi100idx5gxxv" path="res://scripts/resources/CH/Seriouse_Guy_Fighting_Stats.tres" id="1_ddv6s"]
+[ext_resource type="Script" path="res://scripts/resources/Indicators/Moving_Indicator.gd" id="1_f3it8"]
+[ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/Cursor.png" id="2_ucqki"]
+[ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="4_uu8om"]
+
+[resource]
+script = ExtResource("1_f3it8")
+cursor_texture = ExtResource("2_ucqki")
+Fight_stats = ExtResource("1_ddv6s")
+texture = ExtResource("4_uu8om")

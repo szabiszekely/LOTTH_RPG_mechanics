@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hsxbv5b68d66"
-path="res://.godot/imported/right_leg.png-2152f94a883b22c0d363b65988630563.ctex"
+uid="uid://jgcn7jkoq8nj"
+path="res://.godot/imported/player_2_sprite_sheet_better.png-a133073200789bbc9de87b8da6a275e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Player 2/body_parts/right_leg.png"
-dest_files=["res://.godot/imported/right_leg.png-2152f94a883b22c0d363b65988630563.ctex"]
+source_file="res://assets/sprite/Player 2/player_2_sprite_sheet_better.png"
+dest_files=["res://.godot/imported/player_2_sprite_sheet_better.png-a133073200789bbc9de87b8da6a275e1.ctex"]
 
 [params]
 

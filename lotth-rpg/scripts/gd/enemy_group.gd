@@ -8,6 +8,7 @@ class_name Enemy_group
 @export var menu_system: Menu_system
 
 var card_againts_enemies
+var item_againts_enemies
 var enemies: Array = []
 var index: int = 0
 #var options_are_on = false
@@ -24,8 +25,9 @@ var start_choosing = false
 func _ready() -> void:
 	enemies = get_children()
 	#print(enemies)
-	show_choices()
+	#show_choices()
 	
+
 
 # I honestly want to replan this because this looks ugly af! (2024/10/12)
 func _process(_delta: float) -> void:
@@ -65,15 +67,26 @@ func _process(_delta: float) -> void:
 				
 				menu.show()
 			
-			if menu_system.abi == true and start_choosing == true:
-				menu_system.abi = false
-				menu.player_group.player[0]._use_card_and_lose_eng(card_againts_enemies)
+			if menu_system.abi == true:
+				#menu_system.abi = false
+				menu.player_group.player[menu.player_group.index]._use_card_and_lose_eng(card_againts_enemies)
 				if Data.get_card_damage_type(card_againts_enemies) == true:
 					enemies[index]._take_true_damage(Data.get_card_damage(card_againts_enemies))
 				else:
-					enemies[index]._take_damage(menu.player_group.player[0].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(card_againts_enemies),menu.player_group.player[0].Fight_stats.Attack_Type)
+					enemies[index]._take_damage(menu.player_group.player[menu.player_group.index].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(card_againts_enemies),menu.player_group.player[menu.player_group.index].Fight_stats.Attack_Type)
 					
 				print("You have a chance to attack the enemy")
+				start_choosing = false
+				
+			if menu_system.bag == true:
+				#menu_system.bag = false
+				
+				if Data.get_item_damage_type(item_againts_enemies) == true:
+					enemies[index]._take_true_damage(Data.get_item_t_dmg(item_againts_enemies))
+				else:
+					enemies[index]._take_damage(menu.player_group.player[menu.player_group.index].Fight_stats.Base_Phisical_Attack,Data.get_item_dmg(item_againts_enemies),menu.player_group.player[menu.player_group.index].Fight_stats.Attack_Type)
+				
+				
 				start_choosing = false
 				
 				

@@ -34,7 +34,8 @@ func _Damage_Taken(Attacker_Base_Damage:int,Attacker_Strengh:int,Self_Defense:in
 	# however if this the self type is higher than the dealers attack will be down by 1
 	elif Self_ATK_type > Attacker_ATK_type or Self_ATK_type == 0 and Attacker_ATK_type == 2: 
 		Damage_Type = -1
-	
+	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Bonuse: 0))
+	# 6 + (1(0) = 7
 	# the formula for the Total_damage!
 	var Total_damage =  Attacker_Base_Damage + (Attacker_Strengh - Self_Defense + (Damage_Type))
 	# and if the total_damage is smaller than 0 than we round it up to 1 so you don't deal negative or 0 damage! 

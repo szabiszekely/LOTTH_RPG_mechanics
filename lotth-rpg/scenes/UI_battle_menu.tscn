@@ -205,12 +205,6 @@ offset_bottom = 210.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Bar_System" parent="." instance=ExtResource("6_a2nnn")]
-offset_left = 4.0
-offset_top = 34.0
-offset_right = 251.0
-offset_bottom = 62.0
-
 [node name="Mouse Pointer" parent="." instance=ExtResource("9_tjhqe")]
 active = true
 
@@ -241,6 +235,19 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_top = 37.0
+offset_right = 454.0
+offset_bottom = 286.0
+theme_override_constants/separation = 80
+
+[node name="Bar_System_P1" parent="VBoxContainer" instance=ExtResource("6_a2nnn")]
+custom_minimum_size = Vector2(0.665, 0)
+layout_mode = 2
+
+[node name="Bar_system_P2" parent="VBoxContainer" instance=ExtResource("6_a2nnn")]
+layout_mode = 2
 
 [connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_exited"]

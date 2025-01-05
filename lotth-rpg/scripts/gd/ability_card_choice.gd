@@ -70,7 +70,7 @@ func add_abilities(list_of_abilities: Array):
 		change_text_in_abi_list.modulate = Color.WHITE
 		change_text_in_abi_list.focus_mode = Control.FOCUS_ALL
 		change_text_in_abi_list.text = str(i)
-	print(list_of_abilities.size())
+	#print(list_of_abilities.size())
 	if list_of_abilities.size() < 10:
 		next_previouse_page.focus_mode = Control.FOCUS_NONE
 		next_previouse_page.disabled = true
@@ -124,18 +124,20 @@ func pressed() -> void:
 	
 	menu.vanish()
 	if str(target) == "Self":
-		print("GAHoy")
-		menu.player_group.player[0]._use_card_and_gain_eng(used_card_name,Data.get_card_eng_or_hp(used_card_name))
+		
+		menu.choose_player_container = true
+		menu.player_group.card_againts_players = used_card_name
+		menu.current_state = menu.Menu_state.CHOOSING_PLAYERS
 	else:
 		menu.choose_enemy_container = true
 		menu.enemy_group.card_againts_enemies = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
-		menu.player_group.player[0]._camera_off()
+		
+		menu.player_group.player[menu.player_group.index]._camera_off()
 		menu.enemy_group.enemies[menu.enemy_group.index]._camera_on()
 		await get_tree().create_timer(2).timeout
 		menu.enemy_group.enemies[menu.enemy_group.index]._camera_off()
-		menu.player_group.player[0]._camera_on()
-		print("Derek")
+
 		
 	
 	ability_func._get_what_ability_got_used(used_card_name,menu,menu.enemy_group,menu.player_group)

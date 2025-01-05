@@ -63,6 +63,7 @@ var act_container = false
 var bag_container = false
 var run_container = false
 var choose_enemy_container = false
+var choose_player_container = false
 
 var current_state
 var current_memory_state
@@ -83,8 +84,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	#print(current_state)
+	
 	match current_state:
 		Menu_state.MENU:
+			player_group.player[player_group.index]._camera_on()
 			current_memory_state = current_state
 			static_dialogue_box.show()
 			
@@ -118,6 +121,12 @@ func _process(_delta: float) -> void:
 			if choose_enemy_container == true:
 				enemy_group._start_choosing()
 				choose_enemy_container = false
+		Menu_state.CHOOSING_PLAYERS:
+			
+			current_memory_state = current_state
+			if choose_player_container == true:
+				player_group._start_choosing()
+				choose_player_container = false
 		Menu_state.ALL_GONE:
 			all_gone()
 
@@ -125,15 +134,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		match current_state:
 			Menu_state.ABILITES:
-				
-					
 				menu_index = 0
 				vanish()
+				abi = false
 				switching_buttons()
 				current_state = Menu_state.MENU
 			Menu_state.BAG:
 				menu_index = 2
 				vanish()
+				bag = false
 				switching_buttons()
 				current_state = Menu_state.MENU
 			Menu_state.RUN:
@@ -148,17 +157,39 @@ func _input(event: InputEvent) -> void:
 					enemy_group._reset_focus()
 					vanish()
 					act = false
+					act_container = false
 					switching_buttons()
 					current_state = Menu_state.MENU
-					#switching_buttons()
 				elif abi == true:
-					vanish()
 					enemy_group._reset_focus()
+					vanish()
 					abi = false
 					abi_container = true
 					current_state = Menu_state.ABILITES
 				elif bag == true:
 					enemy_group._reset_focus()
+					menu.show()
+					vanish()
+					bag = false
+					bag_container = true
+					current_state = Menu_state.BAG
+			Menu_state.CHOOSING_PLAYERS:
+				if act == true:
+					menu_index = 1
+					player_group._reset_focus()
+					vanish()
+					act = false
+					switching_buttons()
+					current_state = Menu_state.MENU
+					#switching_buttons()
+				elif abi == true:
+					vanish()
+					player_group._reset_focus()
+					abi = false
+					abi_container = true
+					current_state = Menu_state.ABILITES
+				elif bag == true:
+					player_group._reset_focus()
 					menu.show()
 					vanish()
 					bag = false
@@ -211,10 +242,12 @@ func all_gone():
 	bagpack_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	run_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	enemy_group.start_choosing = false
-	
+	player_group.start_choosing = false
 func back_to_normal():
 	if current_memory_state == 5:
 		enemy_group.start_choosing = true
+	if current_memory_state == 6:
+		player_group.start_choosing = true
 	abilities.process_mode = Node.PROCESS_MODE_INHERIT
 	action.process_mode = Node.PROCESS_MODE_INHERIT
 	bagpack.process_mode = Node.PROCESS_MODE_INHERIT
@@ -232,8 +265,6 @@ func switching_buttons():
 
 func _on_abilities_pressed() -> void:
 	vanish()
-	
-	
 	abi_container = true
 	current_state = Menu_state.ABILITES
 
@@ -295,7 +326,7 @@ func action_button_pressed() -> void:
 	if bottom_right.is_pressed():
 		hide_after_act_pressed_for_Text()
 		Action_button_handler._get_button_text_action(bottom_right.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	player_group.player[0]._camera_off()
-	enemy_group.enemies[enemy_group.index]._camera_on()
+	player_group.player[player_group.index]._camera_off()
+	enemy_group.enemies[enemy_group.index]._camera_off()
 	
 	
