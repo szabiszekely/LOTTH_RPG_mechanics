@@ -6,9 +6,10 @@ class_name Character_Controller
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
+@export var Turn_portriat: CompressedTexture2D
 @export var Bar: Indicator_bar
 @export var cam_target: Node2D
-
+@export var Initiative: Initiative_class = preload("res://scripts/resources/misaliniouse/Initiative_resource.tres")
 
 
 #plays either health hit animation or energy drain animation!
@@ -67,4 +68,11 @@ func _take_true_damage(base_damage):
 func _damage_healed(amount,which_to_heal):
 	Bar.bar_health_restored(amount,which_to_heal)
 	
-	
+
+func roll_of_the_luck():
+	var roll = Fight_stats.Speed + Fight_stats._Initiative()
+	print(Fight_stats.name," ",roll)
+	# this is where the rolls and other stats that needs them to be determend are stored
+	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
+	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
+	Initiative.all_rolls.append(initiative_peronality)

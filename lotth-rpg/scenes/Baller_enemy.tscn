@@ -1,9 +1,8 @@
-[gd_scene load_steps=76 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=75 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="2_htaiq"]
-[ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="3_gt5bv"]
 [ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="4_700jv"]
 [ext_resource type="Resource" uid="uid://dps5ywyu0gs31" path="res://scripts/resources/CH/Baller_Figting_Stats.tres" id="4_ndcdo"]
 [ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280.png" id="5_bdy0d"]
@@ -493,9 +492,8 @@ shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target")]
 script = ExtResource("1_pbqx5")
-Turn_portriat = ExtResource("2_gg1ba")
-Initiative = ExtResource("3_gt5bv")
 Fight_stats = ExtResource("4_ndcdo")
+Turn_portriat = ExtResource("2_gg1ba")
 Bar = NodePath("Bar_system")
 cam_target = NodePath("PCamTarget")
 
@@ -585,7 +583,7 @@ shape = SubResource("RectangleShape2D_f33j1")
 
 [node name="PCamTarget" type="Node2D" parent="."]
 script = ExtResource("12_wuf5g")
-radius = 300.0
+radius = 150.0
 enabled = false
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

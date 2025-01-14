@@ -27,6 +27,10 @@ func _getting_all_rolls(rolls:Array,source):
 		source.add_child(container)
 		container.add_child(portrait_icon)
 		
+
+func _roll_reset():
+	pass
+
 # this how the priority works:
 func priority(a,b):
 	# if the rolls are the same than check-

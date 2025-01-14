@@ -33,10 +33,19 @@ func Dual_Wielding():
 	pass
 
 func Funny_Magic():
-	print("Wohohoo I'm a funny wizard")
+	player.player[player.index].skill = preload("res://scripts/resources/Indicators/Skill/FireSwarm.tres")
+	player.player[player.index].skill.skill_base_damage = Data.get_card_damage(name_of_abi)
+	player.player[player.index].skill.skill_attack_type = Data.get_card_attack_type(name_of_abi)
+	player.player[player.index].skill.player_reference = player.player[player.index]
+	#player.player[player.index].skill.indicator.range = Data.get_card_range(name_of_abi)
+	player.player[player.index].skill.indicator.set_reference(player.player[player.index])
 
 func Thunder_Song():
-	pass
-	
+	player.player[player.index].skill = preload("res://scripts/resources/Indicators/Skill/AreaBoom.tres")
+	player.player[player.index].skill.skill_base_damage = Data.get_card_damage(name_of_abi)
+	player.player[player.index].skill.skill_attack_type = Data.get_card_attack_type(name_of_abi)
+	player.player[player.index].skill.player_reference = player.player[player.index]
+	player.player[player.index].skill.indicator.range = Data.get_card_range(name_of_abi)
+	player.player[player.index].skill.indicator.set_reference(player.player[player.index])
 func Healling_care():
 	pass

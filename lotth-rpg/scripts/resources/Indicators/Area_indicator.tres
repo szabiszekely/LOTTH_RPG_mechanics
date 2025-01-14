@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AreaIndicator" load_steps=4 format=3 uid="uid://bhsr4qyngm1qy"]
+
+[ext_resource type="Texture2D" uid="uid://dpd43rlyekaup" path="res://assets/sprite/Player/limiting_cursor.png" id="1_03pws"]
+[ext_resource type="Script" path="res://scripts/resources/Indicators/Area_indicator.gd" id="2_h3kdi"]
+[ext_resource type="Texture2D" uid="uid://du8o6akqfrbno" path="res://assets/sprite/Player/limiting_area.png" id="3_osc6x"]
+
+[resource]
+script = ExtResource("2_h3kdi")
+cursor_texture = ExtResource("1_03pws")
+range = 40
+texture = ExtResource("3_osc6x")

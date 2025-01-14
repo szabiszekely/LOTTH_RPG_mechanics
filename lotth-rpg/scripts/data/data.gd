@@ -90,6 +90,15 @@ func get_card_damage_type(Name: String):
 			else:
 				return false
 			
+func get_card_attack_type(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			if "Melee" == i["Type"]:
+				return 0
+			if "Range" == i["Type"]:
+				return 1
+			if "Magic" == i["Type"]:
+				return 2
 			
 func get_card_energy(Name: String):
 	for i in content["Abilities"]:

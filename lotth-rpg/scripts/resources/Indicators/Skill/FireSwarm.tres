@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Swarm" load_steps=4 format=3 uid="uid://kwyds4pournn"]
+
+[ext_resource type="Resource" uid="uid://bvt2lrb6jk86h" path="res://scripts/resources/Indicators/Multi_indicator.tres" id="1_u8pvy"]
+[ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/projectile.tscn" id="2_8y6bs"]
+[ext_resource type="Script" path="res://scripts/resources/Indicators/Skill/FireSpiral.gd" id="3_04mkt"]
+
+[resource]
+script = ExtResource("3_04mkt")
+count = 50
+title = "Fire Swarm"
+indicator = ExtResource("1_u8pvy")
+projectile_name = "FireSpiral"
+projectile_node = ExtResource("2_8y6bs")

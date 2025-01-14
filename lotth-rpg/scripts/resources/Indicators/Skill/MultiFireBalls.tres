@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MultiShot" load_steps=4 format=3 uid="uid://cdhxyo2lxw5eq"]
+
+[ext_resource type="Resource" uid="uid://bvt2lrb6jk86h" path="res://scripts/resources/Indicators/Multi_indicator.tres" id="1_ec88c"]
+[ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/projectile.tscn" id="2_m2bc5"]
+[ext_resource type="Script" path="res://scripts/resources/Indicators/Skill/Multi_shot.gd" id="3_ewurj"]
+
+[resource]
+script = ExtResource("3_ewurj")
+count = 5
+title = "Multi Fballs"
+indicator = ExtResource("1_ec88c")
+projectile_name = "Fire Balls"
+projectile_node = ExtResource("2_m2bc5")

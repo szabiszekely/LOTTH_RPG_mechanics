@@ -94,7 +94,7 @@
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,
-  "Range": "Target",
+  "Range": 5,
   "Type": "Magic",
   "Eng_or_Hp": 0
  },
@@ -159,7 +159,7 @@
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,
-  "Range": 20,
+  "Range": 15,
   "Type": "Magic",
   "Eng_or_Hp": 0
  },

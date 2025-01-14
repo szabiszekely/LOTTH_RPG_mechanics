@@ -128,7 +128,7 @@ func pressed() -> void:
 		menu.choose_player_container = true
 		menu.player_group.card_againts_players = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_PLAYERS
-	else:
+	elif str(target) == "Target":
 		menu.choose_enemy_container = true
 		menu.enemy_group.card_againts_enemies = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
@@ -137,7 +137,7 @@ func pressed() -> void:
 		menu.enemy_group.enemies[menu.enemy_group.index]._camera_on()
 		await get_tree().create_timer(2).timeout
 		menu.enemy_group.enemies[menu.enemy_group.index]._camera_off()
-
+	
 		
 	
 	ability_func._get_what_ability_got_used(used_card_name,menu,menu.enemy_group,menu.player_group)

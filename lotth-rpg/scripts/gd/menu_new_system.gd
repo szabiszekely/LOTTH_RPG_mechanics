@@ -119,6 +119,7 @@ func _process(_delta: float) -> void:
 		Menu_state.CHOOSING_ENEMIES:
 			current_memory_state = current_state
 			if choose_enemy_container == true:
+				player_group._reset_focus()
 				enemy_group._start_choosing()
 				choose_enemy_container = false
 		Menu_state.CHOOSING_PLAYERS:
@@ -155,6 +156,7 @@ func _input(event: InputEvent) -> void:
 				if act == true:
 					menu_index = 1
 					enemy_group._reset_focus()
+					player_group.player[player_group.index]._camera_on()
 					vanish()
 					act = false
 					act_container = false
@@ -163,6 +165,7 @@ func _input(event: InputEvent) -> void:
 				elif abi == true:
 					enemy_group._reset_focus()
 					vanish()
+					player_group.player[player_group.index]._camera_on()
 					abi = false
 					abi_container = true
 					current_state = Menu_state.ABILITES
@@ -170,20 +173,14 @@ func _input(event: InputEvent) -> void:
 					enemy_group._reset_focus()
 					menu.show()
 					vanish()
+					player_group.player[player_group.index]._camera_on()
 					bag = false
 					bag_container = true
 					current_state = Menu_state.BAG
 			Menu_state.CHOOSING_PLAYERS:
-				if act == true:
-					menu_index = 1
-					player_group._reset_focus()
+				if abi == true:
 					vanish()
-					act = false
-					switching_buttons()
-					current_state = Menu_state.MENU
-					#switching_buttons()
-				elif abi == true:
-					vanish()
+					player_group.player[player_group.index]._camera_on()
 					player_group._reset_focus()
 					abi = false
 					abi_container = true
@@ -192,6 +189,7 @@ func _input(event: InputEvent) -> void:
 					player_group._reset_focus()
 					menu.show()
 					vanish()
+					player_group.player[player_group.index]._camera_on()
 					bag = false
 					current_state = Menu_state.BAG
 				else:
@@ -241,8 +239,9 @@ func all_gone():
 	action_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	bagpack_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	run_choice.process_mode = Node.PROCESS_MODE_DISABLED
-	enemy_group.start_choosing = false
-	player_group.start_choosing = false
+	enemy_group._reset_focus()
+	player_group._reset_focus()
+	
 func back_to_normal():
 	if current_memory_state == 5:
 		enemy_group.start_choosing = true

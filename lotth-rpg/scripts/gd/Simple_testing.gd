@@ -6,7 +6,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	pass
+	print(player.Initiative.all_rolls)
 func _process(_delta: float) -> void:
 	
 	pass

@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://b78min8fkygrg"]
 
 [ext_resource type="Script" path="res://scripts/gd/player_controller.gd" id="1_jcwft"]
-[ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Moving_P1.tres" id="2_oyyrr"]
+[ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Skill/Moving_P1.tres" id="2_oyyrr"]
 [ext_resource type="Texture2D" uid="uid://do4mcmq0nu2su" path="res://assets/sprite/Player 2/Portrait_Icon.png" id="3_y66ul"]
 [ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="4_07u73"]
 [ext_resource type="Resource" uid="uid://bi100idx5gxxv" path="res://scripts/resources/CH/Seriouse_Guy_Fighting_Stats.tres" id="5_qq0or"]
@@ -147,7 +147,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
-size = Vector2(17.0588, 12.3529)
+size = Vector2(12.7778, 11.732)
 
 [sub_resource type="Animation" id="Animation_g3rl5"]
 length = 0.001
@@ -252,20 +252,19 @@ cam_target = NodePath("PCamTarget")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 7)
+position = Vector2(0, 3)
 scale = Vector2(1, 0.51)
 shape = SubResource("CircleShape2D_qs5gw")
 
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.8, 11.2355)
 sprite_frames = SubResource("SpriteFrames_ineu5")
 animation = &"idle"
 frame_progress = 0.455017
 speed_scale = 4.0
-offset = Vector2(0, -27.315)
+offset = Vector2(0.75, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -4.2645)
+position = Vector2(0.5, -1.4412)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
 
@@ -286,7 +285,7 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="PCamTarget" type="Node2D" parent="."]
 script = ExtResource("8_i45f2")
-radius = 300.0
+radius = 150.0
 enabled = false
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

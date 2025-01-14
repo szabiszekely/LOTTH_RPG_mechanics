@@ -40,8 +40,8 @@ func _input(event: InputEvent) -> void:
 			pro_cam.bottom_margin = 0.04
 			pro_cam.smooth_drag_speed = Vector2(10,10)
 	# simple scroll inputs 
-	if event.is_action_released("Mouse_Scroll_Up") and do_i_need_it == true:
-		pro_cam.zoom = clamp(pro_cam.zoom,0.9,2) +  0.1
-		
 	if event.is_action_released("Mouse_scroll_down") and do_i_need_it == true:
-		pro_cam.zoom =  clamp(pro_cam.zoom,0.9,2) - 0.1
+		pro_cam.zoom_margin = clamp(pro_cam.zoom_margin,0.9,60) +  2
+		
+	if event.is_action_released("Mouse_Scroll_Up") and do_i_need_it == true:
+		pro_cam.zoom_margin =  clamp(pro_cam.zoom_margin,0.9,60) - 2

@@ -1,11 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://l5f740mb43yc"]
+[gd_scene load_steps=33 format=3 uid="uid://l5f740mb43yc"]
 
 [ext_resource type="Script" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="1_u1ato"]
-[ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Moving_P1.tres" id="2_ukgfx"]
+[ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Skill/Moving_P1.tres" id="2_ukgfx"]
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="3_ompdf"]
 [ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/Portrait_Icon.png" id="4_lp857"]
-[ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="5_b7dhk"]
 [ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/Current_Player_indicator.png" id="7_pdrwc"]
 [ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_ts1lj"]
 
@@ -147,7 +146,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
-size = Vector2(17.0588, 12.3529)
+size = Vector2(17.0588, 11.6667)
 
 [sub_resource type="Animation" id="Animation_g3rl5"]
 length = 0.001
@@ -243,15 +242,14 @@ _data = {
 script = ExtResource("1_1byu4")
 indicator = ExtResource("2_ukgfx")
 moving_indicator = ExtResource("2_ukgfx")
-Turn_portriat = ExtResource("4_lp857")
-Initiative = ExtResource("5_b7dhk")
 Fight_stats = ExtResource("3_ompdf")
+Turn_portriat = ExtResource("4_lp857")
 cam_target = NodePath("PCamTarget")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 7)
+position = Vector2(0, 6)
 scale = Vector2(1, 0.51)
 shape = SubResource("CircleShape2D_qs5gw")
 
@@ -260,10 +258,10 @@ position = Vector2(5.8, 11.2355)
 sprite_frames = SubResource("SpriteFrames_ineu5")
 animation = &"idle"
 speed_scale = 4.0
-offset = Vector2(0, -27.315)
+offset = Vector2(-3, -27.315)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.3, -4.2645)
+position = Vector2(0, -2.5)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
 
@@ -284,8 +282,7 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="PCamTarget" type="Node2D" parent="."]
 script = ExtResource("8_ts1lj")
-radius = 300.0
-enabled = false
+radius = 150.0
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

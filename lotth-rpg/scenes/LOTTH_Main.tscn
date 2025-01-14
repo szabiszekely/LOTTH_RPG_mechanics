@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=45 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_rnh8o"]
@@ -15,9 +15,7 @@
 [ext_resource type="Script" path="res://addons/ProCam2D/scripts/procam2d.gd" id="13_htdc0"]
 [ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="14_i48of"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="15_7vocu"]
-[ext_resource type="PackedScene" uid="uid://b78min8fkygrg" path="res://scenes/Player_2.tscn" id="15_pmr0h"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="16_fvjuy"]
-[ext_resource type="Resource" uid="uid://dek0aksv1a17e" path="res://scripts/resources/Indicators/Moving_P2.tres" id="16_sgvwo"]
 [ext_resource type="Script" path="res://scripts/gd/ui_battle_menu.gd" id="17_eljyc"]
 [ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="18_ai41k"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="19_rqvbx"]
@@ -261,7 +259,7 @@ range_in_cm = 15.0
 y_sort_enabled = true
 position = Vector2(0, -2)
 script = ExtResource("1_84k3t")
-player = NodePath("NavigationRegion2D/player_group/Player2")
+player = NodePath("NavigationRegion2D/player_group/Player")
 enemy = NodePath("NavigationRegion2D/Enemy_Group/Enemy4")
 menu = NodePath("UI_battle_menu/Menu")
 
@@ -373,12 +371,6 @@ position = Vector2(-423, -237)
 Fight_stats = SubResource("Resource_dceb0")
 Bar = NodePath("../../../UI_battle_menu/VBoxContainer/Bar_System_P1")
 
-[node name="Player2" parent="NavigationRegion2D/player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("15_pmr0h")]
-position = Vector2(-416, -102)
-indicator = ExtResource("16_sgvwo")
-moving_indicator = ExtResource("16_sgvwo")
-Bar = NodePath("../../../UI_battle_menu/VBoxContainer/Bar_system_P2")
-
 [node name="ProCam" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -386,7 +378,7 @@ z_index = 4096
 position = Vector2(22, -141)
 script = ExtResource("13_htdc0")
 process_frame = 2
-follow_mode = 0
+follow_mode = 1
 drag_type = 0
 smooth_drag = true
 smooth_drag_speed = Vector2(10, 10)
@@ -398,11 +390,12 @@ allow_rotation = true
 smooth_rotation = true
 smooth_rotation_speed = 5.0
 zoom = 1.15
-smooth_zoom = false
+smooth_zoom = true
+smooth_zoom_speed = 5.0
 auto_zoom = true
 min_zoom = 1.0
-max_zoom = 5.0
-zoom_margin = 5.0
+max_zoom = 100.0
+zoom_margin = 50.0
 smooth_limit = true
 left_limit = -900
 right_limit = 900
@@ -437,7 +430,7 @@ text = "Focus"
 assined_characters = NodePath("../../../NavigationRegion2D/player_group/Player")
 
 [node name="Bar_system_P2" parent="UI_battle_menu/VBoxContainer" index="1" node_paths=PackedStringArray("assined_characters")]
-assined_characters = NodePath("../../../NavigationRegion2D/player_group/Player2")
+assined_characters = NodePath("../../../NavigationRegion2D/player_group/Player")
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("19_rqvbx")]
 do_i_need_it = true
@@ -447,6 +440,7 @@ visible = false
 position = Vector2(-21, -159)
 script = ExtResource("22_bkb1u")
 radius = 1000.0
+enabled = false
 priority = -1
 
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Abilities" to="UI_battle_menu/Menu" method="abilities_pressed"]
