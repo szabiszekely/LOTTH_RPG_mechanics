@@ -30,6 +30,7 @@ var page_turn = false
 @onready var next_previouse_page: Button = $Next_Previouse_Page
 @onready var page_1: Label = $"PanelContainer/MarginContainer/Grid 1_2/Label"
 @onready var page_2: Label = $"PanelContainer/MarginContainer/Grid 2_2/Label"
+
 @export var menu: Menu_system 
 @export var ability_func: Ability_Handler
 
@@ -124,7 +125,6 @@ func pressed() -> void:
 	
 	menu.vanish()
 	if str(target) == "Self":
-		
 		menu.choose_player_container = true
 		menu.player_group.card_againts_players = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_PLAYERS
@@ -132,12 +132,8 @@ func pressed() -> void:
 		menu.choose_enemy_container = true
 		menu.enemy_group.card_againts_enemies = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
-		
-		menu.player_group.player[menu.player_group.index]._camera_off()
-		menu.enemy_group.enemies[menu.enemy_group.index]._camera_on()
-		await get_tree().create_timer(2).timeout
-		menu.enemy_group.enemies[menu.enemy_group.index]._camera_off()
-	
+	else:
+		menu.player_group.card_againts_players = used_card_name
+		#ability_func._get_what_ability_got_used(used_card_name,menu,menu.enemy_group,menu.player_group)
 		
 	
-	ability_func._get_what_ability_got_used(used_card_name,menu,menu.enemy_group,menu.player_group)

@@ -9,8 +9,15 @@ class_name Character_Controller
 @export var Turn_portriat: CompressedTexture2D
 @export var Bar: Indicator_bar
 @export var cam_target: Node2D
-@export var Initiative: Initiative_class = preload("res://scripts/resources/misaliniouse/Initiative_resource.tres")
+@export var Initiative: Initiative_class #= preload("res://scripts/resources/misaliniouse/Initiative_resource.tres")
 
+var your_turn = false:
+	set(value):
+		your_turn = value
+		if your_turn:
+			_your_turn_on_set_up()
+		elif !your_turn:
+			_your_turn_off_set_up()
 
 #plays either health hit animation or energy drain animation!
 func _play_animator_health_hit():
@@ -68,11 +75,16 @@ func _take_true_damage(base_damage):
 func _damage_healed(amount,which_to_heal):
 	Bar.bar_health_restored(amount,which_to_heal)
 	
-
 func roll_of_the_luck():
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()
 	print(Fight_stats.name," ",roll)
 	# this is where the rolls and other stats that needs them to be determend are stored
 	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
-	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,Fight_stats.name]
+	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
 	Initiative.all_rolls.append(initiative_peronality)
+
+func _your_turn_on_set_up():
+	pass
+
+func _your_turn_off_set_up():
+	pass

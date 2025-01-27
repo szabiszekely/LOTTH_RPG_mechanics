@@ -64,30 +64,21 @@ func _process(_delta: float) -> void:
 				enemies[index]._unfocus_indicator()
 				enemies[index].cam_target.enabled = false
 				start_choosing = false
-				
-				menu.show()
+				_reset_focus()
 			
 			if menu_system.abi == true:
-				#menu_system.abi = false
-				menu.player_group.player[menu.player_group.index]._use_card_and_lose_eng(card_againts_enemies)
-				if Data.get_card_damage_type(card_againts_enemies) == true:
-					enemies[index]._take_true_damage(Data.get_card_damage(card_againts_enemies))
-				else:
-					enemies[index]._take_damage(menu.player_group.player[menu.player_group.index].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(card_againts_enemies),menu.player_group.player[menu.player_group.index].Fight_stats.Attack_Type)
-					
-				print("You have a chance to attack the enemy")
-				start_choosing = false
+				menu_system.abi = false
+				menu.Initiative._next_in_order() 
+				menu.Initiative.action_queued.push_back(["atk",card_againts_enemies,index,0,menu.player_group.index])
+				_reset_focus()
 				
+			
 			if menu_system.bag == true:
-				#menu_system.bag = false
+				menu_system.bag = false
 				
-				if Data.get_item_damage_type(item_againts_enemies) == true:
-					enemies[index]._take_true_damage(Data.get_item_t_dmg(item_againts_enemies))
-				else:
-					enemies[index]._take_damage(menu.player_group.player[menu.player_group.index].Fight_stats.Base_Phisical_Attack,Data.get_item_dmg(item_againts_enemies),menu.player_group.player[menu.player_group.index].Fight_stats.Attack_Type)
-				
-				
-				start_choosing = false
+				menu.Initiative._next_in_order() 
+				menu.Initiative.action_queued.push_back(["bag", item_againts_enemies , index ,1, menu.player_group.index])
+				_reset_focus()				
 				
 				
 			
@@ -110,6 +101,7 @@ func _reset_focus():
 	start_choosing = false
 	for enemy in enemies:
 		enemy._unfocus_indicator()
+
 		
 # han you start choosing the enemy you reset the focus and focus on the first enemy!
 func _start_choosing():

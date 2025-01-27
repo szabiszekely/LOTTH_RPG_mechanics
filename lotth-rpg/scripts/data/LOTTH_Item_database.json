@@ -69,7 +69,7 @@
   "Action 4": "Twirl",
   "Action 5": 0,
   "Action 6": 0
- },
+ }
 ],
 "Abilities":[
  {
@@ -94,7 +94,7 @@
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,
-  "Range": 5,
+  "Range": "Target",
   "Type": "Magic",
   "Eng_or_Hp": 0
  },
@@ -159,7 +159,7 @@
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,
-  "Range": 15,
+  "Range": 20,
   "Type": "Magic",
   "Eng_or_Hp": 0
  },
@@ -175,6 +175,71 @@
   "Range": "Self",
   "Type": "Magic",
   "Eng_or_Hp": 1
+ },
+ {
+  "Name": "Arcane Feather",
+  "Dmg": 1,
+  "T.Dmg": 0,
+  "Eng": 4,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": 13,
+  "Type": "Magic",
+  "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Broken Shooter",
+  "Dmg": 1,
+  "T.Dmg": 0,
+  "Eng": 3,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Range",
+  "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Curse Of Mya",
+  "Dmg": 0,
+  "T.Dmg": 0,
+  "Eng": 2,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": 10,
+  "Type": "Magic",
+  "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Distracting Beauty",
+  "Dmg": 0,
+  "T.Dmg": 0,
+  "Eng": 2,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": "Self",
+  "Type": "Magic",
+  "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Throw Away Joke",
+  "Dmg": 2,
+  "T.Dmg": 0,
+  "Eng": 0,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  }
 ]
 }

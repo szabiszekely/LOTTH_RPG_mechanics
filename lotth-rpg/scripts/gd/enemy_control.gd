@@ -13,6 +13,19 @@ func _ready() -> void:
 	
 	$character_animator.play("idle")
 	
+func _process(delta: float) -> void:
+	if your_turn:
+		if Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() != 0:
+			Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
+			Initiative._previouse_in_order()
+		elif Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() == 0:
+			Initiative.cancle_enemy_back_up = false
+		else:
+			Initiative._next_in_order()
+			var choose_action = ["bimbus","bambus"].pick_random()
+			Initiative.action_queued.push_back([choose_action,Fight_stats.name])
+
+	
 	
 func emp_gained(gained_EMP: int):
 	if not Fight_stats.MAX_EMP <= Fight_stats.EMP:

@@ -6,6 +6,7 @@ class_name Menu_system
 @export var Action_button_handler: Action_buttons_option_Handler
 @export var get_the_children: HBoxContainer
 @export var Mouse_camera_toggler: Mouse_Camera
+@export var Initiative: Initiative_class
 
 # Buttons!
 @onready var abilities: Button = $MarginContainer/HBoxContainer/Abilities
@@ -14,7 +15,6 @@ class_name Menu_system
 @onready var run: Button = $MarginContainer/HBoxContainer/Run
 
 # Panels !
-#@onready var action_choice: Action_control = $"../Action_Panel_choice"
 @onready var ability_card_choice: Ability_control = $"../Ability_Card_choice"
 @onready var action_choice: Action_control = $"../Action_Panel_choice"
 @onready var bagpack_choice: Bagpack_controls = $"../Bagpack"
@@ -96,6 +96,7 @@ func _process(_delta: float) -> void:
 			if abi_container == true:
 				abi = true
 				menu.show()
+				ability_card_choice.deck = player_group.player[player_group.index].Fight_stats.PlayerDeck.Deck
 				ability_card_choice.abi_appear()
 				abi_container = false
 		Menu_state.ACTIONS:
@@ -107,6 +108,7 @@ func _process(_delta: float) -> void:
 		Menu_state.BAG:
 			current_memory_state = current_state
 			if bag_container == true:
+				bag = true
 				menu.show()
 				bagpack_choice.bag_appear()
 				bag_container = false
@@ -134,6 +136,12 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		match current_state:
+			Menu_state.MENU:
+				if Initiative.action_queued.size() != 0:
+					Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
+					Initiative.cancle_enemy_back_up = true
+					Initiative._previouse_in_order()
+			
 			Menu_state.ABILITES:
 				menu_index = 0
 				vanish()
@@ -191,6 +199,7 @@ func _input(event: InputEvent) -> void:
 					vanish()
 					player_group.player[player_group.index]._camera_on()
 					bag = false
+					bag_container = true
 					current_state = Menu_state.BAG
 				else:
 					print("SOMETHING WRONG!")
@@ -291,11 +300,11 @@ func _on_run_pressed() -> void:
 
 func hide_after_act_pressed_for_Text():
 	enemy_group.act_options.act_disappear()
-	
 	menu.hide()
 	
 
 func action_button_pressed() -> void:
+	
 	
 	
 	if check.is_pressed():
@@ -325,6 +334,7 @@ func action_button_pressed() -> void:
 	if bottom_right.is_pressed():
 		hide_after_act_pressed_for_Text()
 		Action_button_handler._get_button_text_action(bottom_right.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
+	
 	player_group.player[player_group.index]._camera_off()
 	enemy_group.enemies[enemy_group.index]._camera_off()
 	

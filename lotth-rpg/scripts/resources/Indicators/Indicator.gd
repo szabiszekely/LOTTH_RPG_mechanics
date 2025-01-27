@@ -3,6 +3,7 @@ class_name Indicator
 # I export the textur of the indicator this can be an arrow or an area 
 #or maybe a angled area tha I can use to indicate the attacks
 @export var texture : Texture2D
+@export var range: int = 15
 var indicator_reference = null
 # true when us use it false when not 
 var activated : bool = false

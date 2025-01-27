@@ -2,7 +2,6 @@ extends Indicator
 class_name AreaIndicator
  
 @export var cursor_texture : Texture2D
-@export var range: int = 15
 var cursor_reference = null
 var area_reference = null
 var collision_reference = null

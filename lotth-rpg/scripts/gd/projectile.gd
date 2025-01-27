@@ -25,6 +25,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("_take_damage"):
+	if body.has_method("_take_damage") and body.name != "Player":
 		body._take_damage(base_damage,player.Fight_stats.Base_Phisical_Attack,Attack_Type)
 		queue_free()

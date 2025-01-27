@@ -11,7 +11,7 @@ extends Resource
 @export var ENG: int
 @export_enum("Normal","Player","Feeling","Dream","Memory","Justice") var Soul_Type: int
 @export_enum("Melee","Range","Magic") var Attack_Type: int
-
+@export var PlayerDeck: Deck_builder
 @export var Defense: int
 @export var Magic_Defense: int
 @export var MAX_EMP: int

@@ -243,11 +243,11 @@ _data = {
 script = ExtResource("1_jcwft")
 indicator = ExtResource("2_oyyrr")
 moving_indicator = ExtResource("2_oyyrr")
-Turn_portriat = ExtResource("3_y66ul")
-Initiative = ExtResource("4_07u73")
 speed = 350
 Fight_stats = ExtResource("5_qq0or")
+Turn_portriat = ExtResource("3_y66ul")
 cam_target = NodePath("PCamTarget")
+Initiative = ExtResource("4_07u73")
 
 [node name="Area2D" type="Area2D" parent="."]
 
