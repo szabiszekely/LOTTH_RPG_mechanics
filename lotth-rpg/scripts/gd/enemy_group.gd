@@ -4,7 +4,6 @@ class_name Enemy_group
 @onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 
 @export var act_options: Action_control
-#@export var menu_system: Menu_system
 @export var menu_system: Menu_system
 
 var card_againts_enemies
@@ -65,24 +64,31 @@ func _process(_delta: float) -> void:
 				enemies[index].cam_target.enabled = false
 				start_choosing = false
 				_reset_focus()
+				
 			
 			if menu_system.abi == true:
 				menu_system.abi = false
-				menu.Initiative._next_in_order() 
 				menu.Initiative.action_queued.push_back(["atk",card_againts_enemies,index,0,menu.player_group.index])
 				_reset_focus()
-				
+				menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
+				if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
+					call_menu_appear()
 			
 			if menu_system.bag == true:
 				menu_system.bag = false
-				
-				menu.Initiative._next_in_order() 
-				menu.Initiative.action_queued.push_back(["bag", item_againts_enemies , index ,1, menu.player_group.index])
+				menu.Initiative.action_queued.push_back(["bag", item_againts_enemies , index ,1, menu.player_group.index,menu.bagpack_choice])
 				_reset_focus()				
-				
+				menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
+				if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
+					call_menu_appear()
 				
 			
 
+func call_menu_appear():
+	menu.menu_index = 0
+	menu.switching_buttons()
+	menu.current_state = menu.Menu_state.MENU
+	
 
 # this is where you switch indicator focus from on enemy and switch to the next!
 func switch_focus(x, y):

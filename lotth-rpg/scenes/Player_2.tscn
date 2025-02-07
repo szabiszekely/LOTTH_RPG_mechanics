@@ -263,7 +263,7 @@ frame_progress = 0.455017
 speed_scale = 4.0
 offset = Vector2(0.75, -13)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1.4412)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
@@ -287,6 +287,7 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 script = ExtResource("8_i45f2")
 radius = 150.0
 enabled = false
+priority = 1
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

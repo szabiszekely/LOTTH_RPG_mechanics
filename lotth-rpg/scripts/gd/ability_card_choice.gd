@@ -134,6 +134,7 @@ func pressed() -> void:
 		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
 	else:
 		menu.player_group.card_againts_players = used_card_name
-		#ability_func._get_what_ability_got_used(used_card_name,menu,menu.enemy_group,menu.player_group)
-		
-	
+		menu.Initiative.action_queued.push_back(["atk",used_card_name,0,2,menu.player_group.index])
+		menu.player_group.player[menu.player_group.sub_index].PlayOutOptions -= 1
+		if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
+			menu.player_group.call_menu_appear()

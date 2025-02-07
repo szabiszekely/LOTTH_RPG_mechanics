@@ -3,7 +3,6 @@ class_name Menu_system
 
 @export var enemy_group: Enemy_group
 @export var player_group: Player_group
-@export var Action_button_handler: Action_buttons_option_Handler
 @export var get_the_children: HBoxContainer
 @export var Mouse_camera_toggler: Mouse_Camera
 @export var Initiative: Initiative_class
@@ -21,16 +20,6 @@ class_name Menu_system
 @onready var run_choice: Run_control = $"../Run_Panel_choice"
 
 # ugly but it does its job! aka All ACTION BUTTONS
-@onready var GUI = owner
-@onready var check = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("Check")
-@onready var focus = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("Focus")
-@onready var guard = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("Guard")
-@onready var top_left = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("top_left")
-@onready var top_right = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("top_right")
-@onready var middle_left = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("middle_left")
-@onready var middle_right = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("middle_right")
-@onready var bottom_left = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("bottom_left")
-@onready var bottom_right = owner.find_child("Action_Panel_choice").find_child("MarginContainer").find_child("VBoxContainer").find_child("bottom_right")
 @onready var menu: Control = $"."
 @onready var act_dialogue_box: DialogueBox = $"../Action_option_box"
 @onready var static_dialogue_box: DialogueBox = $"../Static_Dialogue_Box"
@@ -58,6 +47,7 @@ enum Memory_state {
 	ALL_GONE
 }
 
+var menu_container = true
 var abi_container = false
 var act_container = false
 var bag_container = false
@@ -87,9 +77,11 @@ func _process(_delta: float) -> void:
 	
 	match current_state:
 		Menu_state.MENU:
-			player_group.player[player_group.index]._camera_on()
 			current_memory_state = current_state
-			static_dialogue_box.show()
+			if menu_container == true:
+				player_group.player[player_group.index]._camera_on()
+				static_dialogue_box.show()
+				menu_container = false
 			
 		Menu_state.ABILITES:
 			current_memory_state = current_state
@@ -140,24 +132,28 @@ func _input(event: InputEvent) -> void:
 				if Initiative.action_queued.size() != 0:
 					Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
 					Initiative.cancle_enemy_back_up = true
+					Initiative.cancle_player_back_up = true
 					Initiative._previouse_in_order()
-			
+					menu_container = true
 			Menu_state.ABILITES:
 				menu_index = 0
 				vanish()
 				abi = false
 				switching_buttons()
+				menu_container = true
 				current_state = Menu_state.MENU
 			Menu_state.BAG:
 				menu_index = 2
 				vanish()
 				bag = false
 				switching_buttons()
+				menu_container = true
 				current_state = Menu_state.MENU
 			Menu_state.RUN:
 				menu_index = 3
 				vanish()
 				switching_buttons()
+				menu_container = true
 				current_state = Menu_state.MENU
 				#switching_buttons()
 			Menu_state.CHOOSING_ENEMIES:
@@ -169,6 +165,7 @@ func _input(event: InputEvent) -> void:
 					act = false
 					act_container = false
 					switching_buttons()
+					menu_container = true
 					current_state = Menu_state.MENU
 				elif abi == true:
 					enemy_group._reset_focus()
@@ -176,6 +173,7 @@ func _input(event: InputEvent) -> void:
 					player_group.player[player_group.index]._camera_on()
 					abi = false
 					abi_container = true
+					
 					current_state = Menu_state.ABILITES
 				elif bag == true:
 					enemy_group._reset_focus()
@@ -298,44 +296,5 @@ func _on_run_pressed() -> void:
 	
 
 
-func hide_after_act_pressed_for_Text():
-	enemy_group.act_options.act_disappear()
-	menu.hide()
 	
-
-func action_button_pressed() -> void:
-	
-	
-	
-	if check.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(check.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if focus.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(focus.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if guard.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(guard.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if top_left.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(top_left.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if top_right.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(top_right.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if middle_left.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(middle_left.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if middle_right.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(middle_right.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if bottom_left.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(bottom_left.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	if bottom_right.is_pressed():
-		hide_after_act_pressed_for_Text()
-		Action_button_handler._get_button_text_action(bottom_right.text,enemy_group.enemies[enemy_group.index],act_dialogue_box,self)
-	
-	player_group.player[player_group.index]._camera_off()
-	enemy_group.enemies[enemy_group.index]._camera_off()
-	
-	
+#

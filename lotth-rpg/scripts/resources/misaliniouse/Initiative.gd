@@ -11,6 +11,12 @@ var group_player
 var place_holder_source
 var action_start: bool = false
 var cancle_enemy_back_up: bool = false
+var cancle_player_back_up: bool = false
+var MaxTurns: int = 0
+var timeSpentBetweenTurns: int = 2
+var doTrapForLoop: bool = false
+
+signal stopLoopInPlace
 
 func _getting_groups(players,enemies):
 	group_player = players

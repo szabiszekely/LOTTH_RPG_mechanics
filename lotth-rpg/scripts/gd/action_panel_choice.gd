@@ -1,8 +1,8 @@
 extends PanelContainer
 class_name Action_control
-@onready var check: Button = $MarginContainer/VBoxContainer/Check
-@onready var focus: Button = $MarginContainer/VBoxContainer/Focus
-@onready var guard: Button = $MarginContainer/VBoxContainer/Guard
+@onready var check: Button = $MarginContainer/VBoxContainer/check
+@onready var focus: Button = $MarginContainer/VBoxContainer/focus
+@onready var guard: Button = $MarginContainer/VBoxContainer/guard
 
 @onready var top_left: Button = $MarginContainer/VBoxContainer/top_left
 @onready var top_right: Button = $MarginContainer/VBoxContainer/top_right
@@ -14,6 +14,8 @@ class_name Action_control
 #Getting a basic order down and I will use it later!
 @onready var list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
 
+@export var menu: Menu_system
+@export var Action_button_handler: Action_buttons_option_Handler
 
 func _ready() -> void:
 	# hide it when scene starts!
@@ -68,3 +70,13 @@ func act_disappear():
 	await tweens.finished
 	#self.hide()
 	
+
+func action_button_pressed(extra_arg_0: StringName) -> void:
+	#print(extra_arg_0)
+	for i in list_of_buttons:
+		if i.name == extra_arg_0:
+			menu.Initiative.action_queued.push_back(["act",i.text,self,0,menu.enemy_group.enemies[menu.enemy_group.index]])
+			menu.vanish()
+			menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
+			if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
+					menu.enemy_group.call_menu_appear()

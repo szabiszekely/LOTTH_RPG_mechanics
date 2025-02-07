@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=21 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" path="res://scripts/gd/abilities_button.gd" id="1_f1usb"]
 [ext_resource type="Script" path="res://scripts/gd/menu_new_system.gd" id="1_f5k7w"]
 [ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/action_panel_choice.tscn" id="1_ypt22"]
 [ext_resource type="PackedScene" uid="uid://drsb61u4ojdtf" path="res://scenes/run_panel_choice.tscn" id="2_82t3g"]
 [ext_resource type="Script" path="res://scripts/gd/action_button.gd" id="2_p8kw2"]
-[ext_resource type="Script" path="res://scripts/resources/misaliniouse/action_button_option_handler.gd" id="2_t7q6l"]
 [ext_resource type="StyleBox" uid="uid://b6k6fhduqhal3" path="res://scripts/resources/simple_menu_theme.tres" id="3_4xss1"]
 [ext_resource type="Script" path="res://scripts/gd/bagpack_button.gd" id="3_xylpc"]
 [ext_resource type="Script" path="res://scripts/gd/run_button.gd" id="4_lsf7a"]
@@ -17,9 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://drwei0kix2h5l" path="res://scenes/action_option_box.tscn" id="12_1fmx7"]
 [ext_resource type="Script" path="res://scripts/resources/misaliniouse/ability_function_handler.gd" id="12_aptlp"]
 [ext_resource type="PackedScene" uid="uid://diogqwfdea76u" path="res://text_folder/static_text_box.tscn" id="13_np6xt"]
-
-[sub_resource type="Resource" id="Resource_klhjk"]
-script = ExtResource("2_t7q6l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h407m"]
 bg_color = Color(0.631373, 0.607843, 0.290196, 0.392157)
@@ -88,7 +84,6 @@ offset_right = 449.5
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_f5k7w")
-Action_button_handler = SubResource("Resource_klhjk")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 2

@@ -10,7 +10,7 @@ var attacker_index: int = 0
 var defender_index: int = 0
 func _get_what_ability_got_used(Name_of_Ability_Card,Menu,enemy_group,player_group,index_from,index_to):
 	#print(enemy_group.enemies," ",player_group)
-	print(player_group.player[player_group.index].Fight_stats.PlayerDeck.Deck)
+	#print(player_group.player[player_group.index].Fight_stats.PlayerDeck.Deck)
 	name_of_abi = Name_of_Ability_Card
 	enemyGroup = enemy_group
 	playerGroup = player_group
@@ -35,18 +35,21 @@ func Agressive_Stomp():
 	pass
 	
 func Mile_Punch():
-	print("YOU HIT THE ENEMY A MILE AWAY")
-	
+	#print("YOU HIT THE ENEMY A MILE AWAY")
+	pass
 
 func Byecicle():
 	playerGroup.player[attacker_index].skill = preload("res://scripts/resources/Indicators/Skill/FireSwarm.tres")
 	_player_set_up_for_attack()
+	menu_system.Initiative.timeSpentBetweenTurns = 7
 	
 func Curved_Slash():
 	pass
 
 func Dual_Wielding():
-	pass
+	playerGroup.player[attacker_index].skill = preload("res://scripts/resources/Indicators/Skill/FireBall.tres")
+	_player_set_up_for_attack()
+	menu_system.Initiative.timeSpentBetweenTurns = 7
 
 func Funny_Magic():
 	pass

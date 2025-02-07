@@ -372,11 +372,13 @@ menu_system = NodePath("../../UI_battle_menu/Menu")
 position = Vector2(320, -274)
 Fight_stats = SubResource("Resource_c8nm6")
 Initiative = ExtResource("2_xg4t4")
+MaxPlayOutOptions = 1
 
 [node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(449, -185)
 Fight_stats = SubResource("Resource_ha4fi")
 Initiative = ExtResource("2_xg4t4")
+MaxPlayOutOptions = 1
 
 [node name="NULL" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="3"]
 material = SubResource("ShaderMaterial_df1jc")
@@ -391,6 +393,7 @@ material = SubResource("ShaderMaterial_wrq0q")
 position = Vector2(380, -90)
 Fight_stats = SubResource("Resource_knrse")
 Initiative = ExtResource("2_xg4t4")
+MaxPlayOutOptions = 1
 
 [node name="player_group" parent="NavigationRegion2D" node_paths=PackedStringArray("menu_system") instance=ExtResource("14_i48of")]
 y_sort_enabled = true
@@ -414,7 +417,7 @@ z_index = 4096
 position = Vector2(22, -141)
 script = ExtResource("13_htdc0")
 process_frame = 2
-follow_mode = 1
+follow_mode = 0
 drag_type = 0
 smooth_drag = true
 smooth_drag_speed = Vector2(10, 10)
@@ -431,7 +434,7 @@ smooth_zoom_speed = 5.0
 auto_zoom = true
 min_zoom = 1.0
 max_zoom = 100.0
-zoom_margin = 50.0
+zoom_margin = 10.0
 smooth_limit = true
 left_limit = -900
 right_limit = 900
@@ -452,7 +455,6 @@ script = ExtResource("17_eljyc")
 [node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("enemy_group", "player_group", "get_the_children", "Mouse_camera_toggler")]
 enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
 player_group = NodePath("../../NavigationRegion2D/player_group")
-Action_button_handler = ExtResource("18_ai41k")
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../../Mouse Pointer")
 Initiative = ExtResource("2_xg4t4")
@@ -460,8 +462,9 @@ Initiative = ExtResource("2_xg4t4")
 [node name="Run_Panel_choice" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("get_menu")]
 get_menu = NodePath("../Menu")
 
-[node name="Focus" parent="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer" index="3"]
-text = "Focus"
+[node name="Action_Panel_choice" parent="UI_battle_menu" index="3" node_paths=PackedStringArray("menu")]
+menu = NodePath("../Menu")
+Action_button_handler = ExtResource("18_ai41k")
 
 [node name="Bar_System_P1" parent="UI_battle_menu/VBoxContainer" index="0" node_paths=PackedStringArray("assined_characters")]
 assined_characters = NodePath("../../../NavigationRegion2D/player_group/Player")
@@ -478,21 +481,20 @@ position = Vector2(-21, -159)
 script = ExtResource("22_bkb1u")
 radius = 1000.0
 enabled = false
-priority = -1
 
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Abilities" to="UI_battle_menu/Menu" method="abilities_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="UI_battle_menu/Menu" method="action_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Bagpack" to="UI_battle_menu/Menu" method="bagpack_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Run" to="UI_battle_menu/Menu" method="run_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Check" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Focus" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/Guard" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_left" to="UI_battle_menu/Menu" method="action_button_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_right" to="UI_battle_menu/Menu" method="action_button_pressed"]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/check" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"check"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_left" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"top_left"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_right" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"top_right"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/focus" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"focus"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_left" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"middle_left"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_right" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"middle_right"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/guard" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"guard"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_left" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"bottom_left"]]
+[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_right" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"bottom_right"]]
 
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="NavigationRegion2D/Enemy_Group/Enemy5"]

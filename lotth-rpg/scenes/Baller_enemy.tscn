@@ -513,7 +513,7 @@ animation = &"idle"
 speed_scale = 4.0
 offset = Vector2(0, -27.315)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-3.02646, -11)
 scale = Vector2(1.8, 1.8)
@@ -585,6 +585,7 @@ shape = SubResource("RectangleShape2D_f33j1")
 script = ExtResource("12_wuf5g")
 radius = 150.0
 enabled = false
+priority = 1
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

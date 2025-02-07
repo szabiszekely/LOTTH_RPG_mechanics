@@ -21,7 +21,7 @@ func set_reference(source):
 	var sprite_reference = Sprite2D.new()
 	sprite_reference.texture = texture
 	indicator_reference = sprite_reference
-	sprite_reference.z_index = -1
+	#sprite_reference.z_index = -1
 	source.add_child(sprite_reference)
  
 	activated = true

@@ -20,11 +20,16 @@ func _physics_process(delta: float) -> void:
 		velocity =  lerp(velocity, dir * speed, delta * 2.5)
 		rotation = dir.angle()
 		move_and_slide()
+
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("_take_damage") and body.name != "Player":
-		body._take_damage(base_damage,player.Fight_stats.Base_Phisical_Attack,Attack_Type)
+	if body.has_method("_take_damage") and body.name != "Player" and body.name != "Player2":
+		body._take_damage(player.Fight_stats.Base_Phisical_Attack,base_damage,player.Fight_stats.Attack_Type,Attack_Type,player.Fight_stats.Base_Magical_Attack)
 		queue_free()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

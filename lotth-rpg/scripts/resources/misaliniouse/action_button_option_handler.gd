@@ -8,12 +8,15 @@ var source
 var act_opt = preload("res://text_folder/action_options.tres")
 
 #When I press an Action Button it will get transfered here and be translate to one of the one that got pressed!
-func _get_button_text_action(Button_text: String, Stats, Dialogue,Source):
+func _get_button_text_action(Button_text: String, enemy, Dialogue, Source, menu):
 	active_dialogue_box = Dialogue
-	enemy_seperate = Stats
+	enemy_seperate = enemy
 	source = Source
-	enemy_stats = Stats.Fight_stats
+	enemy_stats = enemy.Fight_stats
+	menu.vanish()
 	#I call the name of the button as a function!
+	print(Button_text)
+	
 	call(Button_text)
 
 # Setting up variables that are inside the Dialogue Node Asset!

@@ -5,6 +5,7 @@ class_name Bagpack_controls
 @onready var no_items: Label = $test/Label
 @export var menu_system: Menu_system
 @export var item_handler: Item_handler
+var deleting_item_index: int = 0
 var item_list: Array = []
 
 func _ready() -> void:
@@ -31,7 +32,6 @@ func bag_appear():
 	#print("Run Apear")
 	
 func bag_disappear():
-	
 	inventory.release_focus()
 	var tweens = get_tree().create_tween()
 	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.3).set_trans(Tween.TRANS_QUAD)
@@ -39,14 +39,16 @@ func bag_disappear():
 
 func _on_item_list_item_activated(index: int) -> void:
 	var my_data = Data.get_item_data(item_list[index])
-	
 	menu_system.vanish()
-	
 	item_handler._get_item_and_redirect_it(my_data,menu_system,menu_system.player_group,menu_system.enemy_group)
-	#inventory.remove_item(index)
-	#item_list.remove_at(index)
-	#inventory.select(index)
-	#item_count_check()
+	deleting_item_index = index
+
+func _remove_item_from_inventory(index):
+	inventory.remove_item(index)
+	item_list.remove_at(index)
+	inventory.select(index)
+	item_count_check()
+	
 	
 func _on_add_button_pressed() -> void:
 	var random_item = randi() % 4
