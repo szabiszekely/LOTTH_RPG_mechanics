@@ -7,6 +7,8 @@
 
 [node name="Trunk_1" type="StaticBody2D"]
 script = ExtResource("1_4f3e8")
+health = 4
+resistance = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.2, 1.2)

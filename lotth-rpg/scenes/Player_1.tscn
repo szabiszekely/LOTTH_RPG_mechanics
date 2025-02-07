@@ -214,7 +214,7 @@ _data = {
 "hit": SubResource("Animation_ev0j6")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]
 script = ExtResource("1_1byu4")
 indicator = ExtResource("2_ukgfx")
 moving_indicator = ExtResource("2_ukgfx")

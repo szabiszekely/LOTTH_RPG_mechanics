@@ -240,6 +240,32 @@
   "Range": "Target",
   "Type": "Melee",
   "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Baller Attack",
+  "Dmg": 3,
+  "T.Dmg": 0,
+  "Eng": 2,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Range",
+  "Eng_or_Hp": 0
+ },
+ {
+  "Name": "Ball Crawl",
+  "Dmg": 0,
+  "T.Dmg": 2,
+  "Eng": 0,
+  "Eng_healed": 0,
+  "Hp": 0,
+  "Hp_healed": 0,
+  "Emp": 0,
+  "Range": "Target",
+  "Type": "Melee",
+  "Eng_or_Hp": 0
  }
 ]
 }

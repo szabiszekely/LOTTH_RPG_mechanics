@@ -57,6 +57,12 @@ folder_colors={
 "res://text_folder/": "blue"
 }
 
+[global_group]
+
+Player=""
+Enemy=""
+Ignoreable=""
+
 [gui]
 
 theme/custom="res://scripts/resources/misaliniouse/UI_theme.tres"

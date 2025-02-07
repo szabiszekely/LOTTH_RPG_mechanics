@@ -7,6 +7,7 @@
 
 [node name="Bush_1" type="StaticBody2D"]
 script = ExtResource("1_f4qrl")
+health = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_pv4dk")

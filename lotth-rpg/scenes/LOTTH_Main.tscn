@@ -101,8 +101,8 @@ sources/0 = SubResource("TileSetAtlasSource_et0t5")
 sources/1 = SubResource("TileSetAtlasSource_phn7g")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wueea"]
-vertices = PackedVector2Array(360, 88, 685, 128.031, -654.906, 130.961, 303.953, 88, 395, 20, 685, -217, 360, 22, 338.953, 20, 303.953, 22, 338.953, -46, 263, -12, 263, -78, 395, -46, -653.094, -217, 206.953, -12, 206.953, -78)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4, 5), PackedInt32Array(4, 0, 6), PackedInt32Array(7, 4, 6, 8), PackedInt32Array(9, 7, 8, 10, 11), PackedInt32Array(5, 4, 12), PackedInt32Array(8, 3, 2, 13, 14), PackedInt32Array(14, 10, 8), PackedInt32Array(15, 14, 13), PackedInt32Array(15, 13, 5, 11), PackedInt32Array(11, 5, 12, 9)])
+vertices = PackedVector2Array(142, -31, 414.953, -39, 479, -39, 410, -18, 345.953, -18, 479, -113, 414.953, -113, 350, -128, 350, -202, 681, -213, 410, 56, 681, 124.039, -650.883, 126.953, 345.953, 56, -649.109, -213, 77.9531, -31, 142, -105, 285.953, -128, 285.953, -202, 77.9531, -105)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(11, 10, 2, 9), PackedInt32Array(2, 10, 3), PackedInt32Array(9, 2, 5), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(7, 6, 1, 0, 16, 17), PackedInt32Array(0, 4, 13, 15), PackedInt32Array(14, 18, 17, 16, 19), PackedInt32Array(14, 9, 8, 18), PackedInt32Array(14, 19, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-670, -234, 702, -234, 702, 145, -672, 148)])
 agent_radius = 21.0
 
@@ -371,14 +371,10 @@ menu_system = NodePath("../../UI_battle_menu/Menu")
 [node name="Enemy4" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(320, -274)
 Fight_stats = SubResource("Resource_c8nm6")
-Initiative = ExtResource("2_xg4t4")
-MaxPlayOutOptions = 1
 
 [node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(449, -185)
 Fight_stats = SubResource("Resource_ha4fi")
-Initiative = ExtResource("2_xg4t4")
-MaxPlayOutOptions = 1
 
 [node name="NULL" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="3"]
 material = SubResource("ShaderMaterial_df1jc")
@@ -392,23 +388,18 @@ material = SubResource("ShaderMaterial_wrq0q")
 [node name="Enemy6" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(380, -90)
 Fight_stats = SubResource("Resource_knrse")
-Initiative = ExtResource("2_xg4t4")
-MaxPlayOutOptions = 1
 
 [node name="player_group" parent="NavigationRegion2D" node_paths=PackedStringArray("menu_system") instance=ExtResource("14_i48of")]
 y_sort_enabled = true
 position = Vector2(1, 120)
 menu_system = NodePath("../../UI_battle_menu/Menu")
 
-[node name="Player" parent="NavigationRegion2D/player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("15_7vocu")]
+[node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("15_7vocu")]
 position = Vector2(-423, -237)
 Fight_stats = SubResource("Resource_8a1jq")
-Bar = NodePath("../../../UI_battle_menu/VBoxContainer/Bar_System_P1")
-Initiative = ExtResource("2_xg4t4")
 
-[node name="Player2" parent="NavigationRegion2D/player_group" node_paths=PackedStringArray("Bar") instance=ExtResource("17_8knan")]
+[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("17_8knan")]
 position = Vector2(-379, -115)
-Bar = NodePath("../../../UI_battle_menu/VBoxContainer/Bar_system_P2")
 
 [node name="ProCam" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -417,7 +408,7 @@ z_index = 4096
 position = Vector2(22, -141)
 script = ExtResource("13_htdc0")
 process_frame = 2
-follow_mode = 0
+follow_mode = 1
 drag_type = 0
 smooth_drag = true
 smooth_drag_speed = Vector2(10, 10)
@@ -465,12 +456,6 @@ get_menu = NodePath("../Menu")
 [node name="Action_Panel_choice" parent="UI_battle_menu" index="3" node_paths=PackedStringArray("menu")]
 menu = NodePath("../Menu")
 Action_button_handler = ExtResource("18_ai41k")
-
-[node name="Bar_System_P1" parent="UI_battle_menu/VBoxContainer" index="0" node_paths=PackedStringArray("assined_characters")]
-assined_characters = NodePath("../../../NavigationRegion2D/player_group/Player")
-
-[node name="Bar_system_P2" parent="UI_battle_menu/VBoxContainer" index="1" node_paths=PackedStringArray("assined_characters")]
-assined_characters = NodePath("../../../NavigationRegion2D/player_group/Player2")
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("19_rqvbx")]
 do_i_need_it = true

@@ -9,8 +9,8 @@ func shoot(scene_tree):
 		return
 	
 	var projectile = projectile_node.instantiate()
-	projectile.base_damage = 10
-	projectile.Attack_Type = 1
+	projectile.base_damage = skill_base_damage
+	projectile.Attack_Type = skill_attack_type
 	projectile.position = indicator.spawn_point
 	projectile.dir = Vector2.RIGHT
 	projectile.speed = 0

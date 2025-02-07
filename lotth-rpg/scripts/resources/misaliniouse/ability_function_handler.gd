@@ -76,3 +76,9 @@ func Throw_Away_Joke():
 	var find_index = playerGroup.player[attacker_index].Fight_stats.PlayerDeck.Deck.find("Throw Away Joke")
 	playerGroup.player[attacker_index].Fight_stats.PlayerDeck.Deck.remove_at(find_index)
 	print(playerGroup.player[attacker_index].Fight_stats.PlayerDeck.Deck)
+
+func Baller_Attack():
+	pass
+	
+func Ball_Crawl():
+	pass

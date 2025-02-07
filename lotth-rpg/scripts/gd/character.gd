@@ -4,13 +4,13 @@ class_name Character_Controller
 @onready var focus = $Indicator
 @onready var damage_indicator = preload("res://scenes/attack_indicator.tscn")
 @onready var hitbox: CollisionShape2D = $Hitbox
+@onready var Initiative: Initiative_class = preload("res://scripts/resources/misaliniouse/Initiative_resource.tres")
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
 @export var Turn_portriat: CompressedTexture2D
 @export var Bar: Indicator_bar
 @export var cam_target: Node2D
-@export var Initiative: Initiative_class #= preload("res://scripts/resources/misaliniouse/Initiative_resource.tres")
 
 var PlayOutOptions: int = 2:
 	set(value):

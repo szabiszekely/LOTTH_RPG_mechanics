@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_x7ng8")
-Deck = PackedStringArray("Agressive Stomp", "Funny Magic", "Healling care", "Mile Punch", "Dual Wielding", "Byecicle")
+Deck = PackedStringArray("Dual Wielding", "Agressive Stomp", "Funny Magic", "Healling care", "Mile Punch", "Byecicle")

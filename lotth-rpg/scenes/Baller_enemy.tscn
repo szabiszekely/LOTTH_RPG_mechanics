@@ -490,7 +490,7 @@ shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target") groups=["Enemy"]]
 script = ExtResource("1_pbqx5")
 Fight_stats = ExtResource("4_ndcdo")
 Turn_portriat = ExtResource("2_gg1ba")

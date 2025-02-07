@@ -4,6 +4,8 @@ class_name Player
 @onready var collision_radius = $Area2D/CollisionShape2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player_cam_target: Node2D = $PCamTarget
+@onready var Bar_VContainer: VBoxContainer = $"../../../UI_battle_menu/Bar_container"
+const BAR_SYSTEM = preload("res://scenes/Bar_system.tscn")
 
 @export var indicator : Indicator
 @export var moving_indicator : MovingIndicator
@@ -21,6 +23,11 @@ var moved = false
 
 
 func _ready() -> void:
+	var instance = BAR_SYSTEM.instantiate()
+	instance.assined_characters = self
+	Bar_VContainer.add_child(instance)
+	Bar = instance
+	
 	moving_indicator.Fight_stats = Fight_stats
 	#when game start start idle get roll
 	$character_animator.play("idle")
@@ -69,6 +76,8 @@ func _input(event) -> void:
 		skill.indicator.set_reference(self)
 		if event.is_action_pressed("clicked") and skill.indicator.activated:
 			#print(get_tree())
+			
+			# WE NEED TO ADD THE CORRECT VALUES LATER DO NOT FORGET!!!
 			skill.skill_attack_type
 			skill.skill_base_damage
 			skill.activate(get_tree())

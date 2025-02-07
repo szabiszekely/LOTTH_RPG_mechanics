@@ -63,8 +63,17 @@ func _actions(stack):
 					initiative.doTrapForLoop = true
 					player_group.player[i[4]]._use_card_and_lose_eng(i[1])
 					ability_func._get_what_ability_got_used(i[1],Menu,enemy_group,player_group,i[4],i[2])
+				3:
+					print("Hoi")
+					enemy_group.enemies[i[4]]._use_card_and_lose_eng(i[1])
+					
+					if Data.get_card_damage_type(i[1]) == true:
+						player_group.player[i[2]]._take_true_damage(Data.get_card_damage(i[1]))
+					else:
+						player_group.player[i[2]]._take_damage(player_group.player[i[4]].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(i[1]),player_group.player[i[4]].Fight_stats.Attack_Type,Data.get_card_attack_type(i[1]),player_group.player[i[4]].Fight_stats.Base_Magical_Attack)
+						print("got through")
+					Menu.ability_card_choice.ability_func._get_what_ability_got_used(i[1],Menu,enemy_group,player_group,i[4],i[2])
 
-					pass
 
 
 		if i[0] == "bag":

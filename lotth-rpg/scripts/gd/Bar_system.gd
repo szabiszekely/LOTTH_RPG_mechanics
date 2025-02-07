@@ -2,7 +2,7 @@ extends Control
 class_name Indicator_bar
 
 #assig it to a character!
-@export var assined_characters: Character_Controller
+@export var assined_characters: Character_Controller 
 #ALL of the components!
 @onready var ENG_bar = $ENG_Segmented_Bar
 @onready var HP_bar = $HP_Segmented_Bar
@@ -19,7 +19,6 @@ var constant_health = 0
 var current_health: int
 
 func _ready():
-	
 	#Setting the 'count' which is the max number in the shader to the max hp and max eng
 	ENG_bar.material.set_shader_parameter("count",assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.material.set_shader_parameter("count",assined_characters.Fight_stats.MAX_HP)

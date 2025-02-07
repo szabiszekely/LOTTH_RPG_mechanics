@@ -22,7 +22,7 @@ func taken_damage(hit):
 	tweens.tween_property(attack_indicator,"scale",Vector2(0.725,0.725),0.675).set_trans(Tween.TRANS_BOUNCE)
 	damage_number.text = str(hit)
 	tweens.tween_property(damage_number,"modulate",Color.WHITE,0.2).set_trans(Tween.TRANS_QUINT)
-	if hit >= 10:
+	if hit >= 10 and hit <= 99:
 		await get_tree().create_timer(0.25).timeout
 		attack_indicator.frame += 1
 	if hit >= 100:

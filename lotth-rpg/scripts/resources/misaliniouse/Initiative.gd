@@ -13,7 +13,7 @@ var action_start: bool = false
 var cancle_enemy_back_up: bool = false
 var cancle_player_back_up: bool = false
 var MaxTurns: int = 0
-var timeSpentBetweenTurns: int = 2
+var timeSpentBetweenTurns: int = 1
 var doTrapForLoop: bool = false
 
 signal stopLoopInPlace

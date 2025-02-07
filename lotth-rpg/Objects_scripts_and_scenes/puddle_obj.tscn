@@ -123,9 +123,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Puddle" type="StaticBody2D"]
+[node name="Puddle" type="StaticBody2D" groups=["Ignoreable"]]
 position = Vector2(0, -31)
 script = ExtResource("1_1jbhi")
+health = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f0hjq")

@@ -16,6 +16,7 @@ func _ready() -> void:
 	randomize()
 	#pick a number between 0 and all spots!
 	var spot_randomizer = randi_range(0,OBJ_spots.size())
+	#var spot_randomizer = OBJ_spots.size()
 	#print(spot_randomizer)
 	for s in spot_randomizer:
 		#every randomized spot!

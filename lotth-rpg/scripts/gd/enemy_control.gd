@@ -8,7 +8,7 @@ class_name Enemy
 func _ready() -> void:
 	 #hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
 	roll_of_the_luck()
-	Enemy_health_bar.hide()
+	#Enemy_health_bar.hide()
 	$character_animator.play("idle")
 	Initiative.MaxTurns += MaxPlayOutOptions
 	
@@ -22,8 +22,9 @@ func _process(delta: float) -> void:
 			Initiative.cancle_enemy_back_up = false
 		else:
 			PlayOutOptions -= 1
-			var choose_action = ["bimbus","bambus"].pick_random()
-			Initiative.action_queued.push_back([choose_action,Fight_stats.name])
+			var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
+			var choose_random_player = randi_range(0,Initiative.group_player.player.size() - 1)
+			Initiative.action_queued.push_back(["atk",choose_ability,choose_random_player,3,Initiative.group_enemies.index])
 
 func _your_turn_on_set_up():
 		PlayOutOptions = MaxPlayOutOptions
