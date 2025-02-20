@@ -535,6 +535,7 @@ avoidance_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Bar_system" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("4_700jv")]
+visible = false
 offset_left = -114.0
 offset_top = -107.0
 offset_right = -114.0

@@ -25,11 +25,13 @@ func _ready() -> void:
 		i.disabled = true
 		i.modulate = Color.TRANSPARENT
 		i.focus_mode = Control.FOCUS_NONE
-	#act_appear()
 	
-# When the ACT option is pressed and the enemy is determend I add all the buttons from the left side
-# to the right going top to bottom! I also set the first 3 to the basic's, than I change the text to 
-# the proper one until I don't have anymore names, THIS entire thing is stored in dict's called Entity_finder.tres
+# When the ACT option is pressed and the enemy is determend (i.e by choosing them) 
+# I add all the buttons from the left side to the right going top to bottom! 
+# I also set the first 3 to the basic's, than I change the text to 
+# the proper one until I don't have anymore names, THIS entire thing is stored in dict's that is inside 
+# the Data global variable, and I can access them via Data.get_actions_of_enemy(ID number):
+# and this gives me all the possible options
 func act_add_actions(list_of_added):
 	#["Talk","Grab","Ball"]
 	var amount_of_options = [check,focus,guard]
@@ -42,10 +44,8 @@ func act_add_actions(list_of_added):
 		amount_of_options.append(change)
 	list_of_buttons = amount_of_options
 
-#Simple tween that brings up the ACT options!
+#Simple tween that brings up the ACT options by using all the added actions via list!
 func act_appear():
-	#list_of_buttons
-	#print("HI WORLD")
 	for i in list_of_buttons:
 		i.modulate = Color.WHITE
 		i.focus_mode = Control.FOCUS_ALL
@@ -56,7 +56,8 @@ func act_appear():
 	tweens.tween_property(self,"position",Vector2(self.position.x,526),0.3).set_trans(Tween.TRANS_QUAD)
 	#await tweens.finished
 
-#AND this does the opposite IF YOU HAVE NO IDEA HOW IT WORKS JUST SIMPLY pulling it up and hiding all the posibilits to see it!
+#AND this does the opposite IF YOU HAVE NO IDEA HOW IT WORKS JUST SIMPLY pulling it up and hiding 
+#all the posibilits to see it!
 func act_disappear():
 	#print("BYE WORLD")
 	list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
@@ -70,13 +71,18 @@ func act_disappear():
 	await tweens.finished
 	#self.hide()
 	
-
+# when option pressed then we just add it to an Array of all the options that will run in the end, and deduct
+# 1 of the maximum of options a player can choose!
 func action_button_pressed(extra_arg_0: StringName) -> void:
 	#print(extra_arg_0)
 	for i in list_of_buttons:
 		if i.name == extra_arg_0:
 			menu.Initiative.action_queued.push_back(["act",i.text,self,0,menu.enemy_group.enemies[menu.enemy_group.index]])
 			menu.vanish()
+			
+		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
+		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
+		# THANK YOU!
 			menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
 			if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
 					menu.enemy_group.call_menu_appear()

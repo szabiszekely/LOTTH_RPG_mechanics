@@ -8,12 +8,6 @@ var collision_reference = null
 var mouse_reference = false
  # update it everyframe!
 func update(source, mouse_position, delta,mouse_in):
-	# if the cursor is DOES exist than just set it to global every frame
-	
-	if cursor_reference != null:
-		spawn_point = cursor_reference.global_position
-		point(cursor_reference, source.global_position, delta)
-
 	# if refrenced cursor DOES exist than:
 	if cursor_reference != null:
 		# if the mouse is inside the ellipse than
@@ -79,7 +73,7 @@ func set_reference(source):
 	new_circle2d.radius = 30.0
 	new_collision2d.shape = new_circle2d
 	new_collision2d.scale.x = 1
-	new_collision2d.scale.y = 0.51
+	new_collision2d.scale.y = 0.51      
 	new_collision2d.position.y = 6
 	new_collision2d.scale = new_collision2d.scale * scaleit
 	new_area2d.add_child(new_collision2d)

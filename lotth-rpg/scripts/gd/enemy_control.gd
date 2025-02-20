@@ -8,7 +8,7 @@ class_name Enemy
 func _ready() -> void:
 	 #hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
 	roll_of_the_luck()
-	#Enemy_health_bar.hide()
+	Enemy_health_bar.hide()
 	$character_animator.play("idle")
 	Initiative.MaxTurns += MaxPlayOutOptions
 	
