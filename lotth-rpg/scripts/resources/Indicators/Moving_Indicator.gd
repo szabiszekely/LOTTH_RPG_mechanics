@@ -4,6 +4,9 @@ class_name MovingIndicator
 @export var cursor_texture : Texture2D
 @export var Fight_stats: Fighting_Stats
 var cursor_reference = null
+var area_reference = null
+var collision_reference = null
+
 
  # update it everyframe!
 func update(source, mouse_position, delta,mouse_in):
@@ -60,6 +63,30 @@ func set_reference(source):
 	cursor.texture = cursor_texture
 	cursor_reference = cursor
 	
+	var new_area2d = Area2D.new()
+	area_reference = new_area2d
+	source.add_child(new_area2d)
+	
+	var new_collision2d = CollisionShape2D.new()
+	new_collision2d.scale = Vector2(3,3)
+	collision_reference = new_collision2d
+	
+	var new_circle2d = CircleShape2D.new()
+	new_circle2d.radius = 30.0
+	new_collision2d.shape = new_circle2d
+	new_collision2d.scale.x = 1
+	new_collision2d.scale.y = 0.51      
+	new_collision2d.position.y = 6
+	new_collision2d.scale = new_collision2d.scale * scaleit
+	new_area2d.add_child(new_collision2d)
+	print(new_collision2d)
+	print(new_collision2d.position)
+
+	
+	new_area2d.mouse_entered.connect(source._on_area_2d_mouse_entered)
+	new_area2d.mouse_exited.connect(source._on_area_2d_mouse_exited)
+	
+	
 	source.add_child(cursor)
  	# finally we just activate it which is just so I call it out
 	activated = true
@@ -70,5 +97,8 @@ func reset():
 		indicator_reference.free()
 	if cursor_reference != null:
 		cursor_reference.free()
- 
+	if area_reference != null:
+		area_reference.free()
+	if collision_reference != null:
+		collision_reference.free()
 	activated = false

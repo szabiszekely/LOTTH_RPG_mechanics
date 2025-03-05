@@ -3,22 +3,23 @@ extends Node2D
 @onready var attack_indicator: Sprite2D = $Attack_indicator
 @onready var damage_number: Label = $Label
 
-
-# Called when the node enters the scene tree for the first time.
+# set everything up when it is spawned
 func _ready() -> void:
 	attack_indicator.scale = Vector2(1.2,1.2)
 	damage_number.visible_characters = 4
 	damage_number.modulate = Color.TRANSPARENT
 	attack_indicator.frame = 0
-	
+
+# when called we define the damage of our hit
 func taken_damage(hit):
+	# set it to a random position 
 	var spawn_random_x = randi_range(-30,30)
 	var spawn_random_y = randi_range(-30,30)
-	
 	self.position = Vector2(spawn_random_x,spawn_random_y)
 	
 	var tweens = get_tree().create_tween()
-	
+	# and than we create a little animation depending on if the damage is either
+	# 1-9, 10-99 or 100-infinite!
 	tweens.tween_property(attack_indicator,"scale",Vector2(0.725,0.725),0.675).set_trans(Tween.TRANS_BOUNCE)
 	damage_number.text = str(hit)
 	tweens.tween_property(damage_number,"modulate",Color.WHITE,0.2).set_trans(Tween.TRANS_QUINT)
@@ -33,6 +34,7 @@ func taken_damage(hit):
 	
 	
 	await tweens.finished
+	# and then we just vanish it!
 	tweens = get_tree().create_tween()
 	tweens.set_parallel()
 	tweens.tween_property(self,"position",Vector2(self.position.x,self.position.y - 50),1.68).set_trans(Tween.TRANS_LINEAR)
@@ -41,6 +43,7 @@ func taken_damage(hit):
 	self.queue_free()
 	
 func true_taken_damage(hit):
+	# and if it is a true damage than play a special animation!
 	var spawn_random_x = randi_range(-30,30)
 	var spawn_random_y = randi_range(-30,30)
 	

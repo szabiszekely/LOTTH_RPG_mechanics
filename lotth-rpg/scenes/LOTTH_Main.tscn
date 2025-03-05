@@ -22,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="15_7vocu"]
 [ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="16_fdyjy"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="16_fvjuy"]
-[ext_resource type="PackedScene" uid="uid://b78min8fkygrg" path="res://scenes/Player_2.tscn" id="17_8knan"]
 [ext_resource type="Script" path="res://scripts/gd/ui_battle_menu.gd" id="17_eljyc"]
 [ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="18_ai41k"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="19_rqvbx"]
+[ext_resource type="PackedScene" uid="uid://b78min8fkygrg" path="res://scenes/Player_2.tscn" id="21_s6lp7"]
 [ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="22_bkb1u"]
 
 [sub_resource type="Resource" id="Resource_uo3bi"]
@@ -398,8 +398,7 @@ menu_system = NodePath("../../UI_battle_menu/Menu")
 position = Vector2(-423, -237)
 Fight_stats = SubResource("Resource_8a1jq")
 
-[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("17_8knan")]
-position = Vector2(-379, -115)
+[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("21_s6lp7")]
 
 [node name="ProCam" type="Node2D" parent="."]
 unique_name_in_owner = true

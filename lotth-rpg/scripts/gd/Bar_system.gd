@@ -1,7 +1,6 @@
 extends Control
 class_name Indicator_bar
 
-#assig it to a character!
 @export var assined_characters: Character_Controller 
 #ALL of the components!
 @onready var ENG_bar = $ENG_Segmented_Bar

@@ -51,21 +51,20 @@ func set_reference(source):
 	sprite_reference.z_index = -1
 	indicator_reference = sprite_reference
 	source.add_child(sprite_reference)
- 
+ 	# creates a cursor
 	var cursor = Sprite2D.new()
 	cursor.texture = cursor_texture
 	cursor_reference = cursor
 	
 	source.add_child(cursor)
- 	# finally we just activate it which is just so I call it out
 	
-	
-	
+	# create a new area2D
 	var new_area2d = Area2D.new()
 	area_reference = new_area2d
 	source.add_child(new_area2d)
-	
+	# create a new collisionshape2D
 	var new_collision2d = CollisionShape2D.new()
+	# set up so you can put a circle in to it!
 	new_collision2d.scale = Vector2(3,3)
 	collision_reference = new_collision2d
 	
@@ -77,7 +76,9 @@ func set_reference(source):
 	new_collision2d.position.y = 6
 	new_collision2d.scale = new_collision2d.scale * scaleit
 	new_area2d.add_child(new_collision2d)
-	
+	print(new_collision2d)
+	print(new_collision2d.position)
+	# and in the end connect the signals to the player/source
 	new_area2d.mouse_entered.connect(source._on_area_2d_mouse_entered)
 	new_area2d.mouse_exited.connect(source._on_area_2d_mouse_exited)
 	

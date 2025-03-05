@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://l5f740mb43yc"]
+[gd_scene load_steps=32 format=3 uid="uid://l5f740mb43yc"]
 
 [ext_resource type="Script" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="1_u1ato"]
@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/Portrait_Icon.png" id="4_lp857"]
 [ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/Current_Player_indicator.png" id="7_pdrwc"]
 [ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_ts1lj"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
-radius = 30.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yvys"]
 atlas = ExtResource("1_u1ato")
@@ -222,13 +219,6 @@ Fight_stats = ExtResource("3_ompdf")
 Turn_portriat = ExtResource("4_lp857")
 cam_target = NodePath("PCamTarget")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 6)
-scale = Vector2(1, 0.51)
-shape = SubResource("CircleShape2D_qs5gw")
-
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.8, 11.2355)
 sprite_frames = SubResource("SpriteFrames_ineu5")
@@ -261,6 +251,3 @@ script = ExtResource("8_ts1lj")
 radius = 150.0
 enabled = false
 priority = 1
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

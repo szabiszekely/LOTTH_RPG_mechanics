@@ -37,6 +37,7 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	#print(is_inside_the_range)
 	#player_switch_on()
 	if Initiative.doTrapForLoop: 
 		update(delta)
@@ -117,12 +118,12 @@ func _on_to_the_next_guy():
 func update(delta):
 	if skill != null:
 		indicator.reset()
-		collision_radius.disabled = true
+		#collision_radius.disabled = true
 		skill.indicator.update(self, get_global_mouse_position(), delta,is_inside_the_range_and_skill_is_being_used)
 	elif skill == null and !Initiative.doTrapForLoop:
-		collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
+		#collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
 		indicator.set_reference(self)
-		collision_radius.disabled = false
+		#collision_radius.disabled = false
 		indicator.update(self,get_global_mouse_position(),delta,is_inside_the_range)
 		
 # when the mous is inside the area or not
@@ -144,7 +145,7 @@ func _on_area_2d_mouse_exited() -> void:
 
 func player_switch_on():
 	indicator.set_reference(self)
-	collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
+	#collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
 
 func player_switch_off():
 	indicator.reset()
