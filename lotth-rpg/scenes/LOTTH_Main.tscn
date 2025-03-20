@@ -399,45 +399,7 @@ position = Vector2(-423, -237)
 Fight_stats = SubResource("Resource_8a1jq")
 
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("21_s6lp7")]
-
-[node name="ProCam" type="Node2D" parent="."]
-unique_name_in_owner = true
-visible = false
-z_index = 4096
-position = Vector2(22, -141)
-script = ExtResource("13_htdc0")
-process_frame = 2
-follow_mode = 1
-drag_type = 0
-smooth_drag = true
-smooth_drag_speed = Vector2(10, 10)
-max_distance = Vector2(100000, 100000)
-offset = Vector2(0, 0)
-smooth_offset = true
-smooth_offset_speed = 2.0
-allow_rotation = true
-smooth_rotation = true
-smooth_rotation_speed = 5.0
-zoom = 1.15
-smooth_zoom = true
-smooth_zoom_speed = 5.0
-auto_zoom = true
-min_zoom = 1.0
-max_zoom = 100.0
-zoom_margin = 10.0
-smooth_limit = true
-left_limit = -900
-right_limit = 900
-top_limit = -605
-bottom_limit = 195
-use_h_margins = true
-use_v_margins = true
-left_margin = 0.1
-right_margin = 0.1
-top_margin = 0.05
-bottom_margin = 0.05
-working_radius = 2000.0
-global_debug_draw = false
+position = Vector2(-338, -134)
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("16_fvjuy")]
 script = ExtResource("17_eljyc")
@@ -466,6 +428,42 @@ script = ExtResource("22_bkb1u")
 radius = 1000.0
 enabled = false
 
+[node name="ProCam" type="Node2D" parent="."]
+z_index = 4096
+script = ExtResource("13_htdc0")
+process_frame = 0
+follow_mode = 1
+drag_type = 0
+smooth_drag = true
+smooth_drag_speed = Vector2(10, 10)
+max_distance = Vector2(100000, 100000)
+offset = Vector2(0, 0)
+smooth_offset = true
+smooth_offset_speed = 2.0
+allow_rotation = true
+smooth_rotation = true
+smooth_rotation_speed = 5.0
+zoom = 1.15
+smooth_zoom = true
+smooth_zoom_speed = 5.0
+auto_zoom = true
+min_zoom = 1.0
+max_zoom = 100.0
+zoom_margin = 10.0
+smooth_limit = true
+left_limit = -960
+right_limit = 955
+top_limit = -860
+bottom_limit = 140
+use_h_margins = true
+use_v_margins = true
+left_margin = 0.1
+right_margin = 0.1
+top_margin = 0.05
+bottom_margin = 0.05
+working_radius = 2000.0
+global_debug_draw = false
+
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Abilities" to="UI_battle_menu/Menu" method="abilities_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="UI_battle_menu/Menu" method="action_pressed"]
 [connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Bagpack" to="UI_battle_menu/Menu" method="bagpack_pressed"]
@@ -483,5 +481,7 @@ enabled = false
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="NavigationRegion2D/Enemy_Group/Enemy5"]
 [editable path="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system"]
+[editable path="NavigationRegion2D/player_group/Player"]
+[editable path="NavigationRegion2D/player_group/Player2"]
 [editable path="UI_battle_menu"]
 [editable path="UI_battle_menu/Action_Panel_choice"]

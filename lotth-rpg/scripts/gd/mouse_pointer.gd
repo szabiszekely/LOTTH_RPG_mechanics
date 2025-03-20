@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Mouse_Camera
 @onready var pointer_cam_target: Node2D = $PCamTarget
-@onready var pro_cam: Node2D = %ProCam
+@onready var pro_cam: Node2D = $"../ProCam"
 
 @export var active: bool
 @export var do_i_need_it: bool

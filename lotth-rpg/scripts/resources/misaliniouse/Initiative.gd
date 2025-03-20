@@ -18,10 +18,12 @@ var doTrapForLoop: bool = false
 
 signal stopLoopInPlace
 
+# this gets the neccesery nodes as references
 func _getting_groups(players,enemies):
 	group_player = players
 	group_enemies =  enemies
 
+# rerolls all the groups initiative
 func _roll_reset():
 	all_rolls.clear()
 	for player in group_player.player:
@@ -30,14 +32,13 @@ func _roll_reset():
 		enemy.roll_of_the_luck()
 	_getting_all_rolls(all_rolls,place_holder_source)
 
+# when the rolls got determend all of them will get passed to this which will sort them all by a simple
+# algorhytm
 func _getting_all_rolls(rolls:Array,source):
 	place_holder_source = source
-	# this is a function that is sorts based on a function! so in this case the priority function.
-	
 	for i in place_holder_source.get_children():
 		if place_holder_source.get_children() != []:
 			i.free()
-	
 	rolls.sort_custom(priority)
 	
 	# when done we will go through the rolls and add they 
@@ -59,6 +60,7 @@ func _getting_all_rolls(rolls:Array,source):
 		source.add_child(container)
 		container.add_child(portrait_icon)
 
+# this 2 either go forward in the order or back
 func _next_in_order():
 	if initiative_index < all_rolls.size() - 1:
 		initiative_index += 1
@@ -75,10 +77,9 @@ func switch_order(x,y):
 	index_order[x][1].your_turn = true
 	#print(index_order[y][1]," ",index_order[x][1])
 
-
+# get the placement of everyone in their recpected group in the order Array
 func _get_the_index_with_order():
 	index_order.clear()
-	
 	for check in all_rolls:
 		var group_index:int = 0
 		var p_index_list = []

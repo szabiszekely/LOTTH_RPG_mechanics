@@ -11,14 +11,14 @@ class_name Indicator_bar
 @onready var Energy_number: Label = $Energy/Label
 @onready var health_text: Panel = $Health
 @onready var energy_text: Panel = $Energy
-# this value is the one that will have a float number to decrease it or increase the health!
+# this value gets the difference between 1 unit/max
 var offset_value : float
-var constant_damage = 0 
-var constant_health = 0
-var current_health: int
+#var constant_damage = 0 
+#var constant_health = 0
+#var current_health: int
 
 func _ready():
-	#Setting the 'count' which is the max number in the shader to the max hp and max eng
+	#Setting up the 'count' which is the max number in the shader in both the max hp and max eng
 	ENG_bar.material.set_shader_parameter("count",assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.material.set_shader_parameter("count",assined_characters.Fight_stats.MAX_HP)
 	name_tag.text = assined_characters.Fight_stats.name
@@ -27,9 +27,9 @@ func _ready():
 	# I dived the number of health by 1 and get a really small number that is 1 portion of the entire bar and this is our 1 incruments!
 	offset_value = 1.0/ENG_bar.material.get_shader_parameter("count")
 	# I honestly have no idea what does dividing by 2 does 
-	#but i know that I must take 1 damage when starting bc the first damage does not count
+	# but i know that I must take 1 damage when starting bc the first damage does not count and after that 
+	# if not hadled the calculation will be off
 	ENG_bar.material.set_shader_parameter("value",ENG_bar.material.get_shader_parameter("value") - offset_value/2)
-	
 	HP_bar.material.set_shader_parameter("value",HP_bar.material.get_shader_parameter("value") - offset_value/2)
 	
 	
@@ -40,15 +40,9 @@ func _process(_delta: float) -> void:
 	energy_changed()
 		
 func bar_damage_taken(damage:int):
-	#every damage I took I do this so... animation!
-	#constant_damage += damage
-	#constant_damage -= 1
+	
 	
 	for i in damage:
-		#print("DAMAGE: ",constant_damage)
-		#if constant_damage < 0:
-			#print("megszegte!!!")
-			#break
 		# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
 		if not ENG_bar.material.get_shader_parameter("value") < 0:
 			ENG_bar.material.set_shader_parameter("value",ENG_bar.material.get_shader_parameter("value") - offset_value)
@@ -59,9 +53,10 @@ func bar_damage_taken(damage:int):
 			tweens.tween_property(energy_text,"position",Vector2(energy_text_pos,energy_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			assined_characters.Fight_stats.ENG -= 1
 			await get_tree().create_timer(0.32).timeout
+			#simple check if the ENG < 0 then I just make sure that it can't be negative number
 			if assined_characters.Fight_stats.ENG <= 0:
 				assined_characters.Fight_stats.ENG = 0
-			#print("INSIDE: ",assined_characters.Fight_stats.ENG)
+		
 		# same here but with the heart!
 		elif not HP_bar.material.get_shader_parameter("value") < 0:
 			HP_bar.material.set_shader_parameter("value",HP_bar.material.get_shader_parameter("value") - offset_value)
@@ -75,17 +70,10 @@ func bar_damage_taken(damage:int):
 			
 			if assined_characters.Fight_stats.HP <= 0:
 				assined_characters.Fight_stats.HP = 0
+				
 func bar_health_restored(health_gain:int,heal_eng_or_health: int):
-	#print("Hi I'm: ", health_gain)
-	#constant_health += health_gain
-	#await get_tree().create_timer(1).timeout
 	for i in health_gain:
-		#if constant_health < 0:
-			#print("megszegte!!!")
-			#break
-		#constant_health -= 1
-		#print("HEALTH: ",constant_health)
-		# same here but with the heart!
+		# I get the number of how much I will gain and then check if it's energy we puting it into or health
 		match heal_eng_or_health:
 			1:
 				# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!

@@ -1,7 +1,7 @@
 extends Character_Controller
 class_name Player
 
-@onready var collision_radius = $Area2D/CollisionShape2D
+# Oh we should probably work on this code cause it is messy 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player_cam_target: Node2D = $PCamTarget
 @onready var Bar_VContainer: VBoxContainer = $"../../../UI_battle_menu/Bar_container"
@@ -29,19 +29,17 @@ func _ready() -> void:
 	Bar = instance
 	
 	moving_indicator.Fight_stats = Fight_stats
-	#when game start start idle get roll
 	$character_animator.play("idle")
+	#when game start start idle get roll
 	roll_of_the_luck()
 	Initiative.MaxTurns += MaxPlayOutOptions
 
 	
 
 func _physics_process(delta: float) -> void:
-	#print(is_inside_the_range)
-	#player_switch_on()
 	if Initiative.doTrapForLoop: 
 		update(delta)
-	
+	# on its turn if you the last player wanted to go back then it will stop here
 	if your_turn:
 		if Initiative.cancle_enemy_back_up == true:
 			Initiative.cancle_enemy_back_up = false
@@ -49,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		# update the indicator
 		if !moved: 
 			update(delta)
-		# get the distance for the navigation and a bunch of nav stuff I don't entirely understand! and just move there!
+	# get the distance for the navigation and a bunch of nav stuff I don't entirely understand! and just move there!
 	distance = Vector2(nav_agent.get_next_path_position() - position)
 	if nav_agent.is_navigation_finished():
 		return
@@ -57,26 +55,19 @@ func _physics_process(delta: float) -> void:
 	velocity.y = distance.normalized().y * speed
 	move_and_slide()
 	
-		#await get_tree().create_timer(3).timeout
-		#goal = self.position
-		# when I click then the navigation gets the position ect, ect I don't get it too much
-	
+		
 func _input(event) -> void:
 	var menu = Initiative.group_player.menu
-	
+	# gets the position and then it will move the player to that position when all the action stuff should play out
 	if event.is_action_pressed("clicked") and indicator.activated and your_turn and skill == null:
 		Initiative.action_queued.push_back(["movement",get_world_2d().navigation_map,moving_indicator.cursor_reference.global_position,0,Initiative.index_order[Initiative.initiative_index][2]])
 		PlayOutOptions -= 1
 		indicator.reset()
 		moved = true
-	#if event.is_action_pressed("ui_cancel") and moved == true and skill == null:
-		#
-		#pass
 	
 	if skill != null:
 		skill.indicator.set_reference(self)
 		if event.is_action_pressed("clicked") and skill.indicator.activated:
-			#print(get_tree())
 			
 			# WE NEED TO ADD THE CORRECT VALUES LATER DO NOT FORGET!!!
 			skill.skill_attack_type
@@ -103,7 +94,6 @@ func _your_turn_on_set_up():
 	menu.show()
 	menu.current_state = menu.Menu_state.MENU
 	player_switch_on()
-	#print(Fight_stats.name," Turn is up and this shit does work lol")
 
 func _your_turn_off_set_up():
 	var menu = Initiative.group_player.menu
@@ -118,34 +108,26 @@ func _on_to_the_next_guy():
 func update(delta):
 	if skill != null:
 		indicator.reset()
-		#collision_radius.disabled = true
 		skill.indicator.update(self, get_global_mouse_position(), delta,is_inside_the_range_and_skill_is_being_used)
 	elif skill == null and !Initiative.doTrapForLoop:
-		#collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
 		indicator.set_reference(self)
-		#collision_radius.disabled = false
 		indicator.update(self,get_global_mouse_position(),delta,is_inside_the_range)
 		
 # when the mous is inside the area or not
 func _on_area_2d_mouse_entered() -> void:
 	if skill != null:
-		#print("Inside and have skill")
 		is_inside_the_range_and_skill_is_being_used = true
 	elif skill == null:
-		#print("Inside and does not have skill")
 		is_inside_the_range = true
 
 func _on_area_2d_mouse_exited() -> void:
 	if skill != null:
-		#print("Outside and have skill")
 		is_inside_the_range_and_skill_is_being_used = false
 	elif skill == null:
-		#print("Outside and does not have skill")
 		is_inside_the_range = false
 
 func player_switch_on():
 	indicator.set_reference(self)
-	#collision_radius.shape.radius  = Fight_stats.range_in_cm * 10
 
 func player_switch_off():
 	indicator.reset()

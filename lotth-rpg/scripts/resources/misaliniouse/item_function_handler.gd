@@ -6,6 +6,8 @@ var player_handler
 var enemy_handeler
 var item_data
 
+# this will direct any ongoing item usage to their respective actions
+
 func _get_item_and_redirect_it(item_name,menu,player,enemy):
 	menu_system = menu
 	player_handler = player

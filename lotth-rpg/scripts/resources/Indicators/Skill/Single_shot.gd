@@ -4,6 +4,7 @@ class_name SingleShot
 func activate(scene_tree):
 	shoot(scene_tree)
 
+# this sets up the everything from damage to type to dir and velocity
 func shoot(scene_tree):
 	if projectile_node == null:
 		return

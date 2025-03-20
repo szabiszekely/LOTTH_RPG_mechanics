@@ -17,22 +17,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if start_choosing == true:
-		
+		# same as with the enemy, one set goes upwards in the chain, the other goes down and it loops
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
 			if sub_index > 0:
 				sub_index -= 1
 				switch_focus(sub_index, sub_index+1)
-				#print("why")
 			else:
 				sub_index = player.size() -1
 				switch_focus(sub_index,0)
-				#print("not")
 		
 		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
 			if sub_index < player.size() - 1:
 				sub_index += 1
 				switch_focus(sub_index, sub_index-1)
-				#print("do")
 			else:
 				sub_index = 0
 				switch_focus(sub_index,player.size() - 1)
@@ -60,15 +57,17 @@ func call_menu_appear():
 	menu.switching_buttons()
 	menu.current_state = menu.Menu_state.MENU
 
+# it adds a debug option
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_button_2"):
 		player[index].Initiative._next_in_order() 
 		player[index].Initiative.action_queued.push_back(["TEST"])
-	
+
+# this switches players frm one to another
 func switch_player(x, y):
 	player[x].player_switch_on()
 	player[y].player_switch_off()
-
+# and this is only switches focus
 func switch_focus(x, y):
 	player[x]._focus_indicator()
 	player[y]._unfocus_indicator()

@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	#FOR Now when it's their turn, they choose a random attack, but if a player cancle's then their action get rerolled
 	if your_turn:
 		if Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() != 0:
 			Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)

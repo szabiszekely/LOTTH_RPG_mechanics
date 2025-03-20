@@ -1,7 +1,7 @@
 extends Indicator
 class_name PointingIndicator
  
- 
+ # every frame it turns to rotate to angle to the mouse position
 func update(source, mouse_position, delta,_mouse_in):
 	spawn_point = source.global_position
 	direction = (mouse_position - spawn_point).normalized()

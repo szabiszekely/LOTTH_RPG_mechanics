@@ -1,6 +1,7 @@
 extends PanelContainer
 class_name Menu_system
 
+# Export values !
 @export var enemy_group: Enemy_group
 @export var player_group: Player_group
 @export var get_the_children: HBoxContainer
@@ -19,12 +20,12 @@ class_name Menu_system
 @onready var bagpack_choice: Bagpack_controls = $"../Bagpack"
 @onready var run_choice: Run_control = $"../Run_Panel_choice"
 
-# ugly but it does its job! aka All ACTION BUTTONS
+# Miscellaneous !
 @onready var menu: Control = $"."
 @onready var act_dialogue_box: DialogueBox = $"../Action_option_box"
 @onready var static_dialogue_box: DialogueBox = $"../Static_Dialogue_Box"
 
-
+# all states
 enum Menu_state {
 	MENU,
 	ABILITES,
@@ -35,7 +36,7 @@ enum Menu_state {
 	CHOOSING_PLAYERS,
 	ALL_GONE
 }
-
+# and memory states
 enum Memory_state {
 	MENU,
 	ABILITES,
@@ -68,21 +69,20 @@ func _ready() -> void:
 	current_state = Menu_state.MENU
 	current_memory_state = current_state
 	menu_buttons = get_the_children.get_children()
-	
 	switching_buttons()
 	
-
 func _process(_delta: float) -> void:
 	#print(current_state)
 	
 	match current_state:
+		# bring up the menu and a static dialouge box
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
 				player_group.player[player_group.index]._camera_on()
 				static_dialogue_box.show()
 				menu_container = false
-			
+		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
 		Menu_state.ABILITES:
 			current_memory_state = current_state
 			if abi_container == true:
@@ -91,12 +91,14 @@ func _process(_delta: float) -> void:
 				ability_card_choice.deck = player_group.player[player_group.index].Fight_stats.PlayerDeck.Deck
 				ability_card_choice.abi_appear()
 				abi_container = false
+		# brings up the actions already appearing with all the enemy act options
 		Menu_state.ACTIONS:
 			current_memory_state = current_state
 			if act_container == true:
 				menu.show()
 				action_choice.act_appear()
 				act_container = false
+		# brings up the bagpack menu
 		Menu_state.BAG:
 			current_memory_state = current_state
 			if bag_container == true:
@@ -110,24 +112,27 @@ func _process(_delta: float) -> void:
 				menu.show()
 				run_choice.run_appear()
 				run_container = false
+		
 		Menu_state.CHOOSING_ENEMIES:
 			current_memory_state = current_state
 			if choose_enemy_container == true:
 				player_group._reset_focus()
 				enemy_group._start_choosing()
 				choose_enemy_container = false
+		
 		Menu_state.CHOOSING_PLAYERS:
-			
 			current_memory_state = current_state
 			if choose_player_container == true:
 				player_group._start_choosing()
 				choose_player_container = false
+		# disables every menu and every interaction
 		Menu_state.ALL_GONE:
 			all_gone()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		match current_state:
+			# goes back to the previous player
 			Menu_state.MENU:
 				if Initiative.action_queued.size() != 0:
 					Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
@@ -135,6 +140,7 @@ func _input(event: InputEvent) -> void:
 					Initiative.cancle_player_back_up = true
 					Initiative._previouse_in_order()
 					menu_container = true
+			# all of the other just go back by one step to their respective menu before
 			Menu_state.ABILITES:
 				menu_index = 0
 				vanish()
@@ -208,6 +214,7 @@ func _input(event: InputEvent) -> void:
 				act = true
 				current_state = Menu_state.CHOOSING_ENEMIES
 				#print("Hi")
+	# disables all the UI stuff and you can look around
 	if event.is_action_pressed("Cam_change"):
 		if Mouse_camera_toggler.camera_toggle == true:
 			vanish()
@@ -226,7 +233,8 @@ func _input(event: InputEvent) -> void:
 				
 				
 			current_state = current_memory_state
-	
+
+# hides the UI (Kinda...)
 func vanish():
 	menu.hide()
 	ability_card_choice.abi_disappear()
@@ -236,8 +244,8 @@ func vanish():
 	static_dialogue_box.hide()
 	act_dialogue_box.hide()
 
+# Disables EVERYTHING
 func all_gone():
-	
 	abilities.process_mode = Node.PROCESS_MODE_DISABLED
 	action.process_mode = Node.PROCESS_MODE_DISABLED
 	bagpack.process_mode = Node.PROCESS_MODE_DISABLED
@@ -248,7 +256,8 @@ func all_gone():
 	run_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	enemy_group._reset_focus()
 	player_group._reset_focus()
-	
+
+# Brings back everything
 func back_to_normal():
 	if current_memory_state == 5:
 		enemy_group.start_choosing = true
@@ -264,6 +273,7 @@ func back_to_normal():
 	run_choice.process_mode = Node.PROCESS_MODE_INHERIT
 	switching_buttons()
 
+# focuses the button your menu were in
 func switching_buttons():
 	menu_buttons[menu_index].grab_focus()
 	if enemy_group.start_choosing == false:
@@ -280,8 +290,6 @@ func _on_action_pressed() -> void:
 	choose_enemy_container = true
 	act_container = true
 	current_state = Menu_state.CHOOSING_ENEMIES
-	#action_choice.act_appear()
-
 
 func _on_bagpack_pressed() -> void:
 	vanish()
@@ -293,8 +301,3 @@ func _on_run_pressed() -> void:
 	vanish()
 	run_container = true
 	current_state = Menu_state.RUN
-	
-
-
-	
-#
