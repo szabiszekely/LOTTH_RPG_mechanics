@@ -32,12 +32,12 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 		print("no advan")
 	# if the attacker has a type advantage than get an attack buff
 	# aka if the damage dealer has a bigger number OR the own type is 2 and the dealer is 0 than the attack dealer gets +1 damage!
-	elif Reciver_ATK_type < Card_Type or Reciver_ATK_type == 2 and Card_Type == 0:
+	elif Reciver_ATK_type == 0 and Card_Type == 1 or Reciver_ATK_type == 1 and Card_Type == 2 or Reciver_ATK_type == 2 and Card_Type == 0:
 		Damage_Type = 1
 		print("advantage")
 	
 	# however if this the self type is higher than the dealers attack will be down by 1
-	elif Reciver_ATK_type > Card_Type or Reciver_ATK_type == 0 and Card_Type == 2: 
+	elif Reciver_ATK_type == 1 and Card_Type == 0 or Reciver_ATK_type == 2 and Card_Type == 1 or Reciver_ATK_type == 0 and Card_Type == 2: 
 		Damage_Type = -1
 		print("bad advantage")
 	
