@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://bvt2lrb6jk86h" path="res://scripts/resources/Indicators/Multi_indicator.tres" id="1_u8pvy"]
 [ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/projectile.tscn" id="2_8y6bs"]
-[ext_resource type="Script" path="res://scripts/resources/Indicators/Skill/FireSpiral.gd" id="3_04mkt"]
+[ext_resource type="Script" uid="uid://ntx84a4cdxu3" path="res://scripts/resources/Indicators/Skill/FireSpiral.gd" id="3_04mkt"]
 
 [resource]
 script = ExtResource("3_04mkt")

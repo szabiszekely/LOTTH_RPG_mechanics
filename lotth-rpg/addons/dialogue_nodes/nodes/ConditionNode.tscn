@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3ofh51q0vhmg"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/conditionNode.gd" id="1"]
+[ext_resource type="Script" uid="uid://bb37u4wogb276" path="res://addons/dialogue_nodes/nodes/conditionNode.gd" id="1"]
 
 [node name="ConditionNode" type="GraphNode"]
 offset_right = 300.0

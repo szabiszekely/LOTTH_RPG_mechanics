@@ -1,0 +1,291 @@
+[gd_scene load_steps=36 format=3 uid="uid://dn23mgjj7d68s"]
+
+[ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="1_efpsu"]
+[ext_resource type="Script" uid="uid://bujp3hoorluco" path="res://scripts/gd/camera_3d.gd" id="1_k4xgx"]
+[ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="2_d06uv"]
+[ext_resource type="Script" uid="uid://dnar3vtcournh" path="res://scripts/gd/player_3d.gd" id="2_x4ema"]
+[ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/Cursor.png" id="3_k4xgx"]
+[ext_resource type="Script" uid="uid://crraxm51lvi5i" path="res://scripts/gd/navigation_region_3d.gd" id="6_x4ema"]
+[ext_resource type="PackedScene" uid="uid://dsfnh23mikqat" path="res://Testing_folder/DialougeBox_test.tscn" id="7_gfia4"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rgh2o"]
+ground_color = Color(0.1892, 0.60286, 0.86, 1)
+
+[sub_resource type="Sky" id="Sky_pbw6q"]
+sky_material = SubResource("PhysicalSkyMaterial_rgh2o")
+
+[sub_resource type="Environment" id="Environment_v1gob"]
+background_mode = 2
+background_energy_multiplier = 4.0
+sky = SubResource("Sky_pbw6q")
+sky_custom_fov = 30.0
+ambient_light_sky_contribution = 0.19
+ambient_light_energy = 16.0
+glow_strength = 2.0
+fog_mode = 1
+fog_light_color = Color(0.4524, 0.57798, 0.78, 1)
+fog_density = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ema"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfia4"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3rog"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ausdd"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lkop"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2u83"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i5vm"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jajfq"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsqrp"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5isjs"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1bao"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baogd"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk26t"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmyp0"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t7ht"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m605v"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r413c"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl23l"]
+atlas = ExtResource("1_efpsu")
+region = Rect2(384, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyqft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ema")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfia4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3rog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ausdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lkop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2u83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i5vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jajfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsqrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5isjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1bao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baogd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk26t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmyp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t7ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m605v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r413c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl23l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3tgeq"]
+size = Vector3(0.2, 0.3, 0.2)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rgh2o"]
+height = 0.036499
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_idj7w"]
+vertices = PackedVector3Array(-1.52824, -0.93803, -3.778, -1.32824, -0.79803, -3.728, -1.22824, -0.93803, -4.728, -2.32824, -0.93803, -4.728, -1.30324, -0.93803, -3.978, -2.32824, -0.93803, -2.678, -1.52824, -0.93803, -2.678, -0.528236, -0.86803, -3.778, -0.428236, -0.86803, -3.778, -0.428236, -0.93803, -4.728, -1.32824, -0.37803, -2.428, -0.528236, -0.37803, -2.428, -1.32824, -0.37803, -3.208, -0.528236, -0.37803, -3.238, -0.328235, -0.93803, -3.778, 2.37176, -0.93803, -4.728, -0.328235, -0.93803, -2.678, 2.37176, -0.93803, -2.678, -1.47824, -0.93803, -2.228, -2.32824, -0.93803, 4.672, -0.378236, -0.93803, -2.228, 2.37176, -0.93803, 4.672)
+polygons = [PackedInt32Array(1, 0, 4), PackedInt32Array(4, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 0), PackedInt32Array(0, 5, 3), PackedInt32Array(9, 8, 7), PackedInt32Array(1, 4, 7), PackedInt32Array(7, 4, 2), PackedInt32Array(7, 2, 9), PackedInt32Array(7, 13, 1), PackedInt32Array(1, 13, 12), PackedInt32Array(12, 13, 10), PackedInt32Array(10, 13, 11), PackedInt32Array(8, 9, 14), PackedInt32Array(14, 9, 15), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 15), PackedInt32Array(6, 18, 5), PackedInt32Array(5, 18, 19), PackedInt32Array(20, 16, 17), PackedInt32Array(17, 21, 20), PackedInt32Array(20, 21, 19), PackedInt32Array(19, 18, 20)]
+cell_size = 0.05
+cell_height = 0.07
+agent_radius = 0.1
+agent_max_climb = 0.1
+agent_max_slope = 50.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_idj7w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kln2b"]
+albedo_color = Color(0.412333, 1, 0.14, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rgh2o"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v1gob")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(-3.18757e-08, 0.684268, -0.729231, 2.99102e-08, 0.729231, 0.684268, 1, 7.28306e-14, -4.37114e-08, -2.72824, 3.24173, 0)
+fov = 80.0
+script = ExtResource("1_k4xgx")
+player = NodePath("../CharacterBody3D")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375582, 0.735899, -0.00224257)
+script = ExtResource("2_x4ema")
+camera = NodePath("../Camera3D")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0163183, 0.00813699, 0.0202334)
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_jyqft")
+animation = &"idle"
+frame_progress = 0.414827
+speed_scale = 4.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0163183, -0.0849023, 0.0202334)
+shape = SubResource("BoxShape3D_3tgeq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+
+[node name="Sprite3D2" type="Sprite3D" parent="CharacterBody3D"]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, -0.216307, 0)
+texture_filter = 0
+texture = ExtResource("2_d06uv")
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D/Sprite3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Sprite3D2/Area3D"]
+transform = Transform3D(0.619, 0, 0, 0, -2.70574e-08, -0.619, 0, 0.619, -2.70574e-08, 0, -3.49246e-10, -0.00169069)
+shape = SubResource("CylinderShape3D_rgh2o")
+debug_color = Color(0.66, 0.1782, 0.34683, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0132816, 0.999912, 0, -0.999912, -0.0132816, 0, 5.83876, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.55, 0)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_k4xgx")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1.32787, 0, 0, 0, 1, 0, 0, 0, 1.51118, 0.936649, 1.55368, 0.0315756)
+navigation_mesh = SubResource("NavigationMesh_idj7w")
+script = ExtResource("6_x4ema")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(4.88, 0, 0, 0, 1, 0, 0, 0, 9.61501, 0.0117644, -1.55803, -0.0204973)
+mesh = SubResource("BoxMesh_idj7w")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kln2b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_rgh2o")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, -0.93398, -0.979164, -2.79663)
+mesh = SubResource("BoxMesh_idj7w")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kln2b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_rgh2o")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(0.93, 0, 0, 0, 0.657609, -0.657609, 0, 0.657609, 0.657609, -0.93398, -1.17199, -3.26195)
+mesh = SubResource("BoxMesh_idj7w")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kln2b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_rgh2o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogeBox" parent="CanvasLayer" instance=ExtResource("7_gfia4")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -342.0
+offset_top = -213.0
+offset_right = -342.0
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="mouse_entered" from="CharacterBody3D/Sprite3D2/Area3D" to="CharacterBody3D" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterBody3D/Sprite3D2/Area3D" to="CharacterBody3D" method="_on_area_3d_mouse_exited"]

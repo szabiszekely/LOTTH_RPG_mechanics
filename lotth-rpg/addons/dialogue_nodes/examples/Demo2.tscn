@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dexedy1bup8vh"]
 
 [ext_resource type="Theme" uid="uid://dc6c1peo4pfyr" path="res://addons/dialogue_nodes/themes/bubbly.theme" id="1_fbp1s"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_435yb"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_xlyqn"]
+[ext_resource type="Script" uid="uid://d1r0pqhw3cr68" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_435yb"]
+[ext_resource type="Script" uid="uid://dcii012frg4ud" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_xlyqn"]
 [ext_resource type="Resource" uid="uid://c4ay241u6mexj" path="res://addons/dialogue_nodes/examples/ExampleAudio.tres" id="4_1tepv"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="4_x7bn6"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="8_2keth"]
+[ext_resource type="Script" uid="uid://dwtwpavgtrkfl" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="4_x7bn6"]
+[ext_resource type="Script" uid="uid://dnkwhbsllarpn" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="8_2keth"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c6wh6"]
 script = ExtResource("2_435yb")

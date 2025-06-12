@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8fcmd0gtr56h"]
 
-[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_f4qrl"]
+[ext_resource type="Script" uid="uid://cshghc71hykek" path="res://scripts/gd/simple_obj.gd" id="1_f4qrl"]
 [ext_resource type="Texture2D" uid="uid://bh5wg2ujuheua" path="res://assets/sprite/Objects/bush_1.png" id="2_pv4dk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pqjc8"]

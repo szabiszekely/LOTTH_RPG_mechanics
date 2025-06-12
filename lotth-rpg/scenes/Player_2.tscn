@@ -1,12 +1,12 @@
 [gd_scene load_steps=33 format=3 uid="uid://b78min8fkygrg"]
 
-[ext_resource type="Script" path="res://scripts/gd/player_controller.gd" id="1_jcwft"]
+[ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/player_controller.gd" id="1_jcwft"]
 [ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Skill/Moving_P1.tres" id="2_oyyrr"]
 [ext_resource type="Texture2D" uid="uid://do4mcmq0nu2su" path="res://assets/sprite/Player 2/Portrait_Icon.png" id="3_y66ul"]
 [ext_resource type="Resource" uid="uid://bi100idx5gxxv" path="res://scripts/resources/CH/Seriouse_Guy_Fighting_Stats.tres" id="5_qq0or"]
 [ext_resource type="Texture2D" uid="uid://jgcn7jkoq8nj" path="res://assets/sprite/Player 2/player_2_sprite_sheet_better.png" id="6_gdeki"]
 [ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/Current_Player_indicator.png" id="7_fbbuh"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_i45f2"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_i45f2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
 radius = 30.0
@@ -233,9 +233,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4d3b"]
 _data = {
-"RESET": SubResource("Animation_g3rl5"),
-"eng_hit": SubResource("Animation_av0wi"),
-"hit": SubResource("Animation_ev0j6")
+&"RESET": SubResource("Animation_g3rl5"),
+&"eng_hit": SubResource("Animation_av0wi"),
+&"hit": SubResource("Animation_ev0j6")
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]

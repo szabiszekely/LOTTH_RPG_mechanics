@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3p0644abxxbm"]
 
 [ext_resource type="Texture2D" uid="uid://bucad3kf5mxvp" path="res://addons/dialogue_nodes/icons/Play.svg" id="1"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/startNode.gd" id="2"]
+[ext_resource type="Script" uid="uid://du3yj71txvqmj" path="res://addons/dialogue_nodes/nodes/startNode.gd" id="2"]
 
 [node name="StartNode" type="GraphNode"]
 custom_minimum_size = Vector2(0, 86)

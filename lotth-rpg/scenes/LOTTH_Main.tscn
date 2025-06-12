@@ -1,32 +1,32 @@
 [gd_scene load_steps=55 format=4 uid="uid://cxspq5due67jr"]
 
-[ext_resource type="Script" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
+[ext_resource type="Script" uid="uid://wvuqgso3bhpt" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
 [ext_resource type="Texture2D" uid="uid://cp5odrrgqigj4" path="res://assets/sprite/BG and Tile/bg Sky.png" id="2_rnh8o"]
 [ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="2_xg4t4"]
-[ext_resource type="Script" path="res://scripts/resources/misaliniouse/turn_handler.gd" id="3_hpi3r"]
+[ext_resource type="Script" uid="uid://dwcwc8gvh0t72" path="res://scripts/resources/misaliniouse/turn_handler.gd" id="3_hpi3r"]
 [ext_resource type="Texture2D" uid="uid://c0fst625d3t44" path="res://assets/sprite/BG and Tile/paralex Clouds.png" id="3_ttdbb"]
-[ext_resource type="Script" path="res://scripts/resources/misaliniouse/ability_function_handler.gd" id="4_1ds22"]
+[ext_resource type="Script" uid="uid://cgius8yiqqdp4" path="res://scripts/resources/misaliniouse/ability_function_handler.gd" id="4_1ds22"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/ground_tilemap.png" id="4_wunvi"]
-[ext_resource type="Script" path="res://scripts/resources/misaliniouse/action_button_option_handler.gd" id="5_1wk7c"]
-[ext_resource type="Script" path="res://scripts/gd/navigation_region_2d.gd" id="5_ga4m6"]
-[ext_resource type="Script" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="6_1axna"]
+[ext_resource type="Script" uid="uid://dsyk5en1w40yx" path="res://scripts/resources/misaliniouse/action_button_option_handler.gd" id="5_1wk7c"]
+[ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/navigation_region_2d.gd" id="5_ga4m6"]
+[ext_resource type="Script" uid="uid://jpnbuuk08dxe" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="6_1axna"]
 [ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="6_djyy6"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="7_xtgrh"]
-[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_77yi2"]
-[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="9_graho"]
-[ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="10_l3tb4"]
-[ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="11_kpiaw"]
+[ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_77yi2"]
+[ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="9_graho"]
+[ext_resource type="Shader" uid="uid://ckhvlyetwr75x" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="10_l3tb4"]
+[ext_resource type="Shader" uid="uid://ctxyivki7n00q" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="11_kpiaw"]
 [ext_resource type="PackedScene" uid="uid://lj2tu1d6oo1c" path="res://scenes/obj_folder.tscn" id="12_xbkon"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/procam2d.gd" id="13_htdc0"]
+[ext_resource type="Script" uid="uid://bqmp2a0w0l3po" path="res://addons/ProCam2D/scripts/procam2d.gd" id="13_htdc0"]
 [ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="14_i48of"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="15_7vocu"]
 [ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="16_fdyjy"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="16_fvjuy"]
-[ext_resource type="Script" path="res://scripts/gd/ui_battle_menu.gd" id="17_eljyc"]
+[ext_resource type="Script" uid="uid://b3gqjnnvydhjf" path="res://scripts/gd/ui_battle_menu.gd" id="17_eljyc"]
 [ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="18_ai41k"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="19_rqvbx"]
 [ext_resource type="PackedScene" uid="uid://b78min8fkygrg" path="res://scenes/Player_2.tscn" id="21_s6lp7"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="22_bkb1u"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="22_bkb1u"]
 
 [sub_resource type="Resource" id="Resource_uo3bi"]
 script = ExtResource("4_1ds22")
@@ -42,7 +42,7 @@ load_path = "res://.godot/imported/ground_tilemap.png-56cc6fae8bf57cd23c06b67058
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et0t5"]
 texture = SubResource("CompressedTexture2D_5t4e0")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(1, 1)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -168,12 +168,12 @@ shader = ExtResource("9_graho")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 1
-shader_parameter/margin = null
+shader_parameter/margin = Vector2(0, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="Gradient" id="Gradient_voo0t"]
 colors = PackedColorArray(0.890196, 0.235294, 0.160784, 1, 0.890196, 0.235294, 0.160784, 1)
@@ -197,10 +197,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 20
 shader_parameter/margin = Vector2(0.28, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_kjh8r")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_xn2i6")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="Gradient" id="Gradient_cjxav"]
 colors = PackedColorArray(0.207843, 0.890196, 0.160784, 1, 0.207843, 0.890196, 0.160784, 1)
@@ -224,10 +224,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 30
 shader_parameter/margin = Vector2(0.4, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="Resource" id="Resource_knrse"]
 resource_local_to_scene = true
@@ -274,7 +274,6 @@ range_in_cm = 15.0
 
 [node name="Simple_Test" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu")]
 y_sort_enabled = true
-position = Vector2(0, -2)
 script = ExtResource("1_84k3t")
 player = NodePath("NavigationRegion2D/player_group")
 enemy = NodePath("NavigationRegion2D/Enemy_Group")

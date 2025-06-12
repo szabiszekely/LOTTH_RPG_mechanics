@@ -1,15 +1,15 @@
 [gd_scene load_steps=75 format=3 uid="uid://c3w40nucf3oud"]
 
-[ext_resource type="Script" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
+[ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="2_htaiq"]
 [ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="4_700jv"]
 [ext_resource type="Resource" uid="uid://dps5ywyu0gs31" path="res://scripts/resources/CH/Baller_Figting_Stats.tres" id="4_ndcdo"]
 [ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280.png" id="5_bdy0d"]
-[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="5_grx1e"]
-[ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="6_fua16"]
-[ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="7_1uto1"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
+[ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="5_grx1e"]
+[ext_resource type="Shader" uid="uid://ckhvlyetwr75x" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="6_fua16"]
+[ext_resource type="Shader" uid="uid://ctxyivki7n00q" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="7_1uto1"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qs5gw"]
 radius = 30.0
@@ -404,9 +404,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4d3b"]
 _data = {
-"RESET": SubResource("Animation_g3rl5"),
-"eng_hit": SubResource("Animation_av0wi"),
-"hit": SubResource("Animation_ev0j6")
+&"RESET": SubResource("Animation_g3rl5"),
+&"eng_hit": SubResource("Animation_av0wi"),
+&"hit": SubResource("Animation_ev0j6")
 }
 
 [sub_resource type="Gradient" id="Gradient_klmtg"]
@@ -429,12 +429,12 @@ shader = ExtResource("5_grx1e")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 1
-shader_parameter/margin = null
+shader_parameter/margin = Vector2(0, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="Gradient" id="Gradient_voo0t"]
 colors = PackedColorArray(0.890196, 0.235294, 0.160784, 1, 0.890196, 0.235294, 0.160784, 1)
@@ -458,10 +458,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 20
 shader_parameter/margin = Vector2(0.28, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_kjh8r")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_xn2i6")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="Gradient" id="Gradient_cjxav"]
 colors = PackedColorArray(0.207843, 0.890196, 0.160784, 1, 0.207843, 0.890196, 0.160784, 1)
@@ -485,10 +485,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 30
 shader_parameter/margin = Vector2(0.4, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target") groups=["Enemy"]]
 script = ExtResource("1_pbqx5")

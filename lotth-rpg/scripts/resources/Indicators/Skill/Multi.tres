@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dq16ij2dwkwg7"]
 
 [ext_resource type="Resource" uid="uid://bvt2lrb6jk86h" path="res://scripts/resources/Indicators/Multi_indicator.tres" id="1_lniup"]
-[ext_resource type="Script" path="res://scripts/resources/Indicators/Skill/Skill.gd" id="2_08uo6"]
+[ext_resource type="Script" uid="uid://050ko7p07vd8" path="res://scripts/resources/Indicators/Skill/Skill.gd" id="2_08uo6"]
 
 [resource]
 script = ExtResource("2_08uo6")

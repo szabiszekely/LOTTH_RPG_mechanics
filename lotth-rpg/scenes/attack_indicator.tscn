@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1qv0jnx6ca1n"]
 
-[ext_resource type="Script" path="res://scripts/gd/attack_indicator.gd" id="1_7momn"]
+[ext_resource type="Script" uid="uid://g7j7ajp5jp3c" path="res://scripts/gd/attack_indicator.gd" id="1_7momn"]
 [ext_resource type="Texture2D" uid="uid://doqipbkiexdhn" path="res://assets/sprite/UI/Attack_indicator_sprite_sheet_with_true_damage.png" id="2_7aaev"]
 
 [sub_resource type="FontVariation" id="FontVariation_hty4a"]

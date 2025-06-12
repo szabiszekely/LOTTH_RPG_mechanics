@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://djp2ejl0jqhrk"]
 
-[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_2hj14"]
+[ext_resource type="Script" uid="uid://cshghc71hykek" path="res://scripts/gd/simple_obj.gd" id="1_2hj14"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nosr1"]
 

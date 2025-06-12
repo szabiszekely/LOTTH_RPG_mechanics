@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dsfnh23mikqat"]
+
+[node name="DialogeBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 719.0
+offset_bottom = 221.0
+color = Color(0.00392157, 0.0196078, 0.0431373, 0.807843)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 14.0
+offset_right = -39.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "* When the light is running low and the shadow, [b]SALSA [/b] anyways!
+There's [rainbow]WAS UP??? [/rainbow] I can do shit like this [wave][shake] what?[/shake][/wave]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false

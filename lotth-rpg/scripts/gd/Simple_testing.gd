@@ -4,7 +4,7 @@ extends Node2D
 @export var enemy: Enemy_group
 @export var menu: PanelContainer
 @export var initiative: Initiative_class
-@onready var turn_handler: Node = $Turn_Handler
+@export var turn_handler: Node
 @export var visible_action_queued: Array
 func _ready() -> void:
 	initiative._getting_groups(player,enemy)

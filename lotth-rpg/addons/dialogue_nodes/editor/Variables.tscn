@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3i6c8iuh7ii"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/editor/variables.gd" id="1_0ltmm"]
+[ext_resource type="Script" uid="uid://cyf2tx5wnd8fa" path="res://addons/dialogue_nodes/editor/variables.gd" id="1_0ltmm"]
 
 [node name="Variables" type="VBoxContainer"]
 offset_right = 200.0

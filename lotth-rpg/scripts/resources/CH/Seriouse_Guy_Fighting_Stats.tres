@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Fighting_Stats" load_steps=3 format=3 uid="uid://bi100idx5gxxv"]
 
-[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="1_cengl"]
+[ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="1_cengl"]
 [ext_resource type="Resource" uid="uid://elxbtr5j0ugc" path="res://scripts/resources/Decks/Lil_guy_Def_deck.tres" id="1_mwcj6"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cftdbj10fabfd"]
 
-[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_1jbhi"]
+[ext_resource type="Script" uid="uid://cshghc71hykek" path="res://scripts/gd/simple_obj.gd" id="1_1jbhi"]
 [ext_resource type="Texture2D" uid="uid://dr0cf5xyohtag" path="res://assets/sprite/Objects/puddle.png" id="2_2t1ib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yee6n"]

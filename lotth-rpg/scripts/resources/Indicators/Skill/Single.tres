@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Skill" load_steps=4 format=3 uid="uid://dy12t707eucta"]
 
 [ext_resource type="Resource" uid="uid://yylwxvi32hvj" path="res://scripts/resources/Indicators/Point_indicator.tres" id="1_ucekx"]
-[ext_resource type="Script" path="res://scripts/resources/Indicators/Skill/Skill.gd" id="2_631yp"]
+[ext_resource type="Script" uid="uid://050ko7p07vd8" path="res://scripts/resources/Indicators/Skill/Skill.gd" id="2_631yp"]
 [ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/projectile.tscn" id="2_t3nd7"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjwahpm5wkav5"]
 
-[ext_resource type="Script" path="res://scripts/gd/ability_card_choice.gd" id="1_omyl3"]
+[ext_resource type="Script" uid="uid://6ab82xhphtib" path="res://scripts/gd/ability_card_choice.gd" id="1_omyl3"]
 [ext_resource type="Texture2D" uid="uid://ymbytft3nu0i" path="res://assets/sprite/Ability Cards/Mile Punch.png" id="2_qe5h1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyltb"]

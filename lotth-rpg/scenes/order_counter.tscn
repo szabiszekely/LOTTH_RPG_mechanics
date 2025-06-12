@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cik4k3fvdqebn"]
 
 [ext_resource type="Texture2D" uid="uid://bqtblo8a4vupn" path="res://assets/sprite/UI/Turn_BG.png" id="1_o28hd"]
-[ext_resource type="Script" path="res://scripts/gd/order_counter.gd" id="2_kdxbo"]
+[ext_resource type="Script" uid="uid://dv4dr25ic82t0" path="res://scripts/gd/order_counter.gd" id="2_kdxbo"]
 [ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="3_rgvkf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xx7yl"]

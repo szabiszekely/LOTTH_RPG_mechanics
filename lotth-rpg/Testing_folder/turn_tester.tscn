@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://ihlww1m8uc7j"]
+
+[ext_resource type="Script" uid="uid://djyvx50l8o8g8" path="res://Testing_folder/turn_tester.gd" id="1_rl6j4"]
+[ext_resource type="Script" uid="uid://dl6kh8ib13vmu" path="res://Testing_folder/test_Node_branch.gd" id="2_10ns6"]
+[ext_resource type="Script" uid="uid://8ps6n4b2tf22" path="res://Testing_folder/test_enemy_handler.gd" id="2_f8wbr"]
+[ext_resource type="Script" uid="uid://d32jkrumb6dv1" path="res://Testing_folder/turn_tester_handler_tester.gd" id="2_tnsua"]
+[ext_resource type="Script" uid="uid://bq5nqdosdufm3" path="res://Testing_folder/test_attack.gd" id="4_qyjl1"]
+[ext_resource type="Script" uid="uid://xmy63urfqkls" path="res://Testing_folder/test_act.gd" id="5_10ns6"]
+[ext_resource type="Script" uid="uid://8rmo0myajelk" path="res://Testing_folder/test_bag.gd" id="6_k1fuu"]
+[ext_resource type="Script" uid="uid://ck7iiaanbbve" path="res://Testing_folder/test_run.gd" id="7_bpupy"]
+[ext_resource type="PackedScene" uid="uid://3s0jhy0x1n18" path="res://Testing_folder/test_icon.tscn" id="8_nxfiq"]
+
+[node name="turn_tester" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rl6j4")
+
+[node name="Node_Branch" type="Node" parent="." node_paths=PackedStringArray("turnMain", "turnHandler", "enemyHandler", "optionAbi", "optionAct", "optionBag", "optionRun")]
+script = ExtResource("2_10ns6")
+turnMain = NodePath("..")
+turnHandler = NodePath("../Turn_tester_handler_tester")
+enemyHandler = NodePath("../Enemy_handler")
+optionAbi = NodePath("../Turn_tester_handler_tester/Test_Attack")
+optionAct = NodePath("../Turn_tester_handler_tester/Test_Act")
+optionBag = NodePath("../Turn_tester_handler_tester/Test_Bag")
+optionRun = NodePath("../Turn_tester_handler_tester/Test_Run")
+
+[node name="Enemy_handler" type="Node" parent="."]
+script = ExtResource("2_f8wbr")
+
+[node name="Turn_tester_handler_tester" type="Node" parent="."]
+script = ExtResource("2_tnsua")
+
+[node name="Test_Attack" type="Node" parent="Turn_tester_handler_tester"]
+script = ExtResource("4_qyjl1")
+
+[node name="Test_Act" type="Node" parent="Turn_tester_handler_tester"]
+script = ExtResource("5_10ns6")
+
+[node name="Test_Bag" type="Node" parent="Turn_tester_handler_tester"]
+script = ExtResource("6_k1fuu")
+
+[node name="Test_Run" type="Node" parent="Turn_tester_handler_tester"]
+script = ExtResource("7_bpupy")
+
+[node name="CurrentPlayer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.5
+offset_top = 219.0
+offset_right = 134.5
+offset_bottom = 315.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Player 1"
+
+[node name="Options" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -60.5
+offset_right = 270.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "option 1"
+
+[node name="Button2" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "option 2"
+
+[node name="Button3" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "option 3"
+
+[node name="Button4" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "option 4"
+
+[node name="OptionsPlayedOut" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = 236.0
+offset_right = 207.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 140
+alignment = 1
+
+[node name="Sprite2D" parent="OptionsPlayedOut" instance=ExtResource("8_nxfiq")]
+layout_mode = 2
+
+[node name="Sprite2D2" parent="OptionsPlayedOut" instance=ExtResource("8_nxfiq")]
+layout_mode = 2
+
+[node name="Sprite2D3" parent="OptionsPlayedOut" instance=ExtResource("8_nxfiq")]
+layout_mode = 2
+
+[node name="Sprite2D4" parent="OptionsPlayedOut" instance=ExtResource("8_nxfiq")]
+layout_mode = 2
+
+[connection signal="pressed" from="Options/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Options/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Options/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Options/Button4" to="." method="_on_button_4_pressed"]

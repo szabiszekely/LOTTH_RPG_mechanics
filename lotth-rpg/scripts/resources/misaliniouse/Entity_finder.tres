@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Entity_finder" load_steps=2 format=3 uid="uid://bftwxcrhw2aqi"]
 
-[ext_resource type="Script" path="res://scripts/gd/Entity_finding_system.gd" id="1_i3y82"]
+[ext_resource type="Script" uid="uid://bparve6r2ldw0" path="res://scripts/gd/Entity_finding_system.gd" id="1_i3y82"]
 
 [resource]
 script = ExtResource("1_i3y82")

@@ -1,17 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwk7tjlhnu23j"]
+[gd_scene load_steps=19 format=3 uid="uid://bwk7tjlhnu23j"]
 
 [ext_resource type="Theme" uid="uid://dc6c1peo4pfyr" path="res://addons/dialogue_nodes/themes/bubbly.theme" id="1_qerq3"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/examples/demo.gd" id="2_5ddyy"]
+[ext_resource type="Script" uid="uid://x7ksio6fosnr" path="res://addons/dialogue_nodes/examples/demo.gd" id="2_5ddyy"]
+[ext_resource type="Script" uid="uid://b20q6vuw7s8jg" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="3_efjpl"]
 [ext_resource type="Resource" uid="uid://dj818hys8f3u8" path="res://addons/dialogue_nodes/examples/ExampleBasic.tres" id="3_yex7d"]
 [ext_resource type="Resource" uid="uid://btriowhsx04c2" path="res://addons/dialogue_nodes/examples/ExampleBBCodes.tres" id="4_ay03t"]
 [ext_resource type="Resource" uid="uid://bjme2drtas671" path="res://addons/dialogue_nodes/examples/ExampleBranching.tres" id="5_ifbb7"]
 [ext_resource type="Resource" uid="uid://c303qivlsn30t" path="res://addons/dialogue_nodes/examples/ExampleCharacters.tres" id="6_arg21"]
 [ext_resource type="Resource" uid="uid://b4os1qum2hx0x" path="res://addons/dialogue_nodes/examples/ExampleSignals.tres" id="7_18syg"]
 [ext_resource type="Resource" uid="uid://cbu4k4hs8fk5s" path="res://addons/dialogue_nodes/examples/ExampleVariables.tres" id="8_4fu3f"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="9_s4y1y"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="10_wwm1y"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="11_iuh66"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="12_cnev0"]
+[ext_resource type="Script" uid="uid://dwtwpavgtrkfl" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="9_s4y1y"]
+[ext_resource type="Script" uid="uid://d1r0pqhw3cr68" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="10_wwm1y"]
+[ext_resource type="Script" uid="uid://dcii012frg4ud" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="11_iuh66"]
+[ext_resource type="Script" uid="uid://dnkwhbsllarpn" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="12_cnev0"]
 
 [sub_resource type="Curve" id="1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.67805, 0.0, 0, 0]
@@ -40,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_qerq3")
 script = ExtResource("2_5ddyy")
-demos = Array[Resource("res://addons/dialogue_nodes/objects/DialogueData.gd")]([ExtResource("3_yex7d"), ExtResource("4_ay03t"), ExtResource("5_ifbb7"), ExtResource("6_arg21"), ExtResource("7_18syg"), ExtResource("8_4fu3f")])
+demos = Array[ExtResource("3_efjpl")]([ExtResource("3_yex7d"), ExtResource("4_ay03t"), ExtResource("5_ifbb7"), ExtResource("6_arg21"), ExtResource("7_18syg"), ExtResource("8_4fu3f")])
 
 [node name="DemoSelector" type="OptionButton" parent="."]
 layout_mode = 1

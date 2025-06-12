@@ -1,12 +1,12 @@
 [gd_scene load_steps=32 format=3 uid="uid://l5f740mb43yc"]
 
-[ext_resource type="Script" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
+[ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="1_u1ato"]
 [ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Skill/Moving_P1.tres" id="2_ukgfx"]
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="3_ompdf"]
 [ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/Portrait_Icon.png" id="4_lp857"]
 [ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/Current_Player_indicator.png" id="7_pdrwc"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_ts1lj"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="8_ts1lj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yvys"]
 atlas = ExtResource("1_u1ato")
@@ -206,9 +206,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4d3b"]
 _data = {
-"RESET": SubResource("Animation_g3rl5"),
-"eng_hit": SubResource("Animation_av0wi"),
-"hit": SubResource("Animation_ev0j6")
+&"RESET": SubResource("Animation_g3rl5"),
+&"eng_hit": SubResource("Animation_av0wi"),
+&"hit": SubResource("Animation_ev0j6")
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]

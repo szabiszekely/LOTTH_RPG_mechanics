@@ -1,8 +1,7 @@
-[gd_scene load_steps=50 format=3 uid="uid://dx2xdxlssrj5b"]
+[gd_scene load_steps=49 format=3 uid="uid://dx2xdxlssrj5b"]
 
 [ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280.png" id="1_v54r1"]
-[ext_resource type="Texture2D" uid="uid://bkue6fub8pug8" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280baller_test.png" id="2_2ta47"]
-[ext_resource type="Shader" path="res://scripts/gdshader/normal_map_sup.gdshader" id="3_p5l02"]
+[ext_resource type="Shader" uid="uid://dlu3s0rm4x3cc" path="res://scripts/gdshader/normal_map_sup.gdshader" id="3_p5l02"]
 
 [sub_resource type="Gradient" id="Gradient_noyri"]
 offsets = PackedFloat32Array(0, 0.0974026)
@@ -14,8 +13,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ngsd"]
+render_priority = 0
 shader = ExtResource("3_p5l02")
-shader_parameter/normal_map = ExtResource("2_2ta47")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s62rg"]
 atlas = ExtResource("1_v54r1")

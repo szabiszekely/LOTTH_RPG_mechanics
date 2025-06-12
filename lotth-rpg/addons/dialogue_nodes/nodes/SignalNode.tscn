@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://v3g2kwpbw3u6"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/signalNode.gd" id="1"]
+[ext_resource type="Script" uid="uid://w0tdps35u0j" path="res://addons/dialogue_nodes/nodes/signalNode.gd" id="1"]
 
 [node name="SignalNode" type="GraphNode"]
 offset_right = 200.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://drsb61u4ojdtf"]
 
 [ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="1_cc6km"]
-[ext_resource type="Script" path="res://scripts/gd/run_panel_choice.gd" id="2_p4fjq"]
+[ext_resource type="Script" uid="uid://c62kvcgxg2el" path="res://scripts/gd/run_panel_choice.gd" id="2_p4fjq"]
 
 [sub_resource type="Gradient" id="Gradient_ytyhg"]
 offsets = PackedFloat32Array(0, 0.5, 0.6)

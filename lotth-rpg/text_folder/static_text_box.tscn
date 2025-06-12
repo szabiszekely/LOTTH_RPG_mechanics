@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://diogqwfdea76u"]
 
 [ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_b426p"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="2_2bnh7"]
+[ext_resource type="Script" uid="uid://dwtwpavgtrkfl" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="2_2bnh7"]
 [ext_resource type="Resource" uid="uid://cism7iwpf2pi" path="res://text_folder/menu.tres" id="3_f7o2c"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_rpt5c"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_awq7j"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_jlkcr"]
+[ext_resource type="Script" uid="uid://d1r0pqhw3cr68" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_rpt5c"]
+[ext_resource type="Script" uid="uid://dcii012frg4ud" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_awq7j"]
+[ext_resource type="Script" uid="uid://dnkwhbsllarpn" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_jlkcr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1qbh"]
 texture = ExtResource("1_b426p")

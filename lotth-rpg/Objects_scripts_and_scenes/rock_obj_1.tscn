@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5aiqugqjqcnl"]
 
-[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_6pwov"]
+[ext_resource type="Script" uid="uid://cshghc71hykek" path="res://scripts/gd/simple_obj.gd" id="1_6pwov"]
 [ext_resource type="Texture2D" uid="uid://cjehnoyqibxsl" path="res://assets/sprite/Objects/rock_1.png" id="2_2gxiu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xyqqu"]

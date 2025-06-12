@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://yylwxvi32hvj" path="res://scripts/resources/Indicators/Point_indicator.tres" id="1_3yddx"]
 [ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/projectile.tscn" id="2_biogu"]
-[ext_resource type="Script" path="res://scripts/resources/Indicators/Skill/Single_shot.gd" id="3_58ym1"]
+[ext_resource type="Script" uid="uid://ejrneqivdhsc" path="res://scripts/resources/Indicators/Skill/Single_shot.gd" id="3_58ym1"]
 
 [resource]
 script = ExtResource("3_58ym1")

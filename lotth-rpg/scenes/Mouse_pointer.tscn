@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjwyl8vf8tk5i"]
 
 [ext_resource type="Texture2D" uid="uid://28lmurol80mw" path="res://assets/sprite/UI/Cursor.png" id="1_jaldw"]
-[ext_resource type="Script" path="res://scripts/gd/mouse_pointer.gd" id="1_yauay"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_kfcex"]
+[ext_resource type="Script" uid="uid://daf7cesxd0a7u" path="res://scripts/gd/mouse_pointer.gd" id="1_yauay"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_kfcex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arn3s"]
 radius = 14.0357

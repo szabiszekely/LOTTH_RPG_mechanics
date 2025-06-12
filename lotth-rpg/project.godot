@@ -14,7 +14,7 @@ config/name="LOTTH RPG"
 config/tags=PackedStringArray("lotth", "medium_sized_project", "testing", "unfinished")
 run/main_scene="res://scenes/LOTTH_Main.tscn"
 config/custom_user_dir_name="LOTTH_RPG_Mechanic"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]

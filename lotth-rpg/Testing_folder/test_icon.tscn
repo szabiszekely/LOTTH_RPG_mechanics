@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://3s0jhy0x1n18"]
+
+[ext_resource type="Script" uid="uid://bhbl8yungdjhx" path="res://Testing_folder/icon_data.gd" id="1_i6o2w"]
+[ext_resource type="Texture2D" uid="uid://5sed2vkm8r75" path="res://assets/sprite/UI/Dialogue_box.png" id="1_s6joh"]
+
+[node name="Sprite2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(2, 2)
+script = ExtResource("1_i6o2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_s6joh")
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = -28.5
+offset_right = -5.5
+offset_bottom = -5.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+text = "Player1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -42.5
+offset_right = -5.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Action"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Sprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -56.25
+offset_right = -11.0
+offset_bottom = -33.25
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "DMG"
+horizontal_alignment = 1
+vertical_alignment = 1

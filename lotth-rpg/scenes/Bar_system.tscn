@@ -1,15 +1,15 @@
 [gd_scene load_steps=35 format=3 uid="uid://dpreubai0v75h"]
 
-[ext_resource type="Script" path="res://scripts/gd/Bar_system.gd" id="1_yiyad"]
-[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="2_53byl"]
+[ext_resource type="Script" uid="uid://c7yjwhgviw6cl" path="res://scripts/gd/Bar_system.gd" id="1_yiyad"]
+[ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="2_53byl"]
 [ext_resource type="Texture2D" uid="uid://1hvah5xpvfsk" path="res://assets/sprite/UI/Null_Mater.png" id="3_ffwmv"]
-[ext_resource type="Script" path="res://scripts/gd/autosizer.gd" id="3_fw8gm"]
+[ext_resource type="Script" uid="uid://b2mk5lu1vu5mp" path="res://scripts/gd/autosizer.gd" id="3_fw8gm"]
 [ext_resource type="Texture2D" uid="uid://bjlhludno8sn0" path="res://assets/sprite/UI/Name_plate.png" id="3_jh2vi"]
 [ext_resource type="Texture2D" uid="uid://c18t041tumpk" path="res://assets/sprite/UI/Health_BG.png" id="4_f2i6m"]
-[ext_resource type="Shader" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="4_memqs"]
+[ext_resource type="Shader" uid="uid://ckhvlyetwr75x" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="4_memqs"]
 [ext_resource type="Texture2D" uid="uid://b2wefr147ijth" path="res://assets/sprite/UI/Energy_BG.png" id="5_85v0h"]
 [ext_resource type="Texture2D" uid="uid://dgfwcx18fjk51" path="res://assets/sprite/UI/HP_Mater.png" id="5_c8uri"]
-[ext_resource type="Shader" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="6_7o4wy"]
+[ext_resource type="Shader" uid="uid://ctxyivki7n00q" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="6_7o4wy"]
 [ext_resource type="Texture2D" uid="uid://b85sqqa3k7vur" path="res://assets/sprite/UI/ENG_Mater.png" id="7_lbdh6"]
 [ext_resource type="Texture2D" uid="uid://dp3m8pm7j520r" path="res://assets/sprite/UI/Bar_border.png" id="8_ecgt7"]
 
@@ -45,12 +45,12 @@ shader = ExtResource("2_53byl")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 1
-shader_parameter/margin = null
+shader_parameter/margin = Vector2(0, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_863n2")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_5kma6")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lp16"]
 texture = ExtResource("3_ffwmv")
@@ -77,10 +77,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 20
 shader_parameter/margin = Vector2(0.28, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_kjh8r")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_xn2i6")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2lb1"]
 texture = ExtResource("5_c8uri")
@@ -107,10 +107,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 30
 shader_parameter/margin = Vector2(0.4, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anayf"]
 texture = ExtResource("7_lbdh6")

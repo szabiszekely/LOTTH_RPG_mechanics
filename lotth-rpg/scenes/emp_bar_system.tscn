@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://fpli1abm1x6y"]
 
-[ext_resource type="Shader" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="1_0c5ue"]
-[ext_resource type="Script" path="res://scripts/gd/emp_bar_system.gd" id="1_u2v5j"]
+[ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="1_0c5ue"]
+[ext_resource type="Script" uid="uid://dr3lv6e3jem4f" path="res://scripts/gd/emp_bar_system.gd" id="1_u2v5j"]
 [ext_resource type="Texture2D" uid="uid://1hvah5xpvfsk" path="res://assets/sprite/UI/Null_Mater.png" id="2_whjf2"]
 [ext_resource type="Texture2D" uid="uid://dimsay5i63jqa" path="res://assets/sprite/UI/EMP_Bar_border.png" id="3_3cf3t"]
 
@@ -25,12 +25,12 @@ shader = ExtResource("1_0c5ue")
 shader_parameter/stepify = true
 shader_parameter/value = 1.0
 shader_parameter/count = 1
-shader_parameter/margin = null
+shader_parameter/margin = Vector2(0, 0)
 shader_parameter/shear_angle = 0.0
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7q1v"]
 texture = ExtResource("2_whjf2")
@@ -55,10 +55,10 @@ shader_parameter/value = 1.0
 shader_parameter/count = 4
 shader_parameter/margin = Vector2(0.18, 0)
 shader_parameter/shear_angle = 0.0750001
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
 shader_parameter/gradient_x = SubResource("GradientTexture2D_utu2i")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_fuois")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sie5"]
 texture = ExtResource("3_3cf3t")

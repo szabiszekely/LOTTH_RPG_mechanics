@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Fighting_Stats" load_steps=2 format=3 uid="uid://jx37d3qx2jdf"]
 
-[ext_resource type="Script" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="1_a1dqe"]
+[ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="1_a1dqe"]
 
 [resource]
 resource_local_to_scene = true

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dgi8d073mj0o2"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_sxe2c"]
+[ext_resource type="Script" uid="uid://b20q6vuw7s8jg" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_sxe2c"]
 
 [resource]
 script = ExtResource("1_sxe2c")
@@ -13,37 +13,37 @@ starts = {
 "Twirl": &"0_6"
 }
 nodes = {
-"0_1": {
+&"0_1": {
 "link": &"1_1",
 "offset": Vector2(-340, -140),
 "start_id": "Talk"
 },
-"0_2": {
+&"0_2": {
 "link": &"1_2",
 "offset": Vector2(-320, 300),
 "start_id": "Grab"
 },
-"0_3": {
+&"0_3": {
 "link": &"1_3",
 "offset": Vector2(-360, -520),
 "start_id": "Check"
 },
-"0_4": {
+&"0_4": {
 "link": &"1_6",
 "offset": Vector2(540, 160),
 "start_id": "Ball"
 },
-"0_5": {
+&"0_5": {
 "link": &"1_7",
 "offset": Vector2(540, 540),
 "start_id": "Sleep"
 },
-"0_6": {
+&"0_6": {
 "link": &"1_8",
 "offset": Vector2(-320, 680),
 "start_id": "Twirl"
 },
-"1_1": {
+&"1_1": {
 "dialogue": "> You started Talking about your favorite food[br]
 > Baller became calmer!
 ",
@@ -58,7 +58,7 @@ nodes = {
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"1_2": {
+&"1_2": {
 "dialogue": "> You Grabbed the Baller![br]
 > It let out a little squek sound. ",
 "offset": Vector2(60, 380),
@@ -72,7 +72,7 @@ nodes = {
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"1_3": {
+&"1_3": {
 "dialogue": "Species: {{name}}[br]
 ATK: {{Base_Phisical_Attack}}, M.ATK: {{Base_Magical_Attack}}[br]
 DEF: {{Defense}}, M.DEF: {{Magic_Defense}}[br]
@@ -88,7 +88,7 @@ Emphaty is {{EMP}}/{{MAX_EMP}}",
 "size": Vector2(400, 300),
 "speaker": ""
 },
-"1_4": {
+&"1_4": {
 "dialogue": "> They don't have arms so they never were able to experience the art of touch!",
 "offset": Vector2(900, -520),
 "options": {
@@ -101,7 +101,7 @@ Emphaty is {{EMP}}/{{MAX_EMP}}",
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"1_5": {
+&"1_5": {
 "dialogue": "> Lazy ballers are quite the sleeper and don't like being touched or exercise!",
 "offset": Vector2(900, -220),
 "options": {
@@ -114,7 +114,7 @@ Emphaty is {{EMP}}/{{MAX_EMP}}",
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"1_6": {
+&"1_6": {
 "dialogue": "> You tried to bounce him on the groud![br]
 > But you accidentally poked yourself!",
 "offset": Vector2(1020, 160),
@@ -128,7 +128,7 @@ Emphaty is {{EMP}}/{{MAX_EMP}}",
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"1_7": {
+&"1_7": {
 "dialogue": "> You closed your eyes and pretended to be asleep![br]
 > Lazy Baller got sleepier!",
 "offset": Vector2(1000, 580),
@@ -142,7 +142,7 @@ Emphaty is {{EMP}}/{{MAX_EMP}}",
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"1_8": {
+&"1_8": {
 "dialogue": "> You span around in place encouraging him to do the same![br]
 > He doesn't seem to happy about it! ",
 "offset": Vector2(60, 740),
@@ -156,7 +156,7 @@ Emphaty is {{EMP}}/{{MAX_EMP}}",
 "size": Vector2(300, 240),
 "speaker": ""
 },
-"5_1": {
+&"5_1": {
 "false": &"1_5",
 "offset": Vector2(500, -460),
 "operator": 0,

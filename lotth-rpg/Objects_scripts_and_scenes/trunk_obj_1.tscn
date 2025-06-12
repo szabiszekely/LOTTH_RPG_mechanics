@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6em786y5mu3b"]
 
-[ext_resource type="Script" path="res://scripts/gd/simple_obj.gd" id="1_4f3e8"]
+[ext_resource type="Script" uid="uid://cshghc71hykek" path="res://scripts/gd/simple_obj.gd" id="1_4f3e8"]
 [ext_resource type="Texture2D" uid="uid://svsnn640p1vw" path="res://assets/sprite/Objects/trunk_1.png" id="2_irnus"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ytu04"]

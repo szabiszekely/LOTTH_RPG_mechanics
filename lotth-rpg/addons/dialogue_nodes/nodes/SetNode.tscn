@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsllcvm7vi10m"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/setNode.gd" id="1"]
+[ext_resource type="Script" uid="uid://bka7xh7svxeux" path="res://addons/dialogue_nodes/nodes/setNode.gd" id="1"]
 
 [node name="SetNode" type="GraphNode"]
 offset_right = 300.0

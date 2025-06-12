@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsg8322vkd7l6"]
 
-[ext_resource type="Script" path="res://scripts/gd/projectile.gd" id="1_3q08r"]
+[ext_resource type="Script" uid="uid://bufguhmb1b64l" path="res://scripts/gd/projectile.gd" id="1_3q08r"]
 [ext_resource type="Texture2D" uid="uid://bl2vlbp46fh7a" path="res://assets/sprite/Projectile/test_fire_ball.png" id="2_p53nm"]
-[ext_resource type="Script" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_dhu83"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_dhu83"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7r6gi"]
 radius = 12.0

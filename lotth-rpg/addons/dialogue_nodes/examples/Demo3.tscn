@@ -1,12 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://dhwoh3ay4mp3c"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/examples/demo3.gd" id="1_2a8yf"]
-[ext_resource type="AudioStream" path="res://examples/voice.ogg" id="2_bjs48"]
+[ext_resource type="Script" uid="uid://c6d1wxrd6kya7" path="res://addons/dialogue_nodes/examples/demo3.gd" id="1_2a8yf"]
 [ext_resource type="Theme" uid="uid://dq18l0hyb3bqt" path="res://addons/dialogue_nodes/themes/bubblyClean.theme" id="3_201t6"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_tmfyu"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_vs72k"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_pkic0"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBubble.gd" id="7_wf6dy"]
+[ext_resource type="Script" uid="uid://d1r0pqhw3cr68" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_tmfyu"]
+[ext_resource type="Script" uid="uid://dcii012frg4ud" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_vs72k"]
+[ext_resource type="Script" uid="uid://dnkwhbsllarpn" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_pkic0"]
+[ext_resource type="Script" uid="uid://bhef2e18kng11" path="res://addons/dialogue_nodes/objects/DialogueBubble.gd" id="7_wf6dy"]
 [ext_resource type="Resource" uid="uid://cwtdfv6yke8ri" path="res://addons/dialogue_nodes/examples/ExampleBubble.tres" id="8_qbppo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xk202"]
@@ -48,6 +47,9 @@ albedo_color = Color(1, 1, 0.513726, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_jeho0"]
 material = SubResource("StandardMaterial3D_m8p2i")
+
+[sub_resource type="Resource" id="Resource_5cd25"]
+metadata/__load_path__ = "res://examples/voice.ogg"
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_akgkw"]
 script = ExtResource("4_tmfyu")
@@ -91,7 +93,7 @@ transform = Transform3D(0.993087, 0.0320453, -0.112922, 0, 0.962013, 0.273002, 0
 [node name="FocusPoint" type="Node3D" parent="."]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="FocusPoint"]
-stream = ExtResource("2_bjs48")
+stream = SubResource("Resource_5cd25")
 panning_strength = 5.0
 
 [node name="DialogueBubble" type="RichTextLabel" parent="."]

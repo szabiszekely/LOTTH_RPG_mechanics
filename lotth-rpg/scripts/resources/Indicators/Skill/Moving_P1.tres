@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MovingIndicator" load_steps=5 format=3 uid="uid://bj84cqasxiobd"]
 
-[ext_resource type="Script" path="res://scripts/resources/Indicators/Moving_Indicator.gd" id="1_gxaok"]
+[ext_resource type="Script" uid="uid://d2q4i51ypulbg" path="res://scripts/resources/Indicators/Moving_Indicator.gd" id="1_gxaok"]
 [ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/Cursor.png" id="1_kyetu"]
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="1_pfmev"]
 [ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="3_r250c"]
@@ -10,3 +10,4 @@ script = ExtResource("1_gxaok")
 cursor_texture = ExtResource("1_kyetu")
 Fight_stats = ExtResource("1_pfmev")
 texture = ExtResource("3_r250c")
+range = 15

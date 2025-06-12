@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://h3hkys0mgvji"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/nodes/commentNode.gd" id="1"]
+[ext_resource type="Script" uid="uid://1gk0g2dqftrj" path="res://addons/dialogue_nodes/nodes/commentNode.gd" id="1"]
 
 [node name="CommentNode" type="GraphNode"]
 custom_minimum_size = Vector2(200, 100)
