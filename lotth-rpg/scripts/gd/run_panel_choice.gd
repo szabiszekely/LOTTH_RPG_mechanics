@@ -1,10 +1,10 @@
 extends PanelContainer
 class_name Run_control
 
-@export var get_menu: Menu_system
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
-var players: Array
-var enemies: Array
+@onready var get_menu = RefrenceNode.Menu
+
 @onready var break_out: Button = $MarginContainer/VBoxContainer/Break_out
 @onready var spare: Button = $MarginContainer/VBoxContainer/Spare
 

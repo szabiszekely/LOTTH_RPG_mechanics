@@ -1,10 +1,12 @@
 extends PanelContainer
 class_name Bagpack_controls
 
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
 @onready var inventory: ItemList = $test/Inventory
 @onready var no_items: Label = $test/Label
-@export var menu_system: Menu_system
-@export var item_handler: Item_handler
+@onready var menu_system = RefrenceNode.Menu
+@onready var item_handler = RefrenceNode.ItemHandler
 var deleting_item_index: int = 0
 var item_list: Array = []
 # set everything up
@@ -16,7 +18,11 @@ func _ready() -> void:
 	
 	for i in item_list:
 		inventory.add_slot(i)
+	
+	_add_random_items()
+	
 	item_count_check()
+	
 	
 # Bag appears
 func bag_appear():
@@ -73,3 +79,16 @@ func item_count_check():
 # there is a hidden save item button!
 func _on_save_button_pressed() -> void:
 	Data.save_data(item_list)
+	
+func _add_random_items():
+	var random_item
+	for place in 10:
+		random_item = randi() % 4
+		if not inventory.item_count >= 24:
+			inventory.add_slot(random_item)
+			item_list.append(Data.get_item_id(random_item))
+			print(item_list)
+			no_items.hide()
+			
+		else:
+			print("Item is full!")

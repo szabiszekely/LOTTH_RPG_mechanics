@@ -1,11 +1,15 @@
 extends Node2D
 class_name  Player_group
+
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
+
 @onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 @onready var player_damage = preload("res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres")
 var card_againts_players
 var item_againts_players
-@export var index: int = 0
-@export var menu_system: Menu_system
+var index: int = 0
+@onready var menu_system = RefrenceNode.Menu
 
 var player: Array = []
 var start_choosing = false

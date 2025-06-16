@@ -1,12 +1,14 @@
 extends PanelContainer
 class_name Menu_system
 
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
 # Export values !
-@export var enemy_group: Enemy_group
-@export var player_group: Player_group
+@onready var enemy_group = RefrenceNode.EnemyGroup
+@onready var player_group = RefrenceNode.PlayerGroup
 @export var get_the_children: HBoxContainer
 @export var Mouse_camera_toggler: Mouse_Camera
-@export var Initiative: Initiative_class
+@onready var Initiative = RefrenceNode.InitiativeHandler
 
 # Buttons!
 @onready var abilities: Button = $MarginContainer/HBoxContainer/Abilities
@@ -15,10 +17,10 @@ class_name Menu_system
 @onready var run: Button = $MarginContainer/HBoxContainer/Run
 
 # Panels !
-@onready var ability_card_choice: Ability_control = $"../Ability_Card_choice"
-@onready var action_choice: Action_control = $"../Action_Panel_choice"
-@onready var bagpack_choice: Bagpack_controls = $"../Bagpack"
-@onready var run_choice: Run_control = $"../Run_Panel_choice"
+@onready var ability_card_choice = RefrenceNode.AbiCard
+@onready var action_choice = RefrenceNode.ActButtonHandler
+@onready var bagpack_choice = RefrenceNode.BagHandler
+@onready var run_choice = RefrenceNode.RunHandler
 
 # Miscellaneous !
 @onready var menu: Control = $"."

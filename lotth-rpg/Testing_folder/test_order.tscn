@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu0edv2ba5ssr"]
+
+[ext_resource type="Script" uid="uid://cnr4o4ekkjupw" path="res://Testing_folder/test_order.gd" id="1_iba2e"]
+[ext_resource type="Texture2D" uid="uid://du8o6akqfrbno" path="res://assets/sprite/Player/limiting_area.png" id="2_nd0ci"]
+[ext_resource type="Script" uid="uid://brpg3xrhts6f7" path="res://Testing_folder/test_start_area.gd" id="3_q4js2"]
+[ext_resource type="Texture2D" uid="uid://di3ith11u6kqs" path="res://assets/sprite/Player/lil_dude.png" id="4_tjb1a"]
+
+[node name="test_order" type="Node2D"]
+script = ExtResource("1_iba2e")
+all_people = [null]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.905, 1.905)
+
+[node name="LimitingArea" type="Sprite2D" parent="."]
+position = Vector2(-338, 0)
+texture = ExtResource("2_nd0ci")
+script = ExtResource("3_q4js2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-229, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("4_tjb1a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-80, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("4_tjb1a")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(89, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("4_tjb1a")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(250, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("4_tjb1a")

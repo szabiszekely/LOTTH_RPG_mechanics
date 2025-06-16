@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b00vxr8wtbm0f"]
+
+[ext_resource type="Script" uid="uid://dwcwc8gvh0t72" path="res://scripts/resources/misaliniouse/turn_handler.gd" id="1_br55m"]
+[ext_resource type="Script" uid="uid://cmuhga5cjvvft" path="res://scripts/gd/ability_turn_handler.gd" id="2_qgvk5"]
+[ext_resource type="Script" uid="uid://barjuk3kwr2fu" path="res://scripts/gd/action_turn_handler.gd" id="3_8c6lt"]
+[ext_resource type="Script" uid="uid://nr67dghohxyx" path="res://scripts/gd/bagpack_turn_handler.gd" id="4_7f8gq"]
+[ext_resource type="Script" uid="uid://b4sj5x7t2xp85" path="res://scripts/gd/movement_turn_handler.gd" id="5_eg5aw"]
+
+[node name="Turn_Handler" type="Node"]
+script = ExtResource("1_br55m")
+
+[node name="Ability" type="Node" parent="."]
+script = ExtResource("2_qgvk5")
+
+[node name="Action" type="Node" parent="."]
+script = ExtResource("3_8c6lt")
+
+[node name="Bagpack" type="Node" parent="."]
+script = ExtResource("4_7f8gq")
+
+[node name="Run" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("5_eg5aw")

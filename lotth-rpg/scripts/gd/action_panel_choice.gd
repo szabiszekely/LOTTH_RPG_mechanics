@@ -1,5 +1,8 @@
 extends PanelContainer
 class_name Action_control
+
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
 @onready var check: Button = $MarginContainer/VBoxContainer/check
 @onready var focus: Button = $MarginContainer/VBoxContainer/focus
 @onready var guard: Button = $MarginContainer/VBoxContainer/guard
@@ -14,8 +17,8 @@ class_name Action_control
 #Getting a basic order down and I will use it later!
 @onready var list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
 
-@export var menu: Menu_system
-@export var Action_button_handler: Action_buttons_option_Handler
+@onready var menu = RefrenceNode.Menu
+@onready var Action_button_handler = RefrenceNode.ActHandler
 
 func _ready() -> void:
 	# hide it when scene starts!
@@ -40,7 +43,7 @@ func act_add_actions(list_of_added):
 	
 		var index_of_string = list_of_added.find(i)
 		var change = list_of_buttons[index_of_string]
-		change.text = i
+		change.text = str(i)
 		amount_of_options.append(change)
 	list_of_buttons = amount_of_options
 

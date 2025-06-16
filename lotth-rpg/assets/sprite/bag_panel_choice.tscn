@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blvji106ulh0d"]
+[gd_scene load_steps=4 format=3 uid="uid://blvji106ulh0d"]
 
 [ext_resource type="Script" uid="uid://cwbykueobcpng" path="res://scripts/gd/bag_panel_choice.gd" id="1_jq0df"]
-[ext_resource type="Script" uid="uid://jpnbuuk08dxe" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="2_l5qul"]
 [ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="3_e3rlx"]
 [ext_resource type="Script" uid="uid://dnwp1muk56fau" path="res://scripts/gd/Inventory.gd" id="4_pguct"]
-
-[sub_resource type="Resource" id="Resource_ql7ep"]
-script = ExtResource("2_l5qul")
 
 [node name="Bagpack" type="PanelContainer"]
 anchors_preset = 7
@@ -20,7 +16,6 @@ offset_right = 335.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_jq0df")
-item_handler = SubResource("Resource_ql7ep")
 
 [node name="test" type="MarginContainer" parent="."]
 layout_mode = 2

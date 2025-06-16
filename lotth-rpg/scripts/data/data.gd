@@ -47,6 +47,18 @@ func get_item_hp(Name: String):
 		if Name == i["Name"]:
 			return i["Hp"]
 
+func get_item_atk_type(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			if "Melee" == i["Atk_Type"]:
+				return 0
+			if "Range" == i["Atk_Type"]:
+				return 1
+			if "Magic" == i["Atk_Type"]:
+				return 2
+			else:
+				return 10
+
 func get_item_damage_type(Name: String):
 	for i in content["Items"]:
 		if Name == i["Name"]:

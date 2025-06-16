@@ -7,7 +7,6 @@ extends Node
 
 
 func _get_attack(data:Array):
-	
 	var final_attack = data[3]+(2-data[2])
 	
 	return [data[1], str(final_attack), data[4]]

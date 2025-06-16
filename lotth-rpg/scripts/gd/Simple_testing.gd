@@ -1,12 +1,15 @@
 extends Node2D
+class_name Main
 
-@export var player: Player_group
-@export var enemy: Enemy_group
-@export var menu: PanelContainer
-@export var initiative: Initiative_class
-@export var turn_handler: Node
-@export var visible_action_queued: Array
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
+@onready var player = RefrenceNode.PlayerGroup
+@onready var enemy = RefrenceNode.EnemyGroup
+@onready var initiative = RefrenceNode.InitiativeHandler
+@onready var turn_handler = RefrenceNode.TurnHandler
+
 func _ready() -> void:
+		
 	initiative._getting_groups(player,enemy)
 	#print(player.player[0].Initiative.all_rolls)
 	initiative._get_the_index_with_order()
@@ -20,7 +23,6 @@ func _ready() -> void:
 
 	
 func _process(_delta: float) -> void:
-	visible_action_queued = initiative.action_queued
 	
 	if initiative.action_queued.size() == initiative.MaxTurns and not initiative.action_start:
 		$PCamTarget.enabled = true

@@ -28,7 +28,7 @@ func _get_what_ability_got_used(Name_of_Ability_Card,Menu,enemy_group,player_gro
 	# and call them!
 	var correct_string = Name_of_Ability_Card.replace(" ","_")
 	call(correct_string)
-	pass
+
 
 func _player_set_up_for_attack():
 	# this function is a basic what kind of actions,functions and variables needed to be set!

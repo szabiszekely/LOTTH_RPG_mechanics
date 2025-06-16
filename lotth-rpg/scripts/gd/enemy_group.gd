@@ -1,10 +1,14 @@
 extends Node2D
 class_name Enemy_group
+
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
+
 # This node is for controlling choice between abilities and actions!
 @onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 
-@export var act_options: Action_control
-@export var menu_system: Menu_system
+@onready var act_options = RefrenceNode.ActButtonHandler
+@onready var menu_system = RefrenceNode.Menu
 
 var card_againts_enemies
 var item_againts_enemies

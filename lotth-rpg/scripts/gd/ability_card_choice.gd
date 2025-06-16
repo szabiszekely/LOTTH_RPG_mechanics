@@ -1,6 +1,9 @@
 extends Control
 class_name Ability_control
 
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
+
 var card_deck_volume_1 = []
 var card_deck_volume_2 = []
 var page_turn = false
@@ -33,8 +36,8 @@ var page_turn = false
 @onready var page_1: Label = $"PanelContainer/MarginContainer/Grid 1_2/Label"
 @onready var page_2: Label = $"PanelContainer/MarginContainer/Grid 2_2/Label"
 
-@export var menu: Menu_system 
-@export var ability_func: Ability_Handler
+@onready var menu = RefrenceNode.Menu
+@onready var ability_func= RefrenceNode.AbiHandler
 
 @onready var ability_inventory = [button,button_2,button_3,button_4,button_5,button_6,button_7,button_8,button_9,button_10,button_11,button_12,button_13,button_14,button_15,button_16,button_17,button_18] 
 # this will get replaced with the characters actual deck! but as basic you will get a placeholder deck

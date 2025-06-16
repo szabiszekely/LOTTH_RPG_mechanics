@@ -10,6 +10,7 @@
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
+  "Atk_Type": "Food",
   "Description": "Beef jerky or maybe I jerked my beef?"
  },
  {
@@ -22,6 +23,7 @@
   "Dmg": 3,
   "Usage": 1,
   "Emp": 0,
+  "Atk_Type": "Meele",
   "Description": "Sharp and it looks ass"
  },
  {
@@ -34,7 +36,8 @@
   "Dmg": 0,
   "Usage": 1,
   "Emp": 0,
-  "Description": "Looks like a can of coke but for your tounge "
+  "Atk_Type": "Magic",
+  "Description": "Looks like a can of coke but for your tounge"
  },
  {
   "Id": 3,
@@ -46,6 +49,7 @@
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
+  "Atk_Type": "Food",
   "Description": "An apple a day keeps the programming bugs away"
  }
 ],
@@ -63,7 +67,7 @@
  {
   "Id": 1,
   "Enemy": "Baller Lazier",
-  "Action 1": "Talk ",
+  "Action 1": "Talk",
   "Action 2": "Grab",
   "Action 3": "Sleep",
   "Action 4": "Twirl",

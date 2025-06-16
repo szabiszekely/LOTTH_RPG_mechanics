@@ -1,6 +1,8 @@
 extends PanelContainer
 
-@export var Initiative: Initiative_class
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+
+@onready var Initiative = RefrenceNode.InitiativeHandler
 # this is the UI that is important to add the icons and the turn order to the UIí
 func _ready() -> void:
 	Initiative._getting_all_rolls(Initiative.all_rolls,$VBoxContainer)

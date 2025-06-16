@@ -1,0 +1,26 @@
+[gd_scene load_steps=9 format=3 uid="uid://bf2h0hpyka6jt"]
+
+[ext_resource type="Script" uid="uid://dpp8tnjl53kyw" path="res://scripts/gd/refrence_cross_road.gd" id="1_cx0b3"]
+[ext_resource type="Script" uid="uid://dsyk5en1w40yx" path="res://scripts/resources/misaliniouse/action_button_option_handler.gd" id="2_cx0b3"]
+[ext_resource type="Script" uid="uid://cgius8yiqqdp4" path="res://scripts/resources/misaliniouse/ability_function_handler.gd" id="3_3koun"]
+[ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="3_qalcb"]
+[ext_resource type="Script" uid="uid://jpnbuuk08dxe" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="4_6vetj"]
+
+[sub_resource type="Resource" id="Resource_qalcb"]
+script = ExtResource("3_3koun")
+metadata/_custom_type_script = "uid://cgius8yiqqdp4"
+
+[sub_resource type="Resource" id="Resource_6vetj"]
+script = ExtResource("2_cx0b3")
+metadata/_custom_type_script = "uid://dsyk5en1w40yx"
+
+[sub_resource type="Resource" id="Resource_7x0y4"]
+script = ExtResource("4_6vetj")
+metadata/_custom_type_script = "uid://jpnbuuk08dxe"
+
+[node name="RefrenceCrossRoad" type="Node"]
+script = ExtResource("1_cx0b3")
+InitiativeHandler = ExtResource("3_qalcb")
+AbiHandler = SubResource("Resource_qalcb")
+ActHandler = SubResource("Resource_6vetj")
+ItemHandler = SubResource("Resource_7x0y4")
