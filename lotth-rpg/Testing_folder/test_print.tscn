@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://doso8kv7ictdc"]
+
+[ext_resource type="Script" uid="uid://cwbpiepovqj7q" path="res://Testing_folder/test_print.gd" id="1_hs1eg"]
+
+[node name="test_print" type="Node2D"]
+script = ExtResource("1_hs1eg")
+
+[node name="Im print able" type="Node2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=46 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" uid="uid://wvuqgso3bhpt" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/turn_handler.tscn" id="2_luauv"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_77yi2"]
 [ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="9_graho"]
 [ext_resource type="Shader" uid="uid://ckhvlyetwr75x" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="10_l3tb4"]
-[ext_resource type="Resource" uid="uid://jx37d3qx2jdf" path="res://scripts/resources/CH/Baller_Lazier_Figting_Stats.tres" id="11_4i3pf"]
 [ext_resource type="Shader" uid="uid://ctxyivki7n00q" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="11_kpiaw"]
 [ext_resource type="PackedScene" uid="uid://lj2tu1d6oo1c" path="res://scenes/obj_folder.tscn" id="12_xbkon"]
 [ext_resource type="Script" uid="uid://bqmp2a0w0l3po" path="res://addons/ProCam2D/scripts/procam2d.gd" id="13_htdc0"]
@@ -65,6 +64,48 @@ vertices = PackedVector2Array(142, -31, 414.953, -39, 479, -39, 410, -18, 345.95
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(11, 10, 2, 9), PackedInt32Array(2, 10, 3), PackedInt32Array(9, 2, 5), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(7, 6, 1, 0, 16, 17), PackedInt32Array(0, 4, 13, 15), PackedInt32Array(14, 18, 17, 16, 19), PackedInt32Array(14, 9, 8, 18), PackedInt32Array(14, 19, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-670, -234, 702, -234, 702, 145, -672, 148)])
 agent_radius = 21.0
+
+[sub_resource type="Resource" id="Resource_luauv"]
+resource_local_to_scene = true
+script = ExtResource("8_77yi2")
+name = "Baller"
+Id = 0
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 2
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 2
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 0.0
+
+[sub_resource type="Resource" id="Resource_4i3pf"]
+resource_local_to_scene = true
+script = ExtResource("8_77yi2")
+name = "Baller Lazier"
+Id = 1
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 5
+Magic_Defense = 0
+MAX_EMP = 5
+EMP = 0
+Base_Phisical_Attack = 3
+Base_Magical_Attack = 0
+Speed = 0
+range_in_cm = 0.0
 
 [sub_resource type="Gradient" id="Gradient_klmtg"]
 colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1, 0.0509804, 0.0509804, 0.0509804, 1)
@@ -146,6 +187,27 @@ shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
 shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
 shader_parameter/use_value_gradient = false
 shader_parameter/invert = false
+
+[sub_resource type="Resource" id="Resource_34xcr"]
+resource_local_to_scene = true
+script = ExtResource("8_77yi2")
+name = "Baller"
+Id = 0
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Defense = 2
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 2
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 0.0
 
 [sub_resource type="Resource" id="Resource_oir6x"]
 resource_local_to_scene = true
@@ -263,10 +325,11 @@ position = Vector2(1, 120)
 
 [node name="Enemy4" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(320, -274)
+Fight_stats = SubResource("Resource_luauv")
 
 [node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(449, -185)
-Fight_stats = ExtResource("11_4i3pf")
+Fight_stats = SubResource("Resource_4i3pf")
 
 [node name="NULL" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="3"]
 material = SubResource("ShaderMaterial_df1jc")
@@ -279,6 +342,7 @@ material = SubResource("ShaderMaterial_wrq0q")
 
 [node name="Enemy6" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(380, -90)
+Fight_stats = SubResource("Resource_34xcr")
 
 [node name="player_group" parent="NavigationRegion2D" instance=ExtResource("14_i48of")]
 y_sort_enabled = true

@@ -24,7 +24,7 @@ func _ready() -> void:
 # I honestly want to replan this because this looks ugly af! (2024/10/12) 
 # You know, what it works, look shit, but later down the line perhaps I will fix it! (2025/03/20)
 func _process(_delta: float) -> void:
-	if not menu.visible and start_choosing == true:
+	if not menu.visible and start_choosing == true and len(enemies) != 1:
 		# when pressed one derections than it moves up or down in the list and if that list is out of context 
 		# than it loops back around!
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
@@ -74,6 +74,39 @@ func _process(_delta: float) -> void:
 				menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
 				if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
 					call_menu_appear()
+					
+	elif not menu.visible and start_choosing == true and len(enemies) == 1:
+		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
+			# the enemy has its own act options other than check,focus and guard and than that is send to act_options where it gets added!
+			if menu_system.act == true:
+				menu_system.act = false
+				menu_system.current_state = menu_system.Menu_state.ACTIONS
+				#print(Data.get_actions_of_enemy(enemies[index].Fight_stats.Id))
+				act_options.act_add_actions(Data.get_actions_of_enemy(enemies[index].Fight_stats.Id))
+				enemies[index]._unfocus_indicator()
+				enemies[index].cam_target.enabled = false
+				start_choosing = false
+				_reset_focus()
+			
+			# every player have their own abilities and thus when this option show up all of their option gets
+			# signed to a ability button
+			if menu_system.abi == true:
+				menu_system.abi = false
+				menu.Initiative.action_queued.push_back(["atk",card_againts_enemies,index,0,menu.player_group.index])
+				_reset_focus()
+				menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
+				if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
+					call_menu_appear()
+			# the bag conntent is stored in a save file and when selected it will bring out all of the options from
+			# the save file
+			if menu_system.bag == true:
+				menu_system.bag = false
+				menu.Initiative.action_queued.push_back(["bag", item_againts_enemies , index ,1, menu.player_group.index,menu.bagpack_choice])
+				_reset_focus()
+				menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
+				if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
+					call_menu_appear()
+		
 # it calls the menu to appear
 func call_menu_appear():
 	menu.menu_index = 0

@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_hsudt")
-Deck = PackedStringArray("Dual Wielding", "Broken Shooter", "Distracting Beauty")
+Deck = PackedStringArray("Broken Shooter", "Distracting Beauty", "Curved Slash")

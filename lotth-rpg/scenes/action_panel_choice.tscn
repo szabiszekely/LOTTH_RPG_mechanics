@@ -89,3 +89,13 @@ alignment = 0
 position = Vector2(118, 131)
 scale = Vector2(0.646466, 2.36364)
 texture = SubResource("GradientTexture2D_y3lwi")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/check" to="." method="action_button_pressed" binds= [&"check"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/top_left" to="." method="action_button_pressed" binds= [&"top_left"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/top_right" to="." method="action_button_pressed" binds= [&"top_right"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/focus" to="." method="action_button_pressed" binds= [&"focus"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/middle_left" to="." method="action_button_pressed" binds= [&"middle_left"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/middle_right" to="." method="action_button_pressed" binds= [&"middle_right"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/guard" to="." method="action_button_pressed" binds= [&"guard"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/bottom_left" to="." method="action_button_pressed" binds= [&"bottom_left"]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/bottom_right" to="." method="action_button_pressed" binds= [&"bottom_right"]]

@@ -1,11 +1,8 @@
-[gd_scene load_steps=25 format=4 uid="uid://c35cwosogqk5h"]
+[gd_scene load_steps=21 format=4 uid="uid://c35cwosogqk5h"]
 
 [ext_resource type="Script" uid="uid://wvuqgso3bhpt" path="res://scripts/gd/Simple_testing.gd" id="1_qs2du"]
-[ext_resource type="Resource" uid="uid://cavpus50mqa66" path="res://scripts/resources/misaliniouse/Initiative_resource.tres" id="2_sivq3"]
-[ext_resource type="Script" uid="uid://dwcwc8gvh0t72" path="res://scripts/resources/misaliniouse/turn_handler.gd" id="3_23mqx"]
-[ext_resource type="Script" uid="uid://cgius8yiqqdp4" path="res://scripts/resources/misaliniouse/ability_function_handler.gd" id="4_qht4t"]
-[ext_resource type="Script" uid="uid://dsyk5en1w40yx" path="res://scripts/resources/misaliniouse/action_button_option_handler.gd" id="5_im2n4"]
-[ext_resource type="Script" uid="uid://jpnbuuk08dxe" path="res://scripts/resources/misaliniouse/item_function_handler.gd" id="6_6koc2"]
+[ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/turn_handler.tscn" id="2_xbcw0"]
+[ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/refrence_cross_road.tscn" id="3_xbcw0"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/ground_tilemap.png" id="7_ee2qg"]
 [ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/navigation_region_2d.gd" id="8_euyto"]
 [ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="9_82vqx"]
@@ -18,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="12_tm6jc"]
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="13_edcat"]
 [ext_resource type="Script" uid="uid://bqmp2a0w0l3po" path="res://addons/ProCam2D/scripts/procam2d.gd" id="14_64au7"]
-[ext_resource type="Resource" uid="uid://iswm0dhbg2ce" path="res://scripts/resources/misaliniouse/Action_button_option_handler.tres" id="14_qht4t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1b3q"]
 texture = ExtResource("7_ee2qg")
@@ -52,7 +48,7 @@ vertices = PackedVector2Array(638, 118, -630.023, 118, -630.977, -381, 638, -381
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-641, -391, 648, -392, 648, 128, -640, 128)])
 
-[sub_resource type="Resource" id="Resource_euyto"]
+[sub_resource type="Resource" id="Resource_xbcw0"]
 resource_local_to_scene = true
 script = ExtResource("12_ee2qg")
 name = "Lil Goofy Guy"
@@ -74,7 +70,7 @@ Base_Magical_Attack = 1
 Speed = 2
 range_in_cm = 15.0
 
-[sub_resource type="Resource" id="Resource_82vqx"]
+[sub_resource type="Resource" id="Resource_t3hiv"]
 resource_local_to_scene = true
 script = ExtResource("12_ee2qg")
 name = "Baller"
@@ -95,23 +91,21 @@ Base_Magical_Attack = 0
 Speed = 1
 range_in_cm = 0.0
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "enemy", "menu", "turn_handler")]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_qs2du")
-player = NodePath("NavigationRegion2D/player_group")
-enemy = NodePath("NavigationRegion2D/Enemy_Group")
-menu = NodePath("UI_battle_menu/Menu")
-initiative = ExtResource("2_sivq3")
-turn_handler = NodePath("TurnHandler")
 
-[node name="TurnHandler" type="Node" parent="." node_paths=PackedStringArray("Menu", "enemy_group", "player_group")]
-script = ExtResource("3_23mqx")
-ability_func = ExtResource("4_qht4t")
-Action_button_handler = ExtResource("5_im2n4")
-item_handler = ExtResource("6_6koc2")
+[node name="Turn_Handler" parent="." instance=ExtResource("2_xbcw0")]
+
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("3_xbcw0")]
+MainNode = NodePath("..")
+TurnHandler = NodePath("../Turn_Handler")
+PlayerGroup = NodePath("../NavigationRegion2D/player_group")
+EnemyGroup = NodePath("../NavigationRegion2D/Enemy_Group")
 Menu = NodePath("../UI_battle_menu/Menu")
-enemy_group = NodePath("../NavigationRegion2D/Enemy_Group")
-player_group = NodePath("../NavigationRegion2D/player_group")
-initiative = ExtResource("2_sivq3")
+AbiCard = NodePath("../UI_battle_menu/Ability_Card_choice")
+ActButtonHandler = NodePath("../UI_battle_menu/Action_Panel_choice")
+BagHandler = NodePath("../UI_battle_menu/Bagpack")
+RunHandler = NodePath("../UI_battle_menu/Run_Panel_choice")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 31)
@@ -122,36 +116,23 @@ tile_set = SubResource("TileSet_5dx6m")
 navigation_polygon = SubResource("NavigationPolygon_8e523")
 script = ExtResource("8_euyto")
 
-[node name="player_group" parent="NavigationRegion2D" node_paths=PackedStringArray("menu_system") instance=ExtResource("9_82vqx")]
-menu_system = NodePath("../../UI_battle_menu/Menu")
+[node name="player_group" parent="NavigationRegion2D" instance=ExtResource("9_82vqx")]
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("10_23mqx")]
-position = Vector2(-368, -166)
-Fight_stats = SubResource("Resource_euyto")
+position = Vector2(-162, -166)
+Fight_stats = SubResource("Resource_xbcw0")
 
-[node name="Enemy_Group" parent="NavigationRegion2D" node_paths=PackedStringArray("act_options", "menu_system") instance=ExtResource("10_622di")]
-act_options = NodePath("../../UI_battle_menu/Action_Panel_choice")
-menu_system = NodePath("../../UI_battle_menu/Menu")
+[node name="Enemy_Group" parent="NavigationRegion2D" instance=ExtResource("10_622di")]
 
 [node name="Enemy" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("12_qht4t")]
-position = Vector2(298, -158)
-Fight_stats = SubResource("Resource_82vqx")
+position = Vector2(117, -158)
+Fight_stats = SubResource("Resource_t3hiv")
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("11_qgags")]
 
-[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("enemy_group", "player_group", "get_the_children", "Mouse_camera_toggler")]
-enemy_group = NodePath("../../NavigationRegion2D/Enemy_Group")
-player_group = NodePath("../../NavigationRegion2D/player_group")
+[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("get_the_children", "Mouse_camera_toggler")]
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../Mouse Pointer")
-Initiative = ExtResource("2_sivq3")
-
-[node name="Run_Panel_choice" parent="UI_battle_menu" index="1" node_paths=PackedStringArray("get_menu")]
-get_menu = NodePath("../Menu")
-
-[node name="Action_Panel_choice" parent="UI_battle_menu" index="3" node_paths=PackedStringArray("menu")]
-menu = NodePath("../Menu")
-Action_button_handler = ExtResource("14_qht4t")
 
 [node name="Mouse_pointer" parent="." instance=ExtResource("12_tm6jc")]
 do_i_need_it = true
@@ -162,9 +143,12 @@ script = ExtResource("13_edcat")
 radius = 1000.0
 enabled = false
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -154)
+zoom = Vector2(1.7, 1.7)
+
 [node name="ProCam" type="Node2D" parent="."]
 z_index = 4096
-position = Vector2(0, -128)
 script = ExtResource("14_64au7")
 process_frame = 0
 follow_mode = 1
@@ -198,5 +182,7 @@ top_margin = 0.05
 bottom_margin = 0.05
 working_radius = 2000.0
 global_debug_draw = false
+enabled = false
 
 [editable path="UI_battle_menu"]
+[editable path="UI_battle_menu/Action_Panel_choice"]
