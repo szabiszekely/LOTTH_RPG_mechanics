@@ -1,94 +1,110 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu0edv2ba5ssr"]
+[gd_scene load_steps=10 format=3 uid="uid://bu0edv2ba5ssr"]
 
-[ext_resource type="Script" uid="uid://cnr4o4ekkjupw" path="res://Testing_folder/test_order.gd" id="1_iba2e"]
-[ext_resource type="Texture2D" uid="uid://du8o6akqfrbno" path="res://assets/sprite/Player/limiting_area.png" id="2_nd0ci"]
-[ext_resource type="Script" uid="uid://cpx3d64ad1hje" path="res://Testing_folder/test_play_out.gd" id="3_q4js2"]
+[ext_resource type="Script" uid="uid://lrk6awb4mh7u" path="res://Testing_folder/second_test_order.gd" id="1_tjb1a"]
+[ext_resource type="Script" uid="uid://dnuq74ipowtvt" path="res://Testing_folder/test_player_section.gd" id="2_jndio"]
+[ext_resource type="Script" uid="uid://fg7m8ev0ysxf" path="res://Testing_folder/test_enemy_section.gd" id="3_p30ig"]
+[ext_resource type="Script" uid="uid://bj7qk68ihjj8y" path="res://Testing_folder/second_test_play_out.gd" id="4_t4dbq"]
 [ext_resource type="Texture2D" uid="uid://di3ith11u6kqs" path="res://assets/sprite/Player/lil_dude.png" id="4_tjb1a"]
-[ext_resource type="Script" uid="uid://ds42hhqrnyyk2" path="res://Testing_folder/test_player.gd" id="5_tjb1a"]
-[ext_resource type="Script" uid="uid://vsioroej7ovy" path="res://Testing_folder/test_enemy.gd" id="6_jndio"]
 [ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/Current_Player_indicator.png" id="6_p30ig"]
+[ext_resource type="Script" uid="uid://cm6tf25obq0dv" path="res://Testing_folder/second_test_player.gd" id="6_t4dbq"]
+[ext_resource type="Script" uid="uid://chf0rcyslgumc" path="res://Testing_folder/second_test_enemy.gd" id="8_6mv5v"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="8_t4dbq"]
 
-[node name="test_order" type="Node2D"]
-script = ExtResource("1_iba2e")
+[node name="test_order" type="Node2D" node_paths=PackedStringArray("play_out", "player_section", "enemy_section")]
+script = ExtResource("1_tjb1a")
+play_out = NodePath("play_out")
+player_section = NodePath("PlayerSection")
+enemy_section = NodePath("EnemySection")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.905, 1.905)
 
-[node name="LimitingArea" type="TextureRect" parent="." node_paths=PackedStringArray("test_order")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = 110.0
-offset_right = 32.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_nd0ci")
-script = ExtResource("3_q4js2")
+[node name="PlayerSection" type="Node" parent="." node_paths=PackedStringArray("test_order", "enemy_section")]
+script = ExtResource("2_jndio")
+test_order = NodePath("..")
+enemy_section = NodePath("../EnemySection")
+
+[node name="EnemySection" type="Node" parent="." node_paths=PackedStringArray("test_order")]
+script = ExtResource("3_p30ig")
 test_order = NodePath("..")
 
-[node name="Label" type="Label" parent="LimitingArea"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 68.0
-offset_bottom = 98.0
-theme_override_font_sizes/font_size = 30
-text = "0
-"
-horizontal_alignment = 1
+[node name="play_out" type="Node" parent="." node_paths=PackedStringArray("test_order")]
+script = ExtResource("4_t4dbq")
+test_order = NodePath("..")
 
-[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("test_order")]
+[node name="Player1" type="Sprite2D" parent="." node_paths=PackedStringArray("test_order", "player_section") groups=["Player"]]
 position = Vector2(-229, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("4_tjb1a")
-script = ExtResource("5_tjb1a")
+script = ExtResource("6_t4dbq")
 test_order = NodePath("..")
 ch_name = "P1"
+player_section = NodePath("../PlayerSection")
 
-[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Sprite2D"]
+[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Player1"]
 position = Vector2(0, -30)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_p30ig")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." node_paths=PackedStringArray("test_order")]
+[node name="Enemy1" type="Sprite2D" parent="." node_paths=PackedStringArray("enemy_section", "test_order") groups=["Enemy"]]
 position = Vector2(-80, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("4_tjb1a")
-script = ExtResource("6_jndio")
+script = ExtResource("8_6mv5v")
+enemy_section = NodePath("../EnemySection")
 test_order = NodePath("..")
 ch_name = "E1"
 
-[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Sprite2D2"]
+[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Enemy1"]
 position = Vector2(0, -30)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_t4dbq")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." node_paths=PackedStringArray("test_order")]
+[node name="Enemy2" type="Sprite2D" parent="." node_paths=PackedStringArray("enemy_section", "test_order") groups=["Enemy"]]
 position = Vector2(89, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("4_tjb1a")
-script = ExtResource("6_jndio")
+script = ExtResource("8_6mv5v")
+enemy_section = NodePath("../EnemySection")
 test_order = NodePath("..")
 ch_name = "E2"
 
-[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Sprite2D3"]
+[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Enemy2"]
 position = Vector2(0, -30)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_t4dbq")
 
-[node name="Sprite2D4" type="Sprite2D" parent="." node_paths=PackedStringArray("test_order")]
+[node name="Player2" type="Sprite2D" parent="." node_paths=PackedStringArray("test_order", "player_section") groups=["Player"]]
 position = Vector2(250, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("4_tjb1a")
-script = ExtResource("5_tjb1a")
+script = ExtResource("6_t4dbq")
 test_order = NodePath("..")
 ch_name = "P2"
+player_section = NodePath("../PlayerSection")
 
-[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Sprite2D4"]
+[node name="CurrentPlayerIndicator" type="Sprite2D" parent="Player2"]
 position = Vector2(0, -30)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_p30ig")
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 101.0
+offset_right = 165.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 40
+text = "NEXT"
+
+[node name="PrevButton" type="Button" parent="."]
+offset_left = -206.0
+offset_top = 101.0
+offset_right = -105.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 40
+text = "PREV"
+
+[connection signal="pressed" from="NextButton" to="Player1" method="_on_next_button_pressed"]
+[connection signal="pressed" from="NextButton" to="Player2" method="_on_next_button_pressed"]
+[connection signal="pressed" from="PrevButton" to="Player1" method="_on_prev_button_pressed"]
+[connection signal="pressed" from="PrevButton" to="Player2" method="_on_prev_button_pressed"]

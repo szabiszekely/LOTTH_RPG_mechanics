@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=45 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" uid="uid://wvuqgso3bhpt" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/turn_handler.tscn" id="2_luauv"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="15_7vocu"]
 [ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="16_fdyjy"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="16_fvjuy"]
-[ext_resource type="Script" uid="uid://b3gqjnnvydhjf" path="res://scripts/gd/ui_battle_menu.gd" id="17_eljyc"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="19_rqvbx"]
 [ext_resource type="PackedScene" uid="uid://b78min8fkygrg" path="res://scenes/Player_2.tscn" id="21_s6lp7"]
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="22_bkb1u"]
@@ -356,11 +355,6 @@ Fight_stats = SubResource("Resource_oir6x")
 position = Vector2(-338, -134)
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("16_fvjuy")]
-script = ExtResource("17_eljyc")
-
-[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("get_the_children", "Mouse_camera_toggler")]
-get_the_children = NodePath("MarginContainer/HBoxContainer")
-Mouse_camera_toggler = NodePath("../../Mouse Pointer")
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("19_rqvbx")]
 do_i_need_it = true
@@ -407,20 +401,6 @@ top_margin = 0.05
 bottom_margin = 0.05
 working_radius = 2000.0
 global_debug_draw = false
-
-[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Abilities" to="UI_battle_menu/Menu" method="abilities_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Action" to="UI_battle_menu/Menu" method="action_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Bagpack" to="UI_battle_menu/Menu" method="bagpack_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Menu/MarginContainer/HBoxContainer/Run" to="UI_battle_menu/Menu" method="run_pressed"]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/check" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"check"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_left" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"top_left"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/top_right" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"top_right"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/focus" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"focus"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_left" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"middle_left"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/middle_right" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"middle_right"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/guard" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"guard"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_left" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"bottom_left"]]
-[connection signal="pressed" from="UI_battle_menu/Action_Panel_choice/MarginContainer/VBoxContainer/bottom_right" to="UI_battle_menu/Action_Panel_choice" method="action_button_pressed" binds= [&"bottom_right"]]
 
 [editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="NavigationRegion2D/Enemy_Group/Enemy5"]

@@ -1,5 +1,5 @@
 extends Node2D
-class_name Test_order
+#class_name Test_order
 
 signal continue_order
 @onready var all_people = [$Sprite2D, $Sprite2D2, $Sprite2D3, $Sprite2D4]
