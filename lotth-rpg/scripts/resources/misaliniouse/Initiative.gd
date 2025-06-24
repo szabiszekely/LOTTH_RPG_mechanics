@@ -35,13 +35,12 @@ func _roll_reset():
 # when the rolls got determend all of them will get passed to this which will sort them all by a simple
 # algorhytm
 func _getting_all_rolls(rolls:Array,source):
-	place_holder_source = source
-	for i in place_holder_source.get_children():
-		if place_holder_source.get_children() != []:
+	for i in source.get_children():
+		if source.get_children() != []:
 			i.free()
 	rolls.sort_custom(priority)
 	
-	# when done we will go through the rolls and add they 
+	# when done we will go through the rolls and add them to the indicatior
 	for portait in rolls:
 		var portrait_texture = portait[3]
 		var container = TextureRect.new()

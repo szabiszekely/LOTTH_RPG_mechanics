@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 		$PCamTarget.enabled = true
 		initiative.action_start = true
 		initiative.index_order[initiative.all_rolls.size() - 1][1].your_turn = false
-		#PUT THE TURN START CODE HERE LATER !!!!! and delete this!!!!ú
+		#PUT THE TURN START CODE HERE LATER !!!!! and delete this!!!!
 		await turn_handler._actions(initiative.action_queued)
 		$PCamTarget.enabled = false
 	pass
@@ -43,3 +43,12 @@ func _process(_delta: float) -> void:
 			initiative.index_order[i][1].your_turn = false
 		initiative.index_order[0][1].your_turn = true
 		initiative.initiative_index = 0
+	if Input.is_action_just_pressed("Cam_change"):
+		print("--------------")
+		print("all rolls: ",initiative.all_rolls)
+		print("index order: ",initiative.index_order)
+		print("initiative index: ",initiative.initiative_index)
+		print("action queued: ",initiative.action_queued)
+		print("action starts: ",initiative.action_start)
+		print("Max Turns: ",initiative.MaxTurns)
+		print("--------------")

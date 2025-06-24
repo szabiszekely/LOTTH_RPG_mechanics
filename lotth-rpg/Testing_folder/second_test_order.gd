@@ -44,6 +44,7 @@ func _reset():
 	not_started = true
 	for i in all_people:
 		i.my_turn = false
+		i.PlayOut = i.MaxPlayOut
 	actions.clear()
 	index = 0
 	not_started = false

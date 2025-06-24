@@ -7,8 +7,14 @@ class_name Player_Selection
 var all_player_action: Array
 var player_turn_end = false
 var p_index = 0
+var all_play_out_p: int = 100
+
 
 func _start_player_section():
+	all_play_out_p = 0
+	for i in test_order.player_group:
+		all_play_out_p += i.MaxPlayOut
+
 	all_player_action.clear()
 	p_index = 0
 	player_turn_end = false
@@ -16,6 +22,7 @@ func _start_player_section():
 	
 	
 func _process(delta: float) -> void:
-	if len(test_order.player_group) == len(all_player_action) and !player_turn_end:
+	
+	if all_play_out_p == len(all_player_action) and !player_turn_end:
 		player_turn_end = true
 		enemy_section._start_enemy_section(all_player_action)

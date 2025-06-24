@@ -54,7 +54,6 @@ func _actions(stack):
 			"act":
 				action._Action_Turn(i)
 
-
 			"TEST":
 				print("WORKING!!")
 		# WE NEED TO PUT A BREAKER HERE SO IT MAY ONLY CONTINUES AFTER THE THING ENDED

@@ -7,8 +7,14 @@ var all_enemy_action: Array
 var enemy_turn_end = false
 var e_index = 0
 var p_actions
+var all_play_out_e: int = 100
+
+
 
 func _start_enemy_section(player_options):
+	all_play_out_e = 0
+	for i in test_order.enemy_group:
+		all_play_out_e += i.MaxPlayOut
 	all_enemy_action.clear()
 	enemy_turn_end = false
 	e_index = 0
@@ -17,10 +23,9 @@ func _start_enemy_section(player_options):
 	
 	
 func _process(delta: float) -> void:
-	if len(test_order.enemy_group) == len(all_enemy_action) and !enemy_turn_end:
+	if all_play_out_e == len(all_enemy_action) and !enemy_turn_end:
 		enemy_turn_end = true
-		
-		
+
 		for i in p_actions:
 			test_order.actions.append(i)
 		for i in all_enemy_action:

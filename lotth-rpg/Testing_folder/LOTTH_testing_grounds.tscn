@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c35cwosogqk5h"]
+[gd_scene load_steps=17 format=4 uid="uid://c35cwosogqk5h"]
 
 [ext_resource type="Script" uid="uid://wvuqgso3bhpt" path="res://scripts/gd/Simple_testing.gd" id="1_qs2du"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/turn_handler.tscn" id="2_xbcw0"]
@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="9_82vqx"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="10_23mqx"]
 [ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="10_622di"]
-[ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="11_6koc2"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="11_qgags"]
-[ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="12_ee2qg"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="12_qht4t"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="12_tm6jc"]
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="13_edcat"]
@@ -48,49 +46,6 @@ vertices = PackedVector2Array(638, 118, -630.023, 118, -630.977, -381, 638, -381
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-641, -391, 648, -392, 648, 128, -640, 128)])
 
-[sub_resource type="Resource" id="Resource_xbcw0"]
-resource_local_to_scene = true
-script = ExtResource("12_ee2qg")
-name = "Lil Goofy Guy"
-Id = -1
-Friend_or_Foe = 0
-MAX_HP = 25
-MAX_ENG = 25
-HP = 25
-ENG = 25
-Soul_Type = 1
-Attack_Type = 0
-PlayerDeck = ExtResource("11_6koc2")
-Defense = 4
-Magic_Defense = 4
-MAX_EMP = 1000
-EMP = 0
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 1
-Speed = 2
-range_in_cm = 15.0
-
-[sub_resource type="Resource" id="Resource_t3hiv"]
-resource_local_to_scene = true
-script = ExtResource("12_ee2qg")
-name = "Baller"
-Id = 0
-Friend_or_Foe = 1
-MAX_HP = 18
-MAX_ENG = 18
-HP = 18
-ENG = 18
-Soul_Type = 0
-Attack_Type = 1
-Defense = 2
-Magic_Defense = 0
-MAX_EMP = 4
-EMP = 0
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 0
-Speed = 1
-range_in_cm = 0.0
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qs2du")
 
@@ -120,13 +75,17 @@ script = ExtResource("8_euyto")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("10_23mqx")]
 position = Vector2(-162, -166)
-Fight_stats = SubResource("Resource_xbcw0")
+
+[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("10_23mqx")]
+position = Vector2(-162, -93)
 
 [node name="Enemy_Group" parent="NavigationRegion2D" instance=ExtResource("10_622di")]
 
 [node name="Enemy" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("12_qht4t")]
 position = Vector2(117, -158)
-Fight_stats = SubResource("Resource_t3hiv")
+
+[node name="Enemy2" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("12_qht4t")]
+position = Vector2(117, -85)
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("11_qgags")]
 

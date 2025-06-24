@@ -5,7 +5,9 @@ var my_turn = false
 @export var enemy_section: Enemy_Selection
 @export var test_order: Test_order
 @export var ch_name: String
+@export var MaxPlayOut: int = 2
 
+var PlayOut: int = 0
 var before_enemy_turn = []
 
 func _process(delta: float) -> void:
@@ -17,9 +19,12 @@ func _process(delta: float) -> void:
 	else:
 		turn_normal()
 		current_player_indicator.hide()
+	
+
 		
 func enemy_turn():
 	#prep for the enemy logic
+	self.PlayOut -= 1
 	before_enemy_turn = []
 	_sort_before_self()
 	_same_type_enemy()
@@ -33,13 +38,13 @@ func enemy_turn():
 		else: enemy_section.all_enemy_action.append([ch_name,"Defend",self])
 	else: enemy_section.all_enemy_action.append([ch_name,random_number,self])
 	#------------------
+	if PlayOut <= 0:
+		if not len(test_order.enemy_group) <= enemy_section.e_index + 1:
+			test_order._switch_e(enemy_section.e_index+1,enemy_section.e_index)
+			enemy_section.e_index += 1
+		else:
+			my_turn = false
 	
-	if not len(test_order.enemy_group) <= enemy_section.e_index + 1:
-		test_order._switch_e(enemy_section.e_index+1,enemy_section.e_index)
-		enemy_section.e_index += 1
-	else:
-		my_turn = false
-
 # gets everything before the enemy
 func _sort_before_self():
 	for i in test_order.all_people: 
