@@ -51,6 +51,7 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "purple",
 "res://assets/sprite/": "pink",
+"res://reworking_mechanics/": "gray",
 "res://scenes/": "red",
 "res://scripts/": "yellow",
 "res://scripts/gd/": "orange",

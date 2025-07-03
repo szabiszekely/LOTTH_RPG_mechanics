@@ -138,8 +138,6 @@ func _input(event: InputEvent) -> void:
 			Menu_state.MENU:
 				if Initiative.action_queued.size() != 0:
 					Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
-					Initiative.cancle_enemy_back_up = true
-					Initiative.cancle_player_back_up = true
 					Initiative._previouse_in_order()
 					menu_container = true
 			# all of the other just go back by one step to their respective menu before

@@ -40,10 +40,10 @@ func _physics_process(delta: float) -> void:
 	#if Initiative.doTrapForLoop: 
 		#update(delta)
 	# on its turn if you the last player wanted to go back then it will stop here
-	if your_turn:
-		if Initiative.cancle_enemy_back_up == true:
-			Initiative.cancle_enemy_back_up = false
-		Initiative.group_player.index = Initiative.index_order[Initiative.initiative_index][2]
+	#if your_turn:
+		#if Initiative.cancle_enemy_back_up == true:
+			#Initiative.cancle_enemy_back_up = false
+		#Initiative.group_player.index = Initiative.index_order[Initiative.initiative_index][2]
 		# update the indicator
 		#if !moved: 
 			#update(delta)
@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 	velocity.x = distance.normalized().x * speed
 	velocity.y = distance.normalized().y * speed
 	move_and_slide()
-	
 		
 func _input(event) -> void:
 	var menu = Initiative.group_player.menu

@@ -3,6 +3,9 @@ class_name Enemy
 #This is the enemy Controller!
 
 @onready var Enemy_health_bar = $Bar_system
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var enemy = RefrenceNode.EnemyGroup
+
 
 
 func _ready() -> void:
@@ -16,16 +19,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#FOR Now when it's their turn, they choose a random attack, but if a player cancle's then their action get rerolled
 	if your_turn:
-		if Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() != 0:
-			Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
-			Initiative._previouse_in_order()
-		elif Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() == 0:
-			Initiative.cancle_enemy_back_up = false
-		else:
-			PlayOutOptions -= 1
-			var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
-			var choose_random_player = randi_range(0,Initiative.group_player.player.size() - 1)
-			Initiative.action_queued.push_back(["atk",choose_ability,choose_random_player,3,Initiative.group_enemies.index])
+		#if Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() != 0:
+			#Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
+			#Initiative._previouse_in_order()
+		#elif Initiative.cancle_enemy_back_up == true and Initiative.action_queued.size() == 0:
+			#Initiative.cancle_enemy_back_up = false
+		#else:
+		PlayOutOptions -= 1
+		var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
+		var choose_random_player = randi_range(0,Initiative.group_player.player.size() - 1)
+		enemy.all_e_action.push_back(["atk",choose_ability,choose_random_player,3,Initiative.group_enemies.index])
 
 func _your_turn_on_set_up():
 		PlayOutOptions = MaxPlayOutOptions

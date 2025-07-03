@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="new_Initiative" load_steps=3 format=3 uid="uid://dchbp4n1f36hq"]
+
+[ext_resource type="Texture2D" uid="uid://doq8y66op1kbh" path="res://assets/sprite/UI/Portrait_BG.png" id="1_j1fdd"]
+[ext_resource type="Script" uid="uid://c1oql8k07v145" path="res://reworking_mechanics/reworked_Initiative.gd" id="2_83lvw"]
+
+[resource]
+script = ExtResource("2_83lvw")
+bg_container = ExtResource("1_j1fdd")
+metadata/_custom_type_script = "uid://c1oql8k07v145"

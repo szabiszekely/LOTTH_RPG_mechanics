@@ -1,9 +1,9 @@
 extends Node
 class_name CrossRoad
 
-@export var MainNode: Main
+@export var MainNode: BattleMain
 @export var TurnHandler: Turn_Handler
-@export var InitiativeHandler: Initiative_class
+@export var InitiativeHandler: new_Initiative
 @export var ObjFolder: Node2D
 @export var PlayerGroup: Player_group
 @export var EnemyGroup: Enemy_group

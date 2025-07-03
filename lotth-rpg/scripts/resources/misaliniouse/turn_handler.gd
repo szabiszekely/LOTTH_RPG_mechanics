@@ -71,4 +71,4 @@ func _actions(stack):
 	stack.clear()
 	initiative.initiative_index = 0
 	initiative.action_start = false
-	initiative.index_order[0][1].your_turn = true
+	
