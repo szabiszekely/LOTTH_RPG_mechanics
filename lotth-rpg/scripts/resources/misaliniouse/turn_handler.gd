@@ -12,6 +12,7 @@ class_name Turn_Handler
 @onready var enemy_group = RefrenceNode.EnemyGroup
 @onready var player_group = RefrenceNode.PlayerGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
+@onready var main_scene = RefrenceNode.MainNode
 
 @onready var ability: Node = $Ability
 @onready var action: Node = $Action
@@ -30,7 +31,7 @@ var baseTiming: int
 #   ["bag", item_againts_enemies, index ,    1]							 FROM THE PLAYER
 #   ["bag", item_againts_players, sub_index ,0]							 TO A PLAYER
 
-#   ["act", i.text, 			  self,		 0, menu.enemy_group.enemies[menu.enemy_group.index]]
+#   ["act", i.text, 			  self,		 0, enemy_group.enemies[enemy_group.index]]
 #endregion
 
 func _ready() -> void:
@@ -38,8 +39,14 @@ func _ready() -> void:
 
 func _actions(stack):
 	#print(stack)
+	var play_out_action = []
+	for i in initiative.all_rolls:
+		for j in stack:
+			if i[-1] == j[-1]:
+				play_out_action.append(j)
+	
 	var stackIndex: int = 0
-	for i in stack:
+	for i in play_out_action:
 		# ECT, ECT
 		match i[0]:
 			"movement":
@@ -71,4 +78,5 @@ func _actions(stack):
 	stack.clear()
 	initiative.initiative_index = 0
 	initiative.action_start = false
-	
+	await Engine.get_main_loop().create_timer(2).timeout
+	main_scene._full_reset()

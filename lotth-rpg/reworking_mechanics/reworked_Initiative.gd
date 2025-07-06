@@ -13,6 +13,7 @@ var initiative_index: int = 0
 var timeSpentBetweenTurns: int = 1
 
 var action_start: bool = false
+var doTrapForLoop: bool = false
 
 var group_enemies
 var group_player
@@ -21,7 +22,7 @@ var place_holder_source
 signal stopLoop
 
 # this gets the neccesery nodes as references
-func _getting_groups(players,enemies):
+func _getting_groups(players,enemies,):
 	group_player = players
 	group_enemies =  enemies
 
@@ -37,6 +38,7 @@ func _roll_reset():
 # when the rolls got determend all of them will get passed to this which will sort them all by a simple
 # algorhytm
 func _getting_all_rolls(rolls:Array,source):
+	place_holder_source = source
 	for i in source.get_children():
 		if source.get_children() != []:
 			i.free()
@@ -62,21 +64,27 @@ func _getting_all_rolls(rolls:Array,source):
 		container.add_child(portrait_icon)
 
 # this 2 either go forward in the order or back
-func _next_in_order():
-	if initiative_index < all_rolls.size() - 1:
-		initiative_index += 1
-		switch_order(initiative_index, initiative_index-1)
+#func _next_in_order():
+	#if initiative_index < all_rolls.size() - 1:
+		#initiative_index += 1
+		#switch_order(initiative_index, initiative_index-1)
 
-func _previouse_in_order():
-	if initiative_index > 0:
-		initiative_index -= 1
-		switch_order(initiative_index, initiative_index+1)
+#func _previouse_in_order():
+	#if initiative_index > 0:
+		#initiative_index -= 1
+		#switch_order(initiative_index, initiative_index+1)
 
-func switch_order(x,y):
-	index_order[y][1].your_turn = false
-	await Engine.get_main_loop().create_timer(0.15).timeout
-	index_order[x][1].your_turn = true
-	#print(index_order[y][1]," ",index_order[x][1])
+func switch_order_e(x,y):
+	sorted_enemies[x].your_turn = true
+	await Engine.get_main_loop().create_timer(0.2).timeout
+	sorted_enemies[y].your_turn = false
+	#print(index_order[y]," ",index_order[x])
+
+func switch_order_p(x,y):
+	sorted_player[x].your_turn = true
+	await Engine.get_main_loop().create_timer(0.2).timeout
+	sorted_player[y].your_turn = false
+
 
 # get the placement of everyone in their recpected group in the order Array
 func _get_the_index_with_order():
@@ -107,7 +115,7 @@ func _get_the_index_with_order():
 func _get_player_and_enemy_spearated():
 	var temp = []
 	for i in all_rolls:
-		for j in group_player:
+		for j in group_player.player:
 			if i[4] == j:
 				temp.append(j)
 	sorted_player.clear()
@@ -115,7 +123,7 @@ func _get_player_and_enemy_spearated():
 		sorted_player.append(i)
 	temp.clear()
 	for i in all_rolls:
-		for j in group_enemies:
+		for j in group_enemies.enemies:
 			if i[4] == j:
 				temp.append(j)
 	for i in temp:

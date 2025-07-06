@@ -6,6 +6,9 @@ class_name Player
 @onready var player_cam_target: Node2D = $PCamTarget
 @onready var Bar_VContainer: VBoxContainer = $"../../../UI_battle_menu/Bar_container"
 const BAR_SYSTEM = preload("res://scenes/Bar_system.tscn")
+@onready var player = RefrenceNode.PlayerGroup
+
+
 
 #@export var indicator : Indicator
 #@export var moving_indicator : MovingIndicator
@@ -32,7 +35,6 @@ func _ready() -> void:
 	$character_animator.play("idle")
 	#when game start start idle get roll
 	roll_of_the_luck()
-	Initiative.MaxTurns += MaxPlayOutOptions
 
 	
 
@@ -56,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 		
 func _input(event) -> void:
-	var menu = Initiative.group_player.menu
+	pass
 	# gets the position and then it will move the player to that position when all the action stuff should play out
 	#if event.is_action_pressed("clicked") and indicator.activated and your_turn and skill == null:
 		#Initiative.action_queued.push_back(["movement",get_world_2d().navigation_map,moving_indicator.cursor_reference.global_position,0,Initiative.index_order[Initiative.initiative_index][2]])
@@ -79,13 +81,8 @@ func _input(event) -> void:
 			#skill = null
 			
 func _your_turn_on_set_up():
-	var menu = Initiative.group_player.menu
+	
 	PlayOutOptions = MaxPlayOutOptions
-	if Initiative.cancle_player_back_up:
-		Initiative.cancle_player_back_up = false
-		for i in MaxPlayOutOptions:
-			if Initiative.action_queued.size() != 0:
-					Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
 	_camera_on()
 	moved = false
 	menu.menu_index = 0
@@ -95,14 +92,18 @@ func _your_turn_on_set_up():
 	#player_switch_on()
 
 func _your_turn_off_set_up():
-	var menu = Initiative.group_player.menu
+	
 	_camera_off()
 	#player_switch_off()
 	menu.vanish()
 		
 func _on_to_the_next_guy():
-	Initiative._next_in_order()
-	
+	if not len(Initiative.sorted_player) <= player.p_index + 1:
+		Initiative.switch_order_p(player.p_index+1,player.p_index)
+		player.p_index += 1
+	else:
+		your_turn = false
+
 # indicator set up
 #func update(delta):
 	#if skill != null:

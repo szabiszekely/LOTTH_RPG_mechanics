@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name Order_holder
 
 @onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 

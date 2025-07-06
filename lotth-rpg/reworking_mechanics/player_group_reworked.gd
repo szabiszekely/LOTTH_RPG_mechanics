@@ -40,9 +40,10 @@ func _process(delta: float) -> void:
 	if all_moves_p == len(all_p_actions) and !player_turn_end:
 		player_turn_end = true
 		enemy._start_enemy_section(all_p_actions)
+		print("DONE")
 
 	
-	if start_choosing == true:
+	if start_choosing == true :
 		# same as with the enemy, one set goes upwards in the chain, the other goes down and it loops
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
 			if sub_index > 0:
@@ -63,19 +64,19 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			if menu_system.abi == true and start_choosing == true:
 				menu_system.abi = false
-				all_p_actions.push_back(["atk",card_againts_players,sub_index,1,p_index])
+				all_p_actions.push_back(["atk",card_againts_players,sub_index,1,p_index,player[sub_index]])
 				_reset_focus()
 				menu.vanish()
-				player[p_index].PlayOutOptions -= 1
-				if player[p_index].PlayOutOptions != 0:
+				initiative.sorted_player[p_index].PlayOutOptions -= 1
+				if initiative.sorted_player[p_index].PlayOutOptions != 0:
 					call_menu_appear()
 				
 			if menu_system.bag == true:
 				menu_system.bag = false
-				all_p_actions.push_back(["bag", item_againts_players , sub_index ,0,menu.bagpack_choice])
+				all_p_actions.push_back(["bag", item_againts_players , sub_index ,0,menu.bagpack_choice,player[sub_index]])
 				_reset_focus()
-				player[p_index].PlayOutOptions -= 1
-				if player[p_index].PlayOutOptions != 0:
+				initiative.sorted_player[p_index].PlayOutOptions -= 1
+				if initiative.sorted_player[p_index].PlayOutOptions != 0:
 					call_menu_appear()
 
 

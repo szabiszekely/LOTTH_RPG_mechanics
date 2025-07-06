@@ -19,6 +19,9 @@ class_name Action_control
 
 @onready var menu = RefrenceNode.Menu
 @onready var Action_button_handler = RefrenceNode.ActHandler
+@onready var player = RefrenceNode.PlayerGroup
+@onready var enemy = RefrenceNode.EnemyGroup
+
 
 func _ready() -> void:
 	# hide it when scene starts!
@@ -80,12 +83,12 @@ func action_button_pressed(extra_arg_0: StringName) -> void:
 	#print(extra_arg_0)
 	for i in list_of_buttons:
 		if i.name == extra_arg_0:
-			menu.Initiative.action_queued.push_back(["act",i.text,self,0,menu.enemy_group.enemies[menu.enemy_group.index]])
+			player.all_p_actions.push_back(["act",i.text,self,0,enemy.enemies[enemy.e_index],player.player[player.p_index]])
 			menu.vanish()
 			
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
 		# THANK YOU!
-			menu.player_group.player[menu.player_group.index].PlayOutOptions -= 1
-			if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
-					menu.enemy_group.call_menu_appear()
+			player.player[player.p_index].PlayOutOptions -= 1
+			if player.player[player.p_index].PlayOutOptions != 0:
+					enemy.call_menu_appear()

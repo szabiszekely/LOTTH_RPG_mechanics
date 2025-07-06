@@ -81,7 +81,7 @@ func _process(_delta: float) -> void:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
-				player_group.player[player_group.index]._camera_on()
+				player_group.player[player_group.p_index]._camera_on()
 				static_dialogue_box.show()
 				menu_container = false
 		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
@@ -90,7 +90,7 @@ func _process(_delta: float) -> void:
 			if abi_container == true:
 				abi = true
 				menu.show()
-				ability_card_choice.deck = player_group.player[player_group.index].Fight_stats.PlayerDeck.Deck
+				ability_card_choice.deck = player_group.player[player_group.p_index].Fight_stats.PlayerDeck.Deck
 				ability_card_choice.abi_appear()
 				abi_container = false
 		# brings up the actions already appearing with all the enemy act options
@@ -135,11 +135,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		match current_state:
 			# goes back to the previous player
-			Menu_state.MENU:
-				if Initiative.action_queued.size() != 0:
-					Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
-					Initiative._previouse_in_order()
-					menu_container = true
+			#Menu_state.MENU:
+				#if Initiative.action_queued.size() != 0:
+					#Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
+					#Initiative._previouse_in_order()
+					#menu_container = true
 			# all of the other just go back by one step to their respective menu before
 			Menu_state.ABILITES:
 				menu_index = 0
@@ -166,7 +166,7 @@ func _input(event: InputEvent) -> void:
 				if act == true:
 					menu_index = 1
 					enemy_group._reset_focus()
-					player_group.player[player_group.index]._camera_on()
+					player_group.player[player_group.p_index]._camera_on()
 					vanish()
 					act = false
 					act_container = false
@@ -176,7 +176,7 @@ func _input(event: InputEvent) -> void:
 				elif abi == true:
 					enemy_group._reset_focus()
 					vanish()
-					player_group.player[player_group.index]._camera_on()
+					player_group.player[player_group.p_index]._camera_on()
 					abi = false
 					abi_container = true
 					
@@ -185,14 +185,14 @@ func _input(event: InputEvent) -> void:
 					enemy_group._reset_focus()
 					menu.show()
 					vanish()
-					player_group.player[player_group.index]._camera_on()
+					player_group.player[player_group.p_index]._camera_on()
 					bag = false
 					bag_container = true
 					current_state = Menu_state.BAG
 			Menu_state.CHOOSING_PLAYERS:
 				if abi == true:
 					vanish()
-					player_group.player[player_group.index]._camera_on()
+					player_group.player[player_group.p_index]._camera_on()
 					player_group._reset_focus()
 					abi = false
 					abi_container = true
@@ -201,7 +201,7 @@ func _input(event: InputEvent) -> void:
 					player_group._reset_focus()
 					menu.show()
 					vanish()
-					player_group.player[player_group.index]._camera_on()
+					player_group.player[player_group.p_index]._camera_on()
 					bag = false
 					bag_container = true
 					current_state = Menu_state.BAG

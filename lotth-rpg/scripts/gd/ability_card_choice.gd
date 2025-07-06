@@ -38,6 +38,10 @@ var page_turn = false
 
 @onready var menu = RefrenceNode.Menu
 @onready var ability_func= RefrenceNode.AbiHandler
+@onready var player = RefrenceNode.PlayerGroup
+@onready var enemy = RefrenceNode.EnemyGroup
+
+
 
 @onready var ability_inventory = [button,button_2,button_3,button_4,button_5,button_6,button_7,button_8,button_9,button_10,button_11,button_12,button_13,button_14,button_15,button_16,button_17,button_18] 
 # this will get replaced with the characters actual deck! but as basic you will get a placeholder deck
@@ -151,13 +155,13 @@ func pressed() -> void:
 		# if its self it is likely that you want to select the players so you can select which of the party
 		# members do you want to select
 		menu.choose_player_container = true
-		menu.player_group.card_againts_players = used_card_name
+		player.card_againts_players = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_PLAYERS
 	
 	elif str(target) == "Target":
 		# if its target than you will choose one of the enemies regaurdless of distance
 		menu.choose_enemy_container = true
-		menu.enemy_group.card_againts_enemies = used_card_name
+		enemy.card_againts_enemies = used_card_name
 		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
 # in both case is we set it up for the menu to handle our choice! Where we change our state to be either of
 # the 2!
@@ -165,12 +169,12 @@ func pressed() -> void:
 	else:
 		#in this case we put it on hold and we use a simple function handler that will spawn down everything
 		# we need to handle a range capped move!
-		menu.player_group.card_againts_players = used_card_name
-		menu.Initiative.action_queued.push_back(["atk",used_card_name,0,2,menu.player_group.index])
+		player.card_againts_players = used_card_name
+		player.all_p_actions.push_back(["atk",used_card_name,0,2,player.p_index,player.player[player.p_index]])
 		
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
 		# THANK YOU!
-		menu.player_group.player[menu.player_group.sub_index].PlayOutOptions -= 1
-		if menu.player_group.player[menu.player_group.index].PlayOutOptions != 0:
-			menu.player_group.call_menu_appear()
+		player.player[player.sub_index].PlayOutOptions -= 1
+		if player.player[player.p_index].PlayOutOptions != 0:
+			player.call_menu_appear()

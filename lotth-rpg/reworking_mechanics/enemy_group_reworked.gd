@@ -30,11 +30,11 @@ func _ready() -> void:
 func _start_enemy_section(player_actions):
 	all_play_out_e = 0
 	for i in initiative.sorted_enemies:
-		all_play_out_e += i.MaxPlayOut
+		all_play_out_e += i.MaxPlayOutOptions
 	all_e_action.clear()
 	enemy_turn_end = false
 	e_index = 0
-	initiative.sorted_enemies[e_index].my_turn = true
+	initiative.sorted_enemies[e_index].your_turn = true
 	p_actions = player_actions
 	
 func _process(delta: float) -> void:
@@ -93,19 +93,19 @@ func _player_action_to_enemy():
 	# signed to a ability button
 	if menu_system.abi == true:
 		menu_system.abi = false
-		player.all_p_actions.push_back(["atk",card_againts_enemies,e_index,0,player.p_index])
+		player.all_p_actions.push_back(["atk",card_againts_enemies,e_index,0,player.p_index,initiative.sorted_player[player.p_index]])
 		_reset_focus()
-		player.player[player.index].PlayOutOptions -= 1
-		if player.player[player.index].PlayOutOptions != 0:
+		initiative.sorted_player[player.p_index].PlayOutOptions -= 1
+		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			call_menu_appear()
 	# the bag conntent is stored in a save file and when selected it will bring out all of the options from
 	# the save file
 	if menu_system.bag == true:
 		menu_system.bag = false
-		player.all_p_actions.push_back(["bag", item_againts_enemies , e_index ,1, player.p_index,menu.bagpack_choice])
+		player.all_p_actions.push_back(["bag", item_againts_enemies , e_index ,1, player.p_index,menu.bagpack_choice,initiative.sorted_player[player.p_index]])
 		_reset_focus()
-		player.player[player.p_index].PlayOutOptions -= 1
-		if player.player[player.p_index].PlayOutOptions != 0:
+		initiative.sorted_player[player.p_index].PlayOutOptions -= 1
+		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			call_menu_appear()
 
 

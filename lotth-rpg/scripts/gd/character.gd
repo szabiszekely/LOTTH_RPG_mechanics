@@ -2,11 +2,14 @@ extends CharacterBody2D
 class_name Character_Controller
 
 # this is the main node for all enemies and players
+@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var focus = $Indicator
 @onready var damage_indicator = preload("res://scenes/attack_indicator.tscn")
 @onready var hitbox: CollisionShape2D = $Hitbox
-@onready var Initiative: Initiative_class = preload("res://scripts/resources/misaliniouse/Initiative_resource.tres")
+@onready var Initiative = RefrenceNode.InitiativeHandler
+@onready var menu = RefrenceNode.Menu
+
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
@@ -25,13 +28,13 @@ var PlayOutOptions: int = 2:
 @export var MaxPlayOutOptions: int = 2
 
 # this sets up the character to their turn
-var your_turn = false:
-	set(value):
-		your_turn = value
-		if your_turn:
-			_your_turn_on_set_up()
-		elif !your_turn:
-			_your_turn_off_set_up()
+var your_turn = false
+		
+func _process(delta: float) -> void:
+	if your_turn == true:
+		_your_turn_on_set_up()
+	else:
+		_your_turn_off_set_up()
 
 #plays either health hit animation or energy drain animation!
 func _play_animator_health_hit():
@@ -100,6 +103,7 @@ func roll_of_the_luck():
 	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
 	Initiative.all_rolls.append(initiative_peronality)
+	print(Initiative.all_rolls)
 
 # place holder function for other scripts to be handled
 func _your_turn_on_set_up():
@@ -109,4 +113,4 @@ func _your_turn_off_set_up():
 	pass
 
 func _on_to_the_next_guy():
-	Initiative._next_in_order()
+	pass
