@@ -18,6 +18,7 @@ var p_actions
 var enemies: Array = []
 var all_e_action: Array = []
 
+var sub_e_index: int = 0
 var e_index: int = 0
 var all_play_out_e: int = 100
 
@@ -38,6 +39,7 @@ func _start_enemy_section(player_actions):
 	p_actions = player_actions
 	
 func _process(delta: float) -> void:
+	print(e_index)
 	if not menu.visible and start_choosing == true and len(enemies) != 1:
 		# when pressed one derections than it moves up or down in the list and if that list is out of context 
 		# than it loops back around!

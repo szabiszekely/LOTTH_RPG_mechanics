@@ -28,13 +28,13 @@ var PlayOutOptions: int = 2:
 @export var MaxPlayOutOptions: int = 2
 
 # this sets up the character to their turn
-var your_turn = false
-		
-func _process(delta: float) -> void:
-	if your_turn == true:
-		_your_turn_on_set_up()
-	else:
-		_your_turn_off_set_up()
+var your_turn = false:
+	set(value):
+		your_turn = value
+		if your_turn == true:
+			_your_turn_on_set_up()
+		else:
+			_your_turn_off_set_up()
 
 #plays either health hit animation or energy drain animation!
 func _play_animator_health_hit():

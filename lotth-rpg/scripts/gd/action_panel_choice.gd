@@ -43,7 +43,6 @@ func act_add_actions(list_of_added):
 	var amount_of_options = [check,focus,guard]
 	list_of_buttons = [top_left,middle_left,bottom_left,top_right,middle_right,bottom_right]
 	for i in list_of_added:
-	
 		var index_of_string = list_of_added.find(i)
 		var change = list_of_buttons[index_of_string]
 		change.text = str(i)
@@ -80,7 +79,6 @@ func act_disappear():
 # when option pressed then we just add it to an Array of all the options that will run in the end, and deduct
 # 1 of the maximum of options a player can choose!
 func action_button_pressed(extra_arg_0: StringName) -> void:
-	#print(extra_arg_0)
 	for i in list_of_buttons:
 		if i.name == extra_arg_0:
 			player.all_p_actions.push_back(["act",i.text,self,0,enemy.enemies[enemy.e_index],player.player[player.p_index]])

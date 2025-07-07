@@ -75,15 +75,15 @@ func _getting_all_rolls(rolls:Array,source):
 		#switch_order(initiative_index, initiative_index+1)
 
 func switch_order_e(x,y):
-	sorted_enemies[x].your_turn = true
-	await Engine.get_main_loop().create_timer(0.2).timeout
 	sorted_enemies[y].your_turn = false
+	await Engine.get_main_loop().create_timer(0.2).timeout
+	sorted_enemies[x].your_turn = true
 	#print(index_order[y]," ",index_order[x])
 
 func switch_order_p(x,y):
-	sorted_player[x].your_turn = true
-	await Engine.get_main_loop().create_timer(0.2).timeout
 	sorted_player[y].your_turn = false
+	await Engine.get_main_loop().create_timer(0.2).timeout
+	sorted_player[x].your_turn = true
 
 
 # get the placement of everyone in their recpected group in the order Array

@@ -80,6 +80,7 @@ func get_item_health_type(Name: String):
 func get_actions_of_enemy(ID = 0):
 	var content_list = []
 	for i in [content["Actions"][ID]["Action 1"],content["Actions"][ID]["Action 2"],content["Actions"][ID]["Action 3"],content["Actions"][ID]["Action 4"],content["Actions"][ID]["Action 5"],content["Actions"][ID]["Action 6"]]:
+		print(typeof(i))
 		if str(i) != str(0):
 			content_list.append(i)
 	return content_list
