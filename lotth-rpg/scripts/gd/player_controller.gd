@@ -9,7 +9,6 @@ const BAR_SYSTEM = preload("res://scenes/Bar_system.tscn")
 @onready var player = RefrenceNode.PlayerGroup
 
 
-
 #@export var indicator : Indicator
 #@export var moving_indicator : MovingIndicator
 #@export var skill : Skill:
@@ -36,9 +35,7 @@ func _ready() -> void:
 	#when game start start idle get roll
 	roll_of_the_luck()
 
-	
-
-func _physics_process(delta: float) -> void:
+#func _physics_process(delta: float) -> void:
 	#if Initiative.doTrapForLoop: 
 		#update(delta)
 	# on its turn if you the last player wanted to go back then it will stop here
@@ -50,26 +47,24 @@ func _physics_process(delta: float) -> void:
 		#if !moved: 
 			#update(delta)
 	# get the distance for the navigation and a bunch of nav stuff I don't entirely understand! and just move there!
-	distance = Vector2(nav_agent.get_next_path_position() - position)
-	if nav_agent.is_navigation_finished():
-		return
-	velocity.x = distance.normalized().x * speed
-	velocity.y = distance.normalized().y * speed
-	move_and_slide()
+	#distance = Vector2(nav_agent.get_next_path_position() - position)
+	#if nav_agent.is_navigation_finished():
+		#return
+	#velocity.x = distance.normalized().x * speed
+	#velocity.y = distance.normalized().y * speed
+	#move_and_slide()
 		
-func _input(event) -> void:
-	pass
+#func _input(event) -> void:
+	#pass
 	# gets the position and then it will move the player to that position when all the action stuff should play out
 	#if event.is_action_pressed("clicked") and indicator.activated and your_turn and skill == null:
 		#Initiative.action_queued.push_back(["movement",get_world_2d().navigation_map,moving_indicator.cursor_reference.global_position,0,Initiative.index_order[Initiative.initiative_index][2]])
 		#PlayOutOptions -= 1
 		#indicator.reset()
 		#moved = true
-	
 	#if skill != null:
 		#skill.indicator.set_reference(self)
 		#if event.is_action_pressed("clicked") and skill.indicator.activated:
-			
 			# WE NEED TO ADD THE CORRECT VALUES LATER DO NOT FORGET!!!
 			#skill.skill_attack_type
 			#skill.skill_base_damage
@@ -89,13 +84,14 @@ func _your_turn_on_set_up():
 	menu.switching_buttons()
 	menu.show()
 	menu.current_state = menu.Menu_state.MENU
+	$character_animator.self_modulate = Color.YELLOW
 	#player_switch_on()
 
 func _your_turn_off_set_up():
-	
 	_camera_off()
 	#player_switch_off()
 	menu.vanish()
+	$character_animator.self_modulate = Color.WHITE
 		
 func _on_to_the_next_guy():
 	if not len(Initiative.sorted_player) <= player.p_index + 1:

@@ -252,3 +252,11 @@ offset_right = 313.0
 offset_bottom = 35.0
 scale = Vector2(1.1, 1.1)
 theme_override_styles/panel = SubResource("StyleBoxTexture_k6ur1")
+
+[node name="Action_remaining" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 18.0
+offset_right = 440.0
+offset_bottom = 65.0
+theme_override_constants/separation = 23

@@ -133,13 +133,22 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		print("hi me 2x")
 		match current_state:
 			# goes back to the previous player
-			#Menu_state.MENU:
-				#if Initiative.action_queued.size() != 0:
-					#Initiative.action_queued.remove_at(Initiative.action_queued.size() - 1)
-					#Initiative._previouse_in_order()
-					#menu_container = true
+			Menu_state.MENU:
+				if player_group.all_p_actions.size() != 0:
+					
+					player_group.all_p_actions.remove_at(player_group.all_p_actions.size() - 1)
+					if Initiative.sorted_player[player_group.p_index].PlayOutOptions == Initiative.sorted_player[player_group.p_index].MaxPlayOutOptions:
+						Initiative.switch_order_p(player_group.p_index-1,player_group.p_index)
+						player_group.p_index -= 1
+						await get_tree().create_timer(0.3).timeout
+						Initiative.sorted_player[player_group.p_index].PlayOutOptions = 1
+					else:
+						Initiative.sorted_player[player_group.p_index].PlayOutOptions += 1
+						
+					menu_container = true
 			# all of the other just go back by one step to their respective menu before
 			Menu_state.ABILITES:
 				menu_index = 0

@@ -22,6 +22,7 @@ class_name Action_control
 @onready var player = RefrenceNode.PlayerGroup
 @onready var enemy = RefrenceNode.EnemyGroup
 
+var current_choosen_enemy
 
 func _ready() -> void:
 	# hide it when scene starts!
@@ -39,6 +40,7 @@ func _ready() -> void:
 # the Data global variable, and I can access them via Data.get_actions_of_enemy(ID number):
 # and this gives me all the possible options
 func act_add_actions(list_of_added):
+	current_choosen_enemy = enemy.sub_e_index
 	#["Talk","Grab","Ball"]
 	var amount_of_options = [check,focus,guard]
 	list_of_buttons = [top_left,middle_left,bottom_left,top_right,middle_right,bottom_right]
@@ -81,7 +83,7 @@ func act_disappear():
 func action_button_pressed(extra_arg_0: StringName) -> void:
 	for i in list_of_buttons:
 		if i.name == extra_arg_0:
-			player.all_p_actions.push_back(["act",i.text,self,0,enemy.enemies[enemy.e_index],player.player[player.p_index]])
+			player.all_p_actions.push_back(["act",i.text,self,0,enemy.enemies[current_choosen_enemy],player.player[player.p_index]])
 			menu.vanish()
 			
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS

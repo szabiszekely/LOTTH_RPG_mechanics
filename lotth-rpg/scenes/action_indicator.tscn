@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgehmneaqvjys"]
+
+[ext_resource type="Texture2D" uid="uid://2voanbsyw8sh" path="res://assets/sprite/UI/action_indicator.png" id="1_efhqa"]
+[ext_resource type="Script" uid="uid://cmc888n3ciafu" path="res://scripts/gd/action_indicator.gd" id="2_ldxls"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efhqa"]
+atlas = ExtResource("1_efhqa")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldxls"]
+atlas = ExtResource("1_efhqa")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwaet"]
+atlas = ExtResource("1_efhqa")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldwf4"]
+atlas = ExtResource("1_efhqa")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvifl"]
+atlas = ExtResource("1_efhqa")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2rbv"]
+atlas = ExtResource("1_efhqa")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hiruo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efhqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldxls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwaet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldwf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvifl")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2rbv")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
+
+[node name="action_indicator" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_ldxls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hiruo")
+animation = &"Off"

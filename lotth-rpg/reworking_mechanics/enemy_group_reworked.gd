@@ -39,25 +39,24 @@ func _start_enemy_section(player_actions):
 	p_actions = player_actions
 	
 func _process(delta: float) -> void:
-	print(e_index)
 	if not menu.visible and start_choosing == true and len(enemies) != 1:
 		# when pressed one derections than it moves up or down in the list and if that list is out of context 
 		# than it loops back around!
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
-			if e_index > 0:
-				e_index -= 1
-				switch_focus(e_index, e_index+1)
+			if sub_e_index > 0:
+				sub_e_index -= 1
+				switch_focus(sub_e_index, sub_e_index+1)
 			else:
-				e_index = enemies.size() -1
-				switch_focus(e_index,0)
+				sub_e_index = enemies.size() -1
+				switch_focus(sub_e_index,0)
 		
 		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
-			if e_index < enemies.size() - 1:
-				e_index += 1
-				switch_focus(e_index, e_index-1)
+			if sub_e_index < enemies.size() - 1:
+				sub_e_index += 1
+				switch_focus(sub_e_index, sub_e_index-1)
 			else:
-				e_index = 0
-				switch_focus(e_index,enemies.size() - 1)
+				sub_e_index = 0
+				switch_focus(sub_e_index,enemies.size() - 1)
 				
 		# When you press space it will check on which menu should it bring up and than execute it!
 		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
@@ -85,9 +84,9 @@ func _player_action_to_enemy():
 		menu_system.act = false
 		menu_system.current_state = menu_system.Menu_state.ACTIONS
 		#print(Data.get_actions_of_enemy(enemies[index].Fight_stats.Id))
-		act_options.act_add_actions(Data.get_actions_of_enemy(enemies[e_index].Fight_stats.Id))
-		enemies[e_index]._unfocus_indicator()
-		enemies[e_index].cam_target.enabled = false
+		act_options.act_add_actions(Data.get_actions_of_enemy(enemies[sub_e_index].Fight_stats.Id))
+		enemies[sub_e_index]._unfocus_indicator()
+		enemies[sub_e_index].cam_target.enabled = false
 		start_choosing = false
 		_reset_focus()
 	
@@ -95,7 +94,7 @@ func _player_action_to_enemy():
 	# signed to a ability button
 	if menu_system.abi == true:
 		menu_system.abi = false
-		player.all_p_actions.push_back(["atk",card_againts_enemies,e_index,0,player.p_index,initiative.sorted_player[player.p_index]])
+		player.all_p_actions.push_back(["atk",card_againts_enemies,sub_e_index,0,player.p_index,initiative.sorted_player[player.p_index]])
 		_reset_focus()
 		initiative.sorted_player[player.p_index].PlayOutOptions -= 1
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
@@ -104,7 +103,7 @@ func _player_action_to_enemy():
 	# the save file
 	if menu_system.bag == true:
 		menu_system.bag = false
-		player.all_p_actions.push_back(["bag", item_againts_enemies , e_index ,1, player.p_index,menu.bagpack_choice,initiative.sorted_player[player.p_index]])
+		player.all_p_actions.push_back(["bag", item_againts_enemies , sub_e_index ,1, player.p_index,menu.bagpack_choice,initiative.sorted_player[player.p_index]])
 		_reset_focus()
 		initiative.sorted_player[player.p_index].PlayOutOptions -= 1
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
@@ -120,7 +119,7 @@ func _start_choosing():
 	
 # clears all index and set it self to the first enemy! 
 func _reset_focus():
-	e_index = 0
+	sub_e_index = 0
 	start_choosing = false
 	for enemy in enemies:
 		enemy._unfocus_indicator()

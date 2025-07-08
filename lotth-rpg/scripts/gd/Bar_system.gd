@@ -11,13 +11,22 @@ class_name Indicator_bar
 @onready var Energy_number: Label = $Energy/Label
 @onready var health_text: Panel = $Health
 @onready var energy_text: Panel = $Energy
+@onready var action_remaining: HBoxContainer = $Action_remaining
+@onready var action_indicator_scene = preload("res://scenes/action_indicator.tscn")
 # this value gets the difference between 1 unit/max
 var offset_value : float
+var all_icon_of_remaining_actions: Array = []
+
 #var constant_damage = 0 
 #var constant_health = 0
 #var current_health: int
 
 func _ready():
+	for i in assined_characters.MaxPlayOutOptions:
+		var instance = action_indicator_scene.instantiate()
+		all_icon_of_remaining_actions.append(instance)
+		action_remaining.add_child(instance)
+		pass
 	#Setting up the 'count' which is the max number in the shader in both the max hp and max eng
 	ENG_bar.material.set_shader_parameter("count",assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.material.set_shader_parameter("count",assined_characters.Fight_stats.MAX_HP)
