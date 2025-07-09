@@ -21,6 +21,8 @@ class_name Action_control
 @onready var Action_button_handler = RefrenceNode.ActHandler
 @onready var player = RefrenceNode.PlayerGroup
 @onready var enemy = RefrenceNode.EnemyGroup
+@onready var initiative = RefrenceNode.InitiativeHandler
+
 
 var current_choosen_enemy
 
@@ -83,12 +85,12 @@ func act_disappear():
 func action_button_pressed(extra_arg_0: StringName) -> void:
 	for i in list_of_buttons:
 		if i.name == extra_arg_0:
-			player.all_p_actions.push_back(["act",i.text,self,0,enemy.enemies[current_choosen_enemy],player.player[player.p_index]])
+			player.all_p_actions.push_back(["act",i.text,self,0,enemy.enemies[current_choosen_enemy],initiative.sorted_player[player.p_index]])
 			menu.vanish()
 			
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
 		# THANK YOU!
-			player.player[player.p_index].PlayOutOptions -= 1
-			if player.player[player.p_index].PlayOutOptions != 0:
+			initiative.sorted_player[player.p_index]._play_out_tick_down()
+			if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 					enemy.call_menu_appear()

@@ -105,3 +105,7 @@ func health_changed():
 	Health_number.text = str(assined_characters.Fight_stats.HP) + "|" + str(assined_characters.Fight_stats.MAX_HP)
 func energy_changed():
 	Energy_number.text = str(assined_characters.Fight_stats.ENG) + "|" + str(assined_characters.Fight_stats.MAX_ENG)
+
+func _reset_action_indicator():
+	for i in all_icon_of_remaining_actions:
+		i._action_indicator_on()

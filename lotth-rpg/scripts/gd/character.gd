@@ -24,6 +24,7 @@ var PlayOutOptions: int = 2:
 		PlayOutOptions = value
 		if value <= 0:
 			_on_to_the_next_guy()
+		
 # this is the maximum of option chocie a character can have
 @export var MaxPlayOutOptions: int = 2
 
@@ -105,6 +106,15 @@ func roll_of_the_luck():
 	Initiative.all_rolls.append(initiative_peronality)
 	print(Initiative.all_rolls)
 
+func _play_out_tick_down():
+	PlayOutOptions -= 1
+	_play_out_actions_down()
+
+func _play_out_tick_up():
+	PlayOutOptions += 1
+	_play_out_actions_up()
+
+
 # place holder function for other scripts to be handled
 func _your_turn_on_set_up():
 	pass
@@ -113,4 +123,10 @@ func _your_turn_off_set_up():
 	pass
 
 func _on_to_the_next_guy():
+	pass
+
+func _play_out_actions_down():
+	pass
+
+func _play_out_actions_up():
 	pass

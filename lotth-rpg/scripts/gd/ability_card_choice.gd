@@ -40,6 +40,7 @@ var page_turn = false
 @onready var ability_func= RefrenceNode.AbiHandler
 @onready var player = RefrenceNode.PlayerGroup
 @onready var enemy = RefrenceNode.EnemyGroup
+@onready var initiative = RefrenceNode.InitiativeHandler
 
 
 
@@ -170,11 +171,11 @@ func pressed() -> void:
 		#in this case we put it on hold and we use a simple function handler that will spawn down everything
 		# we need to handle a range capped move!
 		player.card_againts_players = used_card_name
-		player.all_p_actions.push_back(["atk",used_card_name,0,2,player.p_index,player.player[player.p_index]])
+		player.all_p_actions.push_back(["atk",used_card_name,0,2,player.p_index,initiative.sorted_player[player.p_index]])
 		
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
 		# THANK YOU!
-		player.player[player.sub_index].PlayOutOptions -= 1
-		if player.player[player.p_index].PlayOutOptions != 0:
+		initiative.sorted_player[player.sub_index]._play_out_tick_down()
+		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			player.call_menu_appear()

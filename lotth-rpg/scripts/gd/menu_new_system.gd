@@ -58,6 +58,7 @@ var run_container = false
 var choose_enemy_container = false
 var choose_player_container = false
 
+var menu_can_be_canled = true
 var current_state
 var current_memory_state
 var menu_buttons: Array = []
@@ -133,11 +134,11 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		print("hi me 2x")
 		match current_state:
 			# goes back to the previous player
 			Menu_state.MENU:
-				if player_group.all_p_actions.size() != 0:
+				if player_group.all_p_actions.size() != 0 and menu_can_be_canled == true:
+					menu_can_be_canled = false
 					
 					player_group.all_p_actions.remove_at(player_group.all_p_actions.size() - 1)
 					if Initiative.sorted_player[player_group.p_index].PlayOutOptions == Initiative.sorted_player[player_group.p_index].MaxPlayOutOptions:
@@ -145,8 +146,12 @@ func _input(event: InputEvent) -> void:
 						player_group.p_index -= 1
 						await get_tree().create_timer(0.3).timeout
 						Initiative.sorted_player[player_group.p_index].PlayOutOptions = 1
+						Initiative.sorted_player[player_group.p_index]._play_out_actions_up()
+						menu_can_be_canled = true
 					else:
-						Initiative.sorted_player[player_group.p_index].PlayOutOptions += 1
+						Initiative.sorted_player[player_group.p_index]._play_out_tick_up()
+						await get_tree().create_timer(0.3).timeout
+						menu_can_be_canled = true
 						
 					menu_container = true
 			# all of the other just go back by one step to their respective menu before

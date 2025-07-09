@@ -53,7 +53,6 @@ func _ready() -> void:
 	#velocity.x = distance.normalized().x * speed
 	#velocity.y = distance.normalized().y * speed
 	#move_and_slide()
-		
 #func _input(event) -> void:
 	#pass
 	# gets the position and then it will move the player to that position when all the action stuff should play out
@@ -100,6 +99,14 @@ func _on_to_the_next_guy():
 	else:
 		your_turn = false
 
+func _play_out_actions_down():
+	Bar.all_icon_of_remaining_actions[PlayOutOptions]._action_indicator_off()
+
+
+func _play_out_actions_up():
+	Bar.all_icon_of_remaining_actions[PlayOutOptions-1]._action_indicator_on()
+
+
 # indicator set up
 #func update(delta):
 	#if skill != null:
@@ -108,7 +115,6 @@ func _on_to_the_next_guy():
 	#elif skill == null and !Initiative.doTrapForLoop:
 		#indicator.set_reference(self)
 		#indicator.update(self,get_global_mouse_position(),delta,is_inside_the_range)
-		
 # when the mous is inside the area or not
 #func _on_area_2d_mouse_entered() -> void:
 	#if skill != null:
@@ -121,7 +127,6 @@ func _on_to_the_next_guy():
 		#is_inside_the_range_and_skill_is_being_used = false
 	#elif skill == null:
 		#is_inside_the_range = false
-
 #func player_switch_on():
 	#indicator.set_reference(self)
 #

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BallerAI" load_steps=2 format=3 uid="uid://bj3fn2unm1n7c"]
+
+[ext_resource type="Script" uid="uid://cx5ba8cqethcy" path="res://scripts/resources/Enemy AI/BallerAI.gd" id="1_0xyc6"]
+
+[resource]
+script = ExtResource("1_0xyc6")
+metadata/_custom_type_script = "uid://cx5ba8cqethcy"

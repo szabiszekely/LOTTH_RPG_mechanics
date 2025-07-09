@@ -1,8 +1,9 @@
-[gd_scene load_steps=75 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=76 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="2_htaiq"]
+[ext_resource type="Resource" uid="uid://bj3fn2unm1n7c" path="res://scripts/resources/Enemy AI/BaseBallerAI.tres" id="2_j5hb2"]
 [ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="4_700jv"]
 [ext_resource type="Resource" uid="uid://dps5ywyu0gs31" path="res://scripts/resources/CH/Baller_Figting_Stats.tres" id="4_ndcdo"]
 [ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280.png" id="5_bdy0d"]
@@ -492,6 +493,7 @@ shader_parameter/invert = false
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target") groups=["Enemy"]]
 script = ExtResource("1_pbqx5")
+EnemyAI = ExtResource("2_j5hb2")
 Fight_stats = ExtResource("4_ndcdo")
 Turn_portriat = ExtResource("2_gg1ba")
 Bar = NodePath("Bar_system")
@@ -521,7 +523,7 @@ shape = SubResource("RectangleShape2D_f33j1")
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j4d3b")
+&"": SubResource("AnimationLibrary_j4d3b")
 }
 
 [node name="Indicator" type="Sprite2D" parent="."]

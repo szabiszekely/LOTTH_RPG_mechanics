@@ -174,21 +174,22 @@ script = ExtResource("5_shbcj")
 script = ExtResource("6_dsgni")
 
 [node name="Enemy" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(260, 0)
+position = Vector2(260, -77)
 Fight_stats = SubResource("Resource_w24qp")
 
 [node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(260, -110)
+position = Vector2(260, 43)
 Fight_stats = SubResource("Resource_4y57x")
 
 [node name="player_group" type="Node2D" parent="NavigationRegion2D"]
 script = ExtResource("6_blo5o")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
+position = Vector2(0, -76)
 Fight_stats = SubResource("Resource_6hxp8")
 
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
-position = Vector2(0, -70)
+position = Vector2(0, 28)
 Fight_stats = SubResource("Resource_aihkf")
 Turn_portriat = ExtResource("10_ahsbf")
 

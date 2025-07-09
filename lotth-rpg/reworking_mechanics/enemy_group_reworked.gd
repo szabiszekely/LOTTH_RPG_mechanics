@@ -96,7 +96,7 @@ func _player_action_to_enemy():
 		menu_system.abi = false
 		player.all_p_actions.push_back(["atk",card_againts_enemies,sub_e_index,0,player.p_index,initiative.sorted_player[player.p_index]])
 		_reset_focus()
-		initiative.sorted_player[player.p_index].PlayOutOptions -= 1
+		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			call_menu_appear()
 	# the bag conntent is stored in a save file and when selected it will bring out all of the options from
@@ -105,7 +105,7 @@ func _player_action_to_enemy():
 		menu_system.bag = false
 		player.all_p_actions.push_back(["bag", item_againts_enemies , sub_e_index ,1, player.p_index,menu.bagpack_choice,initiative.sorted_player[player.p_index]])
 		_reset_focus()
-		initiative.sorted_player[player.p_index].PlayOutOptions -= 1
+		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			call_menu_appear()
 
