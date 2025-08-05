@@ -4,6 +4,26 @@ class_name Player_group_old
 @onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 
+
+
+
+
+
+
+# THIS IS THE OLD ONE DUMBASS!!!
+# USE THE NEW ONE PLS
+# BE CAREFUL WHICH ONE YOU UPDATE
+
+
+
+
+
+
+
+
+
+
+
 @onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 var card_againts_players
 var item_againts_players

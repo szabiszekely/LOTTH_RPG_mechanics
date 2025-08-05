@@ -63,6 +63,9 @@ func _actions(stack):
 
 			"TEST":
 				print("WORKING!!")
+				
+			"pass_character":
+				print("Character is unavailable")
 		# WE NEED TO PUT A BREAKER HERE SO IT MAY ONLY CONTINUES AFTER THE THING ENDED
 		if initiative.doTrapForLoop:
 			await initiative.stopLoopInPlace

@@ -1,6 +1,21 @@
 extends Resource
 class_name Initiative_class
 
+
+
+
+# THIS IS THE OLD ONE DUMBASS!!!
+# USE THE NEW ONE PLS
+# BE CAREFUL WHICH ONE YOU UPDATE
+
+
+
+
+
+
+
+
+
 var all_rolls: Array = []
 @export var bg_container = Texture2D
 var index_order: Array = []

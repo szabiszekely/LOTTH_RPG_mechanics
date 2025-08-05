@@ -106,6 +106,10 @@ func _play_out_actions_down():
 func _play_out_actions_up():
 	Bar.all_icon_of_remaining_actions[PlayOutOptions-1]._action_indicator_on()
 
+func _pass_character():
+	for i in MaxPlayOutOptions:
+		player.all_p_actions.push_back(["pass_character",self])
+	_on_to_the_next_guy()
 
 # indicator set up
 #func update(delta):

@@ -5,6 +5,8 @@ class_name Enemy
 @onready var Enemy_health_bar = $Bar_system
 @onready var enemy = RefrenceNode.EnemyGroup
 @export var EnemyAI: SetupEnemyAI
+@onready var enemy_group = RefrenceNode.EnemyGroup
+
 
 func _ready() -> void:
 	 #hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
@@ -22,6 +24,8 @@ func _process(delta: float) -> void:
 		#var choose_random_player = randi_range(0,Initiative.group_player.player.size() - 1)
 		#enemy.all_e_action.push_back(["atk",choose_ability,choose_random_player,3,Initiative.group_enemies.e_index,self])
 		EnemyAI._EnemyAI(self)
+	if your_turn and CharacterIsOut:
+		PlayOutOptions -= 1
 
 func _your_turn_on_set_up():
 		PlayOutOptions = MaxPlayOutOptions
@@ -41,3 +45,8 @@ func _on_to_the_next_guy():
 		enemy.e_index += 1
 	else:
 		your_turn = false
+
+func _pass_character():
+	for i in MaxPlayOutOptions:
+		enemy_group.all_e_action.push_back(["pass_character",self])
+	_on_to_the_next_guy()

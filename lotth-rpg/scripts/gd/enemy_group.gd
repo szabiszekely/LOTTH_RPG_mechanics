@@ -4,6 +4,23 @@ class_name Enemy_group_old
 @onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 
+
+
+
+# THIS IS THE OLD ONE DUMBASS!!!
+# USE THE NEW ONE PLS
+# BE CAREFUL WHICH ONE YOU UPDATE
+
+
+
+
+
+
+
+
+
+
+
 # This node is for controlling choice between abilities and actions!
 @onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 @onready var act_options = RefrenceNode.ActButtonHandler

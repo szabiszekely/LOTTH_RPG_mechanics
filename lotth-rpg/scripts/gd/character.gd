@@ -28,13 +28,16 @@ var PlayOutOptions: int = 2:
 # this is the maximum of option chocie a character can have
 @export var MaxPlayOutOptions: int = 2
 
+var CharacterIsOut: bool = false
 # this sets up the character to their turn
 var your_turn = false:
 	set(value):
 		your_turn = value
-		if your_turn == true:
+		if your_turn == true and !CharacterIsOut:
 			_your_turn_on_set_up()
-		else:
+		elif your_turn and CharacterIsOut:
+			_pass_character()
+		elif !your_turn:
 			_your_turn_off_set_up()
 
 #plays either health hit animation or energy drain animation!
@@ -129,4 +132,7 @@ func _play_out_actions_down():
 	pass
 
 func _play_out_actions_up():
+	pass
+
+func _pass_character():
 	pass
