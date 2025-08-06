@@ -79,6 +79,9 @@ func bar_damage_taken(damage:int):
 			
 			if assined_characters.Fight_stats.HP <= 0:
 				assined_characters.Fight_stats.HP = 0
+				assined_characters.CharacterIsOut = true
+			else:
+				assined_characters.CharacterIsOut = false
 				
 func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 	for i in health_gain:

@@ -42,6 +42,8 @@ func Heart_Breaker():
 func Apple():
 	player_starter()
 	#print("apple arrived")
-	
+
+func Medicit():
+	player_starter()
 	
 	

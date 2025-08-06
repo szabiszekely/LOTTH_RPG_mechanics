@@ -83,7 +83,7 @@ func _on_save_button_pressed() -> void:
 func _add_random_items():
 	var random_item
 	for place in 10:
-		random_item = randi() % 4
+		random_item = randi() % 5
 		if not inventory.item_count >= 24:
 			inventory.add_slot(random_item)
 			item_list.append(Data.get_item_id(random_item))

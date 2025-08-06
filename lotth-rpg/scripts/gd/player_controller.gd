@@ -25,11 +25,12 @@ var moved = false
 
 
 func _ready() -> void:
+	$AnimationTree.active = true
 	var instance = BAR_SYSTEM.instantiate()
 	instance.assined_characters = self
 	Bar_VContainer.add_child(instance)
 	Bar = instance
-	
+
 	#moving_indicator.Fight_stats = Fight_stats
 	$character_animator.play("idle")
 	#when game start start idle get roll
@@ -136,3 +137,5 @@ func _pass_character():
 #
 #func player_switch_off():
 	#indicator.reset()
+	
+#Bar.HP_bar.material.get_shader_parameter("value") > 0

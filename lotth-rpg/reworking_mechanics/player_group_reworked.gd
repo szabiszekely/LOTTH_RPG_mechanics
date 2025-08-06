@@ -27,6 +27,13 @@ func _ready() -> void:
 	
 
 func _player_start_choosing():
+	var knocked_out_counter = 0
+	for i in initiative.sorted_player:
+		if i.CharacterIsOut == true:
+			knocked_out_counter += 1
+	if knocked_out_counter >= len(initiative.sorted_player):
+		get_tree().quit()
+	
 	all_moves_p = 0
 	for i in initiative.sorted_player:
 		all_moves_p += i.MaxPlayOutOptions
