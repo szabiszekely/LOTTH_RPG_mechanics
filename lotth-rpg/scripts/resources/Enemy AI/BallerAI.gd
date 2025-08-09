@@ -13,7 +13,7 @@ func _EnemyAI(self_enemy):
 	print(before_enemy_turn)
 	#if before_enemy_turn[0][0] == "atk":
 	var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
-	var choose_random_player = randi_range(0,initiative.group_player.player.size() - 1)
+	var choose_random_player = 0#andi_range(0,initiative.group_player.player.size() - 1)
 	enemy_group.all_e_action.push_back(["atk",choose_ability,choose_random_player,3,initiative.group_enemies.e_index,self_enemy])
 	#else:
 		#["act"  i.text  self  0  enemy.enemies[enemy.e_index]  player.player[player.p_index]]

@@ -21,20 +21,12 @@ func _process(delta: float) -> void:
 		_full_reset()
 	
 	if Input.is_action_just_pressed("debug_button"):
-		print("--------------")
-		print(initiative._get_the_index_with_order())
-		print("all rolls: ",initiative.all_rolls)
-		print("index order: ",initiative.index_order)
-		print("initiative index: ",initiative.initiative_index)
-		print("action queued: ",initiative.all_actions)
-		print("action starts: ",initiative.action_start)
-		print("sorted player: ", initiative.sorted_player)
-		print("sorted enemies: ", initiative.sorted_enemies)
-		print("--------------")
-
+		player_group.player[0].Fight_stats.HP = 0
+		player_group.player[0].Fight_stats.ENG = 0
 		
 func _full_reset():
 	initiative._roll_reset()
+
 	initiative._get_the_index_with_order()
 	initiative.all_actions.clear()
 	for i in initiative.all_rolls.size():

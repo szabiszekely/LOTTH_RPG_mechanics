@@ -9,10 +9,21 @@ extends Node
 @onready var player_group = RefrenceNode.PlayerGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
 
+func _Does_opponent_exist(list:Array):
+	if list[2] == null:
+		var grab_a_different_character
+		if list[2].Fight_stats.Friend_or_Foe == 0:
+			grab_a_different_character = player_group.player.pick_random()
+			list.insert(2,grab_a_different_character)
+		else:
+			grab_a_different_character = enemy_group.enemies.pick_random()
+			list.insert(2,grab_a_different_character)
 
-func _Ability_Turn(list):
+func _Ability_Turn(list:Array):
+	_Does_opponent_exist(list)
 	match list[3]:
-		0:
+		0: ## player attacks enemy targeted
+			
 			initiative.sorted_player[list[4]]._use_card_and_lose_eng(list[1])
 			
 			if Data.get_card_damage_type(list[1]) == true:
@@ -21,16 +32,17 @@ func _Ability_Turn(list):
 				enemy_group.enemies[list[2]]._take_damage(initiative.sorted_player[list[4]].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(list[1]),initiative.sorted_player[list[4]].Fight_stats.Attack_Type,Data.get_card_attack_type(list[1]),initiative.sorted_player[list[4]].Fight_stats.Base_Magical_Attack)
 			
 			ability_func._get_what_ability_got_used(list[1],Menu,enemy_group,player_group,list[4],list[2])
-		1:
-			
+		1: ## it is for team heals/buffs
+			#    what     card						
+			#  ["atk"  ,  card_againts_players  ,  sub_index  ,  1  ,  p_index   ,player[sub_index]  ]
 			initiative.sorted_player[list[4]]._use_card_and_lose_eng(list[1])
 			initiative.sorted_player[list[2]]._use_card_and_gain_eng(list[1],Data.get_card_eng_or_hp(list[1]))
 			ability_func._get_what_ability_got_used(list[1],Menu,enemy_group,player_group,list[4],list[2])
-		2:
+		2: ## its is for skills
 			turn_handler.initiative.doTrapForLoop = true
 			initiative.sorted_player[list[4]]._use_card_and_lose_eng(list[1])
 			ability_func._get_what_ability_got_used(list[1],Menu,enemy_group,player_group,list[4],list[2])
-		3:
+		3: ## enemy attacks
 			print("Hoi")
 			enemy_group.enemies[list[4]]._use_card_and_lose_eng(list[1])
 			

@@ -537,6 +537,7 @@ states/idle/position = Vector2(379, 62)
 states/tired/node = SubResource("AnimationNodeAnimation_ed5hn")
 states/tired/position = Vector2(324, 165)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wggx2"), "idle", "tired", SubResource("AnimationNodeStateMachineTransition_15u76"), "tired", "idle", SubResource("AnimationNodeStateMachineTransition_hiwc3"), "KOd", "tired", SubResource("AnimationNodeStateMachineTransition_q737x"), "tired", "KOd", SubResource("AnimationNodeStateMachineTransition_s0g1m")]
+graph_offset = Vector2(-81, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
 size = Vector2(17.0588, 11.6667)
@@ -551,7 +552,7 @@ cam_target = NodePath("PCamTarget")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 8
+frame = 14
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {

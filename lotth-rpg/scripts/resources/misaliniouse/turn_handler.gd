@@ -48,6 +48,13 @@ func _actions(stack):
 	var stackIndex: int = 0
 	for i in play_out_action:
 		# ECT, ECT
+		
+		enemy_group.enemies = get_children()
+		player_group.player = get_children()
+
+		if i[-1] == null:
+			i = ["pass_character"]
+		
 		match i[0]:
 			"movement":
 				movement._Movement_Turn(i)

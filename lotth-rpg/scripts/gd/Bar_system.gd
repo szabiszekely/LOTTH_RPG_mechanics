@@ -12,6 +12,7 @@ class_name Indicator_bar
 @onready var health_text: Panel = $Health
 @onready var energy_text: Panel = $Energy
 @onready var action_remaining: HBoxContainer = $Action_remaining
+
 @onready var action_indicator_scene = preload("res://scenes/action_indicator.tscn")
 # this value gets the difference between 1 unit/max
 var offset_value : float
@@ -47,7 +48,10 @@ func _process(_delta: float) -> void:
 	#ugly but I can't do shit about it!
 	health_changed()
 	energy_changed()
+	if assined_characters.Fight_stats.HP <= 0 and assined_characters.Fight_stats.ENG <= 0 and assined_characters.CharacterIsOut:
 		
+		queue_free()
+		assined_characters.queue_free()
 func bar_damage_taken(damage:int):
 	
 	
@@ -77,12 +81,20 @@ func bar_damage_taken(damage:int):
 			assined_characters.Fight_stats.HP -= 1
 			await get_tree().create_timer(0.32).timeout
 			
-			if assined_characters.Fight_stats.HP <= 0:
-				assined_characters.Fight_stats.HP = 0
-				assined_characters.CharacterIsOut = true
-			else:
-				assined_characters.CharacterIsOut = false
-				
+		if assined_characters.Fight_stats.HP <= 0:
+			assined_characters.Fight_stats.HP = 0
+			assined_characters.CharacterIsOut = true
+			if assined_characters.Fight_stats.Friend_or_Foe == 0:
+				var knocked_out_counter = 0
+				for j in assined_characters.Initiative.sorted_player:
+					if j.CharacterIsOut == true:
+						knocked_out_counter += 1
+				if knocked_out_counter >= len(assined_characters.Initiative.sorted_player):
+					get_tree().quit()
+			
+		else:
+			assined_characters.CharacterIsOut = false
+			
 func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 	for i in health_gain:
 		# I get the number of how much I will gain and then check if it's energy we puting it into or health
