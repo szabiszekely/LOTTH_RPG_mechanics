@@ -49,8 +49,8 @@ func _actions(stack):
 	for i in play_out_action:
 		# ECT, ECT
 		
-		enemy_group.enemies = get_children()
-		player_group.player = get_children()
+		enemy_group._get_me_some_of_that_gd_children_enemy()
+		player_group._get_me_some_of_that_gd_children_player()
 
 		if i[-1] == null:
 			i = ["pass_character"]

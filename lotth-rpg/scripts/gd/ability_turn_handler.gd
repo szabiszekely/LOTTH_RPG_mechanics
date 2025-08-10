@@ -10,17 +10,36 @@ extends Node
 @onready var initiative = RefrenceNode.InitiativeHandler
 
 func _Does_opponent_exist(list:Array):
-	if list[2] == null:
-		var grab_a_different_character
-		if list[2].Fight_stats.Friend_or_Foe == 0:
-			grab_a_different_character = player_group.player.pick_random()
-			list.insert(2,grab_a_different_character)
-		else:
+	var grab_a_different_character
+	var count_me_in = 0
+	
+	if list[-1].Fight_stats.Friend_or_Foe == 0:
+		if list[-2] == null:
 			grab_a_different_character = enemy_group.enemies.pick_random()
-			list.insert(2,grab_a_different_character)
-
+			for z in enemy_group.enemies:
+				if z == grab_a_different_character:
+					count_me_in += 1
+					break
+				else:
+					count_me_in += 1
+			list.pop_at(2)
+			list.insert(2,count_me_in)
+			return list
+	else:
+		if list[-2] == null:
+			grab_a_different_character = player_group.player.pick_random()
+			for z in player_group.player:
+				if z == grab_a_different_character:
+					count_me_in += 1
+					break
+				else:
+					count_me_in += 1
+			list.pop_at(2)
+			list.insert(2,count_me_in)
+			return list
 func _Ability_Turn(list:Array):
 	_Does_opponent_exist(list)
+	print(player_group.player)
 	match list[3]:
 		0: ## player attacks enemy targeted
 			
