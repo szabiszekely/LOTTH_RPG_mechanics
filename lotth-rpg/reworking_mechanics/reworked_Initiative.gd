@@ -30,8 +30,6 @@ func _getting_groups(players,enemies,):
 func _roll_reset():
 	all_rolls.clear()
 	for player in group_player.player:
-		if player == null:
-			print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
 		player.roll_of_the_luck()
 	for enemy in group_enemies.enemies:

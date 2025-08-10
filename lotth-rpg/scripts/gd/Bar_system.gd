@@ -91,7 +91,14 @@ func bar_damage_taken(damage:int):
 						knocked_out_counter += 1
 				if knocked_out_counter >= len(assined_characters.Initiative.sorted_player):
 					get_tree().quit()
-			
+			else:
+				var knocked_out_counter = 0
+				for j in assined_characters.Initiative.sorted_enemies:
+					if j.CharacterIsOut == true:
+						knocked_out_counter += 1
+				if knocked_out_counter >= len(assined_characters.Initiative.sorted_enemies):
+					get_tree().quit()
+				
 		else:
 			assined_characters.CharacterIsOut = false
 			

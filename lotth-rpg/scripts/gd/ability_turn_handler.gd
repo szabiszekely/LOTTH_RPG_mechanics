@@ -46,9 +46,9 @@ func _Ability_Turn(list:Array):
 			initiative.sorted_player[list[4]]._use_card_and_lose_eng(list[1])
 			
 			if Data.get_card_damage_type(list[1]) == true:
-				enemy_group.enemies[list[2]]._take_true_damage(Data.get_card_damage(list[1]))
+				initiative.sorted_enemies[list[2]]._take_true_damage(Data.get_card_damage(list[1]))
 			else:
-				enemy_group.enemies[list[2]]._take_damage(initiative.sorted_player[list[4]].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(list[1]),initiative.sorted_player[list[4]].Fight_stats.Attack_Type,Data.get_card_attack_type(list[1]),initiative.sorted_player[list[4]].Fight_stats.Base_Magical_Attack)
+				initiative.sorted_enemies[list[2]]._take_damage(initiative.sorted_player[list[4]].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(list[1]),initiative.sorted_player[list[4]].Fight_stats.Attack_Type,Data.get_card_attack_type(list[1]),initiative.sorted_player[list[4]].Fight_stats.Base_Magical_Attack)
 			
 			ability_func._get_what_ability_got_used(list[1],Menu,enemy_group,player_group,list[4],list[2])
 		1: ## it is for team heals/buffs
@@ -63,11 +63,12 @@ func _Ability_Turn(list:Array):
 			ability_func._get_what_ability_got_used(list[1],Menu,enemy_group,player_group,list[4],list[2])
 		3: ## enemy attacks
 			print("Hoi")
-			enemy_group.enemies[list[4]]._use_card_and_lose_eng(list[1])
+			initiative.sorted_enemies[list[4]]._use_card_and_lose_eng(list[1])
 			
 			if Data.get_card_damage_type(list[1]) == true:
+				print(initiative.sorted_player[list[2]])
 				initiative.sorted_player[list[2]]._take_true_damage(Data.get_card_damage(list[1]))
 			else:
-				initiative.sorted_player[list[2]]._take_damage(initiative.sorted_player[list[4]].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(list[1]),initiative.sorted_player[list[4]].Fight_stats.Attack_Type,Data.get_card_attack_type(list[1]),initiative.sorted_player[list[4]].Fight_stats.Base_Magical_Attack)
+				initiative.sorted_player[list[2]]._take_damage(initiative.sorted_enemies[list[4]].Fight_stats.Base_Phisical_Attack, Data.get_card_damage(list[1]),initiative.sorted_enemies[list[4]].Fight_stats.Attack_Type,Data.get_card_attack_type(list[1]),initiative.sorted_enemies[list[4]].Fight_stats.Base_Magical_Attack)
 				print("got through")
 			ability_func._get_what_ability_got_used(list[1],Menu,enemy_group,player_group,list[4],list[2])
