@@ -95,7 +95,7 @@ func _player_action_to_enemy():
 	# signed to a ability button
 	if menu_system.abi == true:
 		menu_system.abi = false
-		player.all_p_actions.push_back(["atk",card_againts_enemies,sub_e_index,0,player.p_index,enemies[sub_e_index],initiative.sorted_player[player.p_index]])
+		player.all_p_actions.push_back(["atk",0,initiative.sorted_player[player.p_index],enemies[sub_e_index],card_againts_enemies])
 		_reset_focus()
 		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
@@ -104,7 +104,7 @@ func _player_action_to_enemy():
 	# the save file
 	if menu_system.bag == true:
 		menu_system.bag = false
-		player.all_p_actions.push_back(["bag", item_againts_enemies , sub_e_index ,1, player.p_index,menu.bagpack_choice,enemies[sub_e_index],initiative.sorted_player[player.p_index]])
+		player.all_p_actions.push_back(["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice])
 		_reset_focus()
 		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:

@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			if menu_system.abi == true and start_choosing == true:
 				menu_system.abi = false
-				all_p_actions.push_back(["atk",card_againts_players,sub_index,1,p_index,player[sub_index],initiative.sorted_player[p_index]])
+				all_p_actions.push_back(["atk",1,initiative.sorted_player[p_index],player[sub_index],card_againts_players])
 				_reset_focus()
 				menu.vanish()
 				initiative.sorted_player[p_index]._play_out_tick_down()
@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 				
 			if menu_system.bag == true:
 				menu_system.bag = false
-				all_p_actions.push_back(["bag", item_againts_players , sub_index ,0,menu.bagpack_choice,player[sub_index],initiative.sorted_player[p_index]])
+				all_p_actions.push_back(["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice])
 				_reset_focus()
 				initiative.sorted_player[p_index]._play_out_tick_down()
 				if initiative.sorted_player[p_index].PlayOutOptions != 0:

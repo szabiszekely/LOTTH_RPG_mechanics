@@ -12,8 +12,8 @@ var name_of_abi
 var enemyGroup
 var playerGroup
 var menu_system
-var attacker_index: int = 0
-var defender_index: int = 0
+var attacker_index
+var defender_index
 
 # when this get usually called it means we get the card, our player and enemy group, menu, who attacked who,
 # and store it so we can apply bonus effects to the card or call functions as their own special little cases!
@@ -32,11 +32,11 @@ func _get_what_ability_got_used(Name_of_Ability_Card,Menu,enemy_group,player_gro
 
 func _player_set_up_for_attack():
 	# this function is a basic what kind of actions,functions and variables needed to be set!
-	playerGroup.player[attacker_index].skill.skill_base_damage = Data.get_card_damage(name_of_abi)
-	playerGroup.player[attacker_index].skill.skill_attack_type = Data.get_card_attack_type(name_of_abi)
-	playerGroup.player[attacker_index].skill.player_reference = playerGroup.player[attacker_index]
-	playerGroup.player[attacker_index].skill.indicator.range = Data.get_card_range(name_of_abi)
-	playerGroup.player[attacker_index].skill.indicator.set_reference(playerGroup.player[attacker_index])
+	attacker_index.skill.skill_base_damage = Data.get_card_damage(name_of_abi)
+	attacker_index.skill.skill_attack_type = Data.get_card_attack_type(name_of_abi)
+	attacker_index.skill.player_reference = attacker_index
+	attacker_index.skill.indicator.range = Data.get_card_range(name_of_abi)
+	attacker_index.skill.indicator.set_reference(attacker_index)
 
 # really basic callable function for testing purposes
 func Pass():
@@ -49,7 +49,7 @@ func Mile_Punch():
 	pass
 
 func Byecicle():
-	playerGroup.player[attacker_index].skill = preload("res://scripts/resources/Indicators/Skill/FireSwarm.tres")
+	attacker_index.skill = preload("res://scripts/resources/Indicators/Skill/FireSwarm.tres")
 	_player_set_up_for_attack()
 	menu_system.Initiative.timeSpentBetweenTurns = 7
 	
@@ -61,7 +61,7 @@ func Curved_Slash():
 # and then you set up the player for it, and in the end you will give a rough estimate on how much time
 # it will need between turns!
 func Dual_Wielding():
-	playerGroup.player[attacker_index].skill = preload("res://scripts/resources/Indicators/Skill/FireBall.tres")
+	attacker_index.skill = preload("res://scripts/resources/Indicators/Skill/FireBall.tres")
 	_player_set_up_for_attack()
 	menu_system.Initiative.timeSpentBetweenTurns = 7
 
@@ -69,7 +69,7 @@ func Funny_Magic():
 	pass
 
 func Thunder_Song():
-	playerGroup.player[attacker_index].skill = preload("res://scripts/resources/Indicators/Skill/AreaBoom.tres")
+	attacker_index.skill = preload("res://scripts/resources/Indicators/Skill/AreaBoom.tres")
 	_player_set_up_for_attack()
 func Healling_care():
 	pass
@@ -84,12 +84,12 @@ func Curse_Of_Mya():
 	pass
 
 func Distracting_Beauty():
-	playerGroup.player[defender_index].Fight_stats.PlayerDeck.Deck.append("Throw Away Joke")
+	defender_index.Fight_stats.PlayerDeck.Deck.append("Throw Away Joke")
 
 func Throw_Away_Joke():
-	var find_index = playerGroup.player[attacker_index].Fight_stats.PlayerDeck.Deck.find("Throw Away Joke")
-	playerGroup.player[attacker_index].Fight_stats.PlayerDeck.Deck.remove_at(find_index)
-	print(playerGroup.player[attacker_index].Fight_stats.PlayerDeck.Deck)
+	var find_index = attacker_index.Fight_stats.PlayerDeck.Deck.find("Throw Away Joke")
+	attacker_index.Fight_stats.PlayerDeck.Deck.remove_at(find_index)
+	print(attacker_index.Fight_stats.PlayerDeck.Deck)
 
 func Baller_Attack():
 	pass

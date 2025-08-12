@@ -171,7 +171,7 @@ func pressed() -> void:
 		#in this case we put it on hold and we use a simple function handler that will spawn down everything
 		# we need to handle a range capped move!
 		player.card_againts_players = used_card_name
-		player.all_p_actions.push_back(["atk",used_card_name,0,2,player.p_index,initiative.sorted_player[player.p_index]])
+		player.all_p_actions.push_back(["atk",2,initiative.sorted_player[player.p_index],0,used_card_name])
 		
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)

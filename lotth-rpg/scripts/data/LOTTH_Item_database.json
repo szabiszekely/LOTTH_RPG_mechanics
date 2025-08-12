@@ -10,6 +10,7 @@
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
+  "Atk_Type": "None",
   "Description": "Beef jerky or maybe I jerked my beef?"
  },
  {
@@ -22,6 +23,7 @@
   "Dmg": 3,
   "Usage": 1,
   "Emp": 0,
+  "Atk_Type": "Melee",
   "Description": "Sharp and it looks ass"
  },
  {
@@ -34,6 +36,7 @@
   "Dmg": 0,
   "Usage": 1,
   "Emp": 0,
+  "Atk_Type": "Melee",
   "Description": "Looks like a can of coke but for your tounge "
  },
  {
@@ -46,6 +49,7 @@
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
+  "Atk_Type": "None",
   "Description": "An apple a day keeps the programming bugs away"
  },
  {
@@ -58,6 +62,7 @@
   "Dmg": 0,
   "Usage": 0,
   "Emp": 0,
+  "Atk_Type": "None",
   "Description": "Heals much as it shows"
  }
 ],

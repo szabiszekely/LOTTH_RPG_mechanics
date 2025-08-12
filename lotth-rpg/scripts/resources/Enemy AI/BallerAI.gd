@@ -14,7 +14,8 @@ func _EnemyAI(self_enemy):
 	#if before_enemy_turn[0][0] == "atk":
 	var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
 	var choose_random_player = 0#andi_range(0,initiative.group_player.player.size() - 1)
-	enemy_group.all_e_action.push_back(["atk",choose_ability,choose_random_player,3,initiative.group_enemies.e_index,initiative.sorted_player[choose_random_player],self_enemy])
+	#,choose_ability,choose_random_player,3,initiative.group_enemies.e_index,initiative.sorted_player[choose_random_player],self_enemy
+	enemy_group.all_e_action.push_back(["atk",0,self_enemy,initiative.sorted_player[choose_random_player],choose_ability])
 	#else:
 		#["act"  i.text  self  0  enemy.enemies[enemy.e_index]  player.player[player.p_index]]
 		#enemy_group.all_e_action.push_back(["act","Grab",self_e,0,self_e,self_enemy])
@@ -38,7 +39,7 @@ func _get_actions():
 	var temp = []
 	for i in enemy_group.p_actions:
 		for j in before_enemy_turn:
-			if i[-1] == j[-1]:
+			if i[2] == j[-1]:
 				temp.append(i)
 	before_enemy_turn.clear()
 	for i in temp: 
