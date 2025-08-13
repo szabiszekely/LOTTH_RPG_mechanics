@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://l5f740mb43yc"]
+[gd_scene load_steps=79 format=3 uid="uid://l5f740mb43yc"]
 
 [ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/Player_Sprite_Sheet.png" id="1_u1ato"]
@@ -542,6 +542,9 @@ graph_offset = Vector2(-81, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
 size = Vector2(17.0588, 11.6667)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiwc3"]
+size = Vector2(12.2516, 11.6667)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]
 script = ExtResource("1_1byu4")
 Fight_stats = ExtResource("3_ompdf")
@@ -551,8 +554,7 @@ cam_target = NodePath("PCamTarget")
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
-animation = &"idle"
-frame = 10
+animation = &"KOd"
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -567,6 +569,7 @@ tree_root = SubResource("AnimationNodeStateMachine_kmnsa")
 advance_expression_base_node = NodePath("..")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2.5)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
@@ -586,3 +589,12 @@ script = ExtResource("8_ts1lj")
 radius = 150.0
 enabled = false
 priority = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(-3.02645, -5.49999)
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_hiwc3")

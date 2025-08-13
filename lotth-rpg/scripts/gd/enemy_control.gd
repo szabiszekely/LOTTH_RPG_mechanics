@@ -48,5 +48,5 @@ func _on_to_the_next_guy():
 
 func _pass_character():
 	for i in MaxPlayOutOptions:
-		enemy_group.all_e_action.push_back(["pass_character",self])
+		enemy_group.all_e_action.push_back(["pass_character","nonesense",self])
 	_on_to_the_next_guy()

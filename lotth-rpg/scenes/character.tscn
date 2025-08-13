@@ -251,6 +251,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_j4d3b")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-3, -30)

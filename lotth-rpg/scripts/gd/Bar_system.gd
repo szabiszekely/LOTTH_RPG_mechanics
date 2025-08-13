@@ -48,10 +48,10 @@ func _process(_delta: float) -> void:
 	#ugly but I can't do shit about it!
 	health_changed()
 	energy_changed()
-	if assined_characters.Fight_stats.HP <= 0 and assined_characters.Fight_stats.ENG <= 0 and assined_characters.CharacterIsOut:
-		
-		queue_free()
-		assined_characters.queue_free()
+	#if assined_characters.Fight_stats.HP <= 0 and assined_characters.Fight_stats.ENG <= 0 and assined_characters.CharacterIsOut:
+		#
+		#queue_free()
+		#assined_characters.queue_free()
 func bar_damage_taken(damage:int):
 	
 	
