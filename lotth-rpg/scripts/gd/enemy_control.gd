@@ -13,7 +13,7 @@ func _ready() -> void:
 	roll_of_the_luck()
 	Enemy_health_bar.hide()
 	$character_animator.play("idle")
-	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode)
+	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler)
 	
 	
 func _process(delta: float) -> void:

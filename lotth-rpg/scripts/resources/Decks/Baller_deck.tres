@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Deck_builder" load_steps=2 format=3 uid="uid://b5rud4uqx1g0a"]
+
+[ext_resource type="Script" uid="uid://gxjjhkmtudgi" path="res://scripts/resources/Decks/Decks.gd" id="1_i751l"]
+
+[resource]
+script = ExtResource("1_i751l")
+Deck = PackedStringArray("Baller Attack", "Ball Crawl")
+metadata/_custom_type_script = "uid://gxjjhkmtudgi"
