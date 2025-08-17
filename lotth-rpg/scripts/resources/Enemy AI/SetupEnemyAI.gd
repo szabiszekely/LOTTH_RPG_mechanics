@@ -22,12 +22,34 @@ enum Enemy_Personality_Types{
 	Parasitic
 }
 
+var BoardState: Dictionary = {
+	"lowest_HP_player":[],
+	"lowest_ENG_player":[],
+	"lowest_ENG_enemy":[],
+	"lowest_HP_enemy":[],
+	"highest_ENG_player":[],
+	"highest_HP_player":[],
+	"strongest_player":[],
+	"strongest_enemy":[],
+	"closest_player":[],
+	"kindest_player":[],
+	"worst_player":[],
+}
+
+var PlayerAgro: Dictionary = {}
+var PlayerKind: Dictionary = {}
+
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler):
 	enemy_group = enemies
 	player_group = players
 	initiative = Initiative_script
 	battle_scene = BattleScene
 	act_panel_choice = act_button_handler
+	
+	PlayerAgro.clear()
+	for i in players.player:
+		PlayerAgro.set(i,0)
+		PlayerKind.set(i,0)
 
 func _EnemyAI(self_enemy,deck):
 	pass
@@ -36,6 +58,7 @@ func _EnemyAI(self_enemy,deck):
 
 # gets everything before the enemy
 func _sort_before_self(self_e):
+
 	for i in initiative.all_rolls: 
 		if i[-1] != self_e:
 			before_enemy_turn.append(i)
@@ -70,3 +93,25 @@ func _get_actions_enemy(self_e):
 	enemy_actions.clear()
 	for i in temp: 
 		enemy_actions.append(i)
+
+#["lowest_HP_player","lowest_ENG_player","lowest_ENG_enemy","lowest_HP_enemy","highest_ENG_player","highest_HP_player","strongest_player","strongest_enemy","closest_player","kindest_player","worst_player"]:
+func _data_analysis():
+	
+	var player_array:Array = player_group.player
+	var enemy_array = enemy_group.enemies
+	player_array.append_array(enemy_array)
+	
+	BoardState.clear()
+	for i in BoardState.keys():
+		BoardState.set(i,[])
+	
+
+func _player_actions():
+	for i in enemy_group.p_actions:
+		match i:
+			"atk":
+				pass
+			"act":
+				pass
+			"bag":
+				pass

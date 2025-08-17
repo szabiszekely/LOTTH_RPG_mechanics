@@ -14,6 +14,7 @@ HP = 18
 ENG = 18
 Soul_Type = 0
 Attack_Type = 1
+Enemy_AI_type = "Random"
 Defense = 5
 Magic_Defense = 0
 MAX_EMP = 5

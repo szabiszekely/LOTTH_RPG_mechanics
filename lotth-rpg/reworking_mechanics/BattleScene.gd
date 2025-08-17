@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 		_full_reset()
 	
 	if Input.is_action_just_pressed("debug_button"):
-		enemy_group.enemies[1].Fight_stats.HP = 0
-		enemy_group.enemies[1].Fight_stats.ENG = 0
+		player_group.player[0].Fight_stats.HP = 0
+		player_group.player[0].Fight_stats.ENG = 0
 	if Input.is_action_just_pressed("debug_button_3"):
 		player_group.player[1].Bar.queue_free()
 		player_group.player[1].queue_free()

@@ -2,25 +2,26 @@ class_name Fighting_Stats
 extends Resource
 
 # This hat handles the players and enemies stats, also take cares of dice rolls and damage taken
-@export var name: String
-@export var Id: int = -1
-@export_enum("Friend","Enemy") var Friend_or_Foe
-@export var MAX_HP: int
-@export var MAX_ENG: int
-@export var HP: int
-@export var ENG: int
-@export_enum("Normal","Player","Feeling","Dream","Memory","Justice") var Soul_Type: int
-@export_enum("Melee","Range","Magic") var Attack_Type: int
-@export var PlayerDeck: Deck_builder
-@export var Defense: int
-@export var Magic_Defense: int
-@export var MAX_EMP: int
-@export var EMP: int
+@export var name: String ##Name of the Character
+@export var Id: int = -1 ##ID of the Enemy
+@export_enum("Friend","Enemy") var Friend_or_Foe ##Determines that which side of the character is on
+@export var MAX_HP: int ##Adjustable Max HP
+@export var MAX_ENG: int ##Adjustable Max ENG
+@export var HP: int ##Determines how much HP does the character currently has
+@export var ENG: int ##Determines how much ENG does the character currently has
+@export_enum("Normal","Player","Feeling","Dream","Memory","Justice") var Soul_Type: int ##Categorized Soul types!
+@export_enum("Melee","Range","Magic") var Attack_Type: int ##Categorized First Attack types
+@export_enum("Normal","Angry","Scared","Primal","Loyal","Random","Parasitic") var Enemy_AI_type: String = "Normal" ##Tells the enemy how to handle data from the players and helps to determen the best move
+@export var PlayerDeck: Deck_builder ##Custmozieable deck
+@export var Defense: int ##Every Defense is -1 from a Phisical attack
+@export var Magic_Defense: int ##Every Magic Defense is -1 from Magical attack
+@export var MAX_EMP: int ##Determines how much Emphaty an enemy needs before spareable
+@export var EMP: int ##Current adjusting Emphaty
 
-@export var Base_Phisical_Attack: int
+@export var Base_Phisical_Attack: int 
 @export var Base_Magical_Attack: int
-@export var Speed: int
-@export var range_in_cm: float
+@export var Speed: int ##Every start of a round it will roll a D6 and adds it to the speed, the larger the better
+@export var range_in_cm: float ##The distance a character can move
 
 func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,Reciver_Defense:int,Reciver_ATK_type:int,Attacker_ATK_type:int,Card_Type:int,Attacker_Base_Magic_Strengh:int,Reciver_Magic_Defense:int):
 	#the damage type and the bonus damage values

@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 		#var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
 		#var choose_random_player = randi_range(0,Initiative.group_player.player.size() - 1)
 		#enemy.all_e_action.push_back(["atk",choose_ability,choose_random_player,3,Initiative.group_enemies.e_index,self])
-		EnemyAI._EnemyAI(self)
+		print(Fight_stats.PlayerDeck.Deck)
+		EnemyAI._EnemyAI(self,Fight_stats.PlayerDeck.Deck)
 	if your_turn and CharacterIsOut:
 		PlayOutOptions -= 1
 

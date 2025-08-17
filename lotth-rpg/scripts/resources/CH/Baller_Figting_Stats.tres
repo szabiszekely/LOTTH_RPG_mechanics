@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Fighting_Stats" load_steps=2 format=3 uid="uid://dps5ywyu0gs31"]
+[gd_resource type="Resource" script_class="Fighting_Stats" load_steps=3 format=3 uid="uid://dps5ywyu0gs31"]
 
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="1_urd4u"]
+[ext_resource type="Resource" uid="uid://b5rud4uqx1g0a" path="res://scripts/resources/Decks/Baller_deck.tres" id="1_x2hxa"]
 
 [resource]
 resource_local_to_scene = true
@@ -14,6 +15,8 @@ HP = 18
 ENG = 18
 Soul_Type = 0
 Attack_Type = 1
+Enemy_AI_type = "Angry"
+PlayerDeck = ExtResource("1_x2hxa")
 Defense = 2
 Magic_Defense = 0
 MAX_EMP = 4
