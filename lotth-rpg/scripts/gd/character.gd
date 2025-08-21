@@ -67,7 +67,7 @@ func _camera_off():
 # this is where all the damage gets split apart for all the other functions to be handled
 func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_damage_magical):
 	var hit = Fight_stats._Damage_Taken(base_damage_phisical,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type,card_type,base_damage_magical,Fight_stats.Magic_Defense)
-	print(str(Fight_stats.name)+": "+str(hit))
+	#print(str(Fight_stats.name)+": "+str(hit))
 	# this is where the death will play out
 	#if Fight_stats.HP == 0:
 		#death 
@@ -92,7 +92,7 @@ func _use_card_and_gain_eng(Name:String,Heart_or_Eng: int):
 # when you take True Damage
 func _take_true_damage(base_damage):
 	var hit = Fight_stats._True_Damage_Taken(base_damage)
-	print(str(Fight_stats.name)+": "+str(hit))
+	#print(str(Fight_stats.name)+": "+str(hit))
 	Bar.bar_damage_taken(hit)
 	var got_damage = damage_indicator.instantiate()
 	self.add_child(got_damage)
@@ -107,7 +107,7 @@ func roll_of_the_luck():
 	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
 	Initiative.all_rolls.append(initiative_peronality)
-	print(Initiative.all_rolls)
+	#print(Initiative.all_rolls)
 
 func _play_out_tick_down():
 	PlayOutOptions -= 1

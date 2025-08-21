@@ -15,7 +15,7 @@ var is_this_heal = [1]
 
 func _Ability_Turn(list:Array):
 	turn_handler._Does_opponent_exist(list,is_this_heal)
-	print(player_group.player)
+	#print(player_group.player)
 	match list[1]:
 		0: ## player attacks enemy targeted
 			list[2]._use_card_and_lose_eng(list[4])

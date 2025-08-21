@@ -11,7 +11,7 @@ extends Resource
 @export var ENG: int ##Determines how much ENG does the character currently has
 @export_enum("Normal","Player","Feeling","Dream","Memory","Justice") var Soul_Type: int ##Categorized Soul types!
 @export_enum("Melee","Range","Magic") var Attack_Type: int ##Categorized First Attack types
-@export_enum("Normal","Angry","Scared","Primal","Loyal","Random","Parasitic") var Enemy_AI_type: String = "Normal" ##Tells the enemy how to handle data from the players and helps to determen the best move
+@export_enum("Natural","Angry","Scared","Primal","Loyal","Random","Parasitic","Determined","Athletic","Strategic","Advanced","HigherBeing") var Enemy_AI_type: String = "Normal" ##Tells the enemy how to handle data from the players and helps to determen the best move
 @export var PlayerDeck: Deck_builder ##Custmozieable deck
 @export var Defense: int ##Every Defense is -1 from a Phisical attack
 @export var Magic_Defense: int ##Every Magic Defense is -1 from Magical attack
@@ -30,17 +30,17 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	# if they have the same number than nothing happens 0 type bonus!
 	if Reciver_ATK_type == Card_Type:
 		Damage_Type = 0
-		print("no advan")
+		#print("no advan")
 	# if the attacker has a type advantage than get an attack buff
 	# aka if the damage dealer has a bigger number OR the own type is 2 and the dealer is 0 than the attack dealer gets +1 damage!
 	elif Reciver_ATK_type == 0 and Card_Type == 1 or Reciver_ATK_type == 1 and Card_Type == 2 or Reciver_ATK_type == 2 and Card_Type == 0:
 		Damage_Type = 1
-		print("advantage")
+		#print("advantage")
 	
 	# however if this the self type is higher than the dealers attack will be down by 1
 	elif Reciver_ATK_type == 1 and Card_Type == 0 or Reciver_ATK_type == 2 and Card_Type == 1 or Reciver_ATK_type == 0 and Card_Type == 2: 
 		Damage_Type = -1
-		print("bad advantage")
+		#print("bad advantage")
 	
 	if Card_Type == Attacker_ATK_type:
 		Damage_bonus = 1

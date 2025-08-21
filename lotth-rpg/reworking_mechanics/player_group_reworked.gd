@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	if all_moves_p == len(all_p_actions) and !player_turn_end:
 		player_turn_end = true
 		enemy._start_enemy_section(all_p_actions)
-		print("DONE")
+		#print("DONE")
 
 	
 	if start_choosing == true :

@@ -3,6 +3,9 @@ class_name BallerAI
 
 
 func _EnemyAI(self_enemy,deck):
+	enemy_it_self = self_enemy
+	_data_analysis()
+	_player_actions()
 	var choose_ability = []
 	for i in deck:
 		choose_ability.append(i)
@@ -20,7 +23,6 @@ func _EnemyAI(self_enemy,deck):
 			choose_ability = "Baller Attack"
 			choose_random_player = player_actions[0][2]
 			enemy_group.all_e_action.push_back(["atk",0,self_enemy,choose_random_player,choose_ability])
-			print("ATTACK GOT ATTACK BY: ", self_enemy)
 		else:
 			enemy_group.all_e_action.push_back(["act",0,self_enemy,self_enemy,"Grab",act_panel_choice])
 	else:
