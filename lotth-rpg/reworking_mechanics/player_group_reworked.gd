@@ -24,6 +24,8 @@ var player_turn_end = false
 
 func _ready() -> void:
 	_get_me_some_of_that_gd_children_player()
+	enemy.enemies[0].EnemyAI._Player_Point_System()
+
 
 func _player_start_choosing():
 	

@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_0xyc6")
+angy_personality_bonus = 0
+dice_goal_number = 4
+personality_decrease_modifier = 1.0
+PlayerAgro = {}
+PlayerKind = {}
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"

@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 func _full_reset():
 	player_group._get_me_some_of_that_gd_children_player()
 	enemy_group._get_me_some_of_that_gd_children_enemy()
-	initiative._roll_reset()
+	#initiative._roll_reset()
 	initiative._get_the_index_with_order()
 	initiative.all_actions.clear()
 	for i in initiative.all_rolls.size():

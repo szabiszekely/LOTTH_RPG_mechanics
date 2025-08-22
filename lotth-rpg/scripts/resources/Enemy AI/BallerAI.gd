@@ -5,7 +5,6 @@ class_name BallerAI
 func _EnemyAI(self_enemy,deck):
 	enemy_it_self = self_enemy
 	_data_analysis()
-	_player_actions()
 	var choose_ability = []
 	for i in deck:
 		choose_ability.append(i)

@@ -16,6 +16,7 @@ func _ready() -> void:
 	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler)
 	
 	
+	
 func _process(delta: float) -> void:
 	#FOR Now when it's their turn, they choose a random attack, but if a player cancle's then their action get rerolled
 	if your_turn:
@@ -30,6 +31,10 @@ func _process(delta: float) -> void:
 
 func _your_turn_on_set_up():
 		PlayOutOptions = MaxPlayOutOptions
+		EnemyAI._player_actions()
+		EnemyAI.call(Fight_stats.Enemy_AI_type)
+
+
 
 	
 func emp_gained(gained_EMP: int):

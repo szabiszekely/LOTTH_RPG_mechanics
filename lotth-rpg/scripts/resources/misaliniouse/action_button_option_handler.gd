@@ -65,7 +65,7 @@ func Grab():
 	var audio = AudioStreamPlayer2D.new()
 	var SQUEAK = preload("res://assets/audio/squeak.mp3")
 	audio.set_stream(SQUEAK) 
-	audio.set_volume_db(5)
+	audio.set_volume_db(-5)
 	source.add_child(audio)
 	audio.play()
 	await source.get_tree().create_timer(1).timeout

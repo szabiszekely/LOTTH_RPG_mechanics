@@ -33,10 +33,20 @@ func get_item_dmg(Name: String):
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			return i["Dmg"]
+
 func get_item_t_dmg(Name: String):
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			return i["T.Dmg"]
+
+func get_item_damage(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			if 0 < i["T.Dmg"]:
+				return i["T.Dmg"]
+			else:
+				return i["Dmg"]
+
 func get_item_eng(Name: String):
 	for i in content["Items"]:
 		if Name == i["Name"]:

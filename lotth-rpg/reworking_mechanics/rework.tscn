@@ -150,7 +150,6 @@ Speed = 2
 range_in_cm = 15.0
 
 [node name="rework" type="Node2D"]
-position = Vector2(1, 0)
 script = ExtResource("1_3ntn1")
 
 [node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_blo5o")]

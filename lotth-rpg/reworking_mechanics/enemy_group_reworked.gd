@@ -36,8 +36,8 @@ func _start_enemy_section(player_actions):
 	all_e_action.clear()
 	enemy_turn_end = false
 	e_index = 0
-	initiative.sorted_enemies[e_index].your_turn = true
 	p_actions = player_actions
+	initiative.sorted_enemies[e_index].your_turn = true
 	
 func _process(delta: float) -> void:
 	if not menu.visible and start_choosing == true and len(enemies) != 1:

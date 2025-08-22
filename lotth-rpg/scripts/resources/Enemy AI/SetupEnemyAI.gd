@@ -1,12 +1,14 @@
 extends Resource
 class_name SetupEnemyAI
 
+#------Base Node Paths-------
 var battle_scene
 var enemy_group
 var player_group
 var initiative
 var act_panel_choice
 
+#------Character Placements and Actions-------
 var before_enemy_turn_player = []
 var before_enemy_turn_enemy = []
 var before_enemy_turn = []
@@ -14,21 +16,12 @@ var player_actions = []
 var enemy_actions = []
 var enemy_it_self
 
-enum Enemy_Personality_Types{
-	Natural,
-	Angry,
-	Scared,
-	Primal,
-	Loyal,
-	Random,
-	Parasitic,
-	Determined,
-	Athletic,
-	Strategic,
-	Advanced,
-	HigherBeing
-}
+#------Personality Modifiers-------
+@export var angy_personality_bonus: int = 0
+@export var dice_goal_number: int = 4
+@export var personality_decrease_modifier: float = 1
 
+#------Board State and Player Justice Stands-------
 var BoardState: Dictionary = {
 	"lowest_HP_player":[],
 	"lowest_ENG_player":[],
@@ -44,18 +37,21 @@ var BoardState: Dictionary = {
 	"players_with_status_effect":[]
 }
 
-var PlayerAgro: Dictionary = {}
-var PlayerKind: Dictionary = {}
+@export var PlayerAgro: Dictionary = {}
+@export var PlayerKind: Dictionary = {}
 
+
+
+#------Funcions-------
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler):
 	enemy_group = enemies
 	player_group = players
 	initiative = Initiative_script
 	battle_scene = BattleScene
 	act_panel_choice = act_button_handler
-	
-	PlayerAgro.clear()
-	for i in players.player:
+
+func _Player_Point_System():
+	for i in player_group.player:
 		PlayerAgro.set(i,0)
 		PlayerKind.set(i,0)
 
@@ -80,7 +76,6 @@ func _same_type_enemy(self_e):
 				before_enemy_turn_enemy.append(i)
 			else:
 				before_enemy_turn_player.append(i)
-				
 # get the players switched out with their actions
 func _get_actions_player(self_e):
 	var temp = []
@@ -102,7 +97,6 @@ func _get_actions_enemy(self_e):
 	for i in temp: 
 		enemy_actions.append(i)
 
-#["lowest_HP_player","lowest_ENG_player","lowest_ENG_enemy","lowest_HP_enemy","highest_ENG_player","highest_HP_player","strongest_player","strongest_enemy","closest_player","kindest_player","worst_player"]:
 func _data_analysis():
 	var all_array = []
 	var player_array:Array = player_group.player
@@ -131,6 +125,8 @@ func _data_analysis():
 # atk, index, from, to, data, data, data
 func _player_actions():
 	for i in enemy_group.p_actions:
+		var current_player_agro = PlayerAgro.get(i[2])
+		var current_player_kind = PlayerKind.get(i[2])
 		match i[0]:
 			"atk":
 				# if DMG to this enemy
@@ -140,24 +136,49 @@ func _player_actions():
 				if i[3] == enemy_it_self:
 					var damage = Data.get_card_damage(i[4])
 					if damage != 0:
-						PlayerAgro.set(i[2],2+damage) # + personality
+						PlayerAgro.set(i[2],current_player_agro + 2 + damage + angy_personality_bonus) # + personality
 					else:
 						var dice_roll = randi_range(1,6)
-						if dice_roll >= 4: # +/- dependeds on personality
-							PlayerKind.set(i[2],1)
+						if dice_roll >= dice_goal_number: # +/- dependeds on personality
+							PlayerKind.set(i[2],current_player_kind + 1)
 						else:
-							PlayerAgro.set(i[2],1)
+							PlayerAgro.set(i[2],current_player_agro + 1)
 			"act":
 				# if trying to be kind
 				# add a base number to PEAC points plus depending on personality add a bonus and reduce ANGY points by half (int)
 				# else do nothing with points and just add a flat PEAC point to number
-				pass
+				if i[3] == enemy_it_self:
+					if i[4] not in ["Check","Focus","Guard"]:
+						PlayerKind.set(i[2],current_player_kind + 2)
+						current_player_agro = int(current_player_agro / personality_decrease_modifier)#divided by personality modifier
+						PlayerAgro.set(i[2],current_player_agro)
+					else:
+						PlayerKind.set(i[2],current_player_kind + 1)
 			"bag":
 				# depending on the ANGY or PEAC point stat 
 				# if ANGY is higher than make that number bigger
 				# if PEAC is higher than make ANGY get reduced by 2
-				pass
-
+				if i[3] == enemy_it_self:
+					var damage = Data.get_item_damage(i[4])
+					if damage != 0:
+						PlayerAgro.set(i[2],current_player_agro + 2 + damage + angy_personality_bonus) # + personality
+					
+					elif current_player_agro > current_player_kind:
+						PlayerAgro.set(i[2],current_player_agro + 2)
+						current_player_kind = int(current_player_kind / personality_decrease_modifier)#divided by personality modifier
+						PlayerKind.set(i[2],current_player_kind)
+					
+					elif current_player_kind > current_player_agro:
+						PlayerKind.set(i[2],current_player_kind + 2)
+						current_player_agro = int(current_player_agro / personality_decrease_modifier)#divided by personality modifier
+						PlayerAgro.set(i[2],current_player_agro)
+					
+					elif current_player_agro == current_player_kind:
+						var dice_roll = randi_range(1,6)
+						if dice_roll >= dice_goal_number: # +/- dependeds on personality
+							PlayerKind.set(i[2],current_player_kind + 3)
+						else:
+							PlayerAgro.set(i[2],current_player_agro + 3)
 
 #region dataAnalitics
 var temp: Array = []
@@ -228,4 +249,44 @@ func closest_player(player):
 func players_with_status_effect(player):
 	temp.clear()
 	
+#endregion
+
+#region personalityTypes
+func Natural():
+	pass
+
+func Angry():
+	print(enemy_it_self,"-------\n",PlayerAgro,"-------\n",PlayerKind,"-------\n")
+
+func Scared():
+	pass
+
+
+func Primal():
+	pass
+
+
+func Loyal():
+	pass
+
+func Random():
+	pass
+
+func Parasitic():
+	pass
+
+func Determined():
+	pass
+
+func Athletic():
+	pass
+
+func Strategic():
+	pass
+
+func Advanced():
+	pass
+
+func HigherBeing():
+	pass
 #endregion

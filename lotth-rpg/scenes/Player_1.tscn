@@ -554,7 +554,8 @@ cam_target = NodePath("PCamTarget")
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
-animation = &"KOd"
+animation = &"idle"
+frame = 5
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
