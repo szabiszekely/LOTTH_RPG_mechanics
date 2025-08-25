@@ -15,6 +15,7 @@ HP = 25
 ENG = 25
 Soul_Type = 1
 Attack_Type = 0
+Enemy_AI_type = "Normal"
 PlayerDeck = ExtResource("1_sw88o")
 Defense = 4
 Magic_Defense = 4

@@ -110,4 +110,4 @@ func _actions(stack):
 	initiative.initiative_index = 0
 	initiative.action_start = false
 	await Engine.get_main_loop().create_timer(2).timeout
-	main_scene._full_reset()
+	main_scene._reset()

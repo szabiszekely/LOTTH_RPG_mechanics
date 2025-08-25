@@ -2,9 +2,9 @@ extends SetupEnemyAI
 class_name BallerAI
 
 
-func _EnemyAI(self_enemy,deck):
-	enemy_it_self = self_enemy
-	_data_analysis()
+func _EnemyAI(deck):
+	print(enemy_it_self)
+	personality_modifier._data_analysis()
 	var choose_ability = []
 	for i in deck:
 		choose_ability.append(i)
@@ -14,16 +14,16 @@ func _EnemyAI(self_enemy,deck):
 	before_enemy_turn = []
 	before_enemy_turn_player = []
 	player_actions = []
-	_sort_before_self(self_enemy)
-	_same_type_enemy(self_enemy)
-	_get_actions_player(self_enemy)
-	if before_enemy_turn_player != []:
+	_sort_before_self(enemy_it_self)
+	_same_type_enemy(enemy_it_self)
+	_get_actions_player(enemy_it_self)
+	if before_enemy_turn_player != [] and player_actions != []:
 		if player_actions[0][0] == "atk":
 			choose_ability = "Baller Attack"
 			choose_random_player = player_actions[0][2]
-			enemy_group.all_e_action.push_back(["atk",0,self_enemy,choose_random_player,choose_ability])
+			enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,choose_random_player,choose_ability])
 		else:
-			enemy_group.all_e_action.push_back(["act",0,self_enemy,self_enemy,"Grab",act_panel_choice])
+			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Grab",act_panel_choice])
 	else:
-		enemy_group.all_e_action.push_back(["atk",0,self_enemy,initiative.sorted_player[choose_random_player],choose_ability])
+		enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,initiative.sorted_player[choose_random_player],choose_ability])
 		

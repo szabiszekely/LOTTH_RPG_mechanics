@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonalityModfier" load_steps=2 format=3 uid="uid://beilb28ym0vs6"]
+
+[ext_resource type="Script" uid="uid://co12bplftim66" path="res://scripts/resources/Enemy AI/Personality_Modfier.gd" id="1_27hum"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_27hum")
+angy_personality_bonus = 0
+dice_goal_number = 4
+personality_decrease_modifier = 1.0
+PlayerAgro = {}
+PlayerKind = {}
+metadata/_custom_type_script = "uid://co12bplftim66"

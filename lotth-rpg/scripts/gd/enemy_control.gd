@@ -21,20 +21,16 @@ func _process(delta: float) -> void:
 	#FOR Now when it's their turn, they choose a random attack, but if a player cancle's then their action get rerolled
 	if your_turn:
 		PlayOutOptions -= 1
-		#var choose_ability = ["Baller Attack","Ball Crawl"].pick_random()
-		#var choose_random_player = randi_range(0,Initiative.group_player.player.size() - 1)
-		#enemy.all_e_action.push_back(["atk",choose_ability,choose_random_player,3,Initiative.group_enemies.e_index,self])
-		#print(Fight_stats.PlayerDeck.Deck)
-		EnemyAI._EnemyAI(self,Fight_stats.PlayerDeck.Deck)
+		EnemyAI._EnemyAI(Fight_stats.PlayerDeck.Deck)
 	if your_turn and CharacterIsOut:
 		PlayOutOptions -= 1
 
 func _your_turn_on_set_up():
+		print("ONLY ME",self)
+		EnemyAI._SetupEnemyItSelf(self)
 		PlayOutOptions = MaxPlayOutOptions
-		EnemyAI._player_actions()
-		EnemyAI.call(Fight_stats.Enemy_AI_type)
-
-
+		EnemyAI.personality_modifier._player_actions()
+		EnemyAI.personality_modifier.call(Fight_stats.Enemy_AI_type)
 
 	
 func emp_gained(gained_EMP: int):
