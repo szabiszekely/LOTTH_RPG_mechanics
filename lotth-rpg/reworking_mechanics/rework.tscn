@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=26 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://reworking_mechanics/BattleScene.gd" id="1_3ntn1"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/refrence_cross_road.tscn" id="2_blo5o"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cyrxfj2klqis7" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller_different.png" id="9_brbw4"]
 [ext_resource type="Texture2D" uid="uid://do4mcmq0nu2su" path="res://assets/sprite/Player 2/Portrait_Icon.png" id="10_ahsbf"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="10_pue0b"]
+[ext_resource type="Script" uid="uid://cx5ba8cqethcy" path="res://scripts/resources/Enemy AI/BallerAI.gd" id="13_4y57x"]
 [ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="13_6hxp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1uqaj"]
@@ -56,52 +57,6 @@ vertices = PackedVector2Array(142, -31, 414.953, -39, 479, -39, 410, -18, 345.95
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(11, 10, 2, 9), PackedInt32Array(2, 10, 3), PackedInt32Array(9, 2, 5), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(7, 6, 1, 0, 16, 17), PackedInt32Array(0, 4, 13, 15), PackedInt32Array(14, 18, 17, 16, 19), PackedInt32Array(14, 9, 8, 18), PackedInt32Array(14, 19, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-670, -234, 702, -234, 702, 145, -672, 148)])
 agent_radius = 21.0
-
-[sub_resource type="Resource" id="Resource_aihkf"]
-resource_local_to_scene = true
-script = ExtResource("9_4y57x")
-name = "Baller"
-Id = 0
-Friend_or_Foe = 1
-MAX_HP = 18
-MAX_ENG = 18
-HP = 18
-ENG = 18
-Soul_Type = 0
-Attack_Type = 1
-Enemy_AI_type = "Angry"
-PlayerDeck = ExtResource("8_w24qp")
-Defense = 2
-Magic_Defense = 0
-MAX_EMP = 4
-EMP = 0
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 0
-Speed = 1
-range_in_cm = 0.0
-
-[sub_resource type="Resource" id="Resource_mo7hs"]
-resource_local_to_scene = true
-script = ExtResource("9_4y57x")
-name = "Baller"
-Id = 0
-Friend_or_Foe = 1
-MAX_HP = 18
-MAX_ENG = 18
-HP = 18
-ENG = 18
-Soul_Type = 0
-Attack_Type = 1
-Enemy_AI_type = "Angry"
-PlayerDeck = ExtResource("8_w24qp")
-Defense = 2
-Magic_Defense = 0
-MAX_EMP = 4
-EMP = 0
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 0
-Speed = 1
-range_in_cm = 0.0
 
 [sub_resource type="Resource" id="Resource_p7hkc"]
 resource_local_to_scene = true
@@ -149,6 +104,80 @@ Base_Magical_Attack = 1
 Speed = 2
 range_in_cm = 15.0
 
+[sub_resource type="Resource" id="Resource_6hxp8"]
+resource_local_to_scene = true
+script = ExtResource("13_4y57x")
+angy_personality_bonus = 0
+dice_goal_number = 4
+personality_decrease_modifier_agression = 2.0
+personality_decrease_modifier_kindness = 2.0
+personality_aggresion = 1
+personality_driven_differance = 1.0
+personality_driven_health_differance = 1.0
+stronger_or_weaker = "Stronger"
+team_player = false
+metadata/_custom_type_script = "uid://cx5ba8cqethcy"
+
+[sub_resource type="Resource" id="Resource_aihkf"]
+resource_local_to_scene = true
+script = ExtResource("9_4y57x")
+name = "Baller"
+Id = 0
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Enemy_AI_type = "Angry"
+PlayerDeck = ExtResource("8_w24qp")
+Defense = 2
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 2
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 0.0
+
+[sub_resource type="Resource" id="Resource_lh1mx"]
+resource_local_to_scene = true
+script = ExtResource("13_4y57x")
+angy_personality_bonus = 0
+dice_goal_number = 4
+personality_decrease_modifier_agression = 2.0
+personality_decrease_modifier_kindness = 2.0
+personality_aggresion = 1
+personality_driven_differance = 1.0
+personality_driven_health_differance = 1.0
+stronger_or_weaker = "Stronger"
+team_player = false
+metadata/_custom_type_script = "uid://cx5ba8cqethcy"
+
+[sub_resource type="Resource" id="Resource_mo7hs"]
+resource_local_to_scene = true
+script = ExtResource("9_4y57x")
+name = "Baller"
+Id = 0
+Friend_or_Foe = 1
+MAX_HP = 18
+MAX_ENG = 18
+HP = 18
+ENG = 18
+Soul_Type = 0
+Attack_Type = 1
+Enemy_AI_type = "Angry"
+PlayerDeck = ExtResource("8_w24qp")
+Defense = 2
+Magic_Defense = 0
+MAX_EMP = 4
+EMP = 0
+Base_Phisical_Attack = 2
+Base_Magical_Attack = 0
+Speed = 1
+range_in_cm = 0.0
+
 [node name="rework" type="Node2D"]
 script = ExtResource("1_3ntn1")
 
@@ -178,18 +207,6 @@ navigation_polygon = SubResource("NavigationPolygon_wtf22")
 enter_cost = 1.0
 script = ExtResource("5_shbcj")
 
-[node name="enemy_group" type="Node2D" parent="NavigationRegion2D"]
-script = ExtResource("6_dsgni")
-
-[node name="Enemy" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(260, -77)
-Fight_stats = SubResource("Resource_aihkf")
-
-[node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(260, 43)
-Fight_stats = SubResource("Resource_mo7hs")
-Turn_portriat = ExtResource("9_brbw4")
-
 [node name="player_group" type="Node2D" parent="NavigationRegion2D"]
 script = ExtResource("6_blo5o")
 
@@ -201,6 +218,20 @@ Fight_stats = SubResource("Resource_p7hkc")
 position = Vector2(0, 28)
 Fight_stats = SubResource("Resource_q1i6w")
 Turn_portriat = ExtResource("10_ahsbf")
+
+[node name="enemy_group" type="Node2D" parent="NavigationRegion2D"]
+script = ExtResource("6_dsgni")
+
+[node name="Enemy" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
+position = Vector2(260, -77)
+EnemyAI = SubResource("Resource_6hxp8")
+Fight_stats = SubResource("Resource_aihkf")
+
+[node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
+position = Vector2(260, 43)
+EnemyAI = SubResource("Resource_lh1mx")
+Fight_stats = SubResource("Resource_mo7hs")
+Turn_portriat = ExtResource("9_brbw4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(145, -151)

@@ -165,7 +165,8 @@ func _reparent_camera() -> void:
 		first_node.add_child(self)
 		set_owner(first_node)
 	else:
-		print("error setting up procam. Can't be root node!")
+		pass
+		#print("error setting up procam. Can't be root node!")
 
 func _update_limits() -> void:
 	_camera.limit_left = left_limit

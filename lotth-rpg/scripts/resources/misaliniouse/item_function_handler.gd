@@ -40,7 +40,8 @@ func Heart_Breaker():
 	#print("Heart Breaker arrived")
 	
 func Apple():
-	player_starter()
+	enemy_starter()
+	#player_starter()
 	#print("apple arrived")
 
 func Medicit():

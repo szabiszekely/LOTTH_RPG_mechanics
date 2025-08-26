@@ -3,8 +3,7 @@ class_name BallerAI
 
 
 func _EnemyAI(deck):
-	print(enemy_it_self)
-	personality_modifier._data_analysis()
+	_data_analysis()
 	var choose_ability = []
 	for i in deck:
 		choose_ability.append(i)

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="BallerAI" load_steps=3 format=3 uid="uid://bj3fn2unm1n7c"]
+[gd_resource type="Resource" script_class="BallerAI" load_steps=2 format=3 uid="uid://bj3fn2unm1n7c"]
 
 [ext_resource type="Script" uid="uid://cx5ba8cqethcy" path="res://scripts/resources/Enemy AI/BallerAI.gd" id="1_0xyc6"]
-[ext_resource type="Resource" uid="uid://beilb28ym0vs6" path="res://scripts/resources/Enemy AI/Personality_Modfier_resc.tres" id="1_v68qn"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_0xyc6")
-personality_modifier = ExtResource("1_v68qn")
+angy_personality_bonus = 0
+dice_goal_number = 4
+personality_decrease_modifier = 2.0
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"

@@ -13,7 +13,7 @@ func _ready() -> void:
 	roll_of_the_luck()
 	Enemy_health_bar.hide()
 	$character_animator.play("idle")
-	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler)
+	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler,self)
 	
 	
 	
@@ -27,10 +27,9 @@ func _process(delta: float) -> void:
 
 func _your_turn_on_set_up():
 		print("ONLY ME",self)
-		EnemyAI._SetupEnemyItSelf(self)
 		PlayOutOptions = MaxPlayOutOptions
-		EnemyAI.personality_modifier._player_actions()
-		EnemyAI.personality_modifier.call(Fight_stats.Enemy_AI_type)
+		EnemyAI._player_actions()
+		EnemyAI.call(Fight_stats.Enemy_AI_type)
 
 	
 func emp_gained(gained_EMP: int):

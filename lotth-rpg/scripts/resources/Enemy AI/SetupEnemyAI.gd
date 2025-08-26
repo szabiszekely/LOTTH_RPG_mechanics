@@ -1,5 +1,31 @@
 extends Resource
-class_name SetupEnemyAI
+class_name SetupEnemyAI_old
+
+
+
+
+
+
+
+
+
+# THIS ONE IS THE OLD ONE DUMBY!!!!
+# DON'T EDIT THIS BUT INSTEAD DELETE IT AS SOON AS POSSIBLE
+# PLEASE DON'T FOOL YOURSELF PLEASE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #------Base Node Paths-------
 var battle_scene
@@ -73,7 +99,3 @@ func _get_actions_enemy(self_e):
 		enemy_actions.append(i)
 
 	
-# (["atk",1,initiative.sorted_player[p_index],player[sub_index],                            card_againts_players          ])
-#["act",0,initiative.sorted_player[player.p_index],enemy.enemies[current_choosen_enemy] ,   i.text,                  self]
-#["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],                    item_againts_enemies,   menu.bagpack_choice]
-# atk, index, from, to, data, data, data

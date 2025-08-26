@@ -7,6 +7,22 @@ var player_group
 var initiative
 var enemy_it_self
 
+
+
+
+
+# THIS ONE IS THE OLD ONE DUMBY!!!!
+# DON'T EDIT THIS BUT INSTEAD DELETE IT AS SOON AS POSSIBLE
+# PLEASE DON'T FOOL YOURSELF PLEASE
+
+
+
+
+
+
+
+
+
 #------Personality Modifiers-------
 @export var angy_personality_bonus: int = 0
 @export var dice_goal_number: int = 4
