@@ -22,9 +22,9 @@ var enemy_actions = []
 @export var dice_goal_number: int = 4 ## Initiative roll that determineds if a behaviour is good or bad
 @export var personality_decrease_modifier_agression: float = 2 ## decreases the agression by X beening the number diveded by the current
 @export var personality_decrease_modifier_kindness: float = 2 ## decreases the agression by X beening the number diveded by the current
-@export var personality_aggresion: int = 1 ## 
+@export var personality_aggresion: int = 1 ## Gives more chance to use a stronger attack
 @export var personality_energy_precent: float = 0.5 ## if the energy below this number than the enemy will start to roll for energy heal
-@export var energy_restore_check: float = 0.3  ## 0-1 float randf_range roll and this is the goal number
+@export var energy_restore_check: float = 0.3  ## this is the minimum barrier, if the energy is below this, than it will heal
 @export_enum("Stronger","Weaker") var stronger_or_weaker: String = "Stronger" ## Should the enemy attack Stronger or Weaker players
 @export var team_player: bool = false ## Can it now about its teammates before hand?
 
@@ -38,6 +38,8 @@ var BoardState: Dictionary = {
 	"highest_HP_player":[],
 	"strongest_player":[],
 	"strongest_magic_player":[],
+	"weakest_player": [],
+	"weakest_magic_player": [],
 	"strongest_enemy":[],
 	"strongest_magic_enemy":[],
 	"closest_player":[],
@@ -49,6 +51,8 @@ var enemy_current_HP
 var PlayerAgro: Dictionary = {}
 var PlayerKind: Dictionary = {}
 
+var ObjectivlyStrongesPlayer: Dictionary = {}
+var ObjectivlyWeakestPlayer: Dictionary= {}
 
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
 	enemy_group = enemies
@@ -191,6 +195,22 @@ func _data_analysis():
 		strongest_magic_enemy(enemy_array)
 		closest_player(player_array)
 		players_with_status_effect(player_array)
+		weakest_player(player_array)
+		weakest_magic_player(player_array)
+	
+	for i in BoardState.values():
+		ObjectivlyWeakestPlayer[i[0]] = 0
+		ObjectivlyStrongesPlayer[i[0]] = 0
+	
+	ObjectivlyWeakestPlayer[BoardState["lowest_HP_player"][0]] += 1 
+	ObjectivlyWeakestPlayer[BoardState["lowest_ENG_player"][0]] += 1 
+	ObjectivlyWeakestPlayer[BoardState["weakest_player"][0]] += 1 
+	ObjectivlyWeakestPlayer[BoardState["weakest_magic_player"][0]] += 1 
+	
+	ObjectivlyStrongesPlayer[BoardState["strongest_player"][0]] += 1 
+	ObjectivlyStrongesPlayer[BoardState["strongest_magic_player"][0]] += 1 
+	ObjectivlyStrongesPlayer[BoardState["highest_ENG_player"][0]] += 1 
+	ObjectivlyStrongesPlayer[BoardState["highest_HP_player"][0]] += 1 
 
 #region dataAnalitics
 var temp: Array = []
@@ -260,7 +280,19 @@ func closest_player(player):
 	
 func players_with_status_effect(player):
 	temp.clear()
-	
+
+func weakest_player(player):
+	temp.clear()
+	for i in player:
+		temp.append([i,i.Fight_stats.Base_Phisical_Attack])
+		BoardState.set("weakest_player",temp.min())
+
+func weakest_magic_player(player):
+	temp.clear()
+	for i in player:
+		temp.append([i,i.Fight_stats.Base_Magical_Attack])
+		BoardState.set("weakest_magic_player",temp.min())
+
 #endregion
 
 #region personalityTypes
