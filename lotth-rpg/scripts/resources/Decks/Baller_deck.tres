@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_i751l")
-Deck = PackedStringArray("Baller Attack", "Ball Crawl")
+Deck = PackedStringArray("Spin Roll", "Spike Dive", "Bite", "Spike Fortress", "Scream", "Growl")
 metadata/_custom_type_script = "uid://gxjjhkmtudgi"

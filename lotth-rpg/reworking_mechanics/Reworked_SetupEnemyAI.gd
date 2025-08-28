@@ -18,15 +18,15 @@ var player_actions = []
 var enemy_actions = []
 
 #------Personality Modifiers-------
-@export var angy_personality_bonus: int = 0
-@export var dice_goal_number: int = 4
-@export var personality_decrease_modifier_agression: float = 2
-@export var personality_decrease_modifier_kindness: float = 2
-@export var personality_aggresion: int = 1
-@export var personality_driven_differance: float = 1.0
-@export var personality_driven_health_differance: float = 1.0
-@export_enum("Stronger","Weaker") var stronger_or_weaker: String = "Stronger"
-@export var team_player: bool = false
+@export var angy_personality_bonus: int = 0 ## Adds a flat number to angro behaviour  
+@export var dice_goal_number: int = 4 ## Initiative roll that determineds if a behaviour is good or bad
+@export var personality_decrease_modifier_agression: float = 2 ## decreases the agression by X beening the number diveded by the current
+@export var personality_decrease_modifier_kindness: float = 2 ## decreases the agression by X beening the number diveded by the current
+@export var personality_aggresion: int = 1 ## 
+@export var personality_energy_precent: float = 0.5 ## if the energy below this number than the enemy will start to roll for energy heal
+@export var energy_restore_check: float = 0.3  ## 0-1 float randf_range roll and this is the goal number
+@export_enum("Stronger","Weaker") var stronger_or_weaker: String = "Stronger" ## Should the enemy attack Stronger or Weaker players
+@export var team_player: bool = false ## Can it now about its teammates before hand?
 
 #------Board State and Player Justice Stands-------
 var BoardState: Dictionary = {
@@ -43,10 +43,11 @@ var BoardState: Dictionary = {
 	"closest_player":[],
 	"players_with_status_effect":[]
 }
+var enemy_current_ENG
+var enemy_current_HP
 
 var PlayerAgro: Dictionary = {}
 var PlayerKind: Dictionary = {}
-
 
 
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
@@ -67,6 +68,14 @@ func _Player_Point_System():
 func _EnemyAI(deck):
 	pass
 
+
+func _TurnIsOver():
+	pass
+
+
+func _EnemyCurrentBarStatus():
+	enemy_current_ENG = enemy_it_self.Bar.ENG_bar.material.get_shader_parameter("value")
+	enemy_current_HP = enemy_it_self.Bar.ENG_bar.HP_bar.material.get_shader_parameter("value")
 func _sort_before_self(self_e):
 
 	for i in initiative.all_rolls: 
@@ -161,7 +170,6 @@ func _player_actions():
 							PlayerKind[i[2]] += 30
 						else:
 							PlayerAgro[i[2]] += 30
-							
 func _data_analysis():
 	var all_array = []
 	var player_array:Array = player_group.player
@@ -258,127 +266,26 @@ func players_with_status_effect(player):
 #region personalityTypes
 func Natural():
 	pass
-
 func Angry():
-	angy_personality_bonus = 3
-	dice_goal_number = 5
-	personality_aggresion = 3
-	personality_decrease_modifier_agression = 1.5
-	personality_decrease_modifier_kindness = 2
-	personality_driven_differance = 1.3
-	personality_driven_health_differance = 0.7
-	stronger_or_weaker = "Stronger"
-	team_player = false
-	
+	pass
 func Scared():
-	angy_personality_bonus = 1
-	dice_goal_number = 3
-	personality_aggresion = 1
-	personality_decrease_modifier_agression = 1.5
-	personality_decrease_modifier_kindness = 0.5
-	personality_driven_differance = 1.3
-	personality_driven_health_differance= 1.3
-	stronger_or_weaker = "Weaker"
-	team_player = false
-
-
+	pass
 func Primal():
-	angy_personality_bonus = 3
-	dice_goal_number = 4
-	personality_aggresion = 2
-	personality_decrease_modifier_agression = 2
-	personality_decrease_modifier_kindness = 2
-	personality_driven_differance = 1.5
-	personality_driven_health_differance = 1.7
-	stronger_or_weaker = "Weaker"
-	team_player = true
-
-
+	pass
 func Loyal():
-	angy_personality_bonus = 1
-	dice_goal_number = 4
-	personality_aggresion = 1
-	personality_decrease_modifier_agression = 1.5
-	personality_decrease_modifier_kindness = 1.5
-	personality_driven_differance = 1.5
-	personality_driven_health_differance = 1.2
-	stronger_or_weaker = "Stronger"
-	team_player = true
-
+	pass
 func Random():
-	angy_personality_bonus = randi_range(1, 3)
-	dice_goal_number = randi_range(1, 5)
-	personality_aggresion = randi_range(1, 3)
-	personality_decrease_modifier_agression = randf_range(0.8,1.8)
-	personality_decrease_modifier_kindness = randf_range(0.8,1.8)
-	personality_driven_differance = randf_range(0.8,1.8)
-	personality_driven_health_differance = randf_range(0.8,1.8)
-	stronger_or_weaker = ["Stronger","Weaker"].pick_random()
-	team_player = false
-
+	pass
 func Parasitic():
-	angy_personality_bonus
-	dice_goal_number
-	personality_aggresion
-	personality_decrease_modifier_agression
-	personality_decrease_modifier_kindness
-	personality_driven_differance
-	personality_driven_health_differance
-	stronger_or_weaker
-	team_player
-
+	pass
 func Determined():
-	angy_personality_bonus
-	dice_goal_number
-	personality_aggresion
-	personality_decrease_modifier_agression
-	personality_decrease_modifier_kindness
-	personality_driven_differance
-	personality_driven_health_differance
-	stronger_or_weaker
-	team_player
-
+	pass
 func Athletic():
-	angy_personality_bonus
-	dice_goal_number
-	personality_aggresion
-	personality_decrease_modifier_agression
-	personality_decrease_modifier_kindness
-	personality_driven_differance
-	personality_driven_health_differance
-	stronger_or_weaker
-	team_player
-
+	pass
 func Strategic():
-	angy_personality_bonus
-	dice_goal_number
-	personality_aggresion
-	personality_decrease_modifier_agression
-	personality_decrease_modifier_kindness
-	personality_driven_differance
-	personality_driven_health_differance
-	stronger_or_weaker
-	team_player
-
+	pass
 func Advanced():
-	angy_personality_bonus
-	dice_goal_number
-	personality_aggresion
-	personality_decrease_modifier_agression
-	personality_decrease_modifier_kindness
-	personality_driven_differance
-	personality_driven_health_differance
-	stronger_or_weaker
-	team_player
-
+	pass
 func HigherBeing():
-	angy_personality_bonus
-	dice_goal_number
-	personality_aggresion
-	personality_decrease_modifier_agression
-	personality_decrease_modifier_kindness
-	personality_driven_differance
-	personality_driven_health_differance
-	stronger_or_weaker
-	team_player
+	pass
 #endregion

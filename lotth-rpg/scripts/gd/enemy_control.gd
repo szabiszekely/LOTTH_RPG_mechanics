@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 		PlayOutOptions -= 1
 
 func _your_turn_on_set_up():
-		print("ONLY ME",self)
 		PlayOutOptions = MaxPlayOutOptions
+		EnemyAI._EnemyCurrentBarStatus()
 		EnemyAI._player_actions()
-		EnemyAI.call(Fight_stats.Enemy_AI_type)
+		#EnemyAI.call(Fight_stats.Enemy_AI_type)
 
 	
 func emp_gained(gained_EMP: int):

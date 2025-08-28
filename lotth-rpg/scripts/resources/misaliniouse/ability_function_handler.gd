@@ -91,8 +91,20 @@ func Throw_Away_Joke():
 	attacker_index.Fight_stats.PlayerDeck.Deck.remove_at(find_index)
 	print(attacker_index.Fight_stats.PlayerDeck.Deck)
 
-func Baller_Attack():
+func Spin_Roll():
 	pass
-	
-func Ball_Crawl():
+
+func Spike_Dive():
+	pass
+
+func Bite():
+	pass
+
+func Spike_Fortress():
+	pass
+
+func Scream():
+	pass
+
+func Growl():
 	pass

@@ -5,7 +5,13 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_0xyc6")
-angy_personality_bonus = 0
-dice_goal_number = 4
-personality_decrease_modifier = 2.0
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_decrease_modifier_kindness = 2.0
+personality_aggresion = 3
+personality_energy_precent = 0.4
+energy_restore_check = 0.3
+stronger_or_weaker = "Stronger"
+team_player = false
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"

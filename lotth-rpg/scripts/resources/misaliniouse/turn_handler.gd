@@ -105,7 +105,9 @@ func _actions(stack):
 		initiative.timeSpentBetweenTurns = baseTiming
 		stackIndex += 1
 	
-	
+	for i in enemy_group.enemies:
+		i.EnemyAI._TurnIsOver()
+		
 	stack.clear()
 	initiative.initiative_index = 0
 	initiative.action_start = false
