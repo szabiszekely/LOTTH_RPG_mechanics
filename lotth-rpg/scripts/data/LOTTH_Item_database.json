@@ -100,7 +100,8 @@
   "Emp": 0,
   "Range": "Target",
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Funny Magic",
@@ -113,7 +114,8 @@
   "Emp": 0,
   "Range": "Target",
   "Type": "Magic",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Agressive Stomp",
@@ -126,7 +128,8 @@
   "Emp": 0,
   "Range": "Target",
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Byecicle",
@@ -139,7 +142,8 @@
   "Emp": 0,
   "Range": 4,
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Curved Slash",
@@ -152,7 +156,8 @@
   "Emp": 0,
   "Range": 4,
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Dual Wielding",
@@ -165,7 +170,8 @@
   "Emp": 0,
   "Range": 4,
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Thunder Song",
@@ -178,7 +184,8 @@
   "Emp": 0,
   "Range": 20,
   "Type": "Magic",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Healling care",
@@ -191,7 +198,8 @@
   "Emp": 0,
   "Range": "Self",
   "Type": "Magic",
-  "Eng_or_Hp": 1
+  "Eng_or_Hp": 1,
+  "Ability_Type": "Effect"
  },
  {
   "Name": "Arcane Feather",
@@ -204,7 +212,8 @@
   "Emp": 0,
   "Range": 13,
   "Type": "Magic",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Broken Shooter",
@@ -217,7 +226,8 @@
   "Emp": 0,
   "Range": "Target",
   "Type": "Range",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Curse Of Mya",
@@ -230,7 +240,8 @@
   "Emp": 0,
   "Range": 10,
   "Type": "Magic",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Attributes"
  },
  {
   "Name": "Distracting Beauty",
@@ -243,7 +254,8 @@
   "Emp": 0,
   "Range": "Self",
   "Type": "Magic",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Effect"
  },
  {
   "Name": "Throw Away Joke",
@@ -256,7 +268,8 @@
   "Emp": 0,
   "Range": "Target",
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Spin Roll",
@@ -269,7 +282,8 @@
   "Emp": 0,
   "Range": 8,
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Spike Dive",
@@ -282,7 +296,8 @@
   "Emp": 0,
   "Range": 10,
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Bite",
@@ -295,7 +310,8 @@
   "Emp": 0,
   "Range": 4,
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Atk"
  },
  {
   "Name": "Spike Fortress",
@@ -308,7 +324,8 @@
   "Emp": 0,
   "Range": "Self",
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Defense"
  },
  {
   "Name": "Scream",
@@ -321,7 +338,8 @@
   "Emp": 0,
   "Range": "Target",
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Attributes"
  },
  {
   "Name": "Growl",
@@ -334,7 +352,8 @@
   "Emp": 0,
   "Range": "Self",
   "Type": "Melee",
-  "Eng_or_Hp": 0
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Attributes"
  }
 ]
 }

@@ -48,6 +48,12 @@ var BoardState: Dictionary = {
 var enemy_current_ENG
 var enemy_current_HP
 
+var Attack_deck: Array = []
+var Attributes_deck: Array = []
+var Effect_deck: Array = []
+var Defense_deck: Array = []
+var Movement_deck: Array = []
+
 var PlayerAgro: Dictionary = {}
 var PlayerKind: Dictionary = {}
 
@@ -68,14 +74,11 @@ func _Player_Point_System():
 		PlayerAgro.set(i,0)
 		PlayerKind.set(i,0)
 
-
 func _EnemyAI(deck):
 	pass
 
-
 func _TurnIsOver():
 	pass
-
 
 func _EnemyCurrentBarStatus():
 	enemy_current_ENG = enemy_it_self.Bar.ENG_bar.material.get_shader_parameter("value")
@@ -202,15 +205,28 @@ func _data_analysis():
 		ObjectivlyWeakestPlayer[i[0]] = 0
 		ObjectivlyStrongesPlayer[i[0]] = 0
 	
-	ObjectivlyWeakestPlayer[BoardState["lowest_HP_player"][0]] += 1 
-	ObjectivlyWeakestPlayer[BoardState["lowest_ENG_player"][0]] += 1 
-	ObjectivlyWeakestPlayer[BoardState["weakest_player"][0]] += 1 
+	ObjectivlyWeakestPlayer[BoardState["lowest_HP_player"][0]] += 3
+	ObjectivlyWeakestPlayer[BoardState["lowest_ENG_player"][0]] += 4 
+	ObjectivlyWeakestPlayer[BoardState["weakest_player"][0]] += 1
 	ObjectivlyWeakestPlayer[BoardState["weakest_magic_player"][0]] += 1 
 	
 	ObjectivlyStrongesPlayer[BoardState["strongest_player"][0]] += 1 
 	ObjectivlyStrongesPlayer[BoardState["strongest_magic_player"][0]] += 1 
-	ObjectivlyStrongesPlayer[BoardState["highest_ENG_player"][0]] += 1 
-	ObjectivlyStrongesPlayer[BoardState["highest_HP_player"][0]] += 1 
+	ObjectivlyStrongesPlayer[BoardState["highest_ENG_player"][0]] += 4 
+	ObjectivlyStrongesPlayer[BoardState["highest_HP_player"][0]] += 3
+func _deck_sorting(deck):
+	for i in deck:
+		match Data.get_card_ability_type(i):
+			"Atk":
+				Attack_deck.append(i)
+			"Defense":
+				Defense_deck.append(i)
+			"Attributes":
+				Attributes_deck.append(i)
+			"Effect":
+				Effect_deck.append(i)
+			"Movement":
+				Movement_deck.append(i)
 
 #region dataAnalitics
 var temp: Array = []

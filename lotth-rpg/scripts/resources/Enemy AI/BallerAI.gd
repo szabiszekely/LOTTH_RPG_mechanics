@@ -46,15 +46,7 @@ class_name BallerAI
 
 func _EnemyAI(deck):
 	_data_analysis()
-	
-	
-	var choose_ability = []
-	for i in deck:
-		choose_ability.append(i)
-	choose_ability = choose_ability.pick_random()
-	
-	var choose_random_player = randi_range(0,initiative.group_player.player.size() - 1)
-	
+	_deck_sorting(deck)
 	before_enemy_turn = []
 	before_enemy_turn_player = []
 	player_actions = []
@@ -62,15 +54,30 @@ func _EnemyAI(deck):
 	_same_type_enemy(enemy_it_self)
 	_get_actions_player(enemy_it_self)
 	
+	# ENG restoring area
 	if  energy_restore_check <= enemy_current_ENG and enemy_current_ENG <= personality_energy_precent: # roll for hael
 		pass
 	elif energy_restore_check > enemy_current_ENG: # garandteed heal
 		pass
 	
-	
-	
+	# Ability useage
+	var agro_check: bool = false
 	if before_enemy_turn_player != [] and player_actions != []:
-		pass
+		var temp_array = PlayerAgro.values()
+		for i in temp_array:
+			if i != 0:
+				agro_check = true
+				break
+		
+		if !agro_check:
+			temp_array = PlayerKind.values()
+			if temp_array.max() == 0:
+				agro_check = true
+			
+	
+		
+		
+		
 		#if player_actions[0][0] == "atk":
 			#choose_ability = "Bite"
 			#choose_random_player = player_actions[0][2]

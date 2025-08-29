@@ -111,6 +111,11 @@ func get_card_damage_type(Name: String):
 				return true
 			else:
 				return false
+				
+func get_card_ability_type(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Ability_Type"]
 			
 func get_card_attack_type(Name: String):
 	for i in content["Abilities"]:
