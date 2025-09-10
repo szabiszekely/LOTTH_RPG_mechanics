@@ -11,6 +11,7 @@ class_name BallerAI
 	# Use Items
 		# If has any
 		# Use item precentage to decide if needed or not
+	# Act if all Players actions result in peace
 	# Use buff ability
 		# Has it been already used or not
 		# Does my team has the max buff
@@ -19,28 +20,21 @@ class_name BallerAI
 		# At least one Enemy has 0 Kind and 0 or bigger Agro 
 		# The one with the highest DMG and lowest ENG cost (if it fails than remove it from calculation preventing a loop)
 		# If the enemey has enough ENG
-	# Act if all Players actions result in peace
 	# Guard if Player action result in violence and can't use ability (Increases DEF and gives a tiny bit of ENG back )
 
 # IF ON HP
 	# (Running (if possible))
 	# Health check if possible heal ENG or HP with anything possible
 	# Use Guard (Increases DEF and gives a tiny bit of ENG back )
-
 # -------------------------------------
-
 # Agressive Enemy which can get scared easily 
-
 # Baller Roll attack (Melee)
 # Baller Spiky Dive attack (Melee)
 # Baller Bite attack (Melee)
-
 # Baller has Spiky Defense that restores ENG and increases DEF and could DMG melee attacks for 2 turns
 # Baller has a Scream that decreases Targets ATK by 1
 # Baller has a Growl that increases the ATK by 1 for himself
-
 # Baller has a Roll act that lets him calm down 
-
 # Baller has no items
 
 
@@ -53,7 +47,7 @@ func _EnemyAI(deck):
 	_sort_before_self(enemy_it_self)
 	_same_type_enemy(enemy_it_self)
 	_get_actions_player(enemy_it_self)
-	
+	_attack_card_scoring()
 	# ENG restoring area
 	if  energy_restore_check <= enemy_current_ENG and enemy_current_ENG <= personality_energy_precent: # roll for hael
 		pass
@@ -73,9 +67,14 @@ func _EnemyAI(deck):
 			temp_array = PlayerKind.values()
 			if temp_array.max() == 0:
 				agro_check = true
-			
 	
+	# Kindness route (aka choose random act)
+	if !agro_check:
+		pass
 		
+	# Angy ( than attack >:) )
+	else:
+		pass
 		
 		
 		#if player_actions[0][0] == "atk":

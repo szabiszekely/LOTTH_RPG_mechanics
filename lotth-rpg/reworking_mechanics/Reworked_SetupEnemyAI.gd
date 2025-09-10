@@ -60,6 +60,9 @@ var PlayerKind: Dictionary = {}
 var ObjectivlyStrongesPlayer: Dictionary = {}
 var ObjectivlyWeakestPlayer: Dictionary= {}
 
+var AbilityScore: Dictionary = {}
+
+
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
 	enemy_group = enemies
 	player_group = players
@@ -82,7 +85,7 @@ func _TurnIsOver():
 
 func _EnemyCurrentBarStatus():
 	enemy_current_ENG = enemy_it_self.Bar.ENG_bar.material.get_shader_parameter("value")
-	enemy_current_HP = enemy_it_self.Bar.ENG_bar.HP_bar.material.get_shader_parameter("value")
+	enemy_current_HP = enemy_it_self.Bar.HP_bar.material.get_shader_parameter("value")
 func _sort_before_self(self_e):
 
 	for i in initiative.all_rolls: 
@@ -201,9 +204,9 @@ func _data_analysis():
 		weakest_player(player_array)
 		weakest_magic_player(player_array)
 	
-	for i in BoardState.values():
-		ObjectivlyWeakestPlayer[i[0]] = 0
-		ObjectivlyStrongesPlayer[i[0]] = 0
+	for i in player_group.player:
+		ObjectivlyWeakestPlayer[i] = 0
+		ObjectivlyStrongesPlayer[i] = 0
 	
 	ObjectivlyWeakestPlayer[BoardState["lowest_HP_player"][0]] += 3
 	ObjectivlyWeakestPlayer[BoardState["lowest_ENG_player"][0]] += 4 
@@ -228,6 +231,52 @@ func _deck_sorting(deck):
 			"Movement":
 				Movement_deck.append(i)
 
+func _attack_card_scoring():
+	for i in Attack_deck:
+		var str = Data.get_card_damage(i)
+		var cost = Data.get_card_energy(i)
+		var range
+		var bonus_attributes
+		var obstacles
+		var STAB = Data.get_card_attack_type(i)
+		
+		match str:
+			var forward_damage:
+				AbilityScore[i] += forward_damage * 10
+				
+		match cost:
+			
+			0:
+				AbilityScore[i] += 5
+			1:
+				AbilityScore[i] += 4
+			2:
+				AbilityScore[i] += 3
+			3:
+				AbilityScore[i] += 2
+			4:
+				AbilityScore[i] += 1
+			5:
+				AbilityScore[i] += 0
+			6:
+				AbilityScore[i] -= 1
+			7:
+				AbilityScore[i] -= 2
+			8:
+				AbilityScore[i] -= 3
+			9:
+				AbilityScore[i] -= 4
+			10:
+				AbilityScore[i] -= 5
+			var forward_cost:
+				AbilityScore[i] -= forward_cost * 2
+		
+		if STAB == enemy_it_self.Fight_stats.Attack_Type:
+			AbilityScore[i] += 5 + enemy_it_self.Fight_stats.Base_Phisical_Attack + enemy_it_self.Fight_stats.Base_Magical_Attack
+		else:
+			AbilityScore[i] += 3
+		
+		
 #region dataAnalitics
 var temp: Array = []
 func lowest_HP_player(player):
