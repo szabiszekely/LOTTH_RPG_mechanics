@@ -23,10 +23,12 @@ var enemy_actions = []
 @export var personality_decrease_modifier_agression: float = 2 ## decreases the agression by X beening the number diveded by the current
 @export var personality_decrease_modifier_kindness: float = 2 ## decreases the agression by X beening the number diveded by the current
 @export var personality_aggresion: int = 1 ## Gives more chance to use a stronger attack
-@export var personality_energy_precent: float = 0.5 ## if the energy below this number than the enemy will start to roll for energy heal
-@export var energy_restore_check: float = 0.3  ## this is the minimum barrier, if the energy is below this, than it will heal
+@export var energy_restore_upperline: float = 0.5 ## if the energy below this number than the enemy will start to roll for energy heal
+@export var energy_healing_percentage: float = 0.5 ## this gives a chances to heal whenever above the bottomline but below the upperline
+@export var energy_restore_bottomline: float = 0.3  ## this is the minimum barrier, if the energy is below this, than it will heal
 @export_enum("Stronger","Weaker") var stronger_or_weaker: String = "Stronger" ## Should the enemy attack Stronger or Weaker players
 @export var team_player: bool = false ## Can it now about its teammates before hand?
+@export var failiure_increase_number: float = 0.075 ## Determineds how much a failed heal will increase in possibility 
 
 #------Board State and Player Justice Stands-------
 var BoardState: Dictionary = {
@@ -47,6 +49,9 @@ var BoardState: Dictionary = {
 }
 var enemy_current_ENG
 var enemy_current_HP
+var target
+var highest_value
+var break_gambit: bool
 
 var Attack_deck: Array = []
 var Attributes_deck: Array = []
@@ -62,8 +67,8 @@ var ObjectivlyWeakestPlayer: Dictionary= {}
 
 var AbilityScore: Dictionary = {}
 
-var target
-var highest_value
+var increase_failed_heal_percentage: float = 0
+
 
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
 	enemy_group = enemies
@@ -235,7 +240,6 @@ func _deck_sorting(deck):
 
 func _attack_card_scoring():
 	for i in Attack_deck:
-
 		AbilityScore[i] = 0
 		var str = Data.get_card_damage(i)
 		var cost = int(Data.get_card_energy(i))

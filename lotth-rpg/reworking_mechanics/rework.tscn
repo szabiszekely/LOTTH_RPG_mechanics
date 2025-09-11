@@ -112,10 +112,12 @@ dice_goal_number = 4
 personality_decrease_modifier_agression = 2.0
 personality_decrease_modifier_kindness = 2.0
 personality_aggresion = 1
-personality_energy_precent = 0.5
-energy_restore_check = 0.3
+energy_restore_upperline = 0.5
+energy_healing_percentage = 0.5
+energy_restore_bottomline = 0.3
 stronger_or_weaker = "Stronger"
 team_player = false
+failiure_increase_number = 0.075
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_aihkf"]
@@ -149,10 +151,12 @@ dice_goal_number = 4
 personality_decrease_modifier_agression = 2.0
 personality_decrease_modifier_kindness = 2.0
 personality_aggresion = 1
-personality_energy_precent = 0.5
-energy_restore_check = 0.3
+energy_restore_upperline = 0.5
+energy_healing_percentage = 0.5
+energy_restore_bottomline = 0.3
 stronger_or_weaker = "Stronger"
 team_player = false
+failiure_increase_number = 0.075
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_mo7hs"]
