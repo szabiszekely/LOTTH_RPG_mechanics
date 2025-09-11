@@ -29,6 +29,8 @@ func _your_turn_on_set_up():
 		PlayOutOptions = MaxPlayOutOptions
 		EnemyAI._EnemyCurrentBarStatus()
 		EnemyAI._player_actions()
+		EnemyAI._deck_sorting(Fight_stats.PlayerDeck.Deck)
+
 		#EnemyAI.call(Fight_stats.Enemy_AI_type)
 
 	

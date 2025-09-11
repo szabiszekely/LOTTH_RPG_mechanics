@@ -26,6 +26,7 @@ class_name BallerAI
 	# (Running (if possible))
 	# Health check if possible heal ENG or HP with anything possible
 	# Use Guard (Increases DEF and gives a tiny bit of ENG back )
+
 # -------------------------------------
 # Agressive Enemy which can get scared easily 
 # Baller Roll attack (Melee)
@@ -40,7 +41,6 @@ class_name BallerAI
 
 func _EnemyAI(deck):
 	_data_analysis()
-	_deck_sorting(deck)
 	before_enemy_turn = []
 	before_enemy_turn_player = []
 	player_actions = []
@@ -66,15 +66,29 @@ func _EnemyAI(deck):
 		if !agro_check:
 			temp_array = PlayerKind.values()
 			if temp_array.max() == 0:
-				agro_check = true
+				agro_check = [true,false].pick_random()
+	
+	#later add to they are close to us or not
+	highest_value = _find_the_highest_value(PlayerAgro)
+	for i in PlayerAgro:
+		var value = PlayerAgro[i]
+		if value == highest_value:
+			target = i
+			break
+			
 	
 	# Kindness route (aka choose random act)
 	if !agro_check:
-		pass
+		enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
 		
 	# Angy ( than attack >:) )
 	else:
-		pass
+		highest_value = _find_the_highest_value(AbilityScore)
+		for i in AbilityScore:
+			var value = AbilityScore[i]
+			if value == highest_value:
+				enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+				break
 		
 		
 		#if player_actions[0][0] == "atk":

@@ -62,6 +62,8 @@ var ObjectivlyWeakestPlayer: Dictionary= {}
 
 var AbilityScore: Dictionary = {}
 
+var target
+var highest_value
 
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
 	enemy_group = enemies
@@ -233,8 +235,10 @@ func _deck_sorting(deck):
 
 func _attack_card_scoring():
 	for i in Attack_deck:
+
+		AbilityScore[i] = 0
 		var str = Data.get_card_damage(i)
-		var cost = Data.get_card_energy(i)
+		var cost = int(Data.get_card_energy(i))
 		var range
 		var bonus_attributes
 		var obstacles
@@ -276,6 +280,9 @@ func _attack_card_scoring():
 		else:
 			AbilityScore[i] += 3
 		
+func _find_the_highest_value(dict):
+	return dict.values().max()
+
 		
 #region dataAnalitics
 var temp: Array = []
