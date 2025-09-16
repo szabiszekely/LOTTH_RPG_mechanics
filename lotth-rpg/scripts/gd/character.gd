@@ -17,6 +17,8 @@ class_name Character_Controller
 @export var Bar: Indicator_bar
 @export var cam_target: Node2D
 
+var CharacterIsOut: bool = false
+var CanGetTheFinalBlow: bool = false
 # this will reduce if you choose an action
 # and when it is 0 or less than the next on the order will come
 var PlayOutOptions: int = 2:
@@ -28,7 +30,6 @@ var PlayOutOptions: int = 2:
 # this is the maximum of option chocie a character can have
 @export var MaxPlayOutOptions: int = 2
 
-var CharacterIsOut: bool = false
 # this sets up the character to their turn
 var your_turn = false:
 	set(value):
@@ -75,6 +76,15 @@ func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_dama
 		_camera_on()
 		await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
 		_camera_off()
+	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:
+		var index = 0
+		for i in Initiative.all_rolls:
+			if self == i[-1]:
+				Initiative.all_rolls.remove_at(index)
+			else:
+				index += 1
+		self.queue_free()
+		Bar.queue_free()
 
 # when you take True Damage
 func _take_true_damage(base_damage):

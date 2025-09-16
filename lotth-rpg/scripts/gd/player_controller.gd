@@ -109,7 +109,7 @@ func _play_out_actions_up():
 
 func _pass_character():
 	for i in MaxPlayOutOptions:
-		player.all_p_actions.push_back(["pass_character","nonesense",self])
+		player.all_p_actions.push_back(["pass_character","nonesense",self,self,"Self"])
 	_on_to_the_next_guy()
 
 # indicator set up

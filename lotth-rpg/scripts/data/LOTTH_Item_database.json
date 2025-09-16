@@ -91,7 +91,7 @@
 "Abilities":[
  {
   "Name": "Mile Punch",
-  "Dmg": 5,
+  "Dmg": 7,
   "T.Dmg": 0,
   "Eng": 3,
   "Eng_healed": 0,

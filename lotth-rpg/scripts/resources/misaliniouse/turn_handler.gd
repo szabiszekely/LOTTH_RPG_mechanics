@@ -73,7 +73,7 @@ func _actions(stack):
 		enemy_group._get_me_some_of_that_gd_children_enemy()
 		player_group._get_me_some_of_that_gd_children_player()
 
-		if i[2] == null:
+		if i[2] == null or i[2].CharacterIsOut:
 			i = ["pass_character"]
 		
 		match i[0]:
@@ -105,8 +105,12 @@ func _actions(stack):
 		initiative.timeSpentBetweenTurns = baseTiming
 		stackIndex += 1
 	
-	for i in enemy_group.enemies:
-		i.EnemyAI._TurnIsOver()
+	#for i in enemy_group.enemies:
+		#i.EnemyAI._TurnIsOver()
+	for i in initiative.all_rolls:
+		if i[-1] != null:
+			if i[-1].CharacterIsOut:
+				i[-1].CanGetTheFinalBlow = true
 		
 	stack.clear()
 	initiative.initiative_index = 0

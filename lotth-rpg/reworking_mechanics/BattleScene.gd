@@ -21,10 +21,10 @@ func _process(delta: float) -> void:
 		_full_reset()
 	
 	if Input.is_action_just_pressed("debug_button"):
-		pass
+		
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
-		#player_group.player[0].Fight_stats.HP = 0
-		#player_group.player[0].Fight_stats.ENG = 0
+		player_group.player[0]._take_damage(7,6,1,1,7
+		)
 	if Input.is_action_just_pressed("debug_button_3"):
 		player_group.player[1].Bar.queue_free()
 		player_group.player[1].queue_free()
@@ -34,6 +34,7 @@ func _reset():
 	player_group._get_me_some_of_that_gd_children_player()
 	enemy_group._get_me_some_of_that_gd_children_enemy()
 	#initiative._roll_reset()
+	initiative._getting_all_rolls(initiative.all_rolls,initiative.place_holder_source)
 	initiative._get_the_index_with_order()
 	initiative.all_actions.clear()
 	for i in initiative.all_rolls.size():
