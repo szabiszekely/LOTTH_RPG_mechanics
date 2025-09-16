@@ -66,18 +66,27 @@ func _camera_off():
 
 # this is where all the damage gets split apart for all the other functions to be handled
 func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_damage_magical):
-	var hit = Fight_stats._Damage_Taken(base_damage_phisical,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type,card_type,base_damage_magical,Fight_stats.Magic_Defense)
-	#print(str(Fight_stats.name)+": "+str(hit))
-	# this is where the death will play out
-	#if Fight_stats.HP == 0:
-		#death 
-	Bar.bar_damage_taken(hit)
-	var got_damage = damage_indicator.instantiate()
-	self.add_child(got_damage)
-	got_damage.taken_damage(hit)
-	_camera_on()
-	await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
-	_camera_off()
+	if Fight_stats.HP > 0 and !CharacterIsOut:
+		var hit = Fight_stats._Damage_Taken(base_damage_phisical,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type,card_type,base_damage_magical,Fight_stats.Magic_Defense)
+		Bar.bar_damage_taken(hit)
+		var got_damage = damage_indicator.instantiate()
+		self.add_child(got_damage)
+		got_damage.taken_damage(hit)
+		_camera_on()
+		await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
+		_camera_off()
+
+# when you take True Damage
+func _take_true_damage(base_damage):
+	if Fight_stats.HP > 0 and !CharacterIsOut:
+		var hit = Fight_stats._True_Damage_Taken(base_damage)
+		Bar.bar_damage_taken(hit)
+		var got_damage = damage_indicator.instantiate()
+		self.add_child(got_damage)
+		got_damage.true_taken_damage(hit)
+		_camera_on()
+		await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
+		_camera_off()
 
 # this is where you take card damage
 func _use_card_and_lose_eng(Name:String):
@@ -85,21 +94,8 @@ func _use_card_and_lose_eng(Name:String):
 	Bar.bar_damage_taken(hit)
 # or where you get back some eng or health
 func _use_card_and_gain_eng(Name:String,Heart_or_Eng: int):
-	#var hit =  Data.get_card_energy(Name)
-	#Bar.bar_damage_taken(hit)
 	Bar.bar_health_restored(Data.get_card_eng_healed(Name),Heart_or_Eng)
 
-# when you take True Damage
-func _take_true_damage(base_damage):
-	var hit = Fight_stats._True_Damage_Taken(base_damage)
-	#print(str(Fight_stats.name)+": "+str(hit))
-	Bar.bar_damage_taken(hit)
-	var got_damage = damage_indicator.instantiate()
-	self.add_child(got_damage)
-	got_damage.true_taken_damage(hit)
-	_camera_on()
-	await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
-	_camera_off()
 	
 func roll_of_the_luck():
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()
@@ -107,7 +103,6 @@ func roll_of_the_luck():
 	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
 	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
 	Initiative.all_rolls.append(initiative_peronality)
-	#print(Initiative.all_rolls)
 
 func _play_out_tick_down():
 	PlayOutOptions -= 1
@@ -118,7 +113,7 @@ func _play_out_tick_up():
 	_play_out_actions_up()
 
 
-# place holder function for other scripts to be handled
+# place holder functions for other scripts to be handled
 func _your_turn_on_set_up():
 	pass
 

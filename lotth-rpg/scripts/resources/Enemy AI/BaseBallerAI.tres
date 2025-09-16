@@ -15,4 +15,5 @@ energy_healing_percentage = 1.0
 energy_restore_bottomline = 0.3
 stronger_or_weaker = "Stronger"
 team_player = false
+failiure_increase_number = 0.075
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
