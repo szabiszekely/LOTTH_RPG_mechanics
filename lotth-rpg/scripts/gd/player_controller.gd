@@ -70,7 +70,7 @@ func _ready() -> void:
 			#skill.skill_base_damage
 			#skill.activate(get_tree())
 			#menu.ability_card_choice.ability_func._get_what_ability_got_used(Initiative.group_player.card_againts_players,menu,menu.enemy_group,menu.player_group,Initiative.group_player.index,0)
-			#Initiative.stopLoopInPlace.emit()
+			#Initiative.stopLoop.emit()
 			#Initiative.doTrapForLoop = false
 			#skill.indicator.reset()
 			#skill = null

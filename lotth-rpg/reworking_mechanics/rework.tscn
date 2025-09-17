@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=23 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://reworking_mechanics/BattleScene.gd" id="1_3ntn1"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/refrence_cross_road.tscn" id="2_blo5o"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://reworking_mechanics/player_group_reworked.gd" id="6_blo5o"]
 [ext_resource type="Script" uid="uid://cg06exgelwcxu" path="res://reworking_mechanics/enemy_group_reworked.gd" id="6_dsgni"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="7_ahsbf"]
-[ext_resource type="Resource" uid="uid://b5rud4uqx1g0a" path="res://scripts/resources/Decks/Baller_deck.tres" id="8_w24qp"]
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="9_4y57x"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="9_6avkf"]
 [ext_resource type="Texture2D" uid="uid://cyrxfj2klqis7" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller_different.png" id="9_brbw4"]
@@ -101,46 +100,10 @@ resource_local_to_scene = true
 script = ExtResource("13_4y57x")
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
-[sub_resource type="Resource" id="Resource_aihkf"]
-resource_local_to_scene = true
-script = ExtResource("9_4y57x")
-name = "Baller"
-Id = 0
-Friend_or_Foe = 1
-MAX_HP = 18
-MAX_ENG = 18
-HP = 18
-ENG = 18
-Attack_Type = 1
-Enemy_AI_type = "Angry"
-PlayerDeck = ExtResource("8_w24qp")
-Defense = 2
-MAX_EMP = 4
-Base_Phisical_Attack = 2
-Speed = 1
-
 [sub_resource type="Resource" id="Resource_lh1mx"]
 resource_local_to_scene = true
 script = ExtResource("13_4y57x")
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
-
-[sub_resource type="Resource" id="Resource_mo7hs"]
-resource_local_to_scene = true
-script = ExtResource("9_4y57x")
-name = "Baller"
-Id = 0
-Friend_or_Foe = 1
-MAX_HP = 18
-MAX_ENG = 18
-HP = 18
-ENG = 18
-Attack_Type = 1
-Enemy_AI_type = "Angry"
-PlayerDeck = ExtResource("8_w24qp")
-Defense = 2
-MAX_EMP = 4
-Base_Phisical_Attack = 2
-Speed = 1
 
 [node name="rework" type="Node2D"]
 script = ExtResource("1_3ntn1")
@@ -189,12 +152,10 @@ script = ExtResource("6_dsgni")
 [node name="Enemy" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
 position = Vector2(260, -77)
 EnemyAI = SubResource("Resource_6hxp8")
-Fight_stats = SubResource("Resource_aihkf")
 
 [node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
 position = Vector2(260, 43)
 EnemyAI = SubResource("Resource_lh1mx")
-Fight_stats = SubResource("Resource_mo7hs")
 Turn_portriat = ExtResource("9_brbw4")
 
 [node name="Camera2D" type="Camera2D" parent="."]

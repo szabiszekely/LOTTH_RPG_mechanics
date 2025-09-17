@@ -96,7 +96,8 @@ func _actions(stack):
 				print("Character is unavailable")
 		# WE NEED TO PUT A BREAKER HERE SO IT MAY ONLY CONTINUES AFTER THE THING ENDED
 		if initiative.doTrapForLoop:
-			await initiative.stopLoopInPlace
+			await initiative.stopLoop
+			initiative.doTrapForLoop = false
 			#print("DOESN'T WROK ;-;")
 			#break
 		

@@ -9,7 +9,7 @@ class_name Character_Controller
 @onready var hitbox: CollisionShape2D = $Hitbox
 @onready var Initiative = RefrenceNode.InitiativeHandler
 @onready var menu = RefrenceNode.Menu
-
+@onready var character_anim: AnimatedSprite2D = $character_animator
 
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
@@ -83,6 +83,25 @@ func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_dama
 				Initiative.all_rolls.remove_at(index)
 			else:
 				index += 1
+		Initiative.sorted_enemies.erase(self)
+		Initiative.sorted_player.erase(self)
+		print(Initiative.sorted_enemies," ",Initiative.sorted_player)
+		Initiative.doTrapForLoop = true
+		character_anim.pause()
+		var soul_fire = preload("res://scenes/soul_fire.tscn").instantiate()
+		soul_fire.hide()
+		soul_fire.modulate = Color.TRANSPARENT
+		soul_fire.position = self.global_position
+		RefrenceNode.MainNode.add_child(soul_fire)
+		var tween = get_tree().create_tween()
+		tween.tween_property(character_anim,"modulate",Color.TRANSPARENT,10).set_trans(Tween.TRANS_ELASTIC)
+		await get_tree().create_timer(4).timeout
+		character_anim.pause()
+		var tween2 = get_tree().create_tween()
+		soul_fire.show()
+		tween2.tween_property(soul_fire,"modulate",Color.WHITE,3)
+		await tween.finished
+		Initiative.stopLoop.emit()
 		self.queue_free()
 		Bar.queue_free()
 
