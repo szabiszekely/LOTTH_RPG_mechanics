@@ -69,14 +69,59 @@ func _camera_off():
 func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_damage_magical):
 	if Fight_stats.HP > 0 and !CharacterIsOut:
 		var hit = Fight_stats._Damage_Taken(base_damage_phisical,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type,card_type,base_damage_magical,Fight_stats.Magic_Defense)
-		Bar.bar_damage_taken(hit)
-		var got_damage = damage_indicator.instantiate()
-		self.add_child(got_damage)
-		got_damage.taken_damage(hit)
-		_camera_on()
-		await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
-		_camera_off()
+		var which_damage = false
+		_comprassed_take_damage(which_damage,hit)
 	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:
+		_fade_away_death()
+		
+# when you take True Damage
+func _take_true_damage(base_damage):
+	if Fight_stats.HP > 0 and !CharacterIsOut:
+		var hit = Fight_stats._True_Damage_Taken(base_damage)
+		var which_damage = true
+		_comprassed_take_damage(which_damage,hit)
+	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:
+		_fade_away_death()
+
+# this is where you take card damage
+func _use_card_and_lose_eng(Name:String):
+	var hit = Data.get_card_energy(Name)
+	Bar.bar_damage_taken(hit)
+# or where you get back some eng or health
+func _use_card_and_gain_eng(Name:String,Heart_or_Eng: int):
+	Bar.bar_health_restored(Data.get_card_eng_healed(Name),Heart_or_Eng)
+
+	
+func roll_of_the_luck():
+	var roll = Fight_stats.Speed + Fight_stats._Initiative()
+	# this is where the rolls and other stats that needs them to be determend are stored
+	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
+	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
+	Initiative.all_rolls.append(initiative_peronality)
+
+func _play_out_tick_down():
+	PlayOutOptions -= 1
+	_play_out_actions_down()
+
+func _play_out_tick_up():
+	PlayOutOptions += 1
+	_play_out_actions_up()
+
+func _comprassed_take_damage(card:bool,hit):
+	Bar.bar_damage_taken(hit)
+	var got_damage = damage_indicator.instantiate()
+	self.add_child(got_damage)
+	
+	if card:
+		got_damage.true_taken_damage(hit)
+	else:
+		got_damage.taken_damage(hit)
+	
+	_camera_on()
+	await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
+	_camera_off()
+
+func _fade_away_death():
 		var index = 0
 		for i in Initiative.all_rolls:
 			if self == i[-1]:
@@ -104,42 +149,6 @@ func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_dama
 		Initiative.stopLoop.emit()
 		self.queue_free()
 		Bar.queue_free()
-
-# when you take True Damage
-func _take_true_damage(base_damage):
-	if Fight_stats.HP > 0 and !CharacterIsOut:
-		var hit = Fight_stats._True_Damage_Taken(base_damage)
-		Bar.bar_damage_taken(hit)
-		var got_damage = damage_indicator.instantiate()
-		self.add_child(got_damage)
-		got_damage.true_taken_damage(hit)
-		_camera_on()
-		await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
-		_camera_off()
-
-# this is where you take card damage
-func _use_card_and_lose_eng(Name:String):
-	var hit = Data.get_card_energy(Name)
-	Bar.bar_damage_taken(hit)
-# or where you get back some eng or health
-func _use_card_and_gain_eng(Name:String,Heart_or_Eng: int):
-	Bar.bar_health_restored(Data.get_card_eng_healed(Name),Heart_or_Eng)
-
-	
-func roll_of_the_luck():
-	var roll = Fight_stats.Speed + Fight_stats._Initiative()
-	# this is where the rolls and other stats that needs them to be determend are stored
-	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
-	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
-	Initiative.all_rolls.append(initiative_peronality)
-
-func _play_out_tick_down():
-	PlayOutOptions -= 1
-	_play_out_actions_down()
-
-func _play_out_tick_up():
-	PlayOutOptions += 1
-	_play_out_actions_up()
 
 
 # place holder functions for other scripts to be handled

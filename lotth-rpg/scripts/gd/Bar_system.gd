@@ -54,7 +54,6 @@ func _process(_delta: float) -> void:
 		#assined_characters.queue_free()
 func bar_damage_taken(damage:int):
 	
-	
 	for i in damage:
 		# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
 		if not ENG_bar.material.get_shader_parameter("value") < 0:
@@ -90,6 +89,8 @@ func bar_damage_taken(damage:int):
 					if j.CharacterIsOut == true:
 						knocked_out_counter_player += 1
 				if knocked_out_counter_player >= len(assined_characters.Initiative.sorted_player):
+					# End of the game
+					print("Enemy wins")
 					get_tree().quit()
 			else:
 				var knocked_out_counter_enemy = 0
@@ -97,6 +98,8 @@ func bar_damage_taken(damage:int):
 					if j.CharacterIsOut == true:
 						knocked_out_counter_enemy += 1
 				if knocked_out_counter_enemy >= len(assined_characters.Initiative.sorted_enemies):
+					# End of the game
+					print("Player wins")
 					get_tree().quit()
 				
 		else:

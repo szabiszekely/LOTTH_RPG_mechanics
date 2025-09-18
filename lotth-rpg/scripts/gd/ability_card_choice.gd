@@ -35,6 +35,8 @@ var page_turn = false
 @onready var next_previouse_page: Button = $Next_Previouse_Page
 @onready var page_1: Label = $"PanelContainer/MarginContainer/Grid 1_2/Label"
 @onready var page_2: Label = $"PanelContainer/MarginContainer/Grid 2_2/Label"
+@onready var not_enough_energy: Label = $Not_Enough_Energy
+@onready var release_tries: Timer = $Release_tries
 
 @onready var menu = RefrenceNode.Menu
 @onready var ability_func= RefrenceNode.AbiHandler
@@ -42,13 +44,16 @@ var page_turn = false
 @onready var enemy = RefrenceNode.EnemyGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
 
-
+var tries = 0
 
 @onready var ability_inventory = [button,button_2,button_3,button_4,button_5,button_6,button_7,button_8,button_9,button_10,button_11,button_12,button_13,button_14,button_15,button_16,button_17,button_18] 
 # this will get replaced with the characters actual deck! but as basic you will get a placeholder deck
 var deck = preload("res://scripts/resources/Decks/Lil_guy_deck.tres").Deck
 func _ready() -> void:
 	#when the scene strts I just disable all the buttons that I do not need! 
+	not_enough_energy.hide()
+	not_enough_energy.modulate = Color.TRANSPARENT
+	
 	for i in ability_inventory:
 		i.disabled = true
 		i.modulate = Color.TRANSPARENT
@@ -142,40 +147,63 @@ func focused() -> void:
 	
 
 # when you press it you will get the:
+var breaking_card = false
 func pressed() -> void:
-	# the name of the choosen buttons name
+	release_tries.stop()
+	# and the target range
 	var used_card_name = get_viewport().gui_get_focus_owner().text
+	# the name of the choosen buttons name
 	# the energy cost of that card
 	var hit = Data.get_card_energy(used_card_name)
-	# and the target range
-	var target = Data.get_card_range(used_card_name)
+	if hit > initiative.sorted_player[player.p_index].Fight_stats.ENG:
+		not_enough_energy.show()
+		var tween = get_tree().create_tween()
+		tween.tween_property(not_enough_energy,"modulate",Color.WHITE,0.1).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(not_enough_energy,"modulate",Color.TRANSPARENT,0.4)
+		await tween.finished
+		if tries >= 3:
+			breaking_card = true
+			not_enough_energy.text = "Fine!"
+			await get_tree().create_timer(0.5).timeout
+			tries = 0
+			not_enough_energy.text = "Not Enough Energy"
+		else:
+			tries += 1
+			release_tries.start()
+			await release_tries.timeout
+			tries = 0
+		not_enough_energy.hide()
 	
-	#hide the menu and than see which of the 3 (4 perhaps later) chategory is it inside!
-	menu.vanish()
-	if str(target) == "Self":
-		# if its self it is likely that you want to select the players so you can select which of the party
-		# members do you want to select
-		menu.choose_player_container = true
-		player.card_againts_players = used_card_name
-		menu.current_state = menu.Menu_state.CHOOSING_PLAYERS
-	
-	elif str(target) == "Target":
-		# if its target than you will choose one of the enemies regaurdless of distance
-		menu.choose_enemy_container = true
-		enemy.card_againts_enemies = used_card_name
-		menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
-# in both case is we set it up for the menu to handle our choice! Where we change our state to be either of
-# the 2!
-
-	else:
-		#in this case we put it on hold and we use a simple function handler that will spawn down everything
-		# we need to handle a range capped move!
-		player.card_againts_players = used_card_name
-		player.all_p_actions.push_back(["atk",2,initiative.sorted_player[player.p_index],0,used_card_name])
+	if breaking_card or hit <= initiative.sorted_player[player.p_index].Fight_stats.ENG:
+		breaking_card = false
+		var target = Data.get_card_range(used_card_name)
 		
-		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
-		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
-		# THANK YOU!
-		initiative.sorted_player[player.sub_index]._play_out_tick_down()
-		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
-			player.call_menu_appear()
+		#hide the menu and than see which of the 3 (4 perhaps later) chategory is it inside!
+		menu.vanish()
+		if str(target) == "Self":
+			# if its self it is likely that you want to select the players so you can select which of the party
+			# members do you want to select
+			menu.choose_player_container = true
+			player.card_againts_players = used_card_name
+			menu.current_state = menu.Menu_state.CHOOSING_PLAYERS
+		
+		elif str(target) == "Target":
+			# if its target than you will choose one of the enemies regaurdless of distance
+			menu.choose_enemy_container = true
+			enemy.card_againts_enemies = used_card_name
+			menu.current_state = menu.Menu_state.CHOOSING_ENEMIES
+	# in both case is we set it up for the menu to handle our choice! Where we change our state to be either of
+	# the 2!
+
+		else:
+			#in this case we put it on hold and we use a simple function handler that will spawn down everything
+			# we need to handle a range capped move!
+			player.card_againts_players = used_card_name
+			player.all_p_actions.push_back(["atk",2,initiative.sorted_player[player.p_index],0,used_card_name])
+			
+			# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
+			# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
+			# THANK YOU!
+			initiative.sorted_player[player.sub_index]._play_out_tick_down()
+			if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
+				player.call_menu_appear()
