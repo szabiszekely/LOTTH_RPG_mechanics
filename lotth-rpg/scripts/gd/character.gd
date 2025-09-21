@@ -14,7 +14,7 @@ class_name Character_Controller
 @export var speed:int = 400
 @export var Fight_stats: Fighting_Stats
 @export var Turn_portriat: CompressedTexture2D
-@export var Bar: Indicator_bar
+@export var Bar: Bar_system
 @export var cam_target: Node2D
 
 var CharacterIsOut: bool = false

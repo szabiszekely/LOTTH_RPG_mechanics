@@ -22,7 +22,6 @@ texture = ExtResource("3_u207d")
 texture = ExtResource("4_yhdwd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xd0f5"]
-resource_local_to_scene = true
 shader = ExtResource("5_k8pus")
 shader_parameter/bar_mode = 4
 shader_parameter/fill_mode = 0
@@ -84,7 +83,6 @@ shader_parameter/scale = 0.0
 shader_parameter/slant_clip_margin = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e0meg"]
-resource_local_to_scene = true
 shader = ExtResource("5_k8pus")
 shader_parameter/bar_mode = 0
 shader_parameter/fill_mode = 0
@@ -146,12 +144,11 @@ shader_parameter/scale = 0.0
 shader_parameter/slant_clip_margin = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8itv2"]
-resource_local_to_scene = true
 shader = ExtResource("5_k8pus")
 shader_parameter/bar_mode = 0
 shader_parameter/fill_mode = 0
 shader_parameter/segment_count = 25
-shader_parameter/discrete_fill_amount = 25
+shader_parameter/discrete_fill_amount = 12
 shader_parameter/fade_fill_amount = 1.0
 shader_parameter/pour_fill_amount = 1.0
 shader_parameter/animation_speed = 1.0
@@ -208,7 +205,6 @@ shader_parameter/scale = 0.0
 shader_parameter/slant_clip_margin = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e6dm4"]
-resource_local_to_scene = true
 shader = ExtResource("5_k8pus")
 shader_parameter/bar_mode = 4
 shader_parameter/fill_mode = 0
@@ -281,10 +277,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
-offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(4, 4)
 script = ExtResource("1_e6dm4")
 
 [node name="Name_tab" type="Panel" parent="."]
@@ -400,7 +395,6 @@ offset_bottom = 61.0
 script = ExtResource("6_rdvyn")
 
 [node name="ADR_Bar" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_e6dm4")
 layout_mode = 0
 offset_left = 4.0
@@ -419,14 +413,8 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_j3d28")
 
 [node name="Action_remaining" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 356.0
-offset_top = 51.0
-offset_right = 440.0
-offset_bottom = 98.0
+offset_left = 345.0
+offset_top = 36.0
+offset_right = 429.0
+offset_bottom = 83.0
 theme_override_constants/separation = 23
-
-[node name="Health_pos" type="Marker2D" parent="."]
-position = Vector2(147, 7)
-
-[node name="Energy_pos" type="Marker2D" parent="."]
-position = Vector2(238, 3)

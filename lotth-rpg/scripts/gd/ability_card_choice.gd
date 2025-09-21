@@ -161,9 +161,9 @@ func pressed() -> void:
 		tween.tween_property(not_enough_energy,"modulate",Color.WHITE,0.1).set_trans(Tween.TRANS_BOUNCE)
 		tween.tween_property(not_enough_energy,"modulate",Color.TRANSPARENT,0.4)
 		await tween.finished
-		if tries >= 3:
+		if tries >= 2:
 			breaking_card = true
-			not_enough_energy.text = "Fine!"
+			not_enough_energy.text = "Fine! Chill!"
 			await get_tree().create_timer(0.5).timeout
 			tries = 0
 			not_enough_energy.text = "Not Enough Energy"

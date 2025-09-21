@@ -2,7 +2,7 @@ extends Character_Controller
 class_name Enemy
 #This is the enemy Controller!
 
-@onready var Enemy_health_bar = $Bar_system
+@onready var Enemy_health_bar = $Bar_System
 @onready var enemy = RefrenceNode.EnemyGroup
 @export var EnemyAI: SetupEnemyAI
 @onready var enemy_group = RefrenceNode.EnemyGroup

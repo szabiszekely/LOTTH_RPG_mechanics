@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://drwei0kix2h5l" path="res://scenes/action_option_box.tscn" id="12_1fmx7"]
 [ext_resource type="PackedScene" uid="uid://diogqwfdea76u" path="res://text_folder/static_text_box.tscn" id="13_np6xt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h407m"]
-bg_color = Color(0.631373, 0.607843, 0.290196, 0.392157)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dry1"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.392157)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -28,8 +28,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 4
-shadow_color = Color(0.17, 0.17, 0.1071, 0.27451)
-shadow_size = 30
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83ulq"]
 bg_color = Color(0.63, 0.60732, 0.2898, 0.392157)
@@ -47,8 +47,8 @@ corner_detail = 4
 shadow_color = Color(0.17, 0.167903, 0.1071, 0.27451)
 shadow_size = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dry1"]
-bg_color = Color(0.219608, 0.219608, 0.219608, 0.392157)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h407m"]
+bg_color = Color(0.631373, 0.607843, 0.290196, 0.392157)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -60,8 +60,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 4
-shadow_color = Color(0, 0, 0, 0.392157)
-shadow_size = 50
+shadow_color = Color(0.17, 0.17, 0.1071, 0.27451)
+shadow_size = 30
 
 [node name="UI_battle_menu" type="CanvasLayer"]
 layer = 2
@@ -96,10 +96,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Run")
 focus_neighbor_right = NodePath("../Action")
-theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
 theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Abilities"
 script = ExtResource("1_f1usb")
 
@@ -108,10 +108,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Abilities")
 focus_neighbor_right = NodePath("../Bagpack")
-theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
 theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Action"
 script = ExtResource("2_p8kw2")
 
@@ -120,10 +120,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Action")
 focus_neighbor_right = NodePath("../Run")
-theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
 theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Bagpack"
 script = ExtResource("3_xylpc")
 
@@ -132,10 +132,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Bagpack")
 focus_neighbor_right = NodePath("../Abilities")
-theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
 theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Run"

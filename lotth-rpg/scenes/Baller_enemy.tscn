@@ -1,17 +1,15 @@
-[gd_scene load_steps=131 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=118 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="2_htaiq"]
 [ext_resource type="Resource" uid="uid://bj3fn2unm1n7c" path="res://scripts/resources/Enemy AI/BaseBallerAI.tres" id="2_j5hb2"]
-[ext_resource type="PackedScene" uid="uid://dpreubai0v75h" path="res://scenes/Bar_system.tscn" id="4_700jv"]
 [ext_resource type="Resource" uid="uid://dps5ywyu0gs31" path="res://scripts/resources/CH/Baller_Figting_Stats.tres" id="4_ndcdo"]
 [ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280.png" id="5_bdy0d"]
 [ext_resource type="Texture2D" uid="uid://03iikdxlfaja" path="res://assets/sprite/Simple Enemie/Baller_KO.png" id="5_cyr8h"]
-[ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="5_grx1e"]
-[ext_resource type="Shader" uid="uid://ckhvlyetwr75x" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="6_fua16"]
-[ext_resource type="Shader" uid="uid://ctxyivki7n00q" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="7_1uto1"]
 [ext_resource type="Texture2D" uid="uid://b02hk34luoif5" path="res://assets/sprite/Simple Enemie/Baller_tired.png" id="7_vev7h"]
+[ext_resource type="PackedScene" uid="uid://des8df6ewmnm7" path="res://reworking_mechanics/reworked_Bar_system.tscn" id="9_ta5tx"]
+[ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://reworking_mechanics/progress_bar.gdshader" id="10_j5hb2"]
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr128"]
@@ -820,20 +818,20 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xqu45"]
 advance_mode = 2
-advance_expression = "Bar.ENG_bar.material.get_shader_parameter(\"value\") <= 0"
+advance_expression = "Bar.ENG_bar.get_current_value() <= 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0lgag"]
 advance_mode = 2
-advance_expression = "Bar.ENG_bar.material.get_shader_parameter(\"value\") > 0
+advance_expression = "Bar.ENG_bar.get_current_value() > 0
 "
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lyht5"]
 advance_mode = 2
-advance_expression = "Bar.HP_bar.material.get_shader_parameter(\"value\") <= 0"
+advance_expression = "Bar.HP_bar.get_current_value() <= 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7i7dh"]
 advance_mode = 2
-advance_expression = "Bar.HP_bar.material.get_shader_parameter(\"value\") > 0
+advance_expression = "Bar.HP_bar.get_current_value() > 0
 "
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gcdhj"]
@@ -848,93 +846,260 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
 size = Vector2(12.2516, 17.7778)
 
-[sub_resource type="Gradient" id="Gradient_klmtg"]
-colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1, 0.0509804, 0.0509804, 0.0509804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5uam"]
-gradient = SubResource("Gradient_klmtg")
-
-[sub_resource type="Gradient" id="Gradient_wbj3g"]
-colors = PackedColorArray(0.04, 0.04, 0.04, 0.588235, 0.06, 0.06, 0.06, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0qvl"]
-gradient = SubResource("Gradient_wbj3g")
-fill_from = Vector2(0.543011, 0.543011)
-fill_to = Vector2(0.537634, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmgev"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1inbq"]
 resource_local_to_scene = true
-shader = ExtResource("5_grx1e")
-shader_parameter/stepify = true
-shader_parameter/value = 1.0
-shader_parameter/count = 1
-shader_parameter/margin = Vector2(0, 0)
-shader_parameter/shear_angle = 0.0
-shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
-shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
+shader = ExtResource("10_j5hb2")
+shader_parameter/bar_mode = 4
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 100
+shader_parameter/discrete_fill_amount = 100
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.11200012, 0.96, 0, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0, 0, 0, 1)
+shader_parameter/fluid_highlight_color = Color(0.24319999, 0.3116, 0.38, 1)
+shader_parameter/fluid_shadow_color = Color(0.018700002, 0.055219986, 0.11, 1)
+shader_parameter/fluid_flow_speed = 1.25000005611512
+shader_parameter/fluid_turbulence = 0.27500000980262
+shader_parameter/fluid_noise_scale = 12.0000005225
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 0
+shader_parameter/effect_strength = 0.3
+shader_parameter/effect_speed = 1.5
+shader_parameter/wave_thickness = 0.1
+shader_parameter/bubbles_aspect_ratio = 1.0
+shader_parameter/vertical_gradient = true
+shader_parameter/V_gradient_strength = 0.6
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.49999997625
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
 
-[sub_resource type="Gradient" id="Gradient_voo0t"]
-colors = PackedColorArray(0.890196, 0.235294, 0.160784, 1, 0.890196, 0.235294, 0.160784, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kjh8r"]
-gradient = SubResource("Gradient_voo0t")
-
-[sub_resource type="Gradient" id="Gradient_plcdc"]
-colors = PackedColorArray(0.7, 0.1204, 0.056, 0.784314, 0.91, 0.35308, 0.2912, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xn2i6"]
-gradient = SubResource("Gradient_plcdc")
-fill_from = Vector2(0.505376, 0.672043)
-fill_to = Vector2(0.526882, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e7ddh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyr8h"]
 resource_local_to_scene = true
-shader = ExtResource("6_fua16")
-shader_parameter/stepify = true
-shader_parameter/value = 1.0
-shader_parameter/count = 20
-shader_parameter/margin = Vector2(0.28, 0)
-shader_parameter/shear_angle = 0.0
-shader_parameter/gradient_x = SubResource("GradientTexture2D_kjh8r")
-shader_parameter/gradient_y = SubResource("GradientTexture2D_xn2i6")
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
+shader = ExtResource("10_j5hb2")
+shader_parameter/bar_mode = 0
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 25
+shader_parameter/discrete_fill_amount = 25
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.77, 0.012833321, 0, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.8, 0.9, 1, 1)
+shader_parameter/fluid_shadow_color = Color(0.1, 0.3, 0.6, 1)
+shader_parameter/fluid_flow_speed = 1.5
+shader_parameter/fluid_turbulence = 1.0
+shader_parameter/fluid_noise_scale = 6.0
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 1
+shader_parameter/effect_strength = 0.400000019
+shader_parameter/effect_speed = 0.35000001336512
+shader_parameter/wave_thickness = 0.05000000167648
+shader_parameter/bubbles_aspect_ratio = 1.0
+shader_parameter/vertical_gradient = true
+shader_parameter/V_gradient_strength = 0.3600000171
+shader_parameter/horizontal_gradient = true
+shader_parameter/H_gradient_strength = 0.750000035625
+shader_parameter/segment_gap = -0.03999995440000004
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
 
-[sub_resource type="Gradient" id="Gradient_cjxav"]
-colors = PackedColorArray(0.207843, 0.890196, 0.160784, 1, 0.207843, 0.890196, 0.160784, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lgqhl"]
-gradient = SubResource("Gradient_cjxav")
-
-[sub_resource type="Gradient" id="Gradient_iavw6"]
-colors = PackedColorArray(0.0989333, 0.7, 0.056, 0.784314, 0.332453, 0.91, 0.2912, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_i1bxa"]
-gradient = SubResource("Gradient_iavw6")
-fill_from = Vector2(0.494624, 0.66129)
-fill_to = Vector2(0.483871, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkofe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vev7h"]
 resource_local_to_scene = true
-shader = ExtResource("7_1uto1")
-shader_parameter/stepify = true
-shader_parameter/value = 1.0
-shader_parameter/count = 30
-shader_parameter/margin = Vector2(0.4, 0)
-shader_parameter/shear_angle = 0.0
-shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
-shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
+shader = ExtResource("10_j5hb2")
+shader_parameter/bar_mode = 0
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 25
+shader_parameter/discrete_fill_amount = 12
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.18200003, 0.84, 0, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.8, 0.9, 1, 1)
+shader_parameter/fluid_shadow_color = Color(0.1, 0.3, 0.6, 1)
+shader_parameter/fluid_flow_speed = 1.5
+shader_parameter/fluid_turbulence = 1.0
+shader_parameter/fluid_noise_scale = 6.0
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 2
+shader_parameter/effect_strength = 0.250000011875
+shader_parameter/effect_speed = 2.50000011549012
+shader_parameter/wave_thickness = 0.20000000880148
+shader_parameter/bubbles_aspect_ratio = 0.75
+shader_parameter/vertical_gradient = false
+shader_parameter/V_gradient_strength = 0.6
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.07499995606249998
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dr128"]
+resource_local_to_scene = true
+shader = ExtResource("10_j5hb2")
+shader_parameter/bar_mode = 4
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 40
+shader_parameter/discrete_fill_amount = 20
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.7000003, 0, 1, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0.49, 0.745, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.25550002, 0.31876662, 0.73, 0.9882353)
+shader_parameter/fluid_shadow_color = Color(0.14999998, 0.9433332, 1, 1)
+shader_parameter/fluid_flow_speed = 2.00000009174012
+shader_parameter/fluid_turbulence = 1.06100004713762
+shader_parameter/fluid_noise_scale = 11.4470004962325
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.10000000149012
+shader_parameter/effect_mode = 2
+shader_parameter/effect_strength = 0.6000000285
+shader_parameter/effect_speed = 2.50000011549012
+shader_parameter/wave_thickness = 0.37400001706648
+shader_parameter/bubbles_aspect_ratio = 2.5
+shader_parameter/vertical_gradient = false
+shader_parameter/V_gradient_strength = 0.6
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.49999997625000003
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target") groups=["Enemy"]]
 script = ExtResource("1_pbqx5")
 EnemyAI = ExtResource("2_j5hb2")
 Fight_stats = ExtResource("4_ndcdo")
 Turn_portriat = ExtResource("2_gg1ba")
-Bar = NodePath("Bar_system")
+Bar = NodePath("Bar_System")
 cam_target = NodePath("PCamTarget")
 
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
@@ -969,6 +1134,44 @@ position = Vector2(-3, -54)
 scale = Vector2(3, 3)
 texture = ExtResource("2_htaiq")
 
+[node name="Bar_System" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("9_ta5tx")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.00001
+offset_top = -79.0
+offset_right = -122.00001
+offset_bottom = -79.0
+scale = Vector2(0.65, 0.65)
+assined_characters = NodePath("..")
+
+[node name="Name_tab" parent="Bar_System" index="0"]
+visible = false
+
+[node name="Health" parent="Bar_System" index="1"]
+visible = false
+
+[node name="Energy" parent="Bar_System" index="2"]
+visible = false
+
+[node name="Null_BG" parent="Bar_System" index="3"]
+material = SubResource("ShaderMaterial_1inbq")
+
+[node name="HP_Bar" parent="Bar_System" index="4"]
+material = SubResource("ShaderMaterial_cyr8h")
+
+[node name="ENG_Bar" parent="Bar_System" index="5"]
+material = SubResource("ShaderMaterial_vev7h")
+
+[node name="ADR_Bar" parent="Bar_System" index="6"]
+material = SubResource("ShaderMaterial_dr128")
+
+[node name="Action_remaining" parent="Bar_System" index="8"]
+visible = false
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
@@ -979,46 +1182,6 @@ radius = 150.0
 enabled = false
 priority = 1
 
-[node name="Bar_system" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("4_700jv")]
-visible = false
-offset_left = -114.0
-offset_top = -107.0
-offset_right = -114.0
-offset_bottom = -107.0
-scale = Vector2(1.74, 1.74)
-assined_characters = NodePath("..")
-
-[node name="Name_tab" parent="Bar_system" index="0"]
-visible = false
-
-[node name="Health" parent="Bar_system" index="1"]
-visible = false
-
-[node name="Energy" parent="Bar_system" index="2"]
-visible = false
-
-[node name="NULL" parent="Bar_system" index="3"]
-material = SubResource("ShaderMaterial_gmgev")
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 132.0
-offset_bottom = 13.0
-
-[node name="HP_Segmented_Bar" parent="Bar_system" index="4"]
-material = SubResource("ShaderMaterial_e7ddh")
-offset_right = 119.0
-offset_bottom = 13.0
-
-[node name="ENG_Segmented_Bar" parent="Bar_system" index="5"]
-material = SubResource("ShaderMaterial_hkofe")
-offset_top = 4.0
-offset_right = 119.0
-offset_bottom = 12.0
-
-[node name="Bar_Border" parent="Bar_system" index="6"]
-offset_right = 122.0
-offset_bottom = 14.0
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1027,4 +1190,4 @@ position = Vector2(-3.02646, -11)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
 
-[editable path="Bar_system"]
+[editable path="Bar_System"]

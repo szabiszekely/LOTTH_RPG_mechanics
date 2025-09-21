@@ -91,8 +91,8 @@ func _TurnIsOver():
 	pass
 
 func _EnemyCurrentBarStatus():
-	enemy_current_ENG = enemy_it_self.Bar.ENG_bar.material.get_shader_parameter("value")
-	enemy_current_HP = enemy_it_self.Bar.HP_bar.material.get_shader_parameter("value")
+	enemy_current_ENG = enemy_it_self.Bar.ENG_bar.get_current_value()
+	enemy_current_HP = enemy_it_self.Bar.HP_bar.get_current_value()
 func _sort_before_self(self_e):
 
 	for i in initiative.all_rolls: 
