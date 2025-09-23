@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=119 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b02hk34luoif5" path="res://assets/sprite/Simple Enemie/Baller_tired.png" id="7_vev7h"]
 [ext_resource type="PackedScene" uid="uid://des8df6ewmnm7" path="res://reworking_mechanics/reworked_Bar_system.tscn" id="9_ta5tx"]
 [ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://reworking_mechanics/progress_bar.gdshader" id="10_j5hb2"]
+[ext_resource type="PackedScene" uid="uid://d23654pnsrl51" path="res://scenes/reworked_emp_bar_system.tscn" id="12_1inbq"]
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr128"]
@@ -1085,7 +1086,7 @@ shader_parameter/vertical_gradient = false
 shader_parameter/V_gradient_strength = 0.6
 shader_parameter/horizontal_gradient = false
 shader_parameter/H_gradient_strength = 0.75
-shader_parameter/segment_gap = -0.49999997625000003
+shader_parameter/segment_gap = -0.49999997625
 shader_parameter/universal_border_size = 0.1
 shader_parameter/horizontal_border_size = 1.0
 shader_parameter/inner_border_thickness_multiplier = 1.0
@@ -1135,7 +1136,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_htaiq")
 
 [node name="Bar_System" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("9_ta5tx")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1171,6 +1171,15 @@ material = SubResource("ShaderMaterial_dr128")
 
 [node name="Action_remaining" parent="Bar_System" index="8"]
 visible = false
+
+[node name="EMP_Bar_System" parent="Bar_System" node_paths=PackedStringArray("assined_characters") instance=ExtResource("12_1inbq")]
+layout_mode = 1
+offset_left = 341.5385
+offset_top = 83.07693
+offset_right = 341.5385
+offset_bottom = 83.07693
+scale = Vector2(0.65, 0.65)
+assined_characters = NodePath("../..")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true

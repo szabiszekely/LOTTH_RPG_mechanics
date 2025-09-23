@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://d23654pnsrl51"]
+
+[ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://reworking_mechanics/progress_bar.gdshader" id="1_a1m6u"]
+[ext_resource type="Script" uid="uid://i73qvieki2a2" path="res://scripts/gd/reworked_emp_bar_system.gd" id="1_kuqpx"]
+[ext_resource type="Script" uid="uid://bhn3gywy1uo55" path="res://reworking_mechanics/progress_bar.gd" id="2_kuqpx"]
+[ext_resource type="Texture2D" uid="uid://kpha853q3786" path="res://assets/sprite/UI/new_EMP_Bar_Border.png" id="3_rg4rf"]
+[ext_resource type="Texture2D" uid="uid://dx3jvj4yrgfnp" path="res://assets/sprite/UI/Godess_head.png" id="4_wro5a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yrb25"]
+shader = ExtResource("1_a1m6u")
+shader_parameter/bar_mode = 0
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 25
+shader_parameter/discrete_fill_amount = 0
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.0066000004, 0.11, 0.03245, 1)
+shader_parameter/filled_color = Color(1, 0.98516667, 0.110000014, 1)
+shader_parameter/border_color = Color(0.73, 0.365, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/scan_steps = 20
+shader_parameter/edge_smoothness = 0.10000000149012
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 1.010000024225
+shader_parameter/fluid_base_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.8, 0.9, 1, 1)
+shader_parameter/fluid_shadow_color = Color(0.1, 0.3, 0.6, 1)
+shader_parameter/fluid_flow_speed = 1.5
+shader_parameter/fluid_turbulence = 1.0
+shader_parameter/fluid_noise_scale = 6.0
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 1
+shader_parameter/effect_strength = 0.350000016625
+shader_parameter/effect_speed = 0.30000001099011997
+shader_parameter/wave_thickness = 0.10000000405148
+shader_parameter/bubbles_aspect_ratio = 1.0
+shader_parameter/vertical_gradient = true
+shader_parameter/V_gradient_strength = 0.3970000188575
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.003999952689999975
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mng7"]
+texture = ExtResource("3_rg4rf")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="EMP_Bar_System" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 152.0
+offset_right = -1640.0
+offset_bottom = -688.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+script = ExtResource("1_kuqpx")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 4.244461
+offset_top = 6.3511353
+offset_right = 103.04553
+offset_bottom = 58.617332
+color = Color(0.093, 0.15, 0.11200001, 1)
+
+[node name="EMP_Meter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yrb25")
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0539174
+offset_right = 101.21325
+offset_bottom = 60.904224
+script = ExtResource("2_kuqpx")
+
+[node name="EMP_Bar_Border" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -1.1397839
+offset_top = 3.7703483
+offset_right = 96.860214
+offset_bottom = 54.770348
+scale = Vector2(1.1, 1.1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_8mng7")
+
+[node name="godess_head" type="Sprite2D" parent="."]
+position = Vector2(131, 33)
+texture = ExtResource("4_wro5a")
+hframes = 2
