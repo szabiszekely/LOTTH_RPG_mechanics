@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dx3jvj4yrgfnp" path="res://assets/sprite/UI/Godess_head.png" id="4_wro5a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yrb25"]
+resource_local_to_scene = true
 shader = ExtResource("1_a1m6u")
 shader_parameter/bar_mode = 0
 shader_parameter/fill_mode = 0
