@@ -1135,7 +1135,7 @@ position = Vector2(-3, -54)
 scale = Vector2(3, 3)
 texture = ExtResource("2_htaiq")
 
-[node name="Bar_System" parent="." node_paths=PackedStringArray("assined_characters") instance=ExtResource("9_ta5tx")]
+[node name="Bar_System" parent="." node_paths=PackedStringArray("assined_characters", "emp_bar") instance=ExtResource("9_ta5tx")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1147,6 +1147,7 @@ offset_right = -122.00001
 offset_bottom = -79.0
 scale = Vector2(0.65, 0.65)
 assined_characters = NodePath("..")
+emp_bar = NodePath("EMP_Bar_System")
 
 [node name="Name_tab" parent="Bar_System" index="0"]
 visible = false
@@ -1174,10 +1175,10 @@ visible = false
 
 [node name="EMP_Bar_System" parent="Bar_System" node_paths=PackedStringArray("assined_characters") instance=ExtResource("12_1inbq")]
 layout_mode = 1
-offset_left = 341.5385
-offset_top = 83.07693
-offset_right = 341.5385
-offset_bottom = 83.07693
+offset_left = 341.0
+offset_top = 83.0
+offset_right = 341.0
+offset_bottom = 83.0
 scale = Vector2(0.65, 0.65)
 assined_characters = NodePath("../..")
 

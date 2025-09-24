@@ -10,7 +10,7 @@
 shader = ExtResource("1_a1m6u")
 shader_parameter/bar_mode = 0
 shader_parameter/fill_mode = 0
-shader_parameter/segment_count = 25
+shader_parameter/segment_count = 35
 shader_parameter/discrete_fill_amount = 0
 shader_parameter/fade_fill_amount = 1.0
 shader_parameter/pour_fill_amount = 1.0
@@ -58,7 +58,7 @@ shader_parameter/vertical_gradient = true
 shader_parameter/V_gradient_strength = 0.3970000188575
 shader_parameter/horizontal_gradient = false
 shader_parameter/H_gradient_strength = 0.75
-shader_parameter/segment_gap = -0.003999952689999975
+shader_parameter/segment_gap = -0.00399995268999997
 shader_parameter/universal_border_size = 0.1
 shader_parameter/horizontal_border_size = 1.0
 shader_parameter/inner_border_thickness_multiplier = 1.0

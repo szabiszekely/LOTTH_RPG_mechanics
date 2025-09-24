@@ -1,5 +1,4 @@
 extends Control
-class_name EMP_bar
 
 #assig it to a character!
 @export var assined_enemy: Fighting_Stats

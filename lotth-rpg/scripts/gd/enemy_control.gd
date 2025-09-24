@@ -37,6 +37,7 @@ func _your_turn_on_set_up():
 func emp_gained(gained_EMP: int):
 	if not Fight_stats.MAX_EMP <= Fight_stats.EMP:
 		Fight_stats.EMP += gained_EMP
+		self.Bar._emp_bar(gained_EMP)
 	else:
 		print("EMP gain has reached the maximum or something went wrong in the code!")
 	print(str(Fight_stats.EMP) + " / " + str(Fight_stats.MAX_EMP))

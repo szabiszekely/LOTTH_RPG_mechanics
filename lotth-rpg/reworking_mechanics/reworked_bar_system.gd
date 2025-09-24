@@ -2,6 +2,7 @@ extends Control
 class_name Bar_system
 
 @export var assined_characters: Character_Controller 
+@export var emp_bar: EMP_Bar_system 
 #ALL of the components!
 @onready var ENG_bar = $ENG_Bar
 @onready var HP_bar = $HP_Bar
@@ -134,3 +135,7 @@ func energy_changed():
 func _reset_action_indicator():
 	for i in all_icon_of_remaining_actions:
 		i._action_indicator_on()
+
+func _emp_bar(amount):
+	if not emp_bar == null:
+		self.emp_bar._increase_emp(amount)
