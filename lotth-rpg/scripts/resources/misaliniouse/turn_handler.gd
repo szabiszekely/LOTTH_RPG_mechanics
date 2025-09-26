@@ -28,6 +28,7 @@ var baseTiming: int
 func _ready() -> void:
 	baseTiming = initiative.timeSpentBetweenTurns 
 
+# this helps to determin if the character is still alive or not
 func _Does_opponent_exist(list:Array,is_this_heal):
 	var grab_a_different_character
 	var count_me_in = 0
@@ -59,7 +60,6 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 
 func _actions(stack):
-	#print(stack)
 	var play_out_action = []
 	for i in initiative.all_rolls:
 		for j in stack:
@@ -94,12 +94,10 @@ func _actions(stack):
 				
 			"pass_character":
 				print("Character is unavailable")
-		# WE NEED TO PUT A BREAKER HERE SO IT MAY ONLY CONTINUES AFTER THE THING ENDED
+		# stops the game until we not use the stopLoop signal
 		if initiative.doTrapForLoop:
 			await initiative.stopLoop
 			initiative.doTrapForLoop = false
-			#print("DOESN'T WROK ;-;")
-			#break
 		
 		await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns).timeout
 		Menu.vanish()

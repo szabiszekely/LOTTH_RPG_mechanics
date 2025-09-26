@@ -1,6 +1,7 @@
 extends Control
 class_name Ability_control
 
+# has a node that has all the other important nodes connected through this node
 @onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 
@@ -44,11 +45,15 @@ var page_turn = false
 @onready var enemy = RefrenceNode.EnemyGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
 
+# how many times you tried to use an ability which has more eng then your current amount
 var tries = 0
 
+var deck
+
+#ugly piece of shit
 @onready var ability_inventory = [button,button_2,button_3,button_4,button_5,button_6,button_7,button_8,button_9,button_10,button_11,button_12,button_13,button_14,button_15,button_16,button_17,button_18] 
-# this will get replaced with the characters actual deck! but as basic you will get a placeholder deck
-var deck = preload("res://scripts/resources/Decks/Lil_guy_deck.tres").Deck
+
+
 func _ready() -> void:
 	#when the scene strts I just disable all the buttons that I do not need! 
 	not_enough_energy.hide()
@@ -66,6 +71,8 @@ func _ready() -> void:
 	
 	
 func abi_appear():
+	# when we appear the menu we sign the characters deck to this
+	deck = initiative.sorted_player[player.p_index].Fight_stats.PlayerDeck.Deck
 	# when this get called we will first:
 	# show only the number of buttons, as much card names we have in our deck (more over info over there) 
 	add_abilities(deck)
@@ -145,22 +152,24 @@ func focused() -> void:
 	var get_the_card = "res://assets/sprite/Ability Cards/" + str(get_name_of_button) + ".png"
 	card.texture = load(get_the_card)
 	
-
-# when you press it you will get the:
+# breaking card means you don't have enough eng but enough attempts can still result in a use, 
+#if the need is dire
 var breaking_card = false
+# when you press it you will get the:
 func pressed() -> void:
 	release_tries.stop()
-	# and the target range
-	var used_card_name = get_viewport().gui_get_focus_owner().text
 	# the name of the choosen buttons name
+	var used_card_name = get_viewport().gui_get_focus_owner().text
 	# the energy cost of that card
 	var hit = Data.get_card_energy(used_card_name)
+	# if our eng amount is lower than the cost of the card than do not let it play 
 	if hit > initiative.sorted_player[player.p_index].Fight_stats.ENG:
 		not_enough_energy.show()
 		var tween = get_tree().create_tween()
 		tween.tween_property(not_enough_energy,"modulate",Color.WHITE,0.1).set_trans(Tween.TRANS_BOUNCE)
 		tween.tween_property(not_enough_energy,"modulate",Color.TRANSPARENT,0.4)
 		await tween.finished
+		# unless you pressed it more then 2 times which then we allow the player to use it
 		if tries >= 2:
 			breaking_card = true
 			not_enough_energy.text = "Fine! Chill!"
@@ -176,6 +185,7 @@ func pressed() -> void:
 	
 	if breaking_card or hit <= initiative.sorted_player[player.p_index].Fight_stats.ENG:
 		breaking_card = false
+		# we get the range of the card (Target,Self,ect...)
 		var target = Data.get_card_range(used_card_name)
 		
 		#hide the menu and than see which of the 3 (4 perhaps later) chategory is it inside!

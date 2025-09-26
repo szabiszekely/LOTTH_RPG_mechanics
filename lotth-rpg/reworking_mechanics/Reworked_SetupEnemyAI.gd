@@ -69,7 +69,7 @@ var AbilityScore: Dictionary = {}
 
 var increase_failed_heal_percentage: float = 0
 
-
+# simple setup for the resource
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
 	enemy_group = enemies
 	player_group = players
@@ -79,28 +79,31 @@ func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,ene
 	enemy_it_self = enemy_self
 	_Player_Point_System()
 
+# sets up a point system for both kindness and for agro
+# helps determine which side is larger in gaps
 func _Player_Point_System():
 	for i in player_group.player:
 		PlayerAgro.set(i,0)
 		PlayerKind.set(i,0)
-
+# placeholder for an enemy to put its logic here
 func _EnemyAI(deck):
 	pass
 
 func _TurnIsOver():
 	pass
-
+# gets the current status of the bars of the enemy
+# yep that what it does
 func _EnemyCurrentBarStatus():
 	enemy_current_ENG = enemy_it_self.Bar.ENG_bar.get_current_value()
 	enemy_current_HP = enemy_it_self.Bar.HP_bar.get_current_value()
+# sort every character before our enemy
 func _sort_before_self(self_e):
-
 	for i in initiative.all_rolls: 
 		if i[-1] != self_e:
 			before_enemy_turn.append(i)
 		else:
 			break
-# this one removes all enemies and only leave Players if their are any
+# this one seperates the players and the enemies for further use
 func _same_type_enemy(self_e):
 	for i in before_enemy_turn:
 		for j in initiative.sorted_enemies:
@@ -108,7 +111,7 @@ func _same_type_enemy(self_e):
 				before_enemy_turn_enemy.append(i)
 			else:
 				before_enemy_turn_player.append(i)
-# get the players switched out with their actions
+# switches all the players out for their actions
 func _get_actions_player(self_e):
 	var temp = []
 	for i in enemy_group.p_actions:
@@ -118,7 +121,7 @@ func _get_actions_player(self_e):
 	player_actions.clear()
 	for i in temp: 
 		player_actions.append(i)
-
+# switches all the enemies out for their actions
 func _get_actions_enemy(self_e):
 	var temp = []
 	for i in enemy_group.p_actions:
@@ -129,10 +132,13 @@ func _get_actions_enemy(self_e):
 	for i in temp: 
 		enemy_actions.append(i)
 
+# helpful instruction for me to tell which index is which and how I structured
 # (["atk",1,initiative.sorted_player[p_index],player[sub_index],                            card_againts_players          ])
 #["act",0,initiative.sorted_player[player.p_index],enemy.enemies[current_choosen_enemy] ,   i.text,                  self]
 #["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],                    item_againts_enemies,   menu.bagpack_choice]
 # atk, index, from, to, data, data, data
+
+# gives out points based on player actions
 func _player_actions():
 	for i in enemy_group.p_actions:
 		if i[3] == enemy_it_self or Data.get_card_range(i[4]) == "Self":
@@ -187,6 +193,7 @@ func _player_actions():
 							PlayerKind[i[2]] += 30
 						else:
 							PlayerAgro[i[2]] += 30
+# gets certain data points on specific player and enemies
 func _data_analysis():
 	var all_array = []
 	var player_array:Array = player_group.player
@@ -224,6 +231,7 @@ func _data_analysis():
 	ObjectivlyStrongesPlayer[BoardState["strongest_magic_player"][0]] += 1 
 	ObjectivlyStrongesPlayer[BoardState["highest_ENG_player"][0]] += 4 
 	ObjectivlyStrongesPlayer[BoardState["highest_HP_player"][0]] += 3
+# organises the enemy deck into groups so it can be picked from later
 func _deck_sorting(deck):
 	for i in deck:
 		match Data.get_card_ability_type(i):
@@ -237,7 +245,7 @@ func _deck_sorting(deck):
 				Effect_deck.append(i)
 			"Movement":
 				Movement_deck.append(i)
-
+# this will weight down the cards on their specific usage
 func _attack_card_scoring():
 	for i in Attack_deck:
 		AbilityScore[i] = 0
@@ -283,11 +291,11 @@ func _attack_card_scoring():
 			AbilityScore[i] += 5 + enemy_it_self.Fight_stats.Base_Phisical_Attack + enemy_it_self.Fight_stats.Base_Magical_Attack
 		else:
 			AbilityScore[i] += 3
-		
+# gets me the highest value on a dictionary
 func _find_the_highest_value(dict):
 	return dict.values().max()
 
-		
+# gets the specific data in _data_analysis
 #region dataAnalitics
 var temp: Array = []
 func lowest_HP_player(player):
@@ -370,7 +378,7 @@ func weakest_magic_player(player):
 		BoardState.set("weakest_magic_player",temp.min())
 
 #endregion
-
+# this I might not use in the end, but if I need to I can use the personality types to do someting
 #region personalityTypes
 func Natural():
 	pass

@@ -15,7 +15,6 @@ func _ready() -> void:
 	$CanvasLayer.hide()
 	# get all the items from saved file and than put it into the inventory
 	item_list = Data.load_data(item_list)
-	
 	for i in item_list:
 		inventory.add_slot(i)
 	
@@ -42,7 +41,7 @@ func bag_disappear():
 	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
 
-# when you press an item you add it to the que
+# when you press an item you add it to the quee
 func _on_item_list_item_activated(index: int) -> void:
 	var my_data = Data.get_item_data(item_list[index])
 	menu_system.vanish()

@@ -56,7 +56,7 @@ func Byecicle():
 func Curved_Slash():
 	pass
 
-# most of these functions are gonna be custome but for near future me I will explain this one!
+# most of these functions are gonna be custome but for near future me, I will explain this one!
 # when you activate it as a range capped funtion you will load the correct skill in this case FireBall.tres
 # and then you set up the player for it, and in the end you will give a rough estimate on how much time
 # it will need between turns!

@@ -1,6 +1,8 @@
 extends Node
 class_name CrossRoad
 
+# All of the important node can be referenced through here
+
 @export var MainNode: BattleMain
 @export var TurnHandler: Turn_Handler
 @export var InitiativeHandler: new_Initiative

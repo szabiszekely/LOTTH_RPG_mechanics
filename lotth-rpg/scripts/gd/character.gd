@@ -17,8 +17,10 @@ class_name Character_Controller
 @export var Bar: Bar_system
 @export var cam_target: Node2D
 
+# this 2 is for KO and for dead states
 var CharacterIsOut: bool = false
 var CanGetTheFinalBlow: bool = false
+
 # this will reduce if you choose an action
 # and when it is 0 or less than the next on the order will come
 var PlayOutOptions: int = 2:
@@ -37,6 +39,7 @@ var your_turn = false:
 		if your_turn == true and !CharacterIsOut:
 			_your_turn_on_set_up()
 		elif your_turn and CharacterIsOut:
+			# this is where the player would pass out on its turn if ch is out
 			_pass_character()
 		elif !your_turn:
 			_your_turn_off_set_up()
@@ -72,6 +75,7 @@ func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_dama
 		var which_damage = false
 		_comprassed_take_damage(which_damage,hit)
 	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:
+		# if characters condition is met then the player would die and would get earesed
 		_fade_away_death()
 		
 # when you take True Damage
@@ -81,6 +85,7 @@ func _take_true_damage(base_damage):
 		var which_damage = true
 		_comprassed_take_damage(which_damage,hit)
 	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:
+		# if characters condition is met then the player would die and would get earesed
 		_fade_away_death()
 
 # this is where you take card damage
@@ -121,6 +126,7 @@ func _comprassed_take_damage(card:bool,hit):
 	await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
 	_camera_off()
 
+# long ass fade away animation
 func _fade_away_death():
 		var index = 0
 		for i in Initiative.all_rolls:

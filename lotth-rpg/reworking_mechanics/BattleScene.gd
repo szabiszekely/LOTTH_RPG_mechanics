@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_button"):
 		
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
-		player_group.player[0]._take_damage(7,6,1,1,7
-		)
+		player_group.player[0]._take_damage(7,6,1,1,7)
+
 	if Input.is_action_just_pressed("debug_button_3"):
 		player_group.player[1].Bar.queue_free()
 		player_group.player[1].queue_free()

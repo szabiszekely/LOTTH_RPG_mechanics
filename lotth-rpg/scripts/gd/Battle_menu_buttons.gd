@@ -1,7 +1,7 @@
 extends Button
 class_name Menu_buttons
 
-# this is used in the menus for animation disableance and couldbe used for later as well!
+# this is used in the menus for animation disableance and could be used for later as well!
 
 # when you hover over with focus it bump up!
 func hover(me):

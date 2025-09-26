@@ -25,9 +25,8 @@ var player_turn_end = false
 func _ready() -> void:
 	_get_me_some_of_that_gd_children_player()
 
-
+# we setup the players to start their turn
 func _player_start_choosing():
-	
 	
 	all_moves_p = 0
 	for i in initiative.sorted_player:
@@ -38,7 +37,8 @@ func _player_start_choosing():
 	player_turn_end = false
 	initiative.sorted_player[0].your_turn = true
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# if all of their turn reached the max, then we go to the enemies
 	if all_moves_p == len(all_p_actions) and !player_turn_end:
 		player_turn_end = true
 		enemy._start_enemy_section(all_p_actions)

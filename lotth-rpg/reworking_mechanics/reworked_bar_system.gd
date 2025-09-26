@@ -1,9 +1,11 @@
 extends Control
 class_name Bar_system
 
+# ALL of the export component
 @export var assined_characters: Character_Controller 
 @export var emp_bar: EMP_Bar_system 
-#ALL of the components!
+
+# ALL of the components!
 @onready var ENG_bar = $ENG_Bar
 @onready var HP_bar = $HP_Bar
 @onready var Null_bar = $Null_BG
@@ -20,10 +22,10 @@ class_name Bar_system
 
 @onready var action_indicator_scene = preload("res://scenes/action_indicator.tscn")
 var all_icon_of_remaining_actions: Array = []
-
-
-var test_ADR: bool = false
+# this is a test for the Adrenalin, but it is alright for the visuals
 @onready var textures = [preload("res://assets/sprite/UI/Health_BG.png"),preload("res://assets/sprite/UI/Energy_BG.png"),preload("res://assets/sprite/UI/Health_BG_ADR.png"), preload("res://assets/sprite/UI/Energy_BG_ADR.png")]
+var test_ADR: bool = false
+
 
 func _ready() -> void:
 	for i in assined_characters.MaxPlayOutOptions:
@@ -32,21 +34,21 @@ func _ready() -> void:
 		action_remaining.add_child(instance)
 	energy_changed()
 	health_changed()
-
-
 	ADR_bar.hide()
 	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
 
+# Still ugly, but it works and I do not care about anything else
+# beauty lies in the insides... yeah close enough, but still ugly
 func _process(_delta: float) -> void:
 	health_changed()
 	energy_changed()
 	
+# I can change the HUD to the adrenalin, but it is a 100% visual for now
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Cam_change"):
 		var style : StyleBoxTexture = StyleBoxTexture.new()
 		var style2 : StyleBoxTexture = StyleBoxTexture.new()
-		
 		if test_ADR:
 			style.texture = textures[0]
 			health_text.add_theme_stylebox_override("panel",style)
@@ -61,9 +63,11 @@ func _input(event: InputEvent) -> void:
 			energy_text.add_theme_stylebox_override("panel",style2)
 			ADR_bar.show()
 			test_ADR = true
-	
+
+# we give a set number of damage and then I remove that amount of bars every for cycle
 func bar_damage_taken(damage:int):
 	for i in damage:
+		# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
 		if not assined_characters.Fight_stats.ENG <= 0 :
 			ENG_bar.decrease_bar_value(1)
 			var tweens = get_tree().create_tween()
@@ -74,7 +78,7 @@ func bar_damage_taken(damage:int):
 			await get_tree().create_timer(0.32).timeout
 			if assined_characters.Fight_stats.ENG <= 0:
 				assined_characters.Fight_stats.ENG = 0
-
+		# same here, but for the hp
 		elif not assined_characters.Fight_stats.HP <= 0:
 			HP_bar.decrease_bar_value(1)
 			var tweens = get_tree().create_tween()
@@ -83,7 +87,7 @@ func bar_damage_taken(damage:int):
 			tweens.tween_property(health_text,"position",Vector2(health_pos.position.x,health_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			assined_characters.Fight_stats.HP -= 1
 			await get_tree().create_timer(0.32).timeout
-
+		# if the HP is bellow 0 then I just turn on CharacterIsOut
 		if assined_characters.Fight_stats.HP <= 0:
 			assined_characters.Fight_stats.HP = 0
 			assined_characters.CharacterIsOut = true
@@ -109,14 +113,13 @@ func bar_damage_taken(damage:int):
 		else:
 			assined_characters.CharacterIsOut = false
 
+# this is for the bar recovery
 func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 	for i in health_gain:
 		# I get the number of how much I will gain and then check if it's energy we puting it into or health
 		match heal_eng_or_health:
 			1:
-				# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
 				if not assined_characters.Fight_stats.ENG >= assined_characters.Fight_stats.MAX_ENG:
-					#print(assined_characters.Fight_stats.ENG)
 					assined_characters.Fight_stats.ENG += 1
 					ENG_bar.increase_bar_value(1)
 					await get_tree().create_timer(0.15).timeout

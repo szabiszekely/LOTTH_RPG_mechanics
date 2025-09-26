@@ -1,6 +1,23 @@
 extends Control
 class_name Indicator_bar
 
+
+
+
+
+# THIS ONE IS THE OLD BAR SYSTEM DUMBY!!!
+# PLEASE CHECK WHERE YOU ARE BEFORE CODING!!!!
+# LEAVE AND DELETE THIS FILE ALREADY !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
 @export var assined_characters: Character_Controller 
 #ALL of the components!
 @onready var ENG_bar = $ENG_Segmented_Bar

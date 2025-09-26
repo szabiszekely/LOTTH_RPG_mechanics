@@ -63,12 +63,10 @@ func act_appear():
 	self.show()
 	var tweens = get_tree().create_tween()
 	tweens.tween_property(self,"position",Vector2(self.position.x,526),0.3).set_trans(Tween.TRANS_QUAD)
-	#await tweens.finished
 
 #AND this does the opposite IF YOU HAVE NO IDEA HOW IT WORKS JUST SIMPLY pulling it up and hiding 
 #all the posibilits to see it!
 func act_disappear():
-	#print("BYE WORLD")
 	list_of_buttons = [check,focus,guard,top_left,top_right,middle_left,middle_right,bottom_left,bottom_right]
 	for i in list_of_buttons:
 		i.disabled = true
@@ -78,7 +76,6 @@ func act_disappear():
 	check.release_focus()
 	tweens.tween_property(self,"position",Vector2(self.position.x,843),0.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
-	#self.hide()
 	
 # when option pressed then we just add it to an Array of all the options that will run in the end, and deduct
 # 1 of the maximum of options a player can choose!
@@ -91,6 +88,7 @@ func action_button_pressed(extra_arg_0: StringName) -> void:
 		# WARNING THIS MIGHT BE A PLACE WHERE A BUG COULD APPEAR! PLEASE IN THE NEAR FUTURE YOU ACT ON THIS
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
 		# THANK YOU!
+		# side note: thanks for clarifying which bug it is, very helpful comment I have to say :)
 			initiative.sorted_player[player.p_index]._play_out_tick_down()
 			if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 					enemy.call_menu_appear()

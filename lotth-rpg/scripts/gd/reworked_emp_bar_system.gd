@@ -5,6 +5,9 @@ class_name EMP_Bar_system
 @onready var emp_meter: ColorRect = $EMP_Meter
 @onready var godess_head: Sprite2D = $godess_head
 
+# this is similar to the reworked Bar_system
+# so tl:dr read that
+
 func _ready() -> void:
 	emp_meter.material.set_shader_parameter("segment_count", assined_characters.Fight_stats.MAX_EMP)
 	emp_meter.set_max_value(assined_characters.Fight_stats.MAX_EMP,false)

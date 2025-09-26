@@ -1,5 +1,14 @@
 extends Control
 
+
+# THIS ONE IS UNUSED
+# SO DO NOT USE IT TOO
+# DELETE THIS IF YOU AREN'T LAZY
+# DUMBASS!!!
+
+
+
+
 #assig it to a character!
 @export var assined_enemy: Fighting_Stats
 #ALL of the components!

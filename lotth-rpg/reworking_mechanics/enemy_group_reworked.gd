@@ -28,7 +28,7 @@ var enemy_turn_end = false
 func _ready() -> void:
 	_get_me_some_of_that_gd_children_enemy()
 	
-
+# if its the enemies turn then I set up everything here
 func _start_enemy_section(player_actions):
 	all_play_out_e = 0
 	for i in initiative.sorted_enemies:
@@ -39,7 +39,7 @@ func _start_enemy_section(player_actions):
 	p_actions = player_actions
 	initiative.sorted_enemies[e_index].your_turn = true
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not menu.visible and start_choosing == true and len(enemies) != 1:
 		# when pressed one derections than it moves up or down in the list and if that list is out of context 
 		# than it loops back around!
@@ -67,7 +67,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			_player_action_to_enemy()
 	
-	
+	# if the enemies have the max amount of actions played out, then we add the players 
+	# and enemies actions into the all_actions array, and we let the _actions play out
 	if all_play_out_e == len(all_e_action) and !enemy_turn_end:
 		enemy_turn_end = true
 
@@ -136,5 +137,6 @@ func call_menu_appear():
 	menu.switching_buttons()
 	menu.current_state = menu.Menu_state.MENU
 
+# callable function to get all the children even after the _ready function
 func _get_me_some_of_that_gd_children_enemy():
 	enemies = get_children()

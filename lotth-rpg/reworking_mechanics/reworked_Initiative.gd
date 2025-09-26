@@ -1,6 +1,7 @@
 extends Resource
 class_name new_Initiative
 
+# bunch of setup variables
 @export var bg_container = Texture2D
 
 var all_rolls: Array = []
@@ -19,6 +20,7 @@ var group_enemies
 var group_player
 var place_holder_source
 
+# this helps to stop the looping in the turn_handler
 signal stopLoop
 
 # this gets the neccesery nodes as references
@@ -30,7 +32,6 @@ func _getting_groups(players,enemies,):
 func _roll_reset():
 	all_rolls.clear()
 	for player in group_player.player:
-
 		player.roll_of_the_luck()
 	for enemy in group_enemies.enemies:
 		enemy.roll_of_the_luck()
@@ -54,7 +55,7 @@ func _getting_all_rolls(rolls:Array,source):
 		container.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
 		if portait[0] == 1:
 			container.self_modulate = "f54e4e"
-		
+
 		portrait_icon.texture = portrait_texture
 		portrait_icon.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
 		portrait_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
@@ -64,17 +65,7 @@ func _getting_all_rolls(rolls:Array,source):
 		source.add_child(container)
 		container.add_child(portrait_icon)
 
-# this 2 either go forward in the order or back
-#func _next_in_order():
-	#if initiative_index < all_rolls.size() - 1:
-		#initiative_index += 1
-		#switch_order(initiative_index, initiative_index-1)
-
-#func _previouse_in_order():
-	#if initiative_index > 0:
-		#initiative_index -= 1
-		#switch_order(initiative_index, initiative_index+1)
-
+# I added 2 different switch cases, 1 for enemy and 1 for the player
 func switch_order_e(x,y):
 	sorted_enemies[y].your_turn = false
 	await Engine.get_main_loop().create_timer(0.2).timeout
