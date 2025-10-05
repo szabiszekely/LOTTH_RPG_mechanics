@@ -13,6 +13,7 @@ class_name Menu_system
 # Buttons!
 @onready var abilities: Button = $MarginContainer/HBoxContainer/Abilities
 @onready var action: Button = $MarginContainer/HBoxContainer/Action
+@onready var movement: Button = $MarginContainer/HBoxContainer/Movement
 @onready var bagpack: Button = $MarginContainer/HBoxContainer/Bagpack
 @onready var run: Button = $MarginContainer/HBoxContainer/Run
 
@@ -32,6 +33,7 @@ enum Menu_state {
 	MENU,
 	ABILITES,
 	ACTIONS,
+	MOVEMENT,
 	BAG,
 	RUN,
 	CHOOSING_ENEMIES,
@@ -43,6 +45,7 @@ enum Memory_state {
 	MENU,
 	ABILITES,
 	ACTIONS,
+	MOVEMENT,
 	BAG,
 	RUN,
 	CHOOSING_ENEMIES,
@@ -53,6 +56,7 @@ enum Memory_state {
 var menu_container = true
 var abi_container = false
 var act_container = false
+var move_container = false
 var bag_container = false
 var run_container = false
 var choose_enemy_container = false
@@ -101,6 +105,9 @@ func _process(_delta: float) -> void:
 				menu.show()
 				action_choice.act_appear()
 				act_container = false
+		Menu_state.MOVEMENT:
+			current_memory_state = current_state
+			# PUT HERE THE MOVEMENT CHANGE SCRIPT
 		# brings up the bagpack menu
 		Menu_state.BAG:
 			current_memory_state = current_state
@@ -162,15 +169,21 @@ func _input(event: InputEvent) -> void:
 				switching_buttons()
 				menu_container = true
 				current_state = Menu_state.MENU
-			Menu_state.BAG:
+			Menu_state.MOVEMENT:
 				menu_index = 2
+				vanish()
+				switching_buttons()
+				menu_container = true
+				current_state = Menu_state.MENU
+			Menu_state.BAG:
+				menu_index = 3
 				vanish()
 				bag = false
 				switching_buttons()
 				menu_container = true
 				current_state = Menu_state.MENU
 			Menu_state.RUN:
-				menu_index = 3
+				menu_index = 4
 				vanish()
 				switching_buttons()
 				menu_container = true
@@ -240,6 +253,8 @@ func _input(event: InputEvent) -> void:
 					abi_container = true
 				Menu_state.ACTIONS:
 					act_container = true
+				Menu_state.MOVEMENT:
+					move_container = true
 				Menu_state.BAG:
 					bag_container = true
 				Menu_state.RUN:
@@ -253,6 +268,7 @@ func vanish():
 	menu.hide()
 	ability_card_choice.abi_disappear()
 	action_choice.act_disappear()
+	# put movement here PLS PLS SEE ME OVER HERE
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
 	static_dialogue_box.hide()
@@ -262,6 +278,7 @@ func vanish():
 func all_gone():
 	abilities.process_mode = Node.PROCESS_MODE_DISABLED
 	action.process_mode = Node.PROCESS_MODE_DISABLED
+	movement.process_mode = Node.PROCESS_MODE_DISABLED
 	bagpack.process_mode = Node.PROCESS_MODE_DISABLED
 	run.process_mode = Node.PROCESS_MODE_DISABLED
 	ability_card_choice.process_mode = Node.PROCESS_MODE_DISABLED
@@ -279,6 +296,7 @@ func back_to_normal():
 		player_group.start_choosing = true
 	abilities.process_mode = Node.PROCESS_MODE_INHERIT
 	action.process_mode = Node.PROCESS_MODE_INHERIT
+	movement.process_mode = Node.PROCESS_MODE_INHERIT
 	bagpack.process_mode = Node.PROCESS_MODE_INHERIT
 	run.process_mode = Node.PROCESS_MODE_INHERIT
 	ability_card_choice.process_mode = Node.PROCESS_MODE_INHERIT
@@ -305,6 +323,11 @@ func _on_action_pressed() -> void:
 	act_container = true
 	current_state = Menu_state.CHOOSING_ENEMIES
 
+func _on_movement_pressed() -> void:
+	vanish()
+	move_container = true
+	current_state = Menu_state.MOVEMENT
+	
 func _on_bagpack_pressed() -> void:
 	vanish()
 	bag = true

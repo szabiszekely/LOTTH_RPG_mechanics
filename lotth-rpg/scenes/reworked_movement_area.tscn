@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://but33rpd36k63"]
+
+[ext_resource type="Script" uid="uid://bbys4wx7h45wa" path="res://scripts/gd/reworked_movement_area.gd" id="1_npwjc"]
+[ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="2_5wfbb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xu1q2"]
+radius = 32.01562
+
+[node name="Movement_area" type="Area2D"]
+scale = Vector2(1, 0.5)
+script = ExtResource("1_npwjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xu1q2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5wfbb")
+
+[connection signal="body_exited" from="." to="." method="_player_left_the_circle"]

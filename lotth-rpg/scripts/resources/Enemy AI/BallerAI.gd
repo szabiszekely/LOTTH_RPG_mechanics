@@ -90,6 +90,7 @@ func _EnemyAI(deck):
 		
 		
 		#later add to they are close to us or not
+		#player agro
 		highest_value = _find_the_highest_value(PlayerAgro)
 		for i in PlayerAgro:
 			var value = PlayerAgro[i]
