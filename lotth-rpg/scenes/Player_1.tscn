@@ -555,7 +555,7 @@ cam_target = NodePath("PCamTarget")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 3
+frame = 4
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -593,6 +593,8 @@ priority = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 3)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false

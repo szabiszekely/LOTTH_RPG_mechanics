@@ -9,6 +9,7 @@ class_name Menu_system
 @export var get_the_children: HBoxContainer
 @export var Mouse_camera_toggler: Mouse_Camera
 @onready var Initiative = RefrenceNode.InitiativeHandler
+@onready var Main_node = RefrenceNode.MainNode
 
 # Buttons!
 @onready var abilities: Button = $MarginContainer/HBoxContainer/Abilities
@@ -86,7 +87,6 @@ func _process(_delta: float) -> void:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
-				player_group.player[player_group.p_index]._camera_on()
 				static_dialogue_box.show()
 				menu_container = false
 		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
@@ -107,6 +107,14 @@ func _process(_delta: float) -> void:
 				act_container = false
 		Menu_state.MOVEMENT:
 			current_memory_state = current_state
+			if move_container:
+				move_container = false
+				var instance = preload("res://scenes/reworked_movement_area.tscn").instantiate()
+				instance.position = Initiative.sorted_player[Initiative.group_player.p_index].global_position
+				instance.get_player = Initiative.sorted_player[Initiative.group_player.p_index]
+				instance.scale = Vector2(4,2)
+				Main_node.add_child(instance)
+				Initiative.sorted_player[Initiative.group_player.p_index].can_moved = true
 			# PUT HERE THE MOVEMENT CHANGE SCRIPT
 		# brings up the bagpack menu
 		Menu_state.BAG:
@@ -193,7 +201,6 @@ func _input(event: InputEvent) -> void:
 				if act == true:
 					menu_index = 1
 					enemy_group._reset_focus()
-					player_group.player[player_group.p_index]._camera_on()
 					vanish()
 					act = false
 					act_container = false
@@ -203,7 +210,6 @@ func _input(event: InputEvent) -> void:
 				elif abi == true:
 					enemy_group._reset_focus()
 					vanish()
-					player_group.player[player_group.p_index]._camera_on()
 					abi = false
 					abi_container = true
 					
@@ -212,14 +218,12 @@ func _input(event: InputEvent) -> void:
 					enemy_group._reset_focus()
 					menu.show()
 					vanish()
-					player_group.player[player_group.p_index]._camera_on()
 					bag = false
 					bag_container = true
 					current_state = Menu_state.BAG
 			Menu_state.CHOOSING_PLAYERS:
 				if abi == true:
 					vanish()
-					player_group.player[player_group.p_index]._camera_on()
 					player_group._reset_focus()
 					abi = false
 					abi_container = true
@@ -228,7 +232,6 @@ func _input(event: InputEvent) -> void:
 					player_group._reset_focus()
 					menu.show()
 					vanish()
-					player_group.player[player_group.p_index]._camera_on()
 					bag = false
 					bag_container = true
 					current_state = Menu_state.BAG

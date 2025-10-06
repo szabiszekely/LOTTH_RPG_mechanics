@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cxspq5due67jr"]
+[gd_scene load_steps=34 format=4 uid="uid://cxspq5due67jr"]
 
 [ext_resource type="Script" uid="uid://wvuqgso3bhpt" path="res://scripts/gd/Simple_testing.gd" id="1_84k3t"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/turn_handler.tscn" id="2_luauv"]
@@ -10,18 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://b0bd2gotvyw84" path="res://scenes/enemy_group.tscn" id="6_djyy6"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/Baller_enemy.tscn" id="7_xtgrh"]
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="8_77yi2"]
-[ext_resource type="Shader" uid="uid://daysprlu7bpyr" path="res://scripts/gdshader/NULL_progress_bar.gdshader" id="9_graho"]
-[ext_resource type="Shader" uid="uid://ckhvlyetwr75x" path="res://scripts/gdshader/hp_segmented_progress_bar.gdshader" id="10_l3tb4"]
-[ext_resource type="Shader" uid="uid://ctxyivki7n00q" path="res://scripts/gdshader/eng_segmented_progress_bar.gdshader" id="11_kpiaw"]
-[ext_resource type="PackedScene" uid="uid://lj2tu1d6oo1c" path="res://scenes/obj_folder.tscn" id="12_xbkon"]
-[ext_resource type="Script" uid="uid://bqmp2a0w0l3po" path="res://addons/ProCam2D/scripts/procam2d.gd" id="13_htdc0"]
+[ext_resource type="Script" uid="uid://cg06exgelwcxu" path="res://reworking_mechanics/enemy_group_reworked.gd" id="9_s3r56"]
+[ext_resource type="Script" uid="uid://cx5ba8cqethcy" path="res://scripts/resources/Enemy AI/BallerAI.gd" id="11_pnri3"]
+[ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://reworking_mechanics/progress_bar.gdshader" id="13_8ou2j"]
 [ext_resource type="PackedScene" uid="uid://cld7ml3477aww" path="res://scenes/player_group.tscn" id="14_i48of"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="15_7vocu"]
+[ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://reworking_mechanics/player_group_reworked.gd" id="15_pnri3"]
 [ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="16_fdyjy"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="16_fvjuy"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="19_rqvbx"]
-[ext_resource type="PackedScene" uid="uid://b78min8fkygrg" path="res://scenes/Player_2.tscn" id="21_s6lp7"]
-[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="22_bkb1u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uv6xq"]
 texture = ExtResource("4_wunvi")
@@ -64,6 +61,16 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-670, -234, 702, -234, 702, 145, -672, 148)])
 agent_radius = 21.0
 
+[sub_resource type="Resource" id="Resource_uv6xq"]
+resource_local_to_scene = true
+script = ExtResource("11_pnri3")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
+metadata/_custom_type_script = "uid://cx5ba8cqethcy"
+
 [sub_resource type="Resource" id="Resource_luauv"]
 resource_local_to_scene = true
 script = ExtResource("8_77yi2")
@@ -74,16 +81,21 @@ MAX_HP = 18
 MAX_ENG = 18
 HP = 18
 ENG = 18
-Soul_Type = 0
 Attack_Type = 1
 Defense = 2
-Magic_Defense = 0
 MAX_EMP = 4
-EMP = 0
 Base_Phisical_Attack = 2
-Base_Magical_Attack = 0
 Speed = 1
-range_in_cm = 0.0
+
+[sub_resource type="Resource" id="Resource_c3pjn"]
+resource_local_to_scene = true
+script = ExtResource("11_pnri3")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
+metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_4i3pf"]
 resource_local_to_scene = true
@@ -95,97 +107,268 @@ MAX_HP = 18
 MAX_ENG = 18
 HP = 18
 ENG = 18
-Soul_Type = 0
 Attack_Type = 1
 Defense = 5
-Magic_Defense = 0
 MAX_EMP = 5
-EMP = 0
 Base_Phisical_Attack = 3
-Base_Magical_Attack = 0
-Speed = 0
-range_in_cm = 0.0
 
-[sub_resource type="Gradient" id="Gradient_klmtg"]
-colors = PackedColorArray(0.0509804, 0.0509804, 0.0509804, 1, 0.0509804, 0.0509804, 0.0509804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5uam"]
-gradient = SubResource("Gradient_klmtg")
-
-[sub_resource type="Gradient" id="Gradient_wbj3g"]
-colors = PackedColorArray(0.04, 0.04, 0.04, 0.588235, 0.06, 0.06, 0.06, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0qvl"]
-gradient = SubResource("Gradient_wbj3g")
-fill_from = Vector2(0.543011, 0.543011)
-fill_to = Vector2(0.537634, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_df1jc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_esur1"]
 resource_local_to_scene = true
-shader = ExtResource("9_graho")
-shader_parameter/stepify = true
-shader_parameter/value = 1.0
-shader_parameter/count = 1
-shader_parameter/margin = Vector2(0, 0)
-shader_parameter/shear_angle = 0.0
-shader_parameter/gradient_x = SubResource("GradientTexture2D_m5uam")
-shader_parameter/gradient_y = SubResource("GradientTexture2D_d0qvl")
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
+shader = ExtResource("13_8ou2j")
+shader_parameter/bar_mode = 4
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 100
+shader_parameter/discrete_fill_amount = 100
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.11200012, 0.96, 0, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0, 0, 0, 1)
+shader_parameter/fluid_highlight_color = Color(0.24319999, 0.3116, 0.38, 1)
+shader_parameter/fluid_shadow_color = Color(0.018700002, 0.055219986, 0.11, 1)
+shader_parameter/fluid_flow_speed = 1.25000005611512
+shader_parameter/fluid_turbulence = 0.27500000980262
+shader_parameter/fluid_noise_scale = 12.0000005225
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 0
+shader_parameter/effect_strength = 0.3
+shader_parameter/effect_speed = 1.5
+shader_parameter/wave_thickness = 0.1
+shader_parameter/bubbles_aspect_ratio = 1.0
+shader_parameter/vertical_gradient = true
+shader_parameter/V_gradient_strength = 0.6
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.49999997625
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
 
-[sub_resource type="Gradient" id="Gradient_voo0t"]
-colors = PackedColorArray(0.890196, 0.235294, 0.160784, 1, 0.890196, 0.235294, 0.160784, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kjh8r"]
-gradient = SubResource("Gradient_voo0t")
-
-[sub_resource type="Gradient" id="Gradient_plcdc"]
-colors = PackedColorArray(0.7, 0.1204, 0.056, 0.784314, 0.91, 0.35308, 0.2912, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xn2i6"]
-gradient = SubResource("Gradient_plcdc")
-fill_from = Vector2(0.505376, 0.672043)
-fill_to = Vector2(0.526882, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cva5k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqmtb"]
 resource_local_to_scene = true
-shader = ExtResource("10_l3tb4")
-shader_parameter/stepify = true
-shader_parameter/value = 1.0
-shader_parameter/count = 20
-shader_parameter/margin = Vector2(0.28, 0)
-shader_parameter/shear_angle = 0.0
-shader_parameter/gradient_x = SubResource("GradientTexture2D_kjh8r")
-shader_parameter/gradient_y = SubResource("GradientTexture2D_xn2i6")
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
+shader = ExtResource("13_8ou2j")
+shader_parameter/bar_mode = 0
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 25
+shader_parameter/discrete_fill_amount = 25
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.77, 0.012833321, 0, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.8, 0.9, 1, 1)
+shader_parameter/fluid_shadow_color = Color(0.1, 0.3, 0.6, 1)
+shader_parameter/fluid_flow_speed = 1.5
+shader_parameter/fluid_turbulence = 1.0
+shader_parameter/fluid_noise_scale = 6.0
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 1
+shader_parameter/effect_strength = 0.400000019
+shader_parameter/effect_speed = 0.35000001336512
+shader_parameter/wave_thickness = 0.05000000167648
+shader_parameter/bubbles_aspect_ratio = 1.0
+shader_parameter/vertical_gradient = true
+shader_parameter/V_gradient_strength = 0.3600000171
+shader_parameter/horizontal_gradient = true
+shader_parameter/H_gradient_strength = 0.750000035625
+shader_parameter/segment_gap = -0.03999995440000004
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
 
-[sub_resource type="Gradient" id="Gradient_cjxav"]
-colors = PackedColorArray(0.207843, 0.890196, 0.160784, 1, 0.207843, 0.890196, 0.160784, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lgqhl"]
-gradient = SubResource("Gradient_cjxav")
-
-[sub_resource type="Gradient" id="Gradient_iavw6"]
-colors = PackedColorArray(0.0989333, 0.7, 0.056, 0.784314, 0.332453, 0.91, 0.2912, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_i1bxa"]
-gradient = SubResource("Gradient_iavw6")
-fill_from = Vector2(0.494624, 0.66129)
-fill_to = Vector2(0.483871, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wrq0q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86fwf"]
 resource_local_to_scene = true
-shader = ExtResource("11_kpiaw")
-shader_parameter/stepify = true
-shader_parameter/value = 1.0
-shader_parameter/count = 30
-shader_parameter/margin = Vector2(0.4, 0)
-shader_parameter/shear_angle = 0.0
-shader_parameter/gradient_x = SubResource("GradientTexture2D_lgqhl")
-shader_parameter/gradient_y = SubResource("GradientTexture2D_i1bxa")
-shader_parameter/use_value_gradient = false
-shader_parameter/invert = false
+shader = ExtResource("13_8ou2j")
+shader_parameter/bar_mode = 0
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 25
+shader_parameter/discrete_fill_amount = 12
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.18200003, 0.84, 0, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.8, 0.9, 1, 1)
+shader_parameter/fluid_shadow_color = Color(0.1, 0.3, 0.6, 1)
+shader_parameter/fluid_flow_speed = 1.5
+shader_parameter/fluid_turbulence = 1.0
+shader_parameter/fluid_noise_scale = 6.0
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.8
+shader_parameter/effect_mode = 2
+shader_parameter/effect_strength = 0.250000011875
+shader_parameter/effect_speed = 2.50000011549012
+shader_parameter/wave_thickness = 0.20000000880148
+shader_parameter/bubbles_aspect_ratio = 0.75
+shader_parameter/vertical_gradient = false
+shader_parameter/V_gradient_strength = 0.6
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.07499995606249998
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4tue"]
+resource_local_to_scene = true
+shader = ExtResource("13_8ou2j")
+shader_parameter/bar_mode = 4
+shader_parameter/fill_mode = 0
+shader_parameter/segment_count = 40
+shader_parameter/discrete_fill_amount = 20
+shader_parameter/fade_fill_amount = 1.0
+shader_parameter/pour_fill_amount = 1.0
+shader_parameter/animation_speed = 1.0
+shader_parameter/flash_type = 0
+shader_parameter/flash_segment = 0
+shader_parameter/flash_intensity = 0.0
+shader_parameter/single_segment_previous_fill = 1.0
+shader_parameter/single_segment_current_fill = 1.0
+shader_parameter/single_segment_flash_intensity = 0.8
+shader_parameter/flash_from_segment = 0
+shader_parameter/flash_to_segment = 0
+shader_parameter/single_segment_fade_from = 1.0
+shader_parameter/single_segment_fade_to = 1.0
+shader_parameter/single_segment_fade_progress = 0.0
+shader_parameter/drain_previous_fill = 1.0
+shader_parameter/drain_current_fill = 1.0
+shader_parameter/drain_time_progress = 0.0
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 0)
+shader_parameter/filled_color = Color(0.7000003, 0, 1, 1)
+shader_parameter/border_color = Color(0, 0, 0, 0)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/drain_flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_frame = false
+shader_parameter/frame_trim = 0.0
+shader_parameter/alpha_threshold = 0.69
+shader_parameter/scan_steps = 15
+shader_parameter/edge_smoothness = 0.02
+shader_parameter/mask_expansion = 0.0
+shader_parameter/frame_edge_opacity = 0.9
+shader_parameter/fluid_base_color = Color(0.49, 0.745, 1, 1)
+shader_parameter/fluid_highlight_color = Color(0.25550002, 0.31876662, 0.73, 0.9882353)
+shader_parameter/fluid_shadow_color = Color(0.14999998, 0.9433332, 1, 1)
+shader_parameter/fluid_flow_speed = 2.00000009174012
+shader_parameter/fluid_turbulence = 1.06100004713762
+shader_parameter/fluid_noise_scale = 11.4470004962325
+shader_parameter/gas_mode = false
+shader_parameter/gas_intensity = 0.10000000149012
+shader_parameter/effect_mode = 2
+shader_parameter/effect_strength = 0.6000000285
+shader_parameter/effect_speed = 2.50000011549012
+shader_parameter/wave_thickness = 0.37400001706648
+shader_parameter/bubbles_aspect_ratio = 2.5
+shader_parameter/vertical_gradient = false
+shader_parameter/V_gradient_strength = 0.6
+shader_parameter/horizontal_gradient = false
+shader_parameter/H_gradient_strength = 0.75
+shader_parameter/segment_gap = -0.49999997625
+shader_parameter/universal_border_size = 0.1
+shader_parameter/horizontal_border_size = 1.0
+shader_parameter/inner_border_thickness_multiplier = 1.0
+shader_parameter/outer_border_size = 3.0
+shader_parameter/slant_amount = 0.0
+shader_parameter/scale = 0.0
+shader_parameter/slant_clip_margin = 0.0
+
+[sub_resource type="Resource" id="Resource_pyu2s"]
+resource_local_to_scene = true
+script = ExtResource("11_pnri3")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
+metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_34xcr"]
 resource_local_to_scene = true
@@ -197,34 +380,26 @@ MAX_HP = 18
 MAX_ENG = 18
 HP = 18
 ENG = 18
-Soul_Type = 0
 Attack_Type = 1
 Defense = 2
-Magic_Defense = 0
 MAX_EMP = 4
-EMP = 0
 Base_Phisical_Attack = 2
-Base_Magical_Attack = 0
 Speed = 1
-range_in_cm = 0.0
 
 [sub_resource type="Resource" id="Resource_oir6x"]
 resource_local_to_scene = true
 script = ExtResource("8_77yi2")
 name = "Lil Goofy Guy"
-Id = -1
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
 HP = 25
 ENG = 25
 Soul_Type = 1
-Attack_Type = 0
 PlayerDeck = ExtResource("16_fdyjy")
 Defense = 4
 Magic_Defense = 4
 MAX_EMP = 1000
-EMP = 0
 Base_Phisical_Attack = 2
 Base_Magical_Attack = 1
 Speed = 2
@@ -239,7 +414,7 @@ script = ExtResource("1_84k3t")
 [node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "ObjFolder", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("3_4i3pf")]
 MainNode = NodePath("..")
 TurnHandler = NodePath("../Turn_Handler")
-ObjFolder = NodePath("../NavigationRegion2D/OBJ_folder")
+ObjFolder = NodePath("")
 PlayerGroup = NodePath("../NavigationRegion2D/player_group")
 EnemyGroup = NodePath("../NavigationRegion2D/Enemy_Group")
 Menu = NodePath("../UI_battle_menu/Menu")
@@ -278,133 +453,69 @@ navigation_polygon = SubResource("NavigationPolygon_wueea")
 enter_cost = 1.0
 script = ExtResource("5_ga4m6")
 
-[node name="OBJ_folder" parent="NavigationRegion2D" instance=ExtResource("12_xbkon")]
-y_sort_enabled = true
-position = Vector2(0, 21)
-
-[node name="Marker2D" parent="NavigationRegion2D/OBJ_folder" index="0"]
-position = Vector2(457, -202)
-
-[node name="Marker2D2" parent="NavigationRegion2D/OBJ_folder" index="1"]
-position = Vector2(616, -75)
-
-[node name="Marker2D3" parent="NavigationRegion2D/OBJ_folder" index="2"]
-position = Vector2(465, 64)
-
-[node name="Marker2D4" parent="NavigationRegion2D/OBJ_folder" index="3"]
-position = Vector2(199, -134)
-
-[node name="Marker2D5" parent="NavigationRegion2D/OBJ_folder" index="4"]
-position = Vector2(135, 39)
-
-[node name="Marker2D6" parent="NavigationRegion2D/OBJ_folder" index="5"]
-position = Vector2(647, 73)
-
-[node name="Marker2D7" parent="NavigationRegion2D/OBJ_folder" index="6"]
-position = Vector2(-90, -221)
-
-[node name="Marker2D8" parent="NavigationRegion2D/OBJ_folder" index="7"]
-position = Vector2(-504, -210)
-
-[node name="Marker2D9" parent="NavigationRegion2D/OBJ_folder" index="8"]
-position = Vector2(-405, 79)
-
-[node name="Marker2D10" parent="NavigationRegion2D/OBJ_folder" index="9"]
-position = Vector2(-634, -180)
-
-[node name="Marker2D11" parent="NavigationRegion2D/OBJ_folder" index="10"]
-position = Vector2(-331, -205)
-
-[node name="Marker2D12" parent="NavigationRegion2D/OBJ_folder" index="11"]
-position = Vector2(-233, -77)
-
 [node name="Enemy_Group" parent="NavigationRegion2D" instance=ExtResource("6_djyy6")]
 y_sort_enabled = true
 position = Vector2(1, 120)
+script = ExtResource("9_s3r56")
 
 [node name="Enemy4" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(320, -274)
+EnemyAI = SubResource("Resource_uv6xq")
 Fight_stats = SubResource("Resource_luauv")
 
 [node name="Enemy5" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(449, -185)
+EnemyAI = SubResource("Resource_c3pjn")
 Fight_stats = SubResource("Resource_4i3pf")
 
-[node name="NULL" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="3"]
-material = SubResource("ShaderMaterial_df1jc")
+[node name="Null_BG" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_System" index="3"]
+material = SubResource("ShaderMaterial_esur1")
 
-[node name="HP_Segmented_Bar" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="4"]
-material = SubResource("ShaderMaterial_cva5k")
+[node name="HP_Bar" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_System" index="4"]
+material = SubResource("ShaderMaterial_cqmtb")
 
-[node name="ENG_Segmented_Bar" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system" index="5"]
-material = SubResource("ShaderMaterial_wrq0q")
+[node name="ENG_Bar" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_System" index="5"]
+material = SubResource("ShaderMaterial_86fwf")
+
+[node name="ADR_Bar" parent="NavigationRegion2D/Enemy_Group/Enemy5/Bar_System" index="6"]
+material = SubResource("ShaderMaterial_w4tue")
 
 [node name="Enemy6" parent="NavigationRegion2D/Enemy_Group" instance=ExtResource("7_xtgrh")]
 position = Vector2(380, -90)
+EnemyAI = SubResource("Resource_pyu2s")
 Fight_stats = SubResource("Resource_34xcr")
 
 [node name="player_group" parent="NavigationRegion2D" instance=ExtResource("14_i48of")]
 y_sort_enabled = true
 position = Vector2(1, 120)
+script = ExtResource("15_pnri3")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("15_7vocu")]
 position = Vector2(-423, -237)
 Fight_stats = SubResource("Resource_oir6x")
 
-[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("21_s6lp7")]
-position = Vector2(-338, -134)
+[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("15_7vocu")]
+position = Vector2(-271, -100)
+Fight_stats = SubResource("Resource_oir6x")
+
+[node name="character_animator" parent="NavigationRegion2D/player_group/Player2" index="0"]
+frame = 14
+
+[node name="AnimationTree" parent="NavigationRegion2D/player_group/Player2" index="2"]
+libraries = {}
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("16_fvjuy")]
+
+[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("get_the_children")]
+get_the_children = NodePath("MarginContainer/HBoxContainer")
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("19_rqvbx")]
 do_i_need_it = true
 
-[node name="PCamTarget" type="Node2D" parent="."]
-visible = false
-position = Vector2(-21, -159)
-script = ExtResource("22_bkb1u")
-radius = 1000.0
-enabled = false
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ProCam" type="Node2D" parent="."]
-z_index = 4096
-script = ExtResource("13_htdc0")
-process_frame = 0
-follow_mode = 1
-drag_type = 0
-smooth_drag = true
-smooth_drag_speed = Vector2(10, 10)
-max_distance = Vector2(100000, 100000)
-offset = Vector2(0, 0)
-smooth_offset = true
-smooth_offset_speed = 2.0
-allow_rotation = true
-smooth_rotation = true
-smooth_rotation_speed = 5.0
-zoom = 1.15
-smooth_zoom = true
-smooth_zoom_speed = 5.0
-auto_zoom = true
-min_zoom = 1.0
-max_zoom = 100.0
-zoom_margin = 10.0
-smooth_limit = true
-left_limit = -960
-right_limit = 955
-top_limit = -860
-bottom_limit = 140
-use_h_margins = true
-use_v_margins = true
-left_margin = 0.1
-right_margin = 0.1
-top_margin = 0.05
-bottom_margin = 0.05
-working_radius = 2000.0
-global_debug_draw = false
-
-[editable path="NavigationRegion2D/OBJ_folder"]
 [editable path="NavigationRegion2D/Enemy_Group/Enemy5"]
-[editable path="NavigationRegion2D/Enemy_Group/Enemy5/Bar_system"]
+[editable path="NavigationRegion2D/Enemy_Group/Enemy5/Bar_System"]
 [editable path="NavigationRegion2D/player_group/Player"]
 [editable path="NavigationRegion2D/player_group/Player2"]
 [editable path="UI_battle_menu"]

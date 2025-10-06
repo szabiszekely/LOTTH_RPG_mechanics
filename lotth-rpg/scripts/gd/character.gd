@@ -44,6 +44,7 @@ var your_turn = false:
 		elif !your_turn:
 			_your_turn_off_set_up()
 
+
 #plays either health hit animation or energy drain animation!
 func _play_animator_health_hit():
 	$animator.play("hit")
@@ -77,7 +78,11 @@ func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_dama
 	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:
 		# if characters condition is met then the player would die and would get earesed
 		_fade_away_death()
-		
+
+#func _physics_process(delta: float) -> void:
+	#print(get_slide_collision_count()," ",get_real_velocity())
+	#move_and_slide()
+
 # when you take True Damage
 func _take_true_damage(base_damage):
 	if Fight_stats.HP > 0 and !CharacterIsOut:

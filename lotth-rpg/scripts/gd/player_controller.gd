@@ -18,9 +18,10 @@ const BAR_SYSTEM = preload("res://reworking_mechanics/reworked_Bar_system.tscn")
  #
 		#skill = value
 
-var distance = Vector2()
-var is_inside_the_range: bool = false
-var is_inside_the_range_and_skill_is_being_used: bool = false
+#var distance = Vector2()
+#var is_inside_the_range: bool = false
+#var is_inside_the_range_and_skill_is_being_used: bool = false
+var can_moved = false
 var moved = false
 
 
@@ -74,12 +75,21 @@ func _ready() -> void:
 			#Initiative.doTrapForLoop = false
 			#skill.indicator.reset()
 			#skill = null
-			
+
+func _physics_process(delta: float) -> void:
+	if can_moved:
+		#print(move_and_slide()," ",get_motion_mode())
+		var input= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		if input.x < 0:
+			character_anim.flip_h = true
+		elif input.x > 0:
+			character_anim.flip_h = false
+		velocity = input * 102 * delta
+		move_and_collide(velocity)
 func _your_turn_on_set_up():
 	
 	PlayOutOptions = MaxPlayOutOptions
 	_camera_on()
-	moved = false
 	menu.menu_index = 0
 	menu.switching_buttons()
 	menu.show()
