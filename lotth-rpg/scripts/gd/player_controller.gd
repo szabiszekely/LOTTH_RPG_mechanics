@@ -84,7 +84,8 @@ func _physics_process(delta: float) -> void:
 			character_anim.flip_h = true
 		elif input.x > 0:
 			character_anim.flip_h = false
-		velocity = input * 102 * delta
+		velocity = input * 111 * delta
+		#print(velocity," ",input)
 		move_and_collide(velocity)
 func _your_turn_on_set_up():
 	

@@ -4,16 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="2_5wfbb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xu1q2"]
-radius = 32.01562
+radius = 28.735632
 
 [node name="Movement_area" type="Area2D"]
 scale = Vector2(1, 0.5)
+collision_mask = 4
 script = ExtResource("1_npwjc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xu1q2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5wfbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.87, 0.87)
+shape = SubResource("CircleShape2D_xu1q2")
+debug_color = Color(0.76, 0.72656, 0.25839996, 0.62352943)
 
 [connection signal="body_exited" from="." to="." method="_player_left_the_circle"]

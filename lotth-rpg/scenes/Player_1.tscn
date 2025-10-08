@@ -539,13 +539,15 @@ states/tired/position = Vector2(324, 165)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wggx2"), "idle", "tired", SubResource("AnimationNodeStateMachineTransition_15u76"), "tired", "idle", SubResource("AnimationNodeStateMachineTransition_hiwc3"), "KOd", "tired", SubResource("AnimationNodeStateMachineTransition_q737x"), "tired", "KOd", SubResource("AnimationNodeStateMachineTransition_s0g1m")]
 graph_offset = Vector2(-81, 2)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
-size = Vector2(17.0588, 11.6667)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hiwc3"]
+radius = 4.4444447
+height = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiwc3"]
 size = Vector2(12.2516, 11.6667)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]
+collision_layer = 4
 script = ExtResource("1_1byu4")
 Fight_stats = ExtResource("3_ompdf")
 Turn_portriat = ExtResource("4_lp857")
@@ -555,7 +557,7 @@ cam_target = NodePath("PCamTarget")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 4
+frame = 5
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -570,10 +572,9 @@ tree_root = SubResource("AnimationNodeStateMachine_kmnsa")
 advance_expression_base_node = NodePath("..")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -2.5)
+position = Vector2(-2, -1)
 scale = Vector2(1.8, 1.8)
-shape = SubResource("RectangleShape2D_f33j1")
+shape = SubResource("CapsuleShape2D_hiwc3")
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
@@ -593,7 +594,7 @@ priority = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 3)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

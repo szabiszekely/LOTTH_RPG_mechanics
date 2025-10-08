@@ -231,6 +231,7 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
+collision_layer = 4
 
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.8, 11.2355)

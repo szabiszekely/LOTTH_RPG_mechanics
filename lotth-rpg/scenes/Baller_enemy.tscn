@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=120 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller.png" id="2_gg1ba"]
@@ -844,8 +844,9 @@ states/tired/node = SubResource("AnimationNodeAnimation_u6vew")
 states/tired/position = Vector2(358, 213)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gjc1s"), "idle", "tired", SubResource("AnimationNodeStateMachineTransition_xqu45"), "tired", "idle", SubResource("AnimationNodeStateMachineTransition_0lgag"), "tired", "KOd", SubResource("AnimationNodeStateMachineTransition_lyht5"), "KOd", "tired", SubResource("AnimationNodeStateMachineTransition_7i7dh")]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
-size = Vector2(12.2516, 17.7778)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1inbq"]
+radius = 6.1258116
+height = 16.666668
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1inbq"]
 resource_local_to_scene = true
@@ -1095,7 +1096,11 @@ shader_parameter/slant_amount = 0.0
 shader_parameter/scale = 0.0
 shader_parameter/slant_clip_margin = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
+size = Vector2(12.2516, 17.7778)
+
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target") groups=["Enemy"]]
+collision_layer = 4
 script = ExtResource("1_pbqx5")
 EnemyAI = ExtResource("2_j5hb2")
 Fight_stats = ExtResource("4_ndcdo")
@@ -1124,10 +1129,9 @@ tree_root = SubResource("AnimationNodeStateMachine_gcdhj")
 advance_expression_base_node = NodePath("..")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-3.02646, -11)
+position = Vector2(-3.02646, -10.000001)
 scale = Vector2(1.8, 1.8)
-shape = SubResource("RectangleShape2D_f33j1")
+shape = SubResource("CapsuleShape2D_1inbq")
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
@@ -1193,6 +1197,7 @@ enabled = false
 priority = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false

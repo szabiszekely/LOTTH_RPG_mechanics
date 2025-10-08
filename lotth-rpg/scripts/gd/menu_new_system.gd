@@ -68,6 +68,7 @@ var current_state
 var current_memory_state
 var menu_buttons: Array = []
 var menu_index: int = 0
+var movement_reminder
 
 var abi = false
 var act = false
@@ -105,6 +106,7 @@ func _process(_delta: float) -> void:
 				menu.show()
 				action_choice.act_appear()
 				act_container = false
+		# allows the player to move in a ellipses
 		Menu_state.MOVEMENT:
 			current_memory_state = current_state
 			if move_container:
@@ -113,9 +115,9 @@ func _process(_delta: float) -> void:
 				instance.position = Initiative.sorted_player[Initiative.group_player.p_index].global_position
 				instance.get_player = Initiative.sorted_player[Initiative.group_player.p_index]
 				instance.scale = Vector2(4,2)
+				movement_reminder = instance
 				Main_node.add_child(instance)
 				Initiative.sorted_player[Initiative.group_player.p_index].can_moved = true
-			# PUT HERE THE MOVEMENT CHANGE SCRIPT
 		# brings up the bagpack menu
 		Menu_state.BAG:
 			current_memory_state = current_state
@@ -183,6 +185,10 @@ func _input(event: InputEvent) -> void:
 				switching_buttons()
 				menu_container = true
 				current_state = Menu_state.MENU
+				Initiative.sorted_player[Initiative.group_player.p_index].can_moved = false
+				Initiative.sorted_player[Initiative.group_player.p_index].global_position = movement_reminder.global_position
+				Initiative.sorted_player[Initiative.group_player.p_index].character_anim.flip_h = false
+				movement_reminder.queue_free()
 			Menu_state.BAG:
 				menu_index = 3
 				vanish()
@@ -250,21 +256,22 @@ func _input(event: InputEvent) -> void:
 			vanish()
 			current_state = Menu_state.ALL_GONE
 		else:
-			back_to_normal()
-			match current_memory_state:
-				Menu_state.ABILITES:
-					abi_container = true
-				Menu_state.ACTIONS:
-					act_container = true
-				Menu_state.MOVEMENT:
-					move_container = true
-				Menu_state.BAG:
-					bag_container = true
-				Menu_state.RUN:
-					run_container = true
-				
-				
-			current_state = current_memory_state
+			pass
+			#back_to_normal()
+			#match current_memory_state:
+				#Menu_state.ABILITES:
+					#abi_container = true
+				#Menu_state.ACTIONS:
+					#act_container = true
+				#Menu_state.MOVEMENT:
+					#move_container = true
+				#Menu_state.BAG:
+					#bag_container = true
+				#Menu_state.RUN:
+					#run_container = true
+				#
+				#
+			#current_state = current_memory_state
 
 # hides the UI (Kinda...)
 func vanish():
