@@ -19,4 +19,4 @@ scale = Vector2(0.87, 0.87)
 shape = SubResource("CircleShape2D_xu1q2")
 debug_color = Color(0.76, 0.72656, 0.25839996, 0.62352943)
 
-[connection signal="body_exited" from="." to="." method="_player_left_the_circle"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

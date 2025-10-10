@@ -22,6 +22,9 @@ const BAR_SYSTEM = preload("res://reworking_mechanics/reworked_Bar_system.tscn")
 #var is_inside_the_range: bool = false
 #var is_inside_the_range_and_skill_is_being_used: bool = false
 var can_moved = false
+var can_dash = true
+var dashing = false
+var dashDir = Vector2(0,0)
 var moved = false
 
 
@@ -76,6 +79,7 @@ func _ready() -> void:
 			#skill.indicator.reset()
 			#skill = null
 
+
 func _physics_process(delta: float) -> void:
 	if can_moved:
 		#print(move_and_slide()," ",get_motion_mode())
@@ -84,8 +88,20 @@ func _physics_process(delta: float) -> void:
 			character_anim.flip_h = true
 		elif input.x > 0:
 			character_anim.flip_h = false
-		velocity = input * 111 * delta
+		if Input.is_action_just_pressed("dash") and can_dash and not dashing:
+			dashDir = input
+			can_dash = false
+			dashing = true
+			velocity = dashDir * 450 *delta
+			await get_tree().create_timer(0.11).timeout
+			velocity = Vector2.ZERO
+			can_dash = true
+			dashing = false
+		elif dashing == false:
+			velocity = input * 111 * delta
+			
 		#print(velocity," ",input)
+	
 		move_and_collide(velocity)
 func _your_turn_on_set_up():
 	
