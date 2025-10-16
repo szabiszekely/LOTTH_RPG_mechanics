@@ -141,58 +141,59 @@ func _get_actions_enemy(self_e):
 # gives out points based on player actions
 func _player_actions():
 	for i in enemy_group.p_actions:
-		if i[3] == enemy_it_self or Data.get_card_range(i[4]) == "Self":
-			match i[0]:
-				"atk":
-					# if DMG to this enemy
-					# add DMG to ANGY points
-					# add points based on personality
-					# else add either PEAC points or add a flat ANGY point number
-					var damage = Data.get_card_damage(i[4])
-					if damage != 0:
-						var combined =  20 + damage + angy_personality_bonus
-						PlayerAgro[i[2]] += combined # + personality
-					else:
-						var dice_roll = randi_range(1,6)
-						if dice_roll >= dice_goal_number: # +/- dependeds on personality
+		if i[0] in ["atk","act","bag"]: 
+			if i[3] == enemy_it_self or Data.get_card_range(i[4]) == "Self":
+				match i[0]:
+					"atk":
+						# if DMG to this enemy
+						# add DMG to ANGY points
+						# add points based on personality
+						# else add either PEAC points or add a flat ANGY point number
+						var damage = Data.get_card_damage(i[4])
+						if damage != 0:
+							var combined =  20 + damage + angy_personality_bonus
+							PlayerAgro[i[2]] += combined # + personality
+						else:
+							var dice_roll = randi_range(1,6)
+							if dice_roll >= dice_goal_number: # +/- dependeds on personality
+								PlayerKind[i[2]] += 10
+							else:
+								PlayerAgro[i[2]] += 10
+					"act":
+						# if trying to be kind
+						# add a base number to PEAC points plus depending on personality add a bonus and reduce ANGY points by half (int)
+						# else do nothing with points and just add a flat PEAC point to number
+						if i[4] not in ["Check","Focus","Guard"]:
+							PlayerKind[i[2]] += 20
+							var dived = int(PlayerAgro.get(i[2]) / personality_decrease_modifier_agression)#divided by personality modifier
+							PlayerAgro[i[2]] -= dived
+						else:
 							PlayerKind[i[2]] += 10
-						else:
-							PlayerAgro[i[2]] += 10
-				"act":
-					# if trying to be kind
-					# add a base number to PEAC points plus depending on personality add a bonus and reduce ANGY points by half (int)
-					# else do nothing with points and just add a flat PEAC point to number
-					if i[4] not in ["Check","Focus","Guard"]:
-						PlayerKind[i[2]] += 20
-						var dived = int(PlayerAgro.get(i[2]) / personality_decrease_modifier_agression)#divided by personality modifier
-						PlayerAgro[i[2]] -= dived
-					else:
-						PlayerKind[i[2]] += 10
-				"bag":
-					# depending on the ANGY or PEAC point stat 
-					# if ANGY is higher than make that number bigger
-					# if PEAC is higher than make ANGY get reduced by 2
-					var damage = Data.get_item_damage(i[4])
-					if damage != 0:
-						var combined =  20 + damage + angy_personality_bonus
-						PlayerAgro[i[2]] += combined # + personality
-					
-					elif PlayerAgro.get(i[2]) > PlayerKind.get(i[2]):
-						PlayerAgro[i[2]] += 20
-						var dived = int(PlayerKind.get(i[2]) / personality_decrease_modifier_kindness)#divided by personality modifier
-						PlayerKind[i[2]] -= dived
-					
-					elif PlayerKind.get(i[2]) > PlayerAgro.get(i[2]):
-						PlayerKind[i[2]] += 20
-						var dived = int(PlayerAgro.get(i[2]) / personality_decrease_modifier_agression)#divided by personality modifier
-						PlayerAgro[i[2]] -= dived
-					
-					elif PlayerAgro.get(i[2]) == PlayerKind.get(i[2]):
-						var dice_roll = randi_range(1,6)
-						if dice_roll >= dice_goal_number: # +/- dependeds on personality
-							PlayerKind[i[2]] += 30
-						else:
-							PlayerAgro[i[2]] += 30
+					"bag":
+						# depending on the ANGY or PEAC point stat 
+						# if ANGY is higher than make that number bigger
+						# if PEAC is higher than make ANGY get reduced by 2
+						var damage = Data.get_item_damage(i[4])
+						if damage != 0:
+							var combined =  20 + damage + angy_personality_bonus
+							PlayerAgro[i[2]] += combined # + personality
+						
+						elif PlayerAgro.get(i[2]) > PlayerKind.get(i[2]):
+							PlayerAgro[i[2]] += 20
+							var dived = int(PlayerKind.get(i[2]) / personality_decrease_modifier_kindness)#divided by personality modifier
+							PlayerKind[i[2]] -= dived
+						
+						elif PlayerKind.get(i[2]) > PlayerAgro.get(i[2]):
+							PlayerKind[i[2]] += 20
+							var dived = int(PlayerAgro.get(i[2]) / personality_decrease_modifier_agression)#divided by personality modifier
+							PlayerAgro[i[2]] -= dived
+						
+						elif PlayerAgro.get(i[2]) == PlayerKind.get(i[2]):
+							var dice_roll = randi_range(1,6)
+							if dice_roll >= dice_goal_number: # +/- dependeds on personality
+								PlayerKind[i[2]] += 30
+							else:
+								PlayerAgro[i[2]] += 30
 # gets certain data points on specific player and enemies
 func _data_analysis():
 	var all_array = []

@@ -43,7 +43,9 @@ func bag_disappear():
 
 # when you press an item you add it to the quee
 func _on_item_list_item_activated(index: int) -> void:
+	print(item_list)
 	var my_data = Data.get_item_data(item_list[index])
+	print(my_data)
 	menu_system.vanish()
 	item_handler._get_item_and_redirect_it(my_data,menu_system,menu_system.player_group,menu_system.enemy_group)
 
@@ -86,7 +88,6 @@ func _add_random_items():
 		if not inventory.item_count >= 24:
 			inventory.add_slot(random_item)
 			item_list.append(Data.get_item_id(random_item))
-			print(item_list)
 			no_items.hide()
 			
 		else:

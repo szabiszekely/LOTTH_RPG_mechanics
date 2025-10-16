@@ -46,6 +46,8 @@ func _reset():
 	player_group._player_start_choosing()
 	for i in player_group.player:
 		i.Bar._reset_action_indicator()
+		i.movement_restriction = false
+
 
 
 func _full_reset():

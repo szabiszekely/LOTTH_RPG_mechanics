@@ -27,8 +27,8 @@ theme_override_constants/margin_bottom = 150
 [node name="Inventory" type="ItemList" parent="test"]
 layout_mode = 2
 theme = ExtResource("3_e3rlx")
-theme_override_constants/v_separation = 20
 theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 20
 theme_override_font_sizes/font_size = 22
 max_columns = 3
 same_column_width = true

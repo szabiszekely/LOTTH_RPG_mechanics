@@ -26,7 +26,8 @@ var can_dash = true
 var dashing = false
 var dashDir = Vector2(0,0)
 var moved = false
-
+var turn_pos = Vector2.ZERO
+var movement_restriction = false
 
 func _ready() -> void:
 	$AnimationTree.active = true
@@ -100,11 +101,9 @@ func _physics_process(delta: float) -> void:
 		elif dashing == false:
 			velocity = input * 111 * delta
 			
-		#print(velocity," ",input)
 	
 		move_and_collide(velocity)
 func _your_turn_on_set_up():
-	
 	PlayOutOptions = MaxPlayOutOptions
 	_camera_on()
 	menu.menu_index = 0
@@ -112,7 +111,7 @@ func _your_turn_on_set_up():
 	menu.show()
 	menu.current_state = menu.Menu_state.MENU
 	$character_animator.self_modulate = Color.YELLOW
-	#player_switch_on()
+	turn_pos = global_position
 
 func _your_turn_off_set_up():
 	_camera_off()
@@ -139,6 +138,10 @@ func _pass_character():
 		player.all_p_actions.push_back(["pass_character","nonesense",self,self,"Self"])
 	_on_to_the_next_guy()
 
+func _menu_cancle_return_pos():
+	global_position = turn_pos
+	movement_restriction = false
+	
 # indicator set up
 #func update(delta):
 	#if skill != null:

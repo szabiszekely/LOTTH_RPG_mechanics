@@ -118,6 +118,7 @@ func _process(_delta: float) -> void:
 				movement_reminder = instance
 				Main_node.add_child(instance)
 				Initiative.sorted_player[Initiative.group_player.p_index].can_moved = true
+
 		# brings up the bagpack menu
 		Menu_state.BAG:
 			current_memory_state = current_state
@@ -156,8 +157,11 @@ func _input(event: InputEvent) -> void:
 			Menu_state.MENU:
 				if player_group.all_p_actions.size() != 0 and menu_can_be_canled == true:
 					menu_can_be_canled = false
+					if player_group.all_p_actions[-1][0] == "movement":
+						Initiative.sorted_player[player_group.p_index]._menu_cancle_return_pos()
 					
 					player_group.all_p_actions.remove_at(player_group.all_p_actions.size() - 1)
+					
 					if Initiative.sorted_player[player_group.p_index].PlayOutOptions == Initiative.sorted_player[player_group.p_index].MaxPlayOutOptions:
 						Initiative.switch_order_p(player_group.p_index-1,player_group.p_index)
 						player_group.p_index -= 1
@@ -334,9 +338,16 @@ func _on_action_pressed() -> void:
 	current_state = Menu_state.CHOOSING_ENEMIES
 
 func _on_movement_pressed() -> void:
-	vanish()
-	move_container = true
-	current_state = Menu_state.MOVEMENT
+	if !Initiative.sorted_player[player_group.p_index].movement_restriction:
+		vanish()
+		move_container = true
+		current_state = Menu_state.MOVEMENT
+	else:
+		menu_index = 2
+		#vanish()
+		switching_buttons()
+		menu_container = true
+
 	
 func _on_bagpack_pressed() -> void:
 	vanish()

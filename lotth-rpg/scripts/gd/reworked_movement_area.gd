@@ -32,11 +32,13 @@ func _input(event: InputEvent) -> void:
 		get_player.can_moved = false
 		get_player.character_anim.flip_h = false
 		Menu.movement.process_mode = Node.PROCESS_MODE_DISABLED
+		
 		Menu.menu_container = true
 		Menu.current_state = Menu.Menu_state.MENU
+		get_player.movement_restriction = true
 		self.hide()
 		get_player._play_out_tick_down()
-		get_player.player.all_p_actions.push_back(["movement",0])
+		get_player.player.all_p_actions.push_back(["movement",0,get_player,get_player])
 
 		await get_tree().create_timer(0.2).timeout
 		Menu.movement.process_mode = Node.PROCESS_MODE_INHERIT
