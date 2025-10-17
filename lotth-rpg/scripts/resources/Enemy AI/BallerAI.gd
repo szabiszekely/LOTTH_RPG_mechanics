@@ -11,6 +11,7 @@ class_name BallerAI
 	# Use Items
 		# If has any
 		# Use item precentage to decide if needed or not
+	# Move depending on class priority and current health
 	# Act if all Players actions result in peace
 	# Use buff ability
 		# Has it been already used or not
@@ -69,7 +70,7 @@ func _EnemyAI(deck):
 	elif energy_restore_bottomline > enemy_current_ENG: # garandteed heal
 		enemy_group.all_e_action.push_back(["atk",1,enemy_it_self,enemy_it_self,Defense_deck[0]])
 		break_gambit = true
-	
+		
 	# there is this gambit if the enemy already choosen lets say... heal then don't override it with attack
 	# cause that is stupid
 	if !break_gambit:
@@ -98,6 +99,19 @@ func _EnemyAI(deck):
 				target = i
 				break
 				
+		if can_move:
+			can_move = false
+			match enemy_it_self.Fight_stats.Attack_Type:
+				0: # Melee
+					pass
+				1: # Range
+					print((enemy_it_self.global_position - target.global_position).length())
+					pass
+					#move_toward(enemy_it_self.global_position)
+				2: # Mage
+					pass 
+
+		
 		
 		# Kindness route (aka choose random act)
 		if !agro_check:

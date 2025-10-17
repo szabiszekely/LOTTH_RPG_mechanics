@@ -25,11 +25,11 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_select") and can_be_confirmed and get_player.can_moved:
+		get_player.can_moved = false
 		can_be_confirmed = false
 		Menu.menu_index = 2
 		Menu.vanish()
 		Menu.switching_buttons()
-		get_player.can_moved = false
 		get_player.character_anim.flip_h = false
 		Menu.movement.process_mode = Node.PROCESS_MODE_DISABLED
 		
@@ -39,7 +39,8 @@ func _input(event: InputEvent) -> void:
 		self.hide()
 		get_player._play_out_tick_down()
 		get_player.player.all_p_actions.push_back(["movement",0,get_player,get_player])
-
+		print((get_player.turn_pos-get_player.global_position).length())
 		await get_tree().create_timer(0.2).timeout
 		Menu.movement.process_mode = Node.PROCESS_MODE_INHERIT
+		get_player.can_moved = false
 		self.queue_free()

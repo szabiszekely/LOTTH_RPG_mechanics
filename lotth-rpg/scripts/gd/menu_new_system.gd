@@ -112,12 +112,16 @@ func _process(_delta: float) -> void:
 			if move_container:
 				move_container = false
 				var instance = preload("res://scenes/reworked_movement_area.tscn").instantiate()
-				instance.position = Initiative.sorted_player[Initiative.group_player.p_index].global_position
-				instance.get_player = Initiative.sorted_player[Initiative.group_player.p_index]
-				instance.scale = Vector2(4,2)
+				var current_player = Initiative.sorted_player[Initiative.group_player.p_index]
+				instance.position = current_player.global_position
+				instance.get_player = current_player
+				var range_distance = current_player.Fight_stats.range_in_cm
+				var current_speed = current_player.Fight_stats.Speed
+				
+				instance.scale = Vector2((0.3*range_distance)+(0.15*current_speed) ,(0.15*range_distance) + (0.075*current_speed)  )
 				movement_reminder = instance
 				Main_node.add_child(instance)
-				Initiative.sorted_player[Initiative.group_player.p_index].can_moved = true
+				current_player.can_moved = true
 
 		# brings up the bagpack menu
 		Menu_state.BAG:
@@ -157,8 +161,6 @@ func _input(event: InputEvent) -> void:
 			Menu_state.MENU:
 				if player_group.all_p_actions.size() != 0 and menu_can_be_canled == true:
 					menu_can_be_canled = false
-					if player_group.all_p_actions[-1][0] == "movement":
-						Initiative.sorted_player[player_group.p_index]._menu_cancle_return_pos()
 					
 					player_group.all_p_actions.remove_at(player_group.all_p_actions.size() - 1)
 					
@@ -173,6 +175,7 @@ func _input(event: InputEvent) -> void:
 						Initiative.sorted_player[player_group.p_index]._play_out_tick_up()
 						await get_tree().create_timer(0.3).timeout
 						menu_can_be_canled = true
+					Initiative.sorted_player[player_group.p_index]._menu_cancle_return_pos()
 						
 					menu_container = true
 			# all of the other just go back by one step to their respective menu before

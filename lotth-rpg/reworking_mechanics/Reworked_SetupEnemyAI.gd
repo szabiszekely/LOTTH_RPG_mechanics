@@ -69,6 +69,10 @@ var AbilityScore: Dictionary = {}
 
 var increase_failed_heal_percentage: float = 0
 
+#------ Miscellaneous -------
+var can_move = true
+
+
 # simple setup for the resource
 func _setup(enemies,players,Initiative_script,BattleScene,act_button_handler,enemy_self):
 	enemy_group = enemies

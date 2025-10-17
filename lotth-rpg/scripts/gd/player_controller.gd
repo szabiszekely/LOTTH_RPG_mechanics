@@ -111,7 +111,8 @@ func _your_turn_on_set_up():
 	menu.show()
 	menu.current_state = menu.Menu_state.MENU
 	$character_animator.self_modulate = Color.YELLOW
-	turn_pos = global_position
+	if !movement_restriction:
+		turn_pos = global_position
 
 func _your_turn_off_set_up():
 	_camera_off()
