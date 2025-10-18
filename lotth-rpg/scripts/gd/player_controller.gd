@@ -29,6 +29,7 @@ var moved = false
 var turn_pos = Vector2.ZERO
 var movement_restriction = false
 
+
 func _ready() -> void:
 	$AnimationTree.active = true
 	var instance = BAR_SYSTEM.instantiate()
@@ -82,7 +83,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if can_moved:
+	
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
+		
+		move_and_collide(velocity)
+
+	elif can_moved:
 		#print(move_and_slide()," ",get_motion_mode())
 		var input= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		if input.x < 0:
@@ -100,9 +110,9 @@ func _physics_process(delta: float) -> void:
 			dashing = false
 		elif dashing == false:
 			velocity = input * 111 * delta
-			
-	
 		move_and_collide(velocity)
+		
+			
 func _your_turn_on_set_up():
 	PlayOutOptions = MaxPlayOutOptions
 	_camera_on()
@@ -142,7 +152,7 @@ func _pass_character():
 func _menu_cancle_return_pos():
 	global_position = turn_pos
 	movement_restriction = false
-	
+
 # indicator set up
 #func update(delta):
 	#if skill != null:

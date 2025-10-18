@@ -21,6 +21,10 @@ class_name Character_Controller
 var CharacterIsOut: bool = false
 var CanGetTheFinalBlow: bool = false
 
+var knockback: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
+
+
 # this will reduce if you choose an action
 # and when it is 0 or less than the next on the order will come
 var PlayOutOptions: int = 2:
@@ -160,6 +164,10 @@ func _fade_away_death():
 		Initiative.stopLoop.emit()
 		self.queue_free()
 		Bar.queue_free()
+
+func _apply_kb(dir: Vector2,force: float,kb_dur) -> void:
+	knockback = dir * force
+	knockback_timer=kb_dur
 
 
 # place holder functions for other scripts to be handled

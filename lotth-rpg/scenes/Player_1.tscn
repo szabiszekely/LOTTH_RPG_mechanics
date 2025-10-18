@@ -547,7 +547,7 @@ height = 10.0
 size = Vector2(12.2516, 11.6667)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]
-collision_layer = 4
+collision_layer = 5
 script = ExtResource("1_1byu4")
 Fight_stats = ExtResource("3_ompdf")
 Turn_portriat = ExtResource("4_lp857")
@@ -557,7 +557,7 @@ cam_target = NodePath("PCamTarget")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 5
+frame = 12
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {

@@ -24,6 +24,17 @@ func _process(_delta: float) -> void:
 	if your_turn and CharacterIsOut:
 		PlayOutOptions -= 1
 
+func _physics_process(delta: float) -> void:
+	
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
+		
+		move_and_collide(velocity)
+
+
 func _your_turn_on_set_up():
 		PlayOutOptions = MaxPlayOutOptions
 		EnemyAI._EnemyCurrentBarStatus()

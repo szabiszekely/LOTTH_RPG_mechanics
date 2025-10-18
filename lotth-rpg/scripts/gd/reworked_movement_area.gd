@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 		get_player.can_moved = false
 		get_player.velocity += (self.global_position - get_player.global_position).normalized() * pull
 		get_player.move_and_slide()
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.13).timeout
 		get_player.can_moved = true
 		
 	if (self.global_position - get_player.global_position).length() >= 350:
