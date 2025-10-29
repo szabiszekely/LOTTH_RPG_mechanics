@@ -31,6 +31,7 @@ var movement_restriction = false
 
 
 func _ready() -> void:
+	
 	$AnimationTree.active = true
 	var instance = BAR_SYSTEM.instantiate()
 	instance.assined_characters = self

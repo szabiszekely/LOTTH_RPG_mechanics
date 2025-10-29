@@ -105,6 +105,9 @@ func _EnemyAI(deck):
 				0: # Melee
 					pass
 				1: # Range
+					#var map = get_world_2d().navigation_map
+					#var p = NavigationServer2D.map_get_closest_point(map,get_global_mouse_position())
+					#nav_agent.target_position = p
 					print((enemy_it_self.global_position - target.global_position).length())
 					pass
 					#move_toward(enemy_it_self.global_position)
