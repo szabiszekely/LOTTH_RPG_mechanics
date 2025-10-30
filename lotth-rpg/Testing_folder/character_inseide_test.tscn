@@ -1,31 +1,93 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7ip2ycpoqd6t"]
+[gd_scene load_steps=8 format=3 uid="uid://c7ip2ycpoqd6t"]
 
-[ext_resource type="Script" uid="uid://c7s22poyyw0a1" path="res://Testing_folder/has_char_inside.gd" id="1_6kb4q"]
+[ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/navigation_region_2d.gd" id="1_ict87"]
+[ext_resource type="Script" uid="uid://b8ff2h1ws7s48" path="res://Testing_folder/test_navigation.gd" id="1_ithm2"]
 [ext_resource type="Texture2D" uid="uid://b8p4454efceee" path="res://icon.svg" id="2_ithm2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ithm2"]
-radius = 34.234486
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dbd05"]
+vertices = PackedVector2Array(167.5625, 110.77344, -102.67969, 95, -68, 95, 172.46875, -81.640625, 164, 7, 164, -55, -24, -3, 17, 0, -45, 0, -72, -3, 17, 62, -45, 62, -68, 33, -72, 18, 102, 7, 85, 3, 23, 3, 23, -59, -24, -65, -177.75, -92.36719, 85, -59, -130, 33, -134, 18, 102, -55, -130, 93.39844, -184.27344, 90.22656, -134, -44, -86, -65, -86, -44)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(0, 2, 10, 4), PackedInt32Array(11, 10, 2), PackedInt32Array(11, 2, 12, 8), PackedInt32Array(9, 8, 12, 13), PackedInt32Array(14, 4, 10), PackedInt32Array(15, 14, 10, 16), PackedInt32Array(16, 10, 7, 17), PackedInt32Array(18, 19, 3, 5, 20), PackedInt32Array(13, 12, 21, 22), PackedInt32Array(23, 14, 15, 20), PackedInt32Array(21, 24, 25, 19, 22), PackedInt32Array(26, 22, 19), PackedInt32Array(27, 28, 26, 19), PackedInt32Array(17, 7, 6, 18), PackedInt32Array(18, 27, 19), PackedInt32Array(5, 23, 20), PackedInt32Array(18, 20, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-198, -114, 194, -102, 188, 133, -206, 110)])
+agent_radius = 21.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ict87"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbd05"]
+radius = 5.0990195
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ithm2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ict87"]
+radius = 33.01515
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_6kb4q")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
+top_level = true
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_dbd05")
+enter_cost = 1.0
+script = ExtResource("1_ict87")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(2, 1)
-shape = SubResource("CircleShape2D_ithm2")
+[node name="CharacterBody2D" type="CharacterBody2D" parent="NavigationRegion2D2"]
+z_index = 2
+position = Vector2(117, 58)
+script = ExtResource("1_ithm2")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(20, -37)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_ict87")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.16, 0.16)
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D2/CharacterBody2D"]
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("2_ithm2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.72, 2.72)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/CharacterBody2D"]
+shape = SubResource("CircleShape2D_dbd05")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NavigationRegion2D2/CharacterBody2D"]
+avoidance_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D2"]
+position = Vector2(-103, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ithm2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="NavigationRegion2D2"]
+position = Vector2(54, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_ithm2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="NavigationRegion2D2"]
+position = Vector2(-14, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_ithm2")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="NavigationRegion2D2"]
+position = Vector2(-99, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_ithm2")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="NavigationRegion2D2"]
+position = Vector2(-55, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_ithm2")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="NavigationRegion2D2"]
+position = Vector2(133, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_ithm2")
+
+[node name="Area2D" type="Area2D" parent="NavigationRegion2D2"]
+position = Vector2(102, 59)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D2/Area2D"]
+scale = Vector2(3, 1.5)
+shape = SubResource("CircleShape2D_ict87")
+
+[node name="Node2D" type="Camera2D" parent="."]
+zoom = Vector2(4.62, 4.62)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-162, -59)

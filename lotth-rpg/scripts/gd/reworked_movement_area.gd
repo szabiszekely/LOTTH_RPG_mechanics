@@ -13,19 +13,20 @@ var pull = 145
 # putting the back the player after canceling
 
 func _process(_delta: float) -> void:
-	#if get_overlapping_bodies().size() < 1 or not get_player in get_overlapping_bodies():
-	if get_overlapping_bodies().size() >= 1 or get_player in get_overlapping_bodies():
-	
-		get_player.velocity += Vector2(1,0)*4
-		get_player.move_and_slide()
-	elif get_overlapping_bodies().size() < 1 or not get_player in get_overlapping_bodies():
-		print((get_player.turn_pos-get_player.global_position).length())
-	
-		#get_player.can_moved = false
-		#get_player.velocity += (self.global_position - get_player.global_position).normalized() * pull
+	#if get_overlapping_bodies().size() >= 1 or get_player in get_overlapping_bodies():
+	#
+		#get_player.velocity += Vector2(1,0)*4
 		#get_player.move_and_slide()
-		#await get_tree().create_timer(0.13).timeout
-		#get_player.can_moved = true
+	#elif get_overlapping_bodies().size() < 1 or not get_player in get_overlapping_bodies():
+		#print((get_player.turn_pos-get_player.global_position).length())
+	#
+	if get_overlapping_bodies().size() < 1 or not get_player in get_overlapping_bodies():
+	
+		get_player.can_moved = false
+		get_player.velocity += (self.global_position - get_player.global_position).normalized() * pull
+		get_player.move_and_slide()
+		await get_tree().create_timer(0.13).timeout
+		get_player.can_moved = true
 		
 	if (self.global_position - get_player.global_position).length() >= 350:
 		get_player.global_position = Vector2.ZERO
