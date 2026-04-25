@@ -176,11 +176,20 @@ script = ExtResource("5_shbcj")
 script = ExtResource("6_blo5o")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
-position = Vector2(0, -76)
+position = Vector2(-143, -125)
 Fight_stats = SubResource("Resource_p7hkc")
 
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
-position = Vector2(0, 28)
+position = Vector2(-143, -21)
+Fight_stats = SubResource("Resource_q1i6w")
+Turn_portriat = ExtResource("10_ahsbf")
+
+[node name="Player3" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
+position = Vector2(-191, -68)
+Fight_stats = SubResource("Resource_p7hkc")
+
+[node name="Player4" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
+position = Vector2(-191, 36)
 Fight_stats = SubResource("Resource_q1i6w")
 Turn_portriat = ExtResource("10_ahsbf")
 
@@ -188,18 +197,29 @@ Turn_portriat = ExtResource("10_ahsbf")
 script = ExtResource("6_dsgni")
 
 [node name="Enemy" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(260, -77)
+position = Vector2(117, -118)
 EnemyAI = SubResource("Resource_6hxp8")
 Fight_stats = SubResource("Resource_aihkf")
 
 [node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(260, 43)
+position = Vector2(117, 2)
+EnemyAI = SubResource("Resource_lh1mx")
+Fight_stats = SubResource("Resource_mo7hs")
+Turn_portriat = ExtResource("9_brbw4")
+
+[node name="Enemy3" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
+position = Vector2(169, -63)
+EnemyAI = SubResource("Resource_6hxp8")
+Fight_stats = SubResource("Resource_aihkf")
+
+[node name="Enemy4" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
+position = Vector2(169, 57)
 EnemyAI = SubResource("Resource_lh1mx")
 Fight_stats = SubResource("Resource_mo7hs")
 Turn_portriat = ExtResource("9_brbw4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(145, -151)
+position = Vector2(2, -151)
 zoom = Vector2(2, 2)
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("10_pue0b")]
@@ -207,6 +227,9 @@ zoom = Vector2(2, 2)
 [node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("get_the_children", "Mouse_camera_toggler")]
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../Mouse Pointer")
+
+[node name="Movement" parent="UI_battle_menu/Menu/MarginContainer/HBoxContainer" index="2"]
+disabled = true
 
 [editable path="Turn_Handler"]
 [editable path="UI_battle_menu"]

@@ -93,8 +93,8 @@ func _Player_Point_System():
 func _EnemyAI(deck):
 	pass
 
-func _TurnIsOver():
-	pass
+#func _TurnIsOver():
+	#pass
 # gets the current status of the bars of the enemy
 # yep that what it does
 func _EnemyCurrentBarStatus():
