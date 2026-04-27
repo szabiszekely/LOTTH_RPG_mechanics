@@ -11,6 +11,7 @@ class_name Bar_system
 @onready var Null_bar = $Null_BG
 @onready var ADR_bar: ColorRect = $ADR_Bar
 @onready var name_tag: Label = $Name_tab/Label
+@onready var name_tag_container: Panel = $Name_tab
 @onready var Health_number: Label = $Health/Label
 @onready var Energy_number: Label = $Energy/Label
 @onready var health_text: Panel = $Health

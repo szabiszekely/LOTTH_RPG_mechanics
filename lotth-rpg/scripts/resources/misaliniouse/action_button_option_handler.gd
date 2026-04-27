@@ -41,7 +41,10 @@ func Check():
 	print("DEF: " + str(enemy_stats.Defense) + " M.DEF: " + str(enemy_stats.Magic_Defense))
 	print("EMP: "+ str(enemy_stats.EMP) + " Speed: " + str(enemy_stats.Speed))
 	print("----------------")
-	enemy_seperate.Enemy_health_bar.show()
+	enemy_seperate.Bar.show()
+	enemy_seperate.Bar.name_tag_container.hide()
+	enemy_seperate.Bar.action_remaining.hide()
+
 	
 
 func Focus():

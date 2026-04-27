@@ -4,7 +4,7 @@ class_name Player
 # Oh we should probably work on this code cause it is messy 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player_cam_target: Node2D = $PCamTarget
-@onready var Bar_VContainer: VBoxContainer = $"../../../UI_battle_menu/Bar_container"
+@onready var Bar_VContainer: VBoxContainer = $"../../../UI_battle_menu/Bar_container_player"
 const BAR_SYSTEM = preload("res://reworking_mechanics/reworked_Bar_system.tscn")
 @onready var player = RefrenceNode.PlayerGroup
 
