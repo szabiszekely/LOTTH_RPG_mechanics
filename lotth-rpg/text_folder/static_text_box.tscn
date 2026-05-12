@@ -1,18 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://diogqwfdea76u"]
+[gd_scene load_steps=12 format=3 uid="uid://diogqwfdea76u"]
 
-[ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_b426p"]
+[ext_resource type="StyleBox" uid="uid://cxntmrt3cg7ls" path="res://text_folder/text_box.tres" id="1_ouneb"]
 [ext_resource type="Script" uid="uid://dwtwpavgtrkfl" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="2_2bnh7"]
 [ext_resource type="Resource" uid="uid://cism7iwpf2pi" path="res://text_folder/menu.tres" id="3_f7o2c"]
 [ext_resource type="Script" uid="uid://d1r0pqhw3cr68" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_rpt5c"]
 [ext_resource type="Script" uid="uid://dcii012frg4ud" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_awq7j"]
 [ext_resource type="Script" uid="uid://dnkwhbsllarpn" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_jlkcr"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1qbh"]
-texture = ExtResource("1_b426p")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2x64y"]
 script = ExtResource("4_rpt5c")
@@ -33,7 +26,7 @@ gradient = SubResource("Gradient_fwcor")
 visible = false
 offset_right = 583.0
 offset_bottom = 164.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_a1qbh")
+theme_override_styles/panel = ExtResource("1_ouneb")
 script = ExtResource("2_2bnh7")
 data = ExtResource("3_f7o2c")
 start_id = "1"

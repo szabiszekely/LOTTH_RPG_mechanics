@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=12 format=3 uid="uid://b5fqmq446rlvj"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_jcjyu"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_pyjog"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_whsvq"]
+[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="3_pyjog"]
+[ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="5_2jp5o"]
+[ext_resource type="PackedScene" uid="uid://cmbey8xp6r7is" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Speaker_Normal_Textbox/Textbox_normal.tscn" id="5_kri8g"]
+
+[sub_resource type="Resource" id="Resource_pyjog"]
+script = ExtResource("1_jcjyu")
+
+[sub_resource type="Resource" id="Resource_d830y"]
+script = ExtResource("1_jcjyu")
+scene = ExtResource("2_pyjog")
+
+[sub_resource type="Resource" id="Resource_2jp5o"]
+script = ExtResource("1_jcjyu")
+scene = ExtResource("3_pyjog")
+
+[sub_resource type="Resource" id="Resource_1g1rn"]
+script = ExtResource("1_jcjyu")
+scene = ExtResource("5_kri8g")
+overrides = {
+"box_modulate_custom_color": "Color(1, 1, 1, 1)",
+"box_modulate_global_color": "false",
+"box_panel": "\"res://text_folder/text_box.tres\"",
+"box_size": "Vector2(600, 200)",
+"name_label_hide_when_no_character": "true",
+"text_custom_size": "23.0",
+"text_use_global_size": "false"
+}
+
+[sub_resource type="Resource" id="Resource_wioul"]
+script = ExtResource("1_jcjyu")
+scene = ExtResource("5_2jp5o")
+
+[resource]
+script = ExtResource("2_whsvq")
+name = "Normal_Textbox"
+layer_list = Array[String](["10", "11", "13", "12"])
+layer_info = {
+"": SubResource("Resource_pyjog"),
+"10": SubResource("Resource_d830y"),
+"11": SubResource("Resource_2jp5o"),
+"12": SubResource("Resource_1g1rn"),
+"13": SubResource("Resource_wioul")
+}
+metadata/_latest_layer = "12"

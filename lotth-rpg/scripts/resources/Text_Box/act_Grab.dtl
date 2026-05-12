@@ -1,0 +1,4 @@
+[style name="Normal_Textbox"]
+> You Grabbed the {{name}}!
+audio "res://assets/audio/squeak.mp3" [volume="-15.0"]
+> It let out a little squek sound.

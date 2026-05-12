@@ -1,0 +1,5 @@
+[style name="Normal_Textbox"]
+> You tried to bounce him on the groud!\
+> But you accidentally poked yourself!
+[wait time="3.0"]
+> {{name}} founded it very funny.

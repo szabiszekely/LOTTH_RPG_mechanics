@@ -157,6 +157,7 @@ text = "Action"
 script = ExtResource("5_fday4")
 
 [node name="Movement" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Action")
@@ -252,6 +253,7 @@ grow_vertical = 2
 active = true
 
 [node name="Action_option_box" parent="." instance=ExtResource("12_1fmx7")]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

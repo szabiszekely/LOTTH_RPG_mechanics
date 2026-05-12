@@ -6,7 +6,7 @@ var enemy_seperate
 var active_dialogue_box
 var source
 var act_opt = preload("res://text_folder/action_options.tres")
-
+var timeline
 #When I press an Action Button it will get transfered here and be translate to one of the one that got pressed!
 func _get_button_text_action(Button_text: String, enemy, Dialogue, Source, menu):
 	active_dialogue_box = Dialogue
@@ -14,25 +14,38 @@ func _get_button_text_action(Button_text: String, enemy, Dialogue, Source, menu)
 	source = Source
 	enemy_stats = enemy.Fight_stats
 	menu.vanish()
+	switching_stats_check()
 	#I call the name of the button as a function!
 	print(Button_text)
-	
 	call(Button_text)
 
 # Setting up variables that are inside the Dialogue Node Asset!
 func switching_stats_check():
-	active_dialogue_box.variables["name"] = enemy_stats.name
-	active_dialogue_box.variables["Base_Phisical_Attack"] = enemy_stats.Base_Phisical_Attack
-	active_dialogue_box.variables["Base_Magical_Attack"] = enemy_stats.Base_Magical_Attack
-	active_dialogue_box.variables["Defense"] = enemy_stats.Defense
-	active_dialogue_box.variables["Magic_Defense"] = enemy_stats.Magic_Defense
-	active_dialogue_box.variables["EMP"] = enemy_stats.EMP
-	active_dialogue_box.variables["MAX_EMP"] = enemy_stats.MAX_EMP
+	Dialogic.VAR.name = enemy_stats.name
+	Dialogic.VAR.Base_Phisical_Attack = enemy_stats.Base_Phisical_Attack
+	Dialogic.VAR.Base_Magical_Attack = enemy_stats.Base_Magical_Attack
+	Dialogic.VAR.Defense = enemy_stats.Defense
+	Dialogic.VAR.Magic_Defense = enemy_stats.Magic_Defense
+	Dialogic.VAR.EMP = enemy_stats.EMP
+	Dialogic.VAR.MAX_EMP = enemy_stats.MAX_EMP
+
+func start_dialog():
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.start(timeline)
+	source.initiative.doTrapForLoop = true
+	
+
+func _on_timeline_ended():
+	print('WORKS')
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	source.initiative.stopLoop.emit()
+	# do something else here
 
 #ALL BELLOW ARE FUNCTIONS THAT ARE USED FOR ACTION OPTIONS!
 func Check():
-	switching_stats_check()
-	active_dialogue_box.start("Check")
+	timeline = "act_Check"
+	start_dialog()
+	#active_dialogue_box.start("Check")
 	print("----------------")
 	print("Stat Block")
 	print("Name: " + str(enemy_stats.name))
@@ -44,7 +57,7 @@ func Check():
 	enemy_seperate.Bar.show()
 	enemy_seperate.Bar.name_tag_container.hide()
 	enemy_seperate.Bar.action_remaining.hide()
-
+	
 	
 
 func Focus():
@@ -58,35 +71,50 @@ func Guard():
 	print("----------------")
 	
 func Talk():
-	active_dialogue_box.start("Talk")
+	timeline = "act_Talk"
+	start_dialog()
+	#active_dialogue_box.start("Talk")
 	print("Hello o/")
 	enemy_seperate.emp_gained(1)
+	
 
 func Grab():
-	active_dialogue_box.start("Grab")
-	await source.get_tree().create_timer(0.8).timeout
-	var audio = AudioStreamPlayer2D.new()
-	var SQUEAK = preload("res://assets/audio/squeak.mp3")
-	audio.set_stream(SQUEAK) 
-	audio.set_volume_db(-5)
-	source.add_child(audio)
-	audio.play()
-	await source.get_tree().create_timer(1).timeout
-	audio.queue_free()
-	print("*squek sfx*")
+	timeline = "act_Grab"
+	start_dialog()
+	#active_dialogue_box.start("Grab")
+	#await source.get_tree().create_timer(0.8).timeout
+	#var audio = AudioStreamPlayer2D.new()
+	#var SQUEAK = preload("res://assets/audio/squeak.mp3")
+	#audio.set_stream(SQUEAK) 
+	#audio.set_volume_db(-5)
+	#source.add_child(audio)
+	#audio.play()
+	#await source.get_tree().create_timer(1).timeout
+	#audio.queue_free()
+	#print("*squek sfx*")
 	enemy_seperate.emp_gained(1)
 	
+	
 func Ball():
-	active_dialogue_box.start("Ball")
+	timeline = "act_Ball"
+	start_dialog()
+	#active_dialogue_box.start("Ball")
 	print("He Do be balling")
 	enemy_seperate.emp_gained(2)
 	
+	
 func Sleep():
-	active_dialogue_box.start("Sleep")
+	timeline = "act_Sleep"
+	start_dialog()
+	#active_dialogue_box.start("Sleep")
 	print("Hank shu")
 	enemy_seperate.emp_gained(2)
 	
+	
 func Twirl():
-	active_dialogue_box.start("Twirl")
+	timeline = "act_Twirl"
+	start_dialog()
+#	active_dialogue_box.start("Twirl")
 	print("You span around")
 	enemy_seperate.emp_gained(-1)
+	

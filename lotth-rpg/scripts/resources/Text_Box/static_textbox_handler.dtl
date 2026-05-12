@@ -1,0 +1,2 @@
+do AlwaysOn.finish_on_command()
+[end_timeline]

@@ -8,12 +8,12 @@ starts = {
 "1": &"0_1"
 }
 nodes = {
-"0_1": {
+&"0_1": {
 "link": &"1_1",
 "offset": Vector2(-291, -331),
 "start_id": "1"
 },
-"1_1": {
+&"1_1": {
 "dialogue": "A Group of Ballers attacked you! [br]
 What will you do?",
 "offset": Vector2(0, -240),
@@ -28,6 +28,3 @@ What will you do?",
 "speaker": ""
 }
 }
-variables = {}
-strays = Array[String]([])
-characters = ""

@@ -1,0 +1,12 @@
+[style name="Normal_Textbox"]
+Species\: {{name}}\
+ATK\: {{Base_Phisical_Attack}}, M.ATK\: {{Base_Magical_Attack}}\
+DEF\: {{Defense}}, M.DEF\: {{Magic_Defense}}\
+Emphaty is {{EMP}}/{{MAX_EMP}}
+if {name} == "":
+	> But there was nothing but your hand.
+elif {name} == "Baller":
+	> They don't have arms so they never were able to experience the art of touch!
+elif {name} == "Baller Lazier":
+	> Lazy ballers are quite the sleeper and don't like being touched or exercise!
+[signal arg="_on_timeline_ended"]
