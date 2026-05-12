@@ -26,7 +26,6 @@ class_name Menu_system
 
 # Miscellaneous !
 @onready var menu: Control = $"."
-@onready var act_dialogue_box: DialogueBox = $"../Action_option_box"
 @onready var static_dialogue_box: DialogueBox = $"../Static_Dialogue_Box"
 
 # all states
@@ -88,7 +87,8 @@ func _process(_delta: float) -> void:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
-				static_dialogue_box.show()
+				Dialogic.Text.show_textbox()
+				Dialogic.start("stat_baller")
 				menu_container = false
 		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
 		Menu_state.ABILITES:
@@ -288,9 +288,7 @@ func vanish():
 	# put movement here PLS PLS SEE ME OVER HERE
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
-	static_dialogue_box.hide()
-	act_dialogue_box.hide()
-
+	Dialogic.Text.hide_textbox()
 # Disables EVERYTHING
 func all_gone():
 	abilities.process_mode = Node.PROCESS_MODE_DISABLED

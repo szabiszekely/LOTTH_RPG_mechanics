@@ -47,11 +47,19 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	else:
 		Damage_bonus = -1
 	
+	# Stat increases
+	# I have a function where I somehow get what stats need to be boosted, after that I add it through here?
+	# Phisical_damage = phiscal_damage + bonus_phisical_damage
+	# ect...
+	
+	
+	
+	
 	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0)
 	# 6 + (1(0) = 7
 	# the formula for the Total_damage!
 	var Total_damage
-	if Card_Type == 2:
+	if Card_Type == 2: # Magic
 		#print("hello World")
 		Total_damage =  Attacker_Base_Magic_Strengh + (Attacker_Card_Strengh - Reciver_Magic_Defense + (Damage_Type)+(Damage_bonus))
 	else:
@@ -59,7 +67,7 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	# and if the total_damage is smaller than 0 than we round it up to 1 so you don't deal negative or 0 damage! 
 	if Total_damage <= 0:
 		Total_damage = 1
-		
+	
 	return Total_damage
 
 # This attack only does flat damage

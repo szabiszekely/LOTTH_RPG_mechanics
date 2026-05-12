@@ -264,16 +264,16 @@ position = Vector2(-143, -125)
 Fight_stats = SubResource("Resource_p7hkc")
 
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
-position = Vector2(-143, -21)
+position = Vector2(-143, -72)
 Fight_stats = SubResource("Resource_q1i6w")
 Turn_portriat = ExtResource("10_ahsbf")
 
 [node name="Player3" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
-position = Vector2(-191, -68)
+position = Vector2(-139, -18)
 Fight_stats = SubResource("Resource_4y57x")
 
 [node name="Player4" parent="NavigationRegion2D/player_group" instance=ExtResource("9_6avkf")]
-position = Vector2(-191, 36)
+position = Vector2(-139, 36)
 Fight_stats = SubResource("Resource_y1qm0")
 Turn_portriat = ExtResource("10_ahsbf")
 
@@ -286,18 +286,18 @@ EnemyAI = SubResource("Resource_6hxp8")
 Fight_stats = SubResource("Resource_aihkf")
 
 [node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(117, 2)
+position = Vector2(117, -68)
 EnemyAI = SubResource("Resource_lh1mx")
 Fight_stats = SubResource("Resource_mo7hs")
 Turn_portriat = ExtResource("9_brbw4")
 
 [node name="Enemy3" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(169, -63)
+position = Vector2(122, -6)
 EnemyAI = SubResource("Resource_dt3sk")
 Fight_stats = SubResource("Resource_t4b5j")
 
 [node name="Enemy4" parent="NavigationRegion2D/enemy_group" instance=ExtResource("7_ahsbf")]
-position = Vector2(169, 57)
+position = Vector2(122, 57)
 EnemyAI = SubResource("Resource_mag4a")
 Fight_stats = SubResource("Resource_r0suc")
 Turn_portriat = ExtResource("9_brbw4")

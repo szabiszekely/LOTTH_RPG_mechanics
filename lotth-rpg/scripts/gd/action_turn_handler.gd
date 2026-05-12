@@ -11,5 +11,4 @@ var is_this_heal = [9] #random number nobody cares about
 # this takes care of the action options
 func _Action_Turn(list):
 	turn_handler._Does_opponent_exist(list,is_this_heal)
-	Action_button_handler._get_button_text_action(list[4],list[3],Menu.act_dialogue_box,list[5],Menu)
-	turn_handler.initiative.timeSpentBetweenTurns = 4
+	Action_button_handler._get_button_text_action(list[4],list[3],list[5],Menu)

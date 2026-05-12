@@ -8,8 +8,7 @@ var source
 var act_opt = preload("res://text_folder/action_options.tres")
 var timeline
 #When I press an Action Button it will get transfered here and be translate to one of the one that got pressed!
-func _get_button_text_action(Button_text: String, enemy, Dialogue, Source, menu):
-	active_dialogue_box = Dialogue
+func _get_button_text_action(Button_text: String, enemy, Source, menu):
 	enemy_seperate = enemy
 	source = Source
 	enemy_stats = enemy.Fight_stats
@@ -45,7 +44,6 @@ func _on_timeline_ended():
 func Check():
 	timeline = "act_Check"
 	start_dialog()
-	#active_dialogue_box.start("Check")
 	print("----------------")
 	print("Stat Block")
 	print("Name: " + str(enemy_stats.name))
@@ -73,7 +71,6 @@ func Guard():
 func Talk():
 	timeline = "act_Talk"
 	start_dialog()
-	#active_dialogue_box.start("Talk")
 	print("Hello o/")
 	enemy_seperate.emp_gained(1)
 	
@@ -81,24 +78,12 @@ func Talk():
 func Grab():
 	timeline = "act_Grab"
 	start_dialog()
-	#active_dialogue_box.start("Grab")
-	#await source.get_tree().create_timer(0.8).timeout
-	#var audio = AudioStreamPlayer2D.new()
-	#var SQUEAK = preload("res://assets/audio/squeak.mp3")
-	#audio.set_stream(SQUEAK) 
-	#audio.set_volume_db(-5)
-	#source.add_child(audio)
-	#audio.play()
-	#await source.get_tree().create_timer(1).timeout
-	#audio.queue_free()
-	#print("*squek sfx*")
 	enemy_seperate.emp_gained(1)
 	
 	
 func Ball():
 	timeline = "act_Ball"
 	start_dialog()
-	#active_dialogue_box.start("Ball")
 	print("He Do be balling")
 	enemy_seperate.emp_gained(2)
 	
@@ -106,7 +91,6 @@ func Ball():
 func Sleep():
 	timeline = "act_Sleep"
 	start_dialog()
-	#active_dialogue_box.start("Sleep")
 	print("Hank shu")
 	enemy_seperate.emp_gained(2)
 	
@@ -114,7 +98,6 @@ func Sleep():
 func Twirl():
 	timeline = "act_Twirl"
 	start_dialog()
-#	active_dialogue_box.start("Twirl")
 	print("You span around")
 	enemy_seperate.emp_gained(-1)
 	
