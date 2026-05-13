@@ -108,7 +108,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/dialogue_nodes/plugin.cfg")
+enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg", "res://addons/dialogic/plugin.cfg")
 
 [file_customization]
 
@@ -122,8 +122,7 @@ folder_colors={
 "res://scripts/": "yellow",
 "res://scripts/gd/": "orange",
 "res://scripts/gdshader/": "teal",
-"res://scripts/resources/": "blue",
-"res://text_folder/": "blue"
+"res://scripts/resources/": "blue"
 }
 
 [global_group]

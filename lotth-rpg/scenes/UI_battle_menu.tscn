@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bokwx0ajkfdcy"]
+[gd_scene load_steps=16 format=3 uid="uid://bokwx0ajkfdcy"]
 
 [ext_resource type="Script" uid="uid://b5mrnhylpqmpw" path="res://scripts/gd/menu_new_system.gd" id="1_f5k7w"]
 [ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/action_panel_choice.tscn" id="1_ypt22"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/Mouse_pointer.tscn" id="9_tjhqe"]
 [ext_resource type="PackedScene" uid="uid://blvji106ulh0d" path="res://assets/sprite/bag_panel_choice.tscn" id="10_4fxo3"]
 [ext_resource type="PackedScene" uid="uid://cjwahpm5wkav5" path="res://scenes/ability_card_choice.tscn" id="11_jdhws"]
-[ext_resource type="PackedScene" uid="uid://drwei0kix2h5l" path="res://scenes/action_option_box.tscn" id="12_1fmx7"]
-[ext_resource type="PackedScene" uid="uid://diogqwfdea76u" path="res://text_folder/static_text_box.tscn" id="13_np6xt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dry1"]
 bg_color = Color(0.219608, 0.219608, 0.219608, 0.392157)
@@ -114,11 +112,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -410.5
-offset_top = -115.0
-offset_right = 488.5
+offset_left = -421.0
+offset_top = -101.0
+offset_right = 478.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.92, 0.92)
 script = ExtResource("1_f5k7w")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
@@ -202,19 +202,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -261.0
+offset_left = -297.0
 offset_top = -5.0
-offset_right = 371.0
+offset_right = 335.0
 offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.97, 0.97)
 
 [node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
 z_index = -1
-offset_left = -313.0
+offset_left = -330.0
 offset_top = 3.0
-offset_right = 368.0
+offset_right = 351.0
 offset_bottom = 358.0
+scale = Vector2(0.97, 0.97)
 
 [node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
 z_index = -1
@@ -223,63 +225,37 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -233.0
+offset_left = -257.0
 offset_top = 5.0
-offset_right = 317.0
+offset_right = 293.0
 offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.97, 0.97)
 
 [node name="Ability_Card_choice" parent="." instance=ExtResource("11_jdhws")]
-offset_left = 114.0
-offset_top = -128.0
-offset_right = 114.0
-offset_bottom = -128.0
+offset_left = 108.00001
+offset_top = -70.0
+offset_right = 108.0
+offset_bottom = -70.0
+scale = Vector2(0.95, 0.95)
 
 [node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1642.0
-offset_top = -296.0
-offset_right = -1543.0
-offset_bottom = 132.0
-grow_horizontal = 0
+offset_left = -242.0
+offset_top = -295.0
+offset_right = -143.0
+offset_bottom = 133.0
+grow_horizontal = 2
 grow_vertical = 2
+rotation = -1.5707964
 
 [node name="Mouse Pointer" parent="." instance=ExtResource("9_tjhqe")]
 active = true
-
-[node name="Action_option_box" parent="." instance=ExtResource("12_1fmx7")]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -259.0
-offset_top = -171.0
-offset_right = 332.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Static_Dialogue_Box" parent="." instance=ExtResource("13_np6xt")]
-z_index = -10
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -255.0
-offset_top = -214.0
-offset_right = 328.0
-offset_bottom = -50.0
-grow_horizontal = 2
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Bar_container_player" type="VBoxContainer" parent="."]
 offset_left = 3.0
@@ -290,12 +266,11 @@ theme_override_constants/separation = 60
 alignment = 1
 
 [node name="Bar_container_enemey" type="VBoxContainer" parent="."]
-offset_left = 1309.0001
-offset_top = 613.00006
-offset_right = 1682.0001
-offset_bottom = 862.00006
-scale = Vector2(0.95, 0.95)
-theme_override_constants/separation = 30
+offset_left = 1286.0
+offset_top = 561.0
+offset_right = 1659.0
+offset_bottom = 810.0
+theme_override_constants/separation = 60
 alignment = 1
 
 [connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_entered"]

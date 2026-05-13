@@ -5,7 +5,6 @@ var enemy_stats
 var enemy_seperate
 var active_dialogue_box
 var source
-var act_opt = preload("res://text_folder/action_options.tres")
 var timeline
 #When I press an Action Button it will get transfered here and be translate to one of the one that got pressed!
 func _get_button_text_action(Button_text: String, enemy, Source, menu):

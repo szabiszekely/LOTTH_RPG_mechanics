@@ -7,9 +7,7 @@ class_name Order_holder
 # this is the UI that is important to add the icons and the turn order to the UIí
 func _ready() -> void:
 	Initiative._getting_all_rolls(Initiative.all_rolls,$VBoxContainer)
-	
-	
-	self.position.x = 2000
-	
+	self.position.x = 578.0
+	self.position.y = -20
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(1537,106), 0.8).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self, "position", Vector2(578,100.0), 0.8).set_trans(Tween.TRANS_EXPO)

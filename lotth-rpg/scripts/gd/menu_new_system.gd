@@ -26,7 +26,6 @@ class_name Menu_system
 
 # Miscellaneous !
 @onready var menu: Control = $"."
-@onready var static_dialogue_box: DialogueBox = $"../Static_Dialogue_Box"
 
 # all states
 enum Menu_state {

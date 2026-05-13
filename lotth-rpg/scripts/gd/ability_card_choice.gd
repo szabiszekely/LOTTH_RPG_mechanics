@@ -79,7 +79,7 @@ func abi_appear():
 	#then we show our menu and play the tween to come up from the bottom 
 	self.show()
 	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,-128),0.3).set_trans(Tween.TRANS_QUAD)
+	tweens.tween_property(self,"position",Vector2(self.position.x,-70.0),0.3).set_trans(Tween.TRANS_QUAD)
 	
 	
 func abi_disappear():

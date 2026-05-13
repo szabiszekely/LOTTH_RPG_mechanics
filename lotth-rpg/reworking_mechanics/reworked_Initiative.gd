@@ -59,7 +59,8 @@ func _getting_all_rolls(rolls:Array,source):
 		portrait_icon.texture = portrait_texture
 		portrait_icon.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
 		portrait_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
-		portrait_icon.position = Vector2(6,8)
+		portrait_icon.position = Vector2(42,7.5)
+		portrait_icon.rotation_degrees = 90
 		portrait_icon.size = Vector2(40,40)
 		
 		source.add_child(container)
