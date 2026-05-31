@@ -23,7 +23,9 @@ extends Resource
 @export var Speed: int ##Every start of a round it will roll a D6 and adds it to the speed, the larger the better
 @export var range_in_cm: float ##The distance a character can move
 
-func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,Reciver_Defense:int,Reciver_ATK_type:int,Attacker_ATK_type:int,Card_Type:int,Attacker_Base_Magic_Strengh:int,Reciver_Magic_Defense:int):
+var Stat_Boosts = []
+
+func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,Reciver_Defense:int,Reciver_ATK_type:int,Attacker_ATK_type:int,Card_Type:int,Attacker_Base_Magic_Strengh:int,Reciver_Magic_Defense:int)->int:
 	#the damage type and the bonus damage values
 	var Damage_Type = 0
 	var Damage_bonus = 0
@@ -52,7 +54,9 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	# Phisical_damage = phiscal_damage + bonus_phisical_damage
 	# ect...
 	
-	
+	if Stat_Boosts != []:
+		for i in Stat_Boosts:
+			pass
 	
 	
 	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0)
@@ -71,12 +75,18 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	return Total_damage
 
 # This attack only does flat damage
-func _True_Damage_Taken(Attacker_Base_Phisical_Strengh: int):
+func _True_Damage_Taken(Attacker_Base_Phisical_Strengh: int)->int:
 	var Total_damage = Attacker_Base_Phisical_Strengh 
 	return Total_damage
 
 # you throw a 1-6 dice and this will be you starting position!
-func _Initiative():
+func _Initiative()->int:
 	randomize()
 	var dice = randi_range(1,6)
 	return dice
+
+func _Get_Header_IDs()->Array:
+	var stored_ids = []
+	for i in Stat_Boosts:
+		stored_ids.append(i[0]) 
+	return stored_ids

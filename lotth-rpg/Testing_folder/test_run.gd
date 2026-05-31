@@ -1,15 +1,7 @@
 extends Node
 
-@onready var node_branch: test_Node_Branch = $"../../Node_Branch"
+var Dict: Dictionary = {1:["alma",false],2:["bananna",true],3:["szölö",true]}
 
-
-func _get_run(data:Array):
-	
-	var ran
-	if randi_range(1,6) <= 2:
-		ran = "FAILED"
-	else:
-		ran = "YOU RAN"
-		
-	print(node_branch.current_players)
-	return [data[1], ran, data[4]]
+func _ready() -> void:
+	for i in Dict:
+		print(i," ",Dict[i][0]," ",Dict[i][1])
