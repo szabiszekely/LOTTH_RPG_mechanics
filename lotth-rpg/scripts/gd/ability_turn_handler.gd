@@ -24,7 +24,7 @@ func _Ability_Turn(list:Array):
 			if Data.get_card_damage_type(list[4]):
 				list[3]._take_true_damage(Data.get_card_damage(list[4]))
 			else:
-				list[3]._take_damage(list[2].Fight_stats.Base_Phisical_Attack,Data.get_card_damage(list[4]),list[2].Fight_stats.Attack_Type,Data.get_card_attack_type(list[4]),list[2].Fight_stats.Base_Magical_Attack)
+				list[3]._take_damage(Data.get_card_damage(list[4]),Data.get_card_attack_type(list[4]),list[2])
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[4],list[2])
 			
 		1: ## it is for team heals/buffs

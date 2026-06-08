@@ -74,9 +74,9 @@ func _camera_off():
 #take damage function is here to make everything work what is conected to health or energy!
 
 # this is where all the damage gets split apart for all the other functions to be handled
-func _take_damage(base_damage_phisical,strengh,attacker_type,card_type,base_damage_magical):
+func _take_damage(strengh,card_type,source):
 	if Fight_stats.HP > 0 and !CharacterIsOut:
-		var hit = Fight_stats._Damage_Taken(base_damage_phisical,strengh,Fight_stats.Defense,Fight_stats.Attack_Type,attacker_type,card_type,base_damage_magical,Fight_stats.Magic_Defense)
+		var hit = Fight_stats._Damage_Taken(source.Fight_stats,self.Fight_stats,strengh,card_type)
 		var which_damage = false
 		_comprassed_take_damage(which_damage,hit)
 	elif Fight_stats.HP <= 0 and CharacterIsOut and CanGetTheFinalBlow:

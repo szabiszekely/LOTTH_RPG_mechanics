@@ -14,8 +14,12 @@ var Temp_Sped = 0
 
 var header = []
 var database = []
+
+# Set up header -> create stat changes -> store them in a database -> apply said database to temp stats which are gets used 
+# -> Remove from said database when apropiate
+
 func _ready() -> void:
-	_test_Stat_boost._Get_Current_Stats(header)
+	_test_Stat_boost._Get_Current_Headers(header)
 	_Database_append(_test_Stat_boost._Stat_change("Turn",1,{1:["Def",1,false]}))
 	_Database_append(_test_Stat_boost._Stat_change("Turn",2,{1:["Def",1,true]}))
 	_Database_append(_test_Stat_boost._Stat_change("Turn",1,{1:["Def",1,true]}))

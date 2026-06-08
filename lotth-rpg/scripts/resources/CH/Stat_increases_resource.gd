@@ -9,7 +9,7 @@ var All_stats: Array
 # return [header,{stat1:value,stat2:value}, remaining]
 # store them inside a list [].
 
-func _Get_Current_Stats(Headers) -> void:
+func _Get_Current_Headers(Headers) -> void:
 	self.header_ids = Headers
 
 func _Create_Header_Id():

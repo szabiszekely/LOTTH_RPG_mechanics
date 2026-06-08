@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Stat_Increases" load_steps=2 format=3 uid="uid://bj1oervl3ajo2"]
+
+[ext_resource type="Script" uid="uid://dfybivgt28m32" path="res://scripts/resources/CH/Stat_increases_resource.gd" id="1_v48ao"]
+
+[resource]
+script = ExtResource("1_v48ao")
+metadata/_custom_type_script = "uid://dfybivgt28m32"

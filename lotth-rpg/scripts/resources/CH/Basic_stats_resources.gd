@@ -23,9 +23,25 @@ extends Resource
 @export var Speed: int ##Every start of a round it will roll a D6 and adds it to the speed, the larger the better
 @export var range_in_cm: float ##The distance a character can move
 
-var Stat_Boosts = []
+@export var STAT_Resource: Stat_Increases = load("res://scripts/resources/CH/Basic_Stat_Handler.tres")
 
-func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,Reciver_Defense:int,Reciver_ATK_type:int,Attacker_ATK_type:int,Card_Type:int,Attacker_Base_Magic_Strengh:int,Reciver_Magic_Defense:int)->int:
+var Stat_Boosts: Array = []
+var Header_Array: Array = []
+var Temp_Def = 0
+var Temp_M_Def = 0
+var Temp_BP_A = 0
+var Temp_BM_A = 0
+var Temp_Sped = 0
+
+
+func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Strengh:int, Card_Type:int)->int:
+	var Attacker_Base_Phisical_Strengh:int = Source.Base_Phisical_Attack
+	var Attacker_Base_Magic_Strengh:int = Source.Base_Magical_Attack
+	var Attacker_ATK_type:int = Source.Attack_Type
+	var Reciver_Defense:int = Target.Defense
+	var Reciver_Magic_Defense:int = Target.Magic_Defense
+	var Reciver_ATK_type:int = Target.Attack_Type
+	
 	#the damage type and the bonus damage values
 	var Damage_Type = 0
 	var Damage_bonus = 0
@@ -56,7 +72,7 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	
 	if Stat_Boosts != []:
 		for i in Stat_Boosts:
-			pass
+			print("HELLO")
 	
 	
 	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0)
@@ -74,12 +90,12 @@ func _Damage_Taken(Attacker_Base_Phisical_Strengh:int,Attacker_Card_Strengh:int,
 	
 	return Total_damage
 
-# This attack only does flat damage
+## This attack only does flat damage
 func _True_Damage_Taken(Attacker_Base_Phisical_Strengh: int)->int:
 	var Total_damage = Attacker_Base_Phisical_Strengh 
 	return Total_damage
 
-# you throw a 1-6 dice and this will be you starting position!
+## you throw a 1-6 dice and this will be you starting position!
 func _Initiative()->int:
 	randomize()
 	var dice = randi_range(1,6)
@@ -90,3 +106,22 @@ func _Get_Header_IDs()->Array:
 	for i in Stat_Boosts:
 		stored_ids.append(i[0]) 
 	return stored_ids
+
+func _Database_append(What_to_add):
+	Stat_Boosts.append(What_to_add)
+	Header_Array.append(What_to_add[0])
+
+func _Apply_Stats(): ## Hello
+	Temp_Def = 0
+	Temp_M_Def = 0
+	Temp_BP_A = 0
+	Temp_BM_A = 0
+	Temp_Sped = 0
+	for i in Stat_Boosts:
+		Temp_Def += Defense + i[1][0]
+		Temp_M_Def += Magic_Defense + i[1][1]
+		Temp_BP_A += Base_Phisical_Attack + i[1][2]
+		Temp_BM_A += Base_Magical_Attack + i[1][3]
+		Temp_Sped += Speed + i[1][4]
+		
+	print(Temp_Def," ",Stat_Boosts)

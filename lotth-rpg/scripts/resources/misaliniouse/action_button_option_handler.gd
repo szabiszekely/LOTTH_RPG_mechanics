@@ -6,9 +6,11 @@ var enemy_seperate
 var active_dialogue_box
 var source
 var timeline
+var player_seperate
 #When I press an Action Button it will get transfered here and be translate to one of the one that got pressed!
-func _get_button_text_action(Button_text: String, enemy, Source, menu):
+func _get_button_text_action(Button_text: String, enemy, Source, menu,player):
 	enemy_seperate = enemy
+	player_seperate = player
 	source = Source
 	enemy_stats = enemy.Fight_stats
 	menu.vanish()
@@ -63,9 +65,13 @@ func Focus():
 	print("----------------")
 	
 func Guard():
-	print("----------------")
-	print("DEFENDED")
-	print("----------------")
+	#print("----------------")
+	#print("DEFENDED")
+	#print("----------------")
+	player_seperate.Fight_stats.STAT_Resource._Get_Current_Headers(player_seperate.Fight_stats.Header_Array)
+	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
+	print(player_seperate.Fight_stats.Stat_Boosts)
+	player_seperate.Fight_stats._Apply_Stats()
 	
 func Talk():
 	timeline = "act_Talk"

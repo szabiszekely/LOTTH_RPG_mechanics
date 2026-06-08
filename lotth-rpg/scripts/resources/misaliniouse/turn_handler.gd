@@ -94,6 +94,10 @@ func _actions(stack):
 				
 			"pass_character":
 				print("Character is unavailable")
+		
+		
+
+		
 		# stops the game until we not use the stopLoop signal
 		if initiative.doTrapForLoop:
 			await initiative.stopLoop
@@ -110,7 +114,20 @@ func _actions(stack):
 		if i[-1] != null:
 			if i[-1].CharacterIsOut:
 				i[-1].CanGetTheFinalBlow = true
-		
+	
+	# Remove turn from stat boost at the end of the turn
+	for i in play_out_action:
+		#if i[2] != null:
+		if i[2].Fight_stats.Stat_Boosts != null:
+			var temp_remover = []
+			for j in i[2].Fight_stats.Stat_Boosts:
+				j[-1] = j[-1] - 1
+				if j[-1] == 0:
+					temp_remover.append(j)
+			for n in temp_remover:
+				i[2].Fight_stats.Stat_Boosts.erase(n)
+			i[2].Fight_stats._Apply_Stats()
+	
 	stack.clear()
 	initiative.initiative_index = 0
 	initiative.action_start = false
