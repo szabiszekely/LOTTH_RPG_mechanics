@@ -93,7 +93,8 @@ func _apply_export_overrides() -> void:
 	panel.size = box_size
 	panel.position = Vector2(-box_size.x/2, -box_size.y-box_distance)
 	portrait_panel.size_flags_stretch_ratio = portrait_stretch_factor
-
+	
+	print(box_panel)
 	var stylebox: StyleBox = load(box_panel)
 	panel.add_theme_stylebox_override(&'panel', stylebox)
 

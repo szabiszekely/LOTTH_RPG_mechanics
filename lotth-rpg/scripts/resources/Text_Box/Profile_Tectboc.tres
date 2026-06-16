@@ -29,7 +29,7 @@ scene = ExtResource("5_xbm70")
 overrides = {
 "box_modulate_custom_color": "Color(1, 1, 1, 1)",
 "box_modulate_global_color": "false",
-"box_panel": "\"res://text_folder/text_box.tres\"",
+"box_panel": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Speaker_Normal_Textbox/text_box.tres\"",
 "box_size": "Vector2(600, 200)",
 "name_label_custom_size": "100.0",
 "name_label_hide_when_no_character": "true",

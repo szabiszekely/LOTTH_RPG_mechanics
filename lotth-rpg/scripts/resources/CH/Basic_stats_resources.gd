@@ -27,19 +27,26 @@ extends Resource
 
 var Stat_Boosts: Array = []
 var Header_Array: Array = []
-var Temp_Def = 0
-var Temp_M_Def = 0
-var Temp_BP_A = 0
-var Temp_BM_A = 0
-var Temp_Sped = 0
+var Temp_Def = Defense
+var Temp_M_Def = Magic_Defense
+var Temp_BP_A = Base_Phisical_Attack
+var Temp_BM_A = Base_Magical_Attack
+var Temp_Sped = Speed
 
 
 func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Strengh:int, Card_Type:int)->int:
-	var Attacker_Base_Phisical_Strengh:int = Source.Base_Phisical_Attack
-	var Attacker_Base_Magic_Strengh:int = Source.Base_Magical_Attack
+	if Stat_Boosts == []:
+		Target.Temp_Def = Target.Defense
+		Target.Temp_M_Def = Target.Magic_Defense
+		Source.Temp_BP_A = Source.Base_Phisical_Attack
+		Source.Temp_BM_A = Source.Base_Magical_Attack
+		
+
+	var Attacker_Base_Phisical_Strengh:int = Source.Temp_BP_A
+	var Attacker_Base_Magic_Strengh:int = Source.Temp_BM_A
 	var Attacker_ATK_type:int = Source.Attack_Type
-	var Reciver_Defense:int = Target.Defense
-	var Reciver_Magic_Defense:int = Target.Magic_Defense
+	var Reciver_Defense:int = Target.Temp_Def
+	var Reciver_Magic_Defense:int = Target.Temp_M_Def
 	var Reciver_ATK_type:int = Target.Attack_Type
 	
 	#the damage type and the bonus damage values
@@ -70,17 +77,12 @@ func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Str
 	# Phisical_damage = phiscal_damage + bonus_phisical_damage
 	# ect...
 	
-	if Stat_Boosts != []:
-		for i in Stat_Boosts:
-			print("HELLO")
 	
-	
-	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0)
+	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0))
 	# 6 + (1(0) = 7
 	# the formula for the Total_damage!
 	var Total_damage
 	if Card_Type == 2: # Magic
-		#print("hello World")
 		Total_damage =  Attacker_Base_Magic_Strengh + (Attacker_Card_Strengh - Reciver_Magic_Defense + (Damage_Type)+(Damage_bonus))
 	else:
 		Total_damage =  Attacker_Base_Phisical_Strengh + (Attacker_Card_Strengh - Reciver_Defense + (Damage_Type)+(Damage_bonus))
@@ -111,17 +113,29 @@ func _Database_append(What_to_add):
 	Stat_Boosts.append(What_to_add)
 	Header_Array.append(What_to_add[0])
 
+
 func _Apply_Stats(): ## Hello
 	Temp_Def = 0
 	Temp_M_Def = 0
 	Temp_BP_A = 0
 	Temp_BM_A = 0
 	Temp_Sped = 0
+	var Sum_Def = 0
+	var Sum_M_Def = 0
+	var Sum_BPA = 0
+	var Sum_BMA = 0
+	var Sum_SP = 0
+	
 	for i in Stat_Boosts:
-		Temp_Def += Defense + i[1][0]
-		Temp_M_Def += Magic_Defense + i[1][1]
-		Temp_BP_A += Base_Phisical_Attack + i[1][2]
-		Temp_BM_A += Base_Magical_Attack + i[1][3]
-		Temp_Sped += Speed + i[1][4]
+		Sum_Def += i[1][0]
+		Sum_M_Def += i[1][1]
+		Sum_BPA += i[1][2]
+		Sum_BMA += i[1][3]
+		Sum_SP += i[1][4]
 		
-	print(Temp_Def," ",Stat_Boosts)
+	Temp_Def += Defense + Sum_Def
+	Temp_M_Def += Magic_Defense + Sum_M_Def
+	Temp_BP_A += Base_Phisical_Attack + Sum_BPA
+	Temp_BM_A += Base_Magical_Attack + Sum_BMA
+	Temp_Sped += Speed + Sum_SP
+	
