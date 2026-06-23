@@ -1,4 +1,4 @@
-[style name="Boxless_Textbox"]
+[style name="Normal_Textbox"]
 [speed=0]A Group of Ballers attacked you!\
 What will you do?????
 jump static_textbox_handler/

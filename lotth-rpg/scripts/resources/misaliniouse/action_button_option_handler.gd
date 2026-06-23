@@ -54,7 +54,7 @@ func Check():
 	print("EMP: "+ str(enemy_stats.EMP) + " Speed: " + str(enemy_stats.Speed))
 	print("----------------")
 	enemy_seperate.Bar.show()
-	enemy_seperate.Bar.name_tag_container.hide()
+	#enemy_seperate.Bar.name_tag_container.hide()
 	enemy_seperate.Bar.action_remaining.hide()
 	
 	

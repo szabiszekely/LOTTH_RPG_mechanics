@@ -15,7 +15,7 @@ script = ExtResource("1_12wgo")
 scene = ExtResource("2_boiwg")
 overrides = {
 "box_modulate_custom_color": "Color(0.47058824, 0.31764707, 0.16470589, 0)",
-"box_panel": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Speaker_Normal_Text_Without_The_Box/text_box.tres\"",
+"box_panel": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Speaker_Normal_Text_Without_The_Box/boxless_text_box.tres\"",
 "box_size": "Vector2(600, 600)",
 "text_custom_size": "30.0",
 "text_use_global_size": "false"
@@ -47,4 +47,4 @@ layer_info = {
 "12": SubResource("Resource_ssuho"),
 "13": SubResource("Resource_c2oio")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "10"

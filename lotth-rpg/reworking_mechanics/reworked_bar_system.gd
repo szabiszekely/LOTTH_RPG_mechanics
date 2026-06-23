@@ -38,7 +38,7 @@ func _ready() -> void:
 	ADR_bar.hide()
 	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
-
+	name_tag.text = assined_characters.Fight_stats.name
 # Still ugly, but it works and I do not care about anything else
 # beauty lies in the insides... yeah close enough, but still ugly
 func _process(_delta: float) -> void:
@@ -130,6 +130,9 @@ func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 					HP_bar.increase_bar_value(1)
 					assined_characters.Fight_stats.HP += 1
 					await get_tree().create_timer(0.15).timeout
+
+func _set_name_tag(value:String)->void:
+	name_tag.text = value
 
 func health_changed():
 	Health_number.text = str(assined_characters.Fight_stats.HP) + "|" + str(assined_characters.Fight_stats.MAX_HP)

@@ -266,9 +266,9 @@ theme_override_constants/separation = 60
 alignment = 1
 
 [node name="Bar_container_enemey" type="VBoxContainer" parent="."]
-offset_left = 1286.0
+offset_left = 1282.0
 offset_top = 561.0
-offset_right = 1659.0
+offset_right = 1655.0
 offset_bottom = 810.0
 theme_override_constants/separation = 60
 alignment = 1
