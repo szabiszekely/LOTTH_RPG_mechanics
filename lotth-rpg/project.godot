@@ -32,6 +32,7 @@ AlwaysOn="*res://scripts/gd/always_on.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
+"a_speaker": "res://scripts/resources/Text_Box/a_speaker.dtl",
 "act_Ball": "res://scripts/resources/Text_Box/act_Ball.dtl",
 "act_Check": "res://scripts/resources/Text_Box/act_Check.dtl",
 "act_Grab": "res://scripts/resources/Text_Box/act_Grab.dtl",
@@ -43,10 +44,11 @@ directories/dtl_directory={
 }
 layout/style_directory={
 "": "res://scripts/resources/Text_Box/Profile_Tectboc.tres",
+"Boxless_Textbox": "res://scripts/resources/Text_Box/Boxless_Textbox.tres",
 "Normal_Textbox": "res://scripts/resources/Text_Box/Normal_Textbox.tres",
 "Profile_Tectboc": "res://scripts/resources/Text_Box/Profile_Tectboc.tres"
 }
-layout/style_list=["res://scripts/resources/Text_Box/Profile_Tectboc.tres", "res://scripts/resources/Text_Box/Normal_Textbox.tres"]
+layout/style_list=["res://scripts/resources/Text_Box/Profile_Tectboc.tres", "res://scripts/resources/Text_Box/Normal_Textbox.tres", "res://scripts/resources/Text_Box/Boxless_Textbox.tres"]
 layout/default_style="res://scripts/resources/Text_Box/Profile_Tectboc.tres"
 glossary/default_case_sensitive=true
 variables={
@@ -56,7 +58,8 @@ variables={
 "EMP": 0,
 "MAX_EMP": 0,
 "Magic_Defense": 0,
-"name": ""
+"name": "",
+"your_name": "Alex"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -91,6 +94,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+text/input_action="dialogic_default_action"
 
 [display]
 

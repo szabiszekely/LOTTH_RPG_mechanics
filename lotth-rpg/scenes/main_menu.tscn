@@ -1,10 +1,12 @@
-[gd_scene load_steps=70 format=3 uid="uid://cd4avskiarr2g"]
+[gd_scene load_steps=73 format=3 uid="uid://cd4avskiarr2g"]
 
 [ext_resource type="Texture2D" uid="uid://cmw7am4p4eqpq" path="res://assets/sprite/UI/Player_Soul0160.png" id="1_bqqt6"]
 [ext_resource type="Shader" uid="uid://char67nbtb7mk" path="res://scripts/gdshader/Wave.gdshader" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://2c037g1nq43c" path="res://assets/sprite/UI/LOTTH_Tittle_screen.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://cx7vw55ab6iqp" path="res://scripts/gd/main_menu.gd" id="1_wu84c"]
 [ext_resource type="Texture2D" uid="uid://s1bc358dkruy" path="res://assets/sprite/BG and Tile/Main_Tittle_BG.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://boo53vx34xmi0" path="res://assets/sprite/BG and Tile/Main_Tittle_BG_color only.png" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://drykq7md156n6" path="res://assets/sprite/UI/LOTTH_Tittle_Beta.png" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
 bg_color = Color(0.02845834, 0.0265, 0.05, 1)
@@ -444,9 +446,17 @@ shader_parameter/sway_strength = 0.0090000004275
 shader_parameter/noise_scale = 5.00000019
 shader_parameter/time_offset = 0.0
 shader_parameter/color_alpha = 1.0
-shader_parameter/work = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
+shader = ExtResource("1_ekxnf")
+shader_parameter/sway_speed = 0.40000001574012
+shader_parameter/sway_strength = 0.0090000004275
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+shader_parameter/color_alpha = 1.0
+
+[sub_resource type="SystemFont" id="SystemFont_rtw2f"]
+font_names = PackedStringArray("Impact")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -457,7 +467,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu84c")
 
-[node name="ColorRect3" type="TextureRect" parent="."]
+[node name="BG_light" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -465,6 +475,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8ln24")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_oa1go")
 
 [node name="ColorRect" type="Panel" parent="."]
 layout_mode = 1
@@ -486,7 +508,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vue75")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(815, 636)
+position = Vector2(854, 636)
 scale = Vector2(0.61875, 0.61875)
 sprite_frames = SubResource("SpriteFrames_tgcit")
 autoplay = "default"
@@ -496,40 +518,51 @@ speed_scale = 2.5
 [node name="LotthTittleScreen" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_bqqt6")
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -410.0
+offset_top = -444.0
 offset_right = 410.0
-offset_bottom = 420.0
+offset_bottom = -24.0
 grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_l6cm7")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="LotthBeta" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ekxnf")
-layout_mode = 0
-offset_left = 739.0
-offset_top = 391.0
-offset_right = 1411.0
-offset_bottom = 529.0
-rotation = -0.057058606
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_selected_color = Color(0, 0.0666666, 1, 0)
-theme_override_colors/selection_color = Color(0.1, 0.1, 1, 0.8)
-theme_override_colors/font_shadow_color = Color(0.27999997, 0.32799995, 1, 1)
-theme_override_font_sizes/normal_font_size = 64
-text = "BETA"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -79.0
+offset_right = 180.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_rtw2f")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-material = SubResource("ShaderMaterial_ekxnf")
-layout_mode = 0
-offset_left = 664.0
-offset_top = 752.0
-offset_right = 1336.0
-offset_bottom = 890.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -53.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(0, 0.0666666, 1, 0)
 theme_override_colors/selection_color = Color(0.1, 0.1, 1, 0.8)
 theme_override_colors/font_shadow_color = Color(0.27999997, 0.32799995, 1, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_rtw2f")
 theme_override_font_sizes/normal_font_size = 32
 text = "Press SPACE to start"

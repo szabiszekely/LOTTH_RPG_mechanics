@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=12 format=3 uid="uid://bvvholp1lob55"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_12wgo"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_4vrd5"]
+[ext_resource type="PackedScene" uid="uid://47ky54jkkkyq" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Speaker_Normal_Text_Without_The_Box/Textbox_normal.tscn" id="2_boiwg"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_boiwg"]
+[ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="4_o7p5u"]
+[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="5_jamjp"]
+
+[sub_resource type="Resource" id="Resource_boiwg"]
+script = ExtResource("1_12wgo")
+
+[sub_resource type="Resource" id="Resource_o7p5u"]
+script = ExtResource("1_12wgo")
+scene = ExtResource("2_boiwg")
+overrides = {
+"box_modulate_custom_color": "Color(0.47058824, 0.31764707, 0.16470589, 0)",
+"box_panel": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Speaker_Normal_Text_Without_The_Box/text_box.tres\"",
+"box_size": "Vector2(600, 600)",
+"text_custom_size": "30.0",
+"text_use_global_size": "false"
+}
+
+[sub_resource type="Resource" id="Resource_jamjp"]
+script = ExtResource("1_12wgo")
+scene = ExtResource("3_boiwg")
+
+[sub_resource type="Resource" id="Resource_ssuho"]
+script = ExtResource("1_12wgo")
+scene = ExtResource("4_o7p5u")
+
+[sub_resource type="Resource" id="Resource_c2oio"]
+script = ExtResource("1_12wgo")
+scene = ExtResource("5_jamjp")
+overrides = {
+"font_size_custom": "24.0"
+}
+
+[resource]
+script = ExtResource("2_4vrd5")
+name = "Boxless_Textbox"
+layer_list = Array[String](["10", "11", "12", "13"])
+layer_info = {
+"": SubResource("Resource_boiwg"),
+"10": SubResource("Resource_o7p5u"),
+"11": SubResource("Resource_jamjp"),
+"12": SubResource("Resource_ssuho"),
+"13": SubResource("Resource_c2oio")
+}
+metadata/_latest_layer = "13"

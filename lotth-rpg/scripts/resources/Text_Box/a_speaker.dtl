@@ -1,0 +1,37 @@
+[style name="Boxless_Textbox"]
+setting  = ""
+[lspeed=0.1]Can you… [pause=0.2]interact with Us?
+[lspeed=0.1]Are you… [pause=0.2]Here?
+- >Answer<
+[lspeed=0.1]Oh?
+[lspeed=0.1]It seems you Can…
+[lspeed=0.1]I’m... [pause=0.2]Relieved...
+[lspeed=0.05][shake]Allow me to pull you in for a Moment…[/shake]
+[lspeed=0.1]There we Go...
+[lspeed=0.1]Now… [pause=0.2]speak to Me…
+[lspeed=0.1]How shall we call You?
+label Your_Name
+[text_input text="Your Name:" var="your_name"]
+{{your_name}}...
+{{your_name}}...?
+- Yes
+- No
+	[lspeed=0.1]Then what might be Changed?
+	jump a_speaker/Your_Name
+[save]
+[lspeed=0.05]Wonderful Name...
+[lspeed=0.05]{{your_name}}, I’m so… [pause=0.2][shake]Excited…[/shake]
+[lspeed=0.05]You… know why you are here… [pause=0.2]don’t You?
+- Not really
+- I have an idea
+	[lspeed=0.05]Wonderful, but allow me to fill, [pause=0.2]Gaps...
+- I know what I need to do
+	jump shortcut
+[lspeed=0.05]We… need You…
+[lspeed=0.05]Right now you, are the only one who can see… [pause=0.4][shake]Us…[/shake]
+[lspeed=0.05]We… [pause=0.2]need you to find what is broken in Us…
+[lspeed=0.05]We yearn to be… [pause=0.4][shake]Refind…[/shake]
+[lspeed=0.05]We… [pause=0.2]are not perfect, we have… [pause=0.4][shake]Glass shards…[/shake]
+[lspeed=0.05]To be Removed…
+label shortcut
+[lspeed=0.05]Let me show You… [pause=0.2]How you can help Us...
