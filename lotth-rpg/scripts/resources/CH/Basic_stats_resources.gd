@@ -32,7 +32,7 @@ var Temp_M_Def = Magic_Defense
 var Temp_BP_A = Base_Phisical_Attack
 var Temp_BM_A = Base_Magical_Attack
 var Temp_Sped = Speed
-
+var In_Defense: bool = false
 
 func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Strengh:int, Card_Type:int)->int:
 	if Stat_Boosts == []:
@@ -72,12 +72,6 @@ func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Str
 	else:
 		Damage_bonus = -1
 	
-	# Stat increases
-	# I have a function where I somehow get what stats need to be boosted, after that I add it through here?
-	# Phisical_damage = phiscal_damage + bonus_phisical_damage
-	# ect...
-	
-	
 	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0))
 	# 6 + (1(0) = 7
 	# the formula for the Total_damage!
@@ -87,9 +81,10 @@ func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Str
 	else:
 		Total_damage =  Attacker_Base_Phisical_Strengh + (Attacker_Card_Strengh - Reciver_Defense + (Damage_Type)+(Damage_bonus))
 	# and if the total_damage is smaller than 0 than we round it up to 1 so you don't deal negative or 0 damage! 
-	if Total_damage <= 0:
+	if Total_damage <= 0 and !In_Defense:
 		Total_damage = 1
-	
+	elif Total_damage <= 0 and In_Defense:
+		Total_damage = 0
 	return Total_damage
 
 ## This attack only does flat damage

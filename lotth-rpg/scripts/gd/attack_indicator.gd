@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var attack_indicator: Sprite2D = $Attack_indicator
 @onready var damage_number: Label = $Label
+const ATTACK_INDICATOR_BLOCKED = preload("uid://dnjxtougq2he1")
+const ATTACK_INDICATOR_NEGATIVE = preload("uid://cf3cwg7h21m8m")
 
 # set everything up when it is spawned
 func _ready() -> void:
@@ -23,14 +25,23 @@ func taken_damage(hit):
 	tweens.tween_property(attack_indicator,"scale",Vector2(0.725,0.725),0.675).set_trans(Tween.TRANS_BOUNCE)
 	damage_number.text = str(hit)
 	tweens.tween_property(damage_number,"modulate",Color.WHITE,0.2).set_trans(Tween.TRANS_QUINT)
-	if hit >= 10 and hit <= 99:
+	if hit == 0:
+		attack_indicator.texture = ATTACK_INDICATOR_BLOCKED
+		attack_indicator.hframes = 1
+		damage_number.hide()
+		self.scale = Vector2(0.8,0.8)
+	elif hit < 0:
+		attack_indicator.texture = ATTACK_INDICATOR_NEGATIVE
+		attack_indicator.hframes = 1
+	elif hit >= 10 and hit <= 99:
 		await get_tree().create_timer(0.25).timeout
 		attack_indicator.frame += 1
-	if hit >= 100:
+	elif hit >= 100:
 		await get_tree().create_timer(0.2).timeout
 		attack_indicator.frame += 1
 		await get_tree().create_timer(0.4).timeout
 		attack_indicator.frame += 1
+	
 	
 	
 	await tweens.finished

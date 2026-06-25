@@ -18,7 +18,6 @@ label Your_Name
 - No
 	[lspeed=0.1]Then what might be Changed?
 	jump a_speaker/Your_Name
-[save]
 [lspeed=0.05]Wonderful Name...
 [lspeed=0.05]{{your_name}}, I’m so… [pause=0.2][shake]Excited…[/shake]
 [lspeed=0.05]You… know why you are here… [pause=0.2]don’t You?

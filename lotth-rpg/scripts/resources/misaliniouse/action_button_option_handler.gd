@@ -70,8 +70,8 @@ func Guard():
 	#print("----------------")
 	player_seperate.Fight_stats.STAT_Resource._Get_Current_Headers(player_seperate.Fight_stats.Header_Array)
 	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
-	print(player_seperate.Fight_stats.Stat_Boosts)
 	player_seperate.Fight_stats._Apply_Stats()
+	player_seperate.Fight_stats.In_Defense = true
 	
 func Talk():
 	timeline = "act_Talk"

@@ -24,10 +24,10 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_button"):
 		
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
-		player_group.player[0]._take_damage(7,1,enemy_group.enemies[0])
-		player_group.player[1]._take_damage(7,1,enemy_group.enemies[0])
-		player_group.player[2]._take_damage(7,1,enemy_group.enemies[0])
-		player_group.player[3]._take_damage(7,1,enemy_group.enemies[0])
+		player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[2]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[3]._take_damage(1,1,enemy_group.enemies[0])
 
 		#player_group.player[1].global_position.y -= 7.5521784562331/2
 		#player_group.player[1].global_position.x -= 7.5521784562331

@@ -129,6 +129,8 @@ func _actions(stack):
 					i[2].Fight_stats.Header_Array.erase(n[0])
 					i[2].Fight_stats.Stat_Boosts.erase(n)
 				i[2].Fight_stats._Apply_Stats()
+				i[2].Fight_stats.In_Defense = false
+
 	
 	stack.clear()
 	initiative.initiative_index = 0

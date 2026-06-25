@@ -20,7 +20,7 @@
   "Hp": 0,
   "Eng": 0,
   "T.Dmg": 0,
-  "Dmg": 3,
+  "Dmg": 2,
   "Usage": 1,
   "Emp": 0,
   "Atk_Type": "Melee",
@@ -64,6 +64,32 @@
   "Emp": 0,
   "Atk_Type": "None",
   "Description": "Heals much as it shows"
+ },
+ {
+  "Id": 5,
+  "Name": "Spike",
+  "Texture": "spike.png",
+  "Hp": 0,
+  "Eng": 0,
+  "T.Dmg": 0,
+  "Dmg": 2,
+  "Usage": 1,
+  "Emp": 0,
+  "Atk_Type": "Ranged",
+  "Description": "Spike from the opponent, The opponent looses 1 Phisical ATK"
+ },
+ {
+  "Id": 6,
+  "Name": "Brown_Fur",
+  "Texture": "brown_fur.png",
+  "Hp": 0,
+  "Eng": 0,
+  "T.Dmg": 0,
+  "Dmg": 0,
+  "Usage": 0,
+  "Emp": 1,
+  "Atk_Type": "None",
+  "Description": "Fur from a dog. It smells weird. For some reason... It's wet?"
  }
 ],
 "Actions":[
