@@ -20,24 +20,26 @@ func _ready() -> void:
 func get_texture_name(ID = 0):
 	return content["Items"][ID]["Texture"]
 	
-func get_item_name(ID = 0):
+func get_item_name(ID = 0)-> String:
 	return content["Items"][ID]["Name"]
 
-func get_item_id(ID = 0):
+func get_item_id(ID = 0)->int:
 	return content["Items"][ID]["Id"]
 	
-func get_item_data(ID = 0):
+func get_item_data(ID = 0)->int:
 	return content["Items"][ID]
 
-func get_item_dmg(Name: String):
+func get_item_dmg(Name: String)->int:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			return i["Dmg"]
+	return 68
 
-func get_item_t_dmg(Name: String):
+func get_item_t_dmg(Name: String)->int:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			return i["T.Dmg"]
+	return 68
 
 func get_item_damage(Name: String):
 	for i in content["Items"]:
@@ -47,17 +49,19 @@ func get_item_damage(Name: String):
 			else:
 				return i["Dmg"]
 
-func get_item_eng(Name: String):
+func get_item_eng(Name: String)->int:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			return i["Eng"]
+	return 68
 
-func get_item_hp(Name: String):
+func get_item_hp(Name: String)->int:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			return i["Hp"]
+	return 68
 
-func get_item_atk_type(Name: String):
+func get_item_atk_type(Name: String)->int:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			if "Melee" == i["Atk_Type"]:
@@ -67,23 +71,57 @@ func get_item_atk_type(Name: String):
 			if "Magic" == i["Atk_Type"]:
 				return 2
 			else:
-				return 10
+				return 68
+	return 68
 
-func get_item_damage_type(Name: String):
+func get_item_damage_type(Name: String)->bool:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			if 0 < i["T.Dmg"]:
 				return true
 			else:
 				return false
+	return false
 
-func get_item_health_type(Name: String):
+func get_item_health_type(Name: String)->bool:
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			if 0 < i["Hp"]:
 				return true
 			else:
 				return false
+	return false
+
+func get_item_stats_exists(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
+			if stats != [0.0,0.0,0.0,0.0,0.0]:
+				return true
+			else:
+				return false
+
+func get_item_stats(Name: String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
+			return stats
+
+func get_item_stats_types(list:Array):
+	var dict: Dictionary = {
+		"Def":0,
+		"M_Def":0,
+		"BP_Attack":0,
+		"BM_Attack":0,
+		"Speed":0
+	}
+	var stat_list: Array = ["Def","M_Def","BP_Attack","BM_Attack","Speed"]
+	for i in list:
+		if i != 0.0:
+			dict[stat_list[i]] = i
+			pass
+		pass
+	
 
 # Actions-------------------------------------------
 
@@ -96,21 +134,22 @@ func get_actions_of_enemy(ID = 0):
 
 # Cards-------------------------------------------
 
-func get_card_damage(Name: String):
+func get_card_damage(Name: String)->int:
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
 			if 0 < i["T.Dmg"]:
 				return i["T.Dmg"]
 			else:
 				return i["Dmg"]
-			
-func get_card_damage_type(Name: String):
+	return 0
+func get_card_damage_type(Name: String)->bool:
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
 			if 0 < i["T.Dmg"]:
 				return true
 			else:
 				return false
+	return false
 				
 func get_card_ability_type(Name: String):
 	for i in content["Abilities"]:
@@ -127,17 +166,18 @@ func get_card_attack_type(Name: String):
 			if "Magic" == i["Type"]:
 				return 2
 			
-func get_card_energy(Name: String):
+func get_card_energy(Name: String)->int:
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
 			return i["Eng"]
 		
-	return -1
+	return 68
 
-func get_card_range(Name:String):
+func get_card_range(Name:String)->int:
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
 			return i["Range"]
+	return 68
 			
 func get_card_eng_or_hp(Name:String):
 	for i in content["Abilities"]:

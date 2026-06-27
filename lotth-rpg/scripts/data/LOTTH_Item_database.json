@@ -8,9 +8,13 @@
   "Eng": 4,
   "T.Dmg": 0,
   "Dmg": 0,
-  "Usage": 0,
   "Emp": 0,
   "Atk_Type": "None",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": 0,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "Beef jerky or maybe I jerked my beef?"
  },
  {
@@ -21,9 +25,13 @@
   "Eng": 0,
   "T.Dmg": 0,
   "Dmg": 2,
-  "Usage": 1,
   "Emp": 0,
   "Atk_Type": "Melee",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": 0,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "Sharp and it looks ass"
  },
  {
@@ -34,9 +42,13 @@
   "Eng": 0,
   "T.Dmg": 2,
   "Dmg": 0,
-  "Usage": 1,
   "Emp": 0,
   "Atk_Type": "Melee",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": 0,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "Looks like a can of coke but for your tounge "
  },
  {
@@ -47,9 +59,13 @@
   "Eng": 3,
   "T.Dmg": 0,
   "Dmg": 0,
-  "Usage": 0,
   "Emp": 0,
   "Atk_Type": "None",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": 0,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "An apple a day keeps the programming bugs away"
  },
  {
@@ -60,9 +76,13 @@
   "Eng": 0,
   "T.Dmg": 0,
   "Dmg": 0,
-  "Usage": 0,
   "Emp": 0,
   "Atk_Type": "None",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": 0,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "Heals much as it shows"
  },
  {
@@ -73,9 +93,13 @@
   "Eng": 0,
   "T.Dmg": 0,
   "Dmg": 2,
-  "Usage": 1,
   "Emp": 0,
   "Atk_Type": "Ranged",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": -1,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "Spike from the opponent, The opponent looses 1 Phisical ATK"
  },
  {
@@ -86,9 +110,13 @@
   "Eng": 0,
   "T.Dmg": 0,
   "Dmg": 0,
-  "Usage": 0,
   "Emp": 1,
   "Atk_Type": "None",
+  "Def": 0,
+  "M_Def": 0,
+  "BP_Attack": 0,
+  "BM_Attack": 0,
+  "Speed": 0,
   "Description": "Fur from a dog. It smells weird. For some reason... It's wet?"
  }
 ],

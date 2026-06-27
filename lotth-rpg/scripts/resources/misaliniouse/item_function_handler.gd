@@ -47,4 +47,9 @@ func Apple():
 func Medicit():
 	player_starter()
 	
+func Spike():
+	enemy_starter()
+	
+func Brown_Fur():
+	enemy_starter()
 	

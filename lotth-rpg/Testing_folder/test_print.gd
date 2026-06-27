@@ -1,22 +1,27 @@
 extends Node2D
 
 
-var dict = {
-	"key":0,
-	"key2":1
-}
+func _ready() -> void:
+	print(Data.get_item_stats("Meat"))
+	print(Data.get_item_stats("Spike"))
+	print(Data.get_item_stats("Medicit"))
+
+#var dict = {
+	#"key":0,
+	#"key2":1
+#}
 
 #var simple_var: String = "Hello"
 #var var_int: int = 15
 #var boolean: bool = false
 #@onready var im_print_able: Node2D = $"Im print able"
 
-func _ready() -> void:
-	var array = dict.values()
-	for i in array:
-		if i != 0:
-			break
-			
+#func _ready() -> void:
+	#var array = dict.values()
+	#for i in array:
+		#if i != 0:
+			#break
+			#
 	#print_tree()
 	#print_tree_pretty()
 	#printerr("1 ",simple_var)
