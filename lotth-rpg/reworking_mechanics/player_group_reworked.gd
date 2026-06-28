@@ -75,7 +75,7 @@ func _process(_delta: float) -> void:
 				
 			if menu_system.bag == true:
 				menu_system.bag = false
-				all_p_actions.push_back(["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice])
+				all_p_actions.push_back(["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players)])
 				_reset_focus()
 				initiative.sorted_player[p_index]._play_out_tick_down()
 				if initiative.sorted_player[p_index].PlayOutOptions != 0:

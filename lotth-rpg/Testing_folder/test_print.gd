@@ -2,9 +2,9 @@ extends Node2D
 
 
 func _ready() -> void:
-	print(Data.get_item_stats("Meat"))
-	print(Data.get_item_stats("Spike"))
-	print(Data.get_item_stats("Medicit"))
+	print(Data.get_item_stats_types(Data.get_item_stats("Meat")))
+	print(Data.get_item_stats_types(Data.get_item_stats("Spike")))
+	print(Data.get_item_stats_types(Data.get_item_stats("Medicit")))
 
 #var dict = {
 	#"key":0,

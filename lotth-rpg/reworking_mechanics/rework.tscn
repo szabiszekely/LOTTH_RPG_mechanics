@@ -136,6 +136,11 @@ range_in_cm = 15.0
 [sub_resource type="Resource" id="Resource_6hxp8"]
 resource_local_to_scene = true
 script = ExtResource("13_4y57x")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_aihkf"]
@@ -159,6 +164,11 @@ Speed = 1
 [sub_resource type="Resource" id="Resource_lh1mx"]
 resource_local_to_scene = true
 script = ExtResource("13_4y57x")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_mo7hs"]
@@ -182,6 +192,11 @@ Speed = 1
 [sub_resource type="Resource" id="Resource_dt3sk"]
 resource_local_to_scene = true
 script = ExtResource("13_4y57x")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_t4b5j"]
@@ -205,6 +220,11 @@ Speed = 1
 [sub_resource type="Resource" id="Resource_mag4a"]
 resource_local_to_scene = true
 script = ExtResource("13_4y57x")
+angy_personality_bonus = 3
+dice_goal_number = 5
+personality_decrease_modifier_agression = 1.2
+personality_aggresion = 3
+energy_healing_percentage = 1.0
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_r0suc"]

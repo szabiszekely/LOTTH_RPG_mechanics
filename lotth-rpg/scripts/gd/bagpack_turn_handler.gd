@@ -11,7 +11,8 @@ extends Node
 # that the player does want to heal, then it helps to pick a different player,
 # instead the dead guy in the battlefield 
 var is_this_heal = [0]
-
+# bag, player, from, to, item, menu, is it stat?
+# ["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players)]
 func _Bagpack_Turn(list):
 	# this checks for if the current guy, who we are letting through the turn, is alive
 	# or dead/KOd
@@ -22,9 +23,17 @@ func _Bagpack_Turn(list):
 				list[3].Bar.bar_health_restored(Data.get_item_hp(list[4]),2)
 			else:
 				list[3].Bar.bar_health_restored(Data.get_item_eng(list[4]),1)
+				
+				
 		1: ## this is for the attacking items
 			if Data.get_item_damage_type(list[4]) == true:
 				list[3]._take_true_damage(Data.get_item_t_dmg(list[4]))
 			else:
 				print(list[2].Fight_stats.Base_Phisical_Attack)
-				list[3]._take_damage(list[2].Fight_stats.Base_Phisical_Attack,Data.get_item_dmg(list[4]),list[2].Fight_stats.Attack_Type,Data.get_item_atk_type(list[4]),list[2].Fight_stats.Base_Magical_Attack)
+				list[3]._take_damage(Data.get_item_dmg(list[4]),Data.get_item_atk_type(list[4]),list[2])
+
+	# stats for self
+	if list[6]:
+		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
+		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",1,Data.get_item_stats_types(Data.get_item_stats(list[4]))))
+		list[3].Fight_stats._Apply_Stats()

@@ -26,7 +26,7 @@ func get_item_name(ID = 0)-> String:
 func get_item_id(ID = 0)->int:
 	return content["Items"][ID]["Id"]
 	
-func get_item_data(ID = 0)->int:
+func get_item_data(ID = 0):
 	return content["Items"][ID]
 
 func get_item_dmg(Name: String)->int:
@@ -96,6 +96,7 @@ func get_item_stats_exists(Name: String):
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
+			print(stats)
 			if stats != [0.0,0.0,0.0,0.0,0.0]:
 				return true
 			else:
@@ -107,22 +108,31 @@ func get_item_stats(Name: String):
 			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
 			return stats
 
+#	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
+
 func get_item_stats_types(list:Array):
 	var dict: Dictionary = {
-		"Def":0,
-		"M_Def":0,
-		"BP_Attack":0,
-		"BM_Attack":0,
-		"Speed":0
-	}
+		1:["Def",0,true],
+		2:["M_Def",0,true],
+		3:["BP_Attack",0,true],
+		4:["BM_Attack",0,true],
+		5:["Speed",0,true]
+		}
+	var temp_dict: Dictionary = {}
 	var stat_list: Array = ["Def","M_Def","BP_Attack","BM_Attack","Speed"]
+	var index = 0
 	for i in list:
-		if i != 0.0:
-			dict[stat_list[i]] = i
-			pass
-		pass
-	
-
+		if i != 0:
+			dict[index+1] = [stat_list[index],i,true if i < 0 else false]
+			#dict[stat_list[index]] = i
+		index += 1
+	index = 1
+	for i in dict:
+		if dict[i][1] != 0:
+			temp_dict[index] = dict[i]
+			index += 1
+	return temp_dict
+		
 # Actions-------------------------------------------
 
 func get_actions_of_enemy(ID = 0):
@@ -173,11 +183,10 @@ func get_card_energy(Name: String)->int:
 		
 	return 68
 
-func get_card_range(Name:String)->int:
+func get_card_range(Name:String):
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
 			return i["Range"]
-	return 68
 			
 func get_card_eng_or_hp(Name:String):
 	for i in content["Abilities"]:
