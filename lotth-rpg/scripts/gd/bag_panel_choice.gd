@@ -88,7 +88,7 @@ func _add_random_items():
 		if not inventory.item_count >= 24:
 			inventory.add_slot(random_item)
 			item_list.append(Data.get_item_id(random_item))
-			no_items.hide()
+			item_count_check()
 			
 		else:
 			print("Item is full!")

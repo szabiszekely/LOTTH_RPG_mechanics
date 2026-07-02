@@ -105,8 +105,11 @@ func _player_action_to_enemy():
 	# the save file
 	if menu_system.bag == true:
 		menu_system.bag = false
-		player.all_p_actions.push_back(["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies)])
 		_reset_focus()
+		if Data.get_item_emp_type(item_againts_enemies):
+			player.all_p_actions.push_back(["bag",2,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies)])
+		else:
+			player.all_p_actions.push_back(["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies)])
 		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			call_menu_appear()

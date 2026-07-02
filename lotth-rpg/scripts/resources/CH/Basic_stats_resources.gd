@@ -17,7 +17,9 @@ extends Resource
 @export var Magic_Defense: int ##Every Magic Defense is -1 from Magical attack
 @export var MAX_EMP: int ##Determines how much Emphaty an enemy needs before spareable
 @export var EMP: int ##Current adjusting Emphaty
-
+#@export var Skadoodle: int = 0 ##The ability to steal items
+@export var Focus: int = 0 ##The ability to focus on an someone
+#@export var Persuade: int = 0 #The ablitiy to talk down someone from fighting
 @export var Base_Phisical_Attack: int 
 @export var Base_Magical_Attack: int
 @export var Speed: int ##Every start of a round it will roll a D6 and adds it to the speed, the larger the better

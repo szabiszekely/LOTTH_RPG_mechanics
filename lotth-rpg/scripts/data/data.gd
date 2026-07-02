@@ -83,6 +83,17 @@ func get_item_damage_type(Name: String)->bool:
 				return false
 	return false
 
+func get_item_emp(Name: String)->int:
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["Emp"]
+	return 68
+
+func get_item_emp_type(Name:String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["Emp"] > 0
+
 func get_item_health_type(Name: String)->bool:
 	for i in content["Items"]:
 		if Name == i["Name"]:

@@ -60,9 +60,17 @@ func Check():
 	
 
 func Focus():
-	print("----------------")
-	print("You Closed Your eyes and started to focus on " + str(enemy_stats.name) +"!")
-	print("----------------")
+	#print("----------------")
+	#print("You Closed Your eyes and started to focus on " + str(enemy_stats.name) +"!")
+	#print("----------------")
+	#
+	timeline = "act_focus"
+	Dialogic.Style.load_style("Speak_Bubble")
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	var layout = Dialogic.start(timeline)
+	source.initiative.doTrapForLoop = true
+	print(layout)
+	layout.register_character(preload("uid://bv1ssilnspy62"),player_seperate)
 	
 func Guard():
 	#print("----------------")

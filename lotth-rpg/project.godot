@@ -30,7 +30,9 @@ AlwaysOn="*res://scripts/gd/always_on.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Alex": "res://scripts/resources/Text_Box/Alex.dch"
+}
 directories/dtl_directory={
 "a_speaker": "res://scripts/resources/Text_Box/a_speaker.dtl",
 "act_Ball": "res://scripts/resources/Text_Box/act_Ball.dtl",
@@ -39,17 +41,19 @@ directories/dtl_directory={
 "act_Sleep": "res://scripts/resources/Text_Box/act_Sleep.dtl",
 "act_Talk": "res://scripts/resources/Text_Box/act_Talk.dtl",
 "act_Twirl": "res://scripts/resources/Text_Box/act_Twirl.dtl",
+"act_focus": "res://scripts/resources/Text_Box/act_Focus.dtl",
 "stat_baller": "res://scripts/resources/Text_Box/stat_baller.dtl",
 "static_textbox_handler": "res://scripts/resources/Text_Box/static_textbox_handler.dtl"
 }
 layout/style_directory={
-"": "res://scripts/resources/Text_Box/Profile_Tectboc.tres",
+"": "res://scripts/resources/Text_Box/Speak_Bubble.tres",
 "Boxless_Textbox": "res://scripts/resources/Text_Box/Boxless_Textbox.tres",
 "Normal_Textbox": "res://scripts/resources/Text_Box/Normal_Textbox.tres",
-"Profile_Tectboc": "res://scripts/resources/Text_Box/Profile_Tectboc.tres"
+"Profile_Tectboc": "res://scripts/resources/Text_Box/Profile_Tectboc.tres",
+"Speak_Bubble": "res://scripts/resources/Text_Box/Speak_Bubble.tres"
 }
-layout/style_list=["res://scripts/resources/Text_Box/Profile_Tectboc.tres", "res://scripts/resources/Text_Box/Normal_Textbox.tres", "res://scripts/resources/Text_Box/Boxless_Textbox.tres"]
-layout/default_style="res://scripts/resources/Text_Box/Profile_Tectboc.tres"
+layout/style_list=["res://scripts/resources/Text_Box/Profile_Tectboc.tres", "res://scripts/resources/Text_Box/Normal_Textbox.tres", "res://scripts/resources/Text_Box/Boxless_Textbox.tres", "res://scripts/resources/Text_Box/Speak_Bubble.tres"]
+layout/default_style="res://scripts/resources/Text_Box/Speak_Bubble.tres"
 glossary/default_case_sensitive=true
 variables={
 "Base_Magical_Attack": 0,

@@ -29,9 +29,9 @@ func _Bagpack_Turn(list):
 			if Data.get_item_damage_type(list[4]) == true:
 				list[3]._take_true_damage(Data.get_item_t_dmg(list[4]))
 			else:
-				print(list[2].Fight_stats.Base_Phisical_Attack)
 				list[3]._take_damage(Data.get_item_dmg(list[4]),Data.get_item_atk_type(list[4]),list[2])
-
+		2:
+			list[3].emp_gained(Data.get_item_emp(list[4]))
 	# stats for self
 	if list[6]:
 		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
