@@ -30,6 +30,7 @@ func _ready() -> void:
 
 # this helps to determin if the character is still alive or not
 func _Does_opponent_exist(list:Array,is_this_heal):
+	#Dialogic.end_timeline()
 	var grab_a_different_character
 	var count_me_in = 0
 	
@@ -60,6 +61,7 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 
 func _actions(stack):
+
 	var play_out_action = []
 	for i in initiative.all_rolls:
 		for j in stack:

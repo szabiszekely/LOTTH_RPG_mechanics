@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=36 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://reworking_mechanics/BattleScene.gd" id="1_3ntn1"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/refrence_cross_road.tscn" id="2_blo5o"]
@@ -11,11 +11,15 @@
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/Basic_stats_resources.gd" id="9_4y57x"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/Player_1.tscn" id="9_6avkf"]
 [ext_resource type="Texture2D" uid="uid://cyrxfj2klqis7" path="res://assets/sprite/Simple Enemie/Portrait_Icon_baller_different.png" id="9_brbw4"]
+[ext_resource type="Resource" uid="uid://bv1ssilnspy62" path="res://scripts/resources/Text_Box/Alex.dch" id="9_p7hkc"]
 [ext_resource type="Texture2D" uid="uid://do4mcmq0nu2su" path="res://assets/sprite/Player 2/Portrait_Icon.png" id="10_ahsbf"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/UI_battle_menu.tscn" id="10_pue0b"]
+[ext_resource type="Resource" uid="uid://bo7kw3v2nra6b" path="res://scripts/resources/Text_Box/Myna.dch" id="11_q1i6w"]
 [ext_resource type="Script" uid="uid://cx5ba8cqethcy" path="res://scripts/resources/Enemy AI/BallerAI.gd" id="13_4y57x"]
 [ext_resource type="Resource" uid="uid://crwr284rccjgq" path="res://scripts/resources/Decks/Lil_guy_deck.tres" id="13_6hxp8"]
+[ext_resource type="Resource" uid="uid://co36r3liwrti8" path="res://scripts/resources/Text_Box/Huba.dch" id="13_lh1mx"]
 [ext_resource type="Resource" uid="uid://b5rud4uqx1g0a" path="res://scripts/resources/Decks/Baller_deck.tres" id="14_4y57x"]
+[ext_resource type="Resource" uid="uid://dqk4fplyk21ql" path="res://scripts/resources/Text_Box/Levi.dch" id="14_y1qm0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1uqaj"]
 texture = ExtResource("4_x1105")
@@ -61,6 +65,7 @@ agent_radius = 21.0
 resource_local_to_scene = true
 script = ExtResource("9_4y57x")
 name = "Lil Goofy Guy 1"
+character_speaker = ExtResource("9_p7hkc")
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -80,6 +85,7 @@ range_in_cm = 15.0
 resource_local_to_scene = true
 script = ExtResource("9_4y57x")
 name = "Lil Goofy Guy 2"
+character_speaker = ExtResource("11_q1i6w")
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -99,6 +105,7 @@ range_in_cm = 15.0
 resource_local_to_scene = true
 script = ExtResource("9_4y57x")
 name = "Lil Goofy Guy 3"
+character_speaker = ExtResource("13_lh1mx")
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -118,6 +125,7 @@ range_in_cm = 15.0
 resource_local_to_scene = true
 script = ExtResource("9_4y57x")
 name = "Lil Goofy Guy 4"
+character_speaker = ExtResource("14_y1qm0")
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25

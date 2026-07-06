@@ -36,23 +36,21 @@ func start_dialog():
 	
 
 func _on_timeline_ended():
-	print('WORKS')
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	source.initiative.stopLoop.emit()
-	# do something else here
 
 #ALL BELLOW ARE FUNCTIONS THAT ARE USED FOR ACTION OPTIONS!
 func Check():
 	timeline = "act_Check"
 	start_dialog()
-	print("----------------")
-	print("Stat Block")
-	print("Name: " + str(enemy_stats.name))
-	print("HP: " + str(enemy_stats.HP) + " ENG: " + str(enemy_stats.ENG))
-	print("ATK: " + str(enemy_stats.Base_Phisical_Attack), " M.ATK: " + str(enemy_stats.Base_Magical_Attack))
-	print("DEF: " + str(enemy_stats.Defense) + " M.DEF: " + str(enemy_stats.Magic_Defense))
-	print("EMP: "+ str(enemy_stats.EMP) + " Speed: " + str(enemy_stats.Speed))
-	print("----------------")
+	#print("----------------")
+	#print("Stat Block")
+	#print("Name: " + str(enemy_stats.name))
+	#print("HP: " + str(enemy_stats.HP) + " ENG: " + str(enemy_stats.ENG))
+	#print("ATK: " + str(enemy_stats.Base_Phisical_Attack), " M.ATK: " + str(enemy_stats.Base_Magical_Attack))
+	#print("DEF: " + str(enemy_stats.Defense) + " M.DEF: " + str(enemy_stats.Magic_Defense))
+	#print("EMP: "+ str(enemy_stats.EMP) + " Speed: " + str(enemy_stats.Speed))
+	#print("----------------")
 	enemy_seperate.Bar.show()
 	#enemy_seperate.Bar.name_tag_container.hide()
 	enemy_seperate.Bar.action_remaining.hide()
@@ -64,14 +62,9 @@ func Focus():
 	#print("You Closed Your eyes and started to focus on " + str(enemy_stats.name) +"!")
 	#print("----------------")
 	#
+	#print("THIS: ",player_seperate)
 	timeline = "act_focus"
-	Dialogic.Style.load_style("Speak_Bubble")
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
-	var layout = Dialogic.start(timeline)
-	source.initiative.doTrapForLoop = true
-	print(layout)
-	layout.register_character(preload("uid://bv1ssilnspy62"),player_seperate)
-	
+	start_dialog()	
 func Guard():
 	#print("----------------")
 	#print("DEFENDED")

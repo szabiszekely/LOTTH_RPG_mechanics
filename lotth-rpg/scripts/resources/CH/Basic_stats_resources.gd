@@ -3,6 +3,7 @@ extends Resource
 
 # This hat handles the players and enemies stats, also take cares of dice rolls and damage taken
 @export var name: String ##Name of the Character
+@export var character_speaker: DialogicCharacter ##portait, name, everything the character needs
 @export var Id: int = -1 ##ID of the Enemy
 @export_enum("Friend","Enemy") var Friend_or_Foe ##Determines that which side of the character is on
 @export var MAX_HP: int ##Adjustable Max HP

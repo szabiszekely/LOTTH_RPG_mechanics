@@ -31,7 +31,10 @@ AlwaysOn="*res://scripts/gd/always_on.gd"
 [dialogic]
 
 directories/dch_directory={
-"Alex": "res://scripts/resources/Text_Box/Alex.dch"
+"Alex": "res://scripts/resources/Text_Box/Alex.dch",
+"Huba": "res://scripts/resources/Text_Box/Huba.dch",
+"Levi": "res://scripts/resources/Text_Box/Levi.dch",
+"Myna": "res://scripts/resources/Text_Box/Myna.dch"
 }
 directories/dtl_directory={
 "a_speaker": "res://scripts/resources/Text_Box/a_speaker.dtl",
@@ -42,6 +45,7 @@ directories/dtl_directory={
 "act_Talk": "res://scripts/resources/Text_Box/act_Talk.dtl",
 "act_Twirl": "res://scripts/resources/Text_Box/act_Twirl.dtl",
 "act_focus": "res://scripts/resources/Text_Box/act_Focus.dtl",
+"player_text_set_up_timeline": "res://scripts/resources/Text_Box/speech_bubble_set_uper.dtl",
 "stat_baller": "res://scripts/resources/Text_Box/stat_baller.dtl",
 "static_textbox_handler": "res://scripts/resources/Text_Box/static_textbox_handler.dtl"
 }

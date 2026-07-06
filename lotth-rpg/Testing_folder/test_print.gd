@@ -1,10 +1,27 @@
 extends Node2D
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
-	print(Data.get_item_stats_types(Data.get_item_stats("Meat")))
-	print(Data.get_item_stats_types(Data.get_item_stats("Spike")))
-	print(Data.get_item_stats_types(Data.get_item_stats("Medicit")))
+	Dialogic.start("stat_baller")
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_button"):
+		Dialogic.end_timeline()
+		await Engine.get_main_loop().create_timer(0.1).timeout
+		var timeline = "act_focus"
+		var layout = Dialogic.start(timeline)
+		Dialogic.timeline_ended.connect(_on_timeline_ended)
+		print(layout)
+		layout.register_character(preload("uid://bv1ssilnspy62"),sprite_2d)
+
+func _on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	# do something else here
+	#print(Data.get_item_stats_types(Data.get_item_stats("Meat")))
+	#print(Data.get_item_stats_types(Data.get_item_stats("Spike")))
+	#print(Data.get_item_stats_types(Data.get_item_stats("Medicit")))
 
 #var dict = {
 	#"key":0,

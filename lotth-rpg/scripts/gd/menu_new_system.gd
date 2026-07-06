@@ -288,6 +288,7 @@ func vanish():
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
 	Dialogic.Text.hide_textbox()
+
 # Disables EVERYTHING
 func all_gone():
 	abilities.process_mode = Node.PROCESS_MODE_DISABLED

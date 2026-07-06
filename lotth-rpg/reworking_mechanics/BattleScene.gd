@@ -13,6 +13,14 @@ func _ready() -> void:
 	initiative._getting_groups(player_group,enemy_group)
 	initiative._get_the_index_with_order()
 	initiative._get_player_and_enemy_spearated()
+	var layout = Dialogic.start("player_text_set_up_timeline")
+	layout.register_character(player_group.player[0].Fight_stats.character_speaker,player_group.player[0])
+	layout.register_character(player_group.player[1].Fight_stats.character_speaker,player_group.player[1])
+	layout.register_character(player_group.player[2].Fight_stats.character_speaker,player_group.player[2])
+	layout.register_character(player_group.player[3].Fight_stats.character_speaker,player_group.player[3])
+	await get_tree().create_timer(0.3).timeout
+	Dialogic.Text.show_textbox()
+	Dialogic.start("stat_baller")
 
 	player_group._player_start_choosing()
 	

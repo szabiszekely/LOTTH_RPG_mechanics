@@ -17,6 +17,9 @@ scene = ExtResource("3_yp57v")
 [sub_resource type="Resource" id="Resource_d3aps"]
 script = ExtResource("2_mktvj")
 scene = ExtResource("4_880cr")
+overrides = {
+"name_label_enabled": "false"
+}
 
 [resource]
 script = ExtResource("5_n2rjv")
