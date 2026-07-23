@@ -72,6 +72,7 @@ var abi = false
 var act = false
 var bag = false
 
+
 func _ready() -> void:
 	current_state = Menu_state.MENU
 	current_memory_state = current_state

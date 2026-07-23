@@ -104,7 +104,6 @@ corner_detail = 5
 
 [node name="UI_battle_menu" type="CanvasLayer"]
 layer = 2
-follow_viewport_scale = 2.735
 
 [node name="Menu" type="PanelContainer" parent="."]
 anchors_preset = 7
@@ -193,30 +192,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-text = "Run"
+text = "Break"
 script = ExtResource("5_fday4")
-
-[node name="Run_Panel_choice" parent="." instance=ExtResource("2_82t3g")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -297.0
-offset_top = -5.0
-offset_right = 335.0
-offset_bottom = 224.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.97, 0.97)
-
-[node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
-z_index = -1
-offset_left = -330.0
-offset_top = 3.0
-offset_right = 351.0
-offset_bottom = 358.0
-scale = Vector2(0.97, 0.97)
 
 [node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
 z_index = -1
@@ -239,6 +216,20 @@ offset_top = -70.0
 offset_right = 108.0
 offset_bottom = -70.0
 scale = Vector2(0.95, 0.95)
+
+[node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
+z_index = -1
+offset_left = -330.0
+offset_top = 3.0
+offset_right = 351.0
+offset_bottom = 358.0
+scale = Vector2(0.97, 0.97)
+
+[node name="Run_Panel_choice" parent="." instance=ExtResource("2_82t3g")]
+offset_left = 1043.0
+offset_top = 845.0
+offset_right = 1197.0
+offset_bottom = 1036.0
 
 [node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
 anchors_preset = 8

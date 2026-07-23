@@ -18,8 +18,8 @@ fill_to = Vector2(0.37815, 1)
 
 [node name="Run_Panel_choice" type="PanelContainer"]
 z_index = -1
-offset_right = 629.0
-offset_bottom = 237.0
+offset_right = 154.0
+offset_bottom = 191.0
 theme = ExtResource("1_cc6km")
 script = ExtResource("2_p4fjq")
 
@@ -32,7 +32,7 @@ theme_override_constants/margin_right = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 30
 
 [node name="Break_out" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -45,7 +45,7 @@ focus_neighbor_top = NodePath("../Break_out")
 text = "Spare"
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(118, 131)
+position = Vector2(118, 132.00002)
 scale = Vector2(0.646466, 2.36364)
 texture = SubResource("GradientTexture2D_y3lwi")
 
