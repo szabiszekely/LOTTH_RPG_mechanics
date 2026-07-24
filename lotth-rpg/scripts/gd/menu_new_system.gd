@@ -75,6 +75,8 @@ var bag = false
 
 func _ready() -> void:
 	current_state = Menu_state.MENU
+	Dialogic.Text.show_textbox()
+	RefrenceNode.MainNode.dialog_main = Dialogic.start("stat_baller")
 	current_memory_state = current_state
 	menu_buttons = get_the_children.get_children()
 	switching_buttons()
@@ -88,7 +90,8 @@ func _process(_delta: float) -> void:
 			current_memory_state = current_state
 			if menu_container == true:
 				Dialogic.Text.show_textbox()
-				Dialogic.start("stat_baller")
+				RefrenceNode.MainNode.dialog_main = Dialogic.start("stat_baller")
+				dialog_tween(-233,0.1)
 				menu_container = false
 		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
 		Menu_state.ABILITES:
@@ -288,7 +291,14 @@ func vanish():
 	# put movement here PLS PLS SEE ME OVER HERE
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
-	Dialogic.Text.hide_textbox()
+	if RefrenceNode.MainNode.dialog_main != null and !Initiative.action_start:
+		dialog_tween(0,0.1)
+	#Dialogic.Text.hide_textbox()
+
+#dialog vanish
+func dialog_tween(to_where,how_fast):
+	var tween = get_tree().create_tween()
+	tween.tween_property(RefrenceNode.MainNode.dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast)
 
 # Disables EVERYTHING
 func all_gone():

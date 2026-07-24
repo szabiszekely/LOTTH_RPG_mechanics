@@ -23,3 +23,5 @@ class_name CrossRoad
 @export var BagHandler: Bagpack_controls
 @export var ItemHandler: Item_handler
 @export var RunHandler: Run_control
+
+#var Dialog_controller = MainNode.dialog_main.get_child(0).get_child(0).get_child(0)

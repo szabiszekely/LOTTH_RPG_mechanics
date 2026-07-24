@@ -76,6 +76,7 @@ func _process(_delta: float) -> void:
 			initiative.all_actions.append(i)
 		for i in all_e_action:
 			initiative.all_actions.append(i)
+		initiative.action_start = true
 		turn_handler._actions(initiative.all_actions)
 
 

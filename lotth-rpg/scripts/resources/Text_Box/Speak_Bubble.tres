@@ -24,7 +24,7 @@ overrides = {
 [resource]
 script = ExtResource("5_n2rjv")
 name = "Speak_Bubble"
-layer_list = Array[String](["10", "11"])
+layer_list = Array[String](["11", "10"])
 layer_info = {
 "": SubResource("Resource_bhatn"),
 "10": SubResource("Resource_j7ayq"),

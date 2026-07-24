@@ -12,9 +12,19 @@ func _input(event: InputEvent) -> void:
 		await Engine.get_main_loop().create_timer(0.1).timeout
 		var timeline = "act_focus"
 		var layout = Dialogic.start(timeline)
-		Dialogic.timeline_ended.connect(_on_timeline_ended)
 		print(layout)
 		layout.register_character(preload("uid://bv1ssilnspy62"),sprite_2d)
+	if event.is_action_pressed("debug_button_2"):
+			Dialogic.end_timeline()
+			await Engine.get_main_loop().create_timer(0.1).timeout
+			var timeline = "act_Talk"
+			var layout = Dialogic.start(timeline)
+			print(layout)
+	if event.is_action_pressed("debug_button_3"):
+		var timeline = "act_Talk"
+		var layout = Dialogic.start(timeline)
+		print(layout.get_child(0).get_child(0).get_child(0).position.y)
+#		layout.get_child(0).get_child(0).get_child(0).position.y = -554.0
 
 func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)

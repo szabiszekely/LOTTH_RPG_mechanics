@@ -38,7 +38,7 @@ scene = ExtResource("5_2jp5o")
 [resource]
 script = ExtResource("2_whsvq")
 name = "Normal_Textbox"
-layer_list = Array[String](["10", "11", "13", "12"])
+layer_list = Array[String](["12", "10", "11", "13"])
 layer_info = {
 "": SubResource("Resource_pyjog"),
 "10": SubResource("Resource_d830y"),

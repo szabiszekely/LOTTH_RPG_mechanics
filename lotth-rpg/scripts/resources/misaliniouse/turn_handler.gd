@@ -61,7 +61,8 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 
 func _actions(stack):
-
+	Dialogic.Text.show_textbox()
+	RefrenceNode.MainNode.dialog_main.get_child(0).get_child(0).get_child(0).position.y = -200
 	var play_out_action = []
 	for i in initiative.all_rolls:
 		for j in stack:
@@ -138,4 +139,5 @@ func _actions(stack):
 	initiative.initiative_index = 0
 	initiative.action_start = false
 	await Engine.get_main_loop().create_timer(2).timeout
+	RefrenceNode.MainNode.dialog_main = Dialogic.start("stat_baller")
 	main_scene._reset()
