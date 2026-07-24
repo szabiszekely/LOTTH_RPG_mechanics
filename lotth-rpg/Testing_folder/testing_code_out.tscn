@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7gvu14c4ge4w"]
 
-[ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/moving_area.png" id="2_be8af"]
-[ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/Cursor.png" id="3_tvjs7"]
+[ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/spr_moving_area.png" id="2_be8af"]
+[ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/spr_Cursor.png" id="3_tvjs7"]
 
 [sub_resource type="GDScript" id="GDScript_j0roo"]
 script/source = "extends Node2D

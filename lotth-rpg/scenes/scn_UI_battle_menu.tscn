@@ -1,0 +1,281 @@
+[gd_scene load_steps=16 format=3 uid="uid://bokwx0ajkfdcy"]
+
+[ext_resource type="Script" uid="uid://b5mrnhylpqmpw" path="res://scripts/gd/menu_new_system.gd" id="1_f5k7w"]
+[ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/con_action_panel_choice.tscn" id="1_ypt22"]
+[ext_resource type="PackedScene" uid="uid://drsb61u4ojdtf" path="res://scenes/con_run_panel_choice.tscn" id="2_82t3g"]
+[ext_resource type="StyleBox" uid="uid://b6k6fhduqhal3" path="res://scripts/resources/simple_menu_theme.tres" id="3_4xss1"]
+[ext_resource type="PackedScene" uid="uid://cik4k3fvdqebn" path="res://scenes/con_order_counter_indicator.tscn" id="5_180k0"]
+[ext_resource type="Script" uid="uid://d4cud4cptiy11" path="res://scripts/gd/shared_menu_button.gd" id="5_fday4"]
+[ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/con_Mouse_pointer.tscn" id="9_tjhqe"]
+[ext_resource type="PackedScene" uid="uid://blvji106ulh0d" path="res://scenes/con_bag_panel_choice.tscn" id="10_4fxo3"]
+[ext_resource type="PackedScene" uid="uid://cjwahpm5wkav5" path="res://scenes/con_ability_card_choice.tscn" id="11_jdhws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dry1"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.568627, 0.278431, 0.12549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83ulq"]
+bg_color = Color(0.63, 0.60732, 0.2898, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.568627, 0.278431, 0.12549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0.17, 0.167903, 0.1071, 0.27451)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h407m"]
+bg_color = Color(0.631373, 0.607843, 0.290196, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.568627, 0.278431, 0.12549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0.17, 0.17, 0.1071, 0.27451)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_koyoc"]
+bg_color = Color(0.22, 0.22, 0.22, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.31, 0.31, 0.31, 0.384314)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fday4"]
+bg_color = Color(0.22, 0.22, 0.22, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.31, 0.31, 0.31, 0.384314)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osco5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="UI_battle_menu" type="CanvasLayer"]
+layer = 2
+
+[node name="Menu" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -421.0
+offset_top = -101.0
+offset_right = 478.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.92, 0.92)
+script = ExtResource("1_f5k7w")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Abilities" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Run")
+focus_neighbor_right = NodePath("../Action")
+theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+text = "Abilities"
+script = ExtResource("5_fday4")
+
+[node name="Action" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Abilities")
+focus_neighbor_right = NodePath("../Movement")
+theme_override_styles/normal = SubResource("StyleBoxFlat_koyoc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+text = "Action"
+script = ExtResource("5_fday4")
+
+[node name="Movement" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Action")
+focus_neighbor_right = NodePath("../Bagpack")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fday4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_osco5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+text = "Movement"
+script = ExtResource("5_fday4")
+
+[node name="Bagpack" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Movement")
+focus_neighbor_right = NodePath("../Run")
+theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+text = "Bagpack"
+script = ExtResource("5_fday4")
+
+[node name="Run" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Bagpack")
+focus_neighbor_right = NodePath("../Abilities")
+theme_override_styles/normal = ExtResource("3_4xss1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Break"
+script = ExtResource("5_fday4")
+
+[node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
+z_index = -1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = 5.0
+offset_right = 293.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.97, 0.97)
+
+[node name="Ability_Card_choice" parent="." instance=ExtResource("11_jdhws")]
+offset_left = 108.00001
+offset_top = -70.0
+offset_right = 108.0
+offset_bottom = -70.0
+scale = Vector2(0.95, 0.95)
+
+[node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
+z_index = -1
+offset_left = -330.0
+offset_top = 3.0
+offset_right = 351.0
+offset_bottom = 358.0
+scale = Vector2(0.97, 0.97)
+
+[node name="Run_Panel_choice" parent="." instance=ExtResource("2_82t3g")]
+offset_left = 1043.0
+offset_top = 845.0
+offset_right = 1197.0
+offset_bottom = 1036.0
+
+[node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -295.0
+offset_right = -143.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+
+[node name="Mouse Pointer" parent="." instance=ExtResource("9_tjhqe")]
+active = true
+
+[node name="Bar_container_player" type="VBoxContainer" parent="."]
+offset_left = 3.0
+offset_top = 561.0
+offset_right = 376.0
+offset_bottom = 810.0
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Bar_container_enemey" type="VBoxContainer" parent="."]
+offset_left = 1282.0
+offset_top = 561.0
+offset_right = 1655.0
+offset_bottom = 810.0
+theme_override_constants/separation = 60
+alignment = 1
+
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu/MarginContainer/HBoxContainer/Abilities" method="_on_focus_exited"]
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/Abilities" to="Menu" method="_on_abilities_pressed"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Action" to="Menu/MarginContainer/HBoxContainer/Action" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Action" to="Menu/MarginContainer/HBoxContainer/Action" method="_on_focus_exited"]
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/Action" to="Menu" method="_on_action_pressed"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Movement" to="Menu/MarginContainer/HBoxContainer/Movement" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Movement" to="Menu/MarginContainer/HBoxContainer/Movement" method="_on_focus_exited"]
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/Movement" to="Menu" method="_on_movement_pressed"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Bagpack" to="Menu/MarginContainer/HBoxContainer/Bagpack" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Bagpack" to="Menu/MarginContainer/HBoxContainer/Bagpack" method="_on_focus_exited"]
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/Bagpack" to="Menu" method="_on_bagpack_pressed"]
+[connection signal="focus_entered" from="Menu/MarginContainer/HBoxContainer/Run" to="Menu/MarginContainer/HBoxContainer/Run" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MarginContainer/HBoxContainer/Run" to="Menu/MarginContainer/HBoxContainer/Run" method="_on_focus_exited"]
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/Run" to="Menu" method="_on_run_pressed"]

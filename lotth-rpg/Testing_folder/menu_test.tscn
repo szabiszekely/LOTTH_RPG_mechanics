@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv2u0cptbyxq5"]
 
-[ext_resource type="PackedScene" uid="uid://drsb61u4ojdtf" path="res://scenes/run_panel_choice.tscn" id="8_5desi"]
-[ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/action_panel_choice.tscn" id="9_wkml8"]
+[ext_resource type="PackedScene" uid="uid://drsb61u4ojdtf" path="res://scenes/con_run_panel_choice.tscn" id="8_5desi"]
+[ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/con_action_panel_choice.tscn" id="9_wkml8"]
 
 [node name="Control" type="CanvasLayer"]
 

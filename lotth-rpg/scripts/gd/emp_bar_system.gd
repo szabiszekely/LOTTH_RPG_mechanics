@@ -1,40 +1,25 @@
 extends Control
+class_name EMP_Bar_system
 
+@export var assined_characters: Character_Controller 
+@onready var emp_meter: ColorRect = $EMP_Meter
+@onready var godess_head: Sprite2D = $godess_head
 
-# THIS ONE IS UNUSED
-# SO DO NOT USE IT TOO
-# DELETE THIS IF YOU AREN'T LAZY
-# DUMBASS!!!
+# this is similar to the reworked Bar_system
+# so tl:dr read that
 
+func _ready() -> void:
+	emp_meter.material.set_shader_parameter("segment_count", assined_characters.Fight_stats.MAX_EMP)
+	emp_meter.set_max_value(assined_characters.Fight_stats.MAX_EMP,false)
+	print(emp_meter.material.get_shader_parameter("segment_count"))
+	print(emp_meter.material.get_shader_parameter("discrete_fill_amount"))
+	emp_meter.set_bar_value(0,false)
+	godess_head.frame = 0
 
-
-
-#assig it to a character!
-@export var assined_enemy: Fighting_Stats
-#ALL of the components!
-@onready var emp_meter: Panel = $EMP_meter
-
-@onready var Null_barr = $NULL
-# this value is the one that will have a float number to decrease it or increase the health!
-var offset_value : float
-var current_health: int
-
-func _ready():
-	#Setting the 'count' which is the max number in the shader to the max hp and max eng
-	emp_meter.material.set_shader_parameter("count",assined_enemy.MAX_EMP)
-	# I dived the number of health by 1 and get a really small number that is 1 portion of the entire bar and this is our 1 incruments!
-	offset_value = 1.0/emp_meter.material.get_shader_parameter("count")
-	# I honestly have no idea what does dividing by 2 does 
-	#but i know that I must take 1 damage when starting bc the first damage does not count
-	emp_meter.material.set_shader_parameter("value",emp_meter.material.get_shader_parameter("value") - offset_value/2)
-	
-		
-func bar_damage_taken(damage:int):
-	#every damage I took I do this so... animation!
-	for i in damage:
-		# if ENG bigger than 0 than I just take away 1 bar and shake the little snack at the top!
-		if not emp_meter.material.get_shader_parameter("value") < 0:
-			emp_meter.material.set_shader_parameter("value",emp_meter.material.get_shader_parameter("value") - offset_value)
-		
-		
-	
+func _increase_emp(amount):
+	emp_meter.increase_bar_value(amount)
+	print(emp_meter.material.get_shader_parameter("segment_count"))
+	print(emp_meter.material.get_shader_parameter("discrete_fill_amount"))
+	print(emp_meter.get_current_value())
+	if emp_meter.is_full():
+		godess_head.frame = 1

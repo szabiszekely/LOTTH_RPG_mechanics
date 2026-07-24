@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=16 format=3 uid="uid://b1uwt4fr61v7u"]
 
-[ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/Button_BG-export.png" id="1_mp5tv"]
+[ext_resource type="Texture2D" uid="uid://dv2x8lg6xurpv" path="res://assets/sprite/UI/spr_Button_BG-export.png" id="1_mp5tv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83olh"]
 bg_color = Color(0.54, 0.50256, 0.2592, 0.211765)

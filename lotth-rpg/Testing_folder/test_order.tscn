@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://dnuq74ipowtvt" path="res://Testing_folder/test_player_section.gd" id="2_jndio"]
 [ext_resource type="Script" uid="uid://fg7m8ev0ysxf" path="res://Testing_folder/test_enemy_section.gd" id="3_p30ig"]
 [ext_resource type="Script" uid="uid://bj7qk68ihjj8y" path="res://Testing_folder/second_test_play_out.gd" id="4_t4dbq"]
-[ext_resource type="Texture2D" uid="uid://di3ith11u6kqs" path="res://assets/sprite/Player/lil_dude.png" id="4_tjb1a"]
-[ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/Current_Player_indicator.png" id="6_p30ig"]
+[ext_resource type="Texture2D" uid="uid://di3ith11u6kqs" path="res://assets/sprite/Player/spr_lil_dude.png" id="4_tjb1a"]
+[ext_resource type="Texture2D" uid="uid://bcftplir4s3jl" path="res://assets/sprite/Player/spr_Current_Player_indicator.png" id="6_p30ig"]
 [ext_resource type="Script" uid="uid://cm6tf25obq0dv" path="res://Testing_folder/second_test_player.gd" id="6_t4dbq"]
 [ext_resource type="Script" uid="uid://chf0rcyslgumc" path="res://Testing_folder/second_test_enemy.gd" id="8_6mv5v"]
-[ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/Current_Enemy_indicator.png" id="8_t4dbq"]
+[ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/spr_Current_Enemy_indicator.png" id="8_t4dbq"]
 
 [node name="test_order" type="Node2D" node_paths=PackedStringArray("play_out", "player_section", "enemy_section")]
 script = ExtResource("1_tjb1a")

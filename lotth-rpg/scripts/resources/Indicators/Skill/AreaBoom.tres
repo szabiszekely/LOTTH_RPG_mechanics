@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PointShot" load_steps=4 format=3 uid="uid://d14c8c46kkwr5"]
 
 [ext_resource type="Resource" uid="uid://bhsr4qyngm1qy" path="res://scripts/resources/Indicators/Area_indicator.tres" id="1_2gjd6"]
-[ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/projectile.tscn" id="2_6nmdh"]
+[ext_resource type="PackedScene" uid="uid://bsg8322vkd7l6" path="res://scenes/scn_projectile.tscn" id="2_6nmdh"]
 [ext_resource type="Script" uid="uid://dq74p8rmob3ix" path="res://scripts/resources/Indicators/Skill/Point_shot.gd" id="3_wuqkg"]
 
 [resource]

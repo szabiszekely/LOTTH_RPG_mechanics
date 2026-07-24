@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://dx2xdxlssrj5b"]
 
-[ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/baller_sprite_sheet0280.png" id="1_v54r1"]
+[ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/spr_baller_sprite_sheet0280.png" id="1_v54r1"]
 [ext_resource type="Shader" uid="uid://dlu3s0rm4x3cc" path="res://scripts/gdshader/normal_map_sup.gdshader" id="3_p5l02"]
 
 [sub_resource type="Gradient" id="Gradient_noyri"]

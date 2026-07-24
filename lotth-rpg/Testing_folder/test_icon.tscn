@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3s0jhy0x1n18"]
 
 [ext_resource type="Script" uid="uid://bhbl8yungdjhx" path="res://Testing_folder/icon_data.gd" id="1_i6o2w"]
-[ext_resource type="Texture2D" uid="uid://5sed2vkm8r75" path="res://assets/sprite/UI/Dialogue_box.png" id="1_s6joh"]
+[ext_resource type="Texture2D" uid="uid://5sed2vkm8r75" path="res://assets/sprite/UI/spr_Dialogue_box.png" id="1_s6joh"]
 
 [node name="Sprite2D" type="Control"]
 layout_mode = 3

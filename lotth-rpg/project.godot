@@ -24,9 +24,9 @@ video/autoload_on_startup=true
 [autoload]
 
 procam="*res://addons/ProCam2D/scripts/autoload.gd"
-Data="*res://scripts/data/data.gd"
+Data="*res://scripts/data/hand_data.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-AlwaysOn="*res://scripts/gd/always_on.gd"
+AlwaysOn="*res://scripts/gd/scr_always_on.gd"
 
 [dialogic]
 
@@ -129,7 +129,6 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "purple",
 "res://assets/sprite/": "pink",
-"res://reworking_mechanics/": "gray",
 "res://scenes/": "red",
 "res://scripts/": "yellow",
 "res://scripts/gd/": "orange",
