@@ -5,7 +5,7 @@ class_name Character_Controller
 @onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var focus = $Indicator
-@onready var damage_indicator = preload("res://scenes/attack_indicator.tscn")
+@onready var damage_indicator = preload("res://scenes/con_damage_number_indicator.tscn")
 @onready var hitbox: CollisionShape2D = $Hitbox
 @onready var Initiative = RefrenceNode.InitiativeHandler
 @onready var menu = RefrenceNode.Menu
@@ -148,7 +148,7 @@ func _fade_away_death():
 		print(Initiative.sorted_enemies," ",Initiative.sorted_player)
 		Initiative.doTrapForLoop = true
 		character_anim.pause()
-		var soul_fire = preload("res://scenes/soul_fire.tscn").instantiate()
+		var soul_fire = preload("res://scenes/con_soul_fire_indicator.tscn").instantiate()
 		soul_fire.hide()
 		soul_fire.modulate = Color.TRANSPARENT
 		soul_fire.position = self.global_position

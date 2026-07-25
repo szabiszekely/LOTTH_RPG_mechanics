@@ -6,7 +6,7 @@ class_name Enemy
 @export var EnemyAI: SetupEnemyAI
 @onready var enemy_group = RefrenceNode.EnemyGroup
 @onready var bar_container_enemey: VBoxContainer = $"../../../UI_battle_menu/Bar_container_enemey"
-const BAR_SYSTEM = preload("res://scenes/Bar_system.tscn")
+const BAR_SYSTEM = preload("res://scenes/con_bar_indicator.tscn")
 
 
 func _ready() -> void:

@@ -8,7 +8,7 @@ const  SAVE_FILE = "user://itemsavelist.dat"
 func _ready() -> void:
 	
 	
-	var file = FileAccess.open("res://scripts/data/LOTTH_Item_database.json",FileAccess.READ)
+	var file = FileAccess.open("res://scripts/data/dsheet_LOTTH_database.json",FileAccess.READ)
 	
 	content = JSON.parse_string(file.get_as_text())
 	

@@ -61,8 +61,6 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 
 func _actions(stack):
-	Dialogic.Text.show_textbox()
-	RefrenceNode.MainNode.dialog_main.get_child(0).get_child(0).get_child(0).position.y = -200
 	var play_out_action = []
 	for i in initiative.all_rolls:
 		for j in stack:

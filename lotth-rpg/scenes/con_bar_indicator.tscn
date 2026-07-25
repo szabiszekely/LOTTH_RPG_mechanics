@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://des8df6ewmnm7"]
 
 [ext_resource type="Texture2D" uid="uid://bjlhludno8sn0" path="res://assets/sprite/UI/spr_Name_plate.png" id="1_0kdak"]
-[ext_resource type="Script" uid="uid://ng0hwxugn03s" path="res://scripts/gd/bar_system.gd" id="1_e6dm4"]
-[ext_resource type="Script" uid="uid://b2mk5lu1vu5mp" path="res://scripts/gd/autosizer.gd" id="2_e6dm4"]
+[ext_resource type="Script" uid="uid://ng0hwxugn03s" path="res://scripts/gd/con_bar_indicator.gd" id="1_e6dm4"]
+[ext_resource type="Script" uid="uid://b2mk5lu1vu5mp" path="res://scripts/gd/scr_autosizer.gd" id="2_e6dm4"]
 [ext_resource type="Texture2D" uid="uid://c18t041tumpk" path="res://assets/sprite/UI/spr_Health_BG.png" id="3_u207d"]
 [ext_resource type="Texture2D" uid="uid://b2wefr147ijth" path="res://assets/sprite/UI/spr_Energy_BG.png" id="4_yhdwd"]
 [ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://scripts/gdshader/progress_bar.gdshader" id="5_k8pus"]
-[ext_resource type="Script" uid="uid://bhn3gywy1uo55" path="res://scripts/gd/progress_bar.gd" id="6_rdvyn"]
+[ext_resource type="Script" uid="uid://bhn3gywy1uo55" path="res://scripts/gd/scr_progress_bar.gd" id="6_rdvyn"]
 [ext_resource type="Texture2D" uid="uid://dp3m8pm7j520r" path="res://assets/sprite/UI/spr_Bar_border.png" id="7_uasi5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxmg4"]

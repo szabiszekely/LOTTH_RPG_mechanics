@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://b78min8fkygrg"]
 
-[ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/player_controller.gd" id="1_jcwft"]
+[ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/scr_player_controller.gd" id="1_jcwft"]
 [ext_resource type="Resource" uid="uid://bj84cqasxiobd" path="res://scripts/resources/Indicators/Skill/Moving_P1.tres" id="2_oyyrr"]
 [ext_resource type="Texture2D" uid="uid://do4mcmq0nu2su" path="res://assets/sprite/Player 2/spr_Portrait_Icon.png" id="3_y66ul"]
 [ext_resource type="Resource" uid="uid://bi100idx5gxxv" path="res://scripts/resources/CH/Seriouse_Guy_Fighting_Stats.tres" id="5_qq0or"]

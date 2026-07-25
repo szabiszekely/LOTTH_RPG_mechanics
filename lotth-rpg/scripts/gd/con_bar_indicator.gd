@@ -21,16 +21,16 @@ class_name Bar_system
 @onready var energy_pos: Marker2D = $Energy_pos
 
 
-@onready var action_indicator_scene = preload("res://scenes/action_indicator.tscn")
+@onready var action_indicator = preload("res://scenes/con_action_indicator.tscn")
 var all_icon_of_remaining_actions: Array = []
 # this is a test for the Adrenalin, but it is alright for the visuals
-@onready var textures = [preload("res://assets/sprite/UI/Health_BG.png"),preload("res://assets/sprite/UI/Energy_BG.png"),preload("res://assets/sprite/UI/Health_BG_ADR.png"), preload("res://assets/sprite/UI/Energy_BG_ADR.png")]
+@onready var textures = [preload("res://assets/sprite/UI/spr_Health_BG.png"),preload("res://assets/sprite/UI/spr_Energy_BG.png"),preload("res://assets/sprite/UI/spr_Health_BG_ADR.png"), preload("res://assets/sprite/UI/spr_Energy_BG_ADR.png")]
 var test_ADR: bool = false
 
 
 func _ready() -> void:
 	for i in assined_characters.MaxPlayOutOptions:
-		var instance = action_indicator_scene.instantiate()
+		var instance = action_indicator.instantiate()
 		all_icon_of_remaining_actions.append(instance)
 		action_remaining.add_child(instance)
 	energy_changed()

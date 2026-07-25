@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://bokwx0ajkfdcy"]
 
-[ext_resource type="Script" uid="uid://b5mrnhylpqmpw" path="res://scripts/gd/menu_new_system.gd" id="1_f5k7w"]
+[ext_resource type="Script" uid="uid://b5mrnhylpqmpw" path="res://scripts/gd/con_menu_system.gd" id="1_f5k7w"]
 [ext_resource type="PackedScene" uid="uid://cfnaj12a06bki" path="res://scenes/con_action_panel_choice.tscn" id="1_ypt22"]
 [ext_resource type="PackedScene" uid="uid://drsb61u4ojdtf" path="res://scenes/con_run_panel_choice.tscn" id="2_82t3g"]
 [ext_resource type="StyleBox" uid="uid://b6k6fhduqhal3" path="res://scripts/resources/simple_menu_theme.tres" id="3_4xss1"]
 [ext_resource type="PackedScene" uid="uid://cik4k3fvdqebn" path="res://scenes/con_order_counter_indicator.tscn" id="5_180k0"]
-[ext_resource type="Script" uid="uid://d4cud4cptiy11" path="res://scripts/gd/shared_menu_button.gd" id="5_fday4"]
+[ext_resource type="Script" uid="uid://d4cud4cptiy11" path="res://scripts/gd/con_shared_menu_button.gd" id="5_fday4"]
 [ext_resource type="PackedScene" uid="uid://cjwyl8vf8tk5i" path="res://scenes/con_Mouse_pointer.tscn" id="9_tjhqe"]
 [ext_resource type="PackedScene" uid="uid://blvji106ulh0d" path="res://scenes/con_bag_panel_choice.tscn" id="10_4fxo3"]
 [ext_resource type="PackedScene" uid="uid://cjwahpm5wkav5" path="res://scenes/con_ability_card_choice.tscn" id="11_jdhws"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=36 format=3 uid="uid://dn23mgjj7d68s"]
 
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/spr_Player_Sprite_Sheet.png" id="1_efpsu"]
-[ext_resource type="Script" uid="uid://bujp3hoorluco" path="res://scripts/gd/camera_3d.gd" id="1_k4xgx"]
+[ext_resource type="Script" uid="uid://bujp3hoorluco" path="res://scripts/gd/UNUSED_camera_3d.gd" id="1_k4xgx"]
 [ext_resource type="Texture2D" uid="uid://cdss2ephsy84n" path="res://assets/sprite/Player/spr_moving_area.png" id="2_d06uv"]
-[ext_resource type="Script" uid="uid://dnar3vtcournh" path="res://scripts/gd/player_3d.gd" id="2_x4ema"]
+[ext_resource type="Script" uid="uid://dnar3vtcournh" path="res://scripts/gd/UNUSED_player_3d.gd" id="2_x4ema"]
 [ext_resource type="Texture2D" uid="uid://du02kx154n068" path="res://assets/sprite/Player/spr_Cursor.png" id="3_k4xgx"]
-[ext_resource type="Script" uid="uid://crraxm51lvi5i" path="res://scripts/gd/navigation_region_3d.gd" id="6_x4ema"]
+[ext_resource type="Script" uid="uid://crraxm51lvi5i" path="res://scripts/gd/UNUSED_navigation_region_3d.gd" id="6_x4ema"]
 [ext_resource type="PackedScene" uid="uid://dsfnh23mikqat" path="res://Testing_folder/DialougeBox_test.tscn" id="7_gfia4"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rgh2o"]

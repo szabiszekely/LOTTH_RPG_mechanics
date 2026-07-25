@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SetupEnemyAI" load_steps=2 format=3 uid="uid://cbnv48p0md2l6"]
 
-[ext_resource type="Script" uid="uid://d1hfo7ek80obv" path="res://scripts/resources/Enemy AI/SetupEnemyAI.gd" id="1_78hqj"]
+[ext_resource type="Script" uid="uid://d1hfo7ek80obv" path="res://scripts/resources/Enemy AI/resrc_SetupEnemyAI.gd" id="1_78hqj"]
 
 [resource]
 script = ExtResource("1_78hqj")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc20338vg5otq"]
 
 [ext_resource type="Script" uid="uid://ck7iiaanbbve" path="res://Testing_folder/test_run.gd" id="1_24yuj"]
-[ext_resource type="Script" uid="uid://dfybivgt28m32" path="res://scripts/resources/CH/Stat_increases_resource.gd" id="2_ufbt2"]
+[ext_resource type="Script" uid="uid://dfybivgt28m32" path="res://scripts/resources/CH/resrc_Stat_increases.gd" id="2_ufbt2"]
 
 [sub_resource type="Resource" id="Resource_jhqbd"]
 script = ExtResource("2_ufbt2")

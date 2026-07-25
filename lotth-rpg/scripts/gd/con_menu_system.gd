@@ -114,7 +114,7 @@ func _process(_delta: float) -> void:
 			current_memory_state = current_state
 			if move_container:
 				move_container = false
-				var instance = preload("res://scenes/reworked_movement_area.tscn").instantiate()
+				var instance = preload("res://scenes/con_movement_area.tscn").instantiate()
 				var current_player = Initiative.sorted_player[Initiative.group_player.p_index]
 				instance.position = current_player.global_position
 				instance.get_player = current_player

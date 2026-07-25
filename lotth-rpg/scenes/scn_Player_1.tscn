@@ -1,6 +1,6 @@
 [gd_scene load_steps=79 format=3 uid="uid://l5f740mb43yc"]
 
-[ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/player_controller.gd" id="1_1byu4"]
+[ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/scr_player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://dotk2obu6yxw6" path="res://assets/sprite/Player/spr_Player_Sprite_Sheet.png" id="1_u1ato"]
 [ext_resource type="Resource" uid="uid://dai1dgxnrrvl3" path="res://scripts/resources/CH/Lil_Guy_Fighting_Stats.tres" id="3_ompdf"]
 [ext_resource type="Texture2D" uid="uid://51dcft5rriae" path="res://assets/sprite/Player/spr_player_KOd.png" id="4_hiwc3"]

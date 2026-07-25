@@ -33,6 +33,9 @@ func start_dialog():
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.start(timeline)
 	source.initiative.doTrapForLoop = true
+	Dialogic.Text.show_textbox()
+	enemy_seperate.RefrenceNode.MainNode.dialog_main.get_child(0).get_child(0).get_child(0).position.y = -200
+
 	
 
 func _on_timeline_ended():

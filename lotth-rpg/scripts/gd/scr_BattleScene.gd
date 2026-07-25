@@ -32,12 +32,10 @@ func _process(_delta: float) -> void:
 		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[2]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[3]._take_damage(1,1,enemy_group.enemies[0])
-
 		#player_group.player[1].global_position.y -= 7.5521784562331/2
 		#player_group.player[1].global_position.x -= 7.5521784562331
 		#var p_kb_dir = (player_group.player[1].global_position - get_global_mouse_position()).normalized()
 		#var e_kb_dir = (enemy_group.enemies[0].global_position - get_global_mouse_position()).normalized()
-
 		#player_group.player[1]._apply_kb(p_kb_dir,kb_force,0.12)
 		#enemy_group.enemies[0]._apply_kb(e_kb_dir,kb_force,0.12)
 	if Input.is_action_just_pressed("debug_button_3"):

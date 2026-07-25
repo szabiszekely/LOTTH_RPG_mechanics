@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://d23654pnsrl51"]
 
 [ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://scripts/gdshader/progress_bar.gdshader" id="1_a1m6u"]
-[ext_resource type="Script" uid="uid://i73qvieki2a2" path="res://scripts/gd/emp_bar_system.gd" id="1_kuqpx"]
-[ext_resource type="Script" uid="uid://bhn3gywy1uo55" path="res://scripts/gd/progress_bar.gd" id="2_kuqpx"]
+[ext_resource type="Script" uid="uid://i73qvieki2a2" path="res://scripts/gd/con_emp_bar_indicator.gd" id="1_kuqpx"]
+[ext_resource type="Script" uid="uid://bhn3gywy1uo55" path="res://scripts/gd/scr_progress_bar.gd" id="2_kuqpx"]
 [ext_resource type="Texture2D" uid="uid://kpha853q3786" path="res://assets/sprite/UI/spr_new_EMP_Bar_Border.png" id="3_rg4rf"]
 [ext_resource type="Texture2D" uid="uid://dx3jvj4yrgfnp" path="res://assets/sprite/UI/spr_Godess_head.png" id="4_wro5a"]
 

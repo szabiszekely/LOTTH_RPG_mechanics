@@ -1,6 +1,6 @@
 [gd_scene load_steps=113 format=3 uid="uid://c3w40nucf3oud"]
 
-[ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/enemy_control.gd" id="1_pbqx5"]
+[ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/scr_enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/spr_Portrait_Icon_baller.png" id="2_gg1ba"]
 [ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/spr_Current_Enemy_indicator.png" id="2_htaiq"]
 [ext_resource type="Resource" uid="uid://bj3fn2unm1n7c" path="res://scripts/resources/Enemy AI/BaseBallerAI.tres" id="2_j5hb2"]
