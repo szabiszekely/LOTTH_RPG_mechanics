@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=37 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://scripts/gd/scr_BattleScene.gd" id="1_cx2dr"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/mod_turn_handler.tscn" id="3_byh47"]
+[ext_resource type="PackedScene" uid="uid://c8qrfiqq4jg0w" path="res://scenes/mod_dialogic_module.tscn" id="3_iowgj"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/bg_ground_tilemap.png" id="4_irkjr"]
 [ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/UNUSED_navigation_region_2d.gd" id="5_mh5d7"]
 [ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://scripts/gd/scr_player_group.gd" id="6_oxvkq"]
@@ -256,9 +257,10 @@ Speed = 1
 [node name="rework" type="Node2D"]
 script = ExtResource("1_cx2dr")
 
-[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_iowgj")]
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")
 TurnHandler = NodePath("../Turn_Handler")
+DialogicControl = NodePath("../DialogicModule")
 PlayerGroup = NodePath("../NavigationRegion2D/player_group")
 EnemyGroup = NodePath("../NavigationRegion2D/enemy_group")
 Menu = NodePath("../UI_battle_menu/Menu")
@@ -268,6 +270,8 @@ BagHandler = NodePath("../UI_battle_menu/Bagpack")
 RunHandler = NodePath("../UI_battle_menu/Run_Panel_choice")
 
 [node name="Turn_Handler" parent="." instance=ExtResource("3_byh47")]
+
+[node name="DialogicModule" parent="." instance=ExtResource("3_iowgj")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 31)

@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name Menu_system
 
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 # Export values !
 @onready var enemy_group = RefrenceNode.EnemyGroup
@@ -75,11 +75,10 @@ var bag = false
 
 func _ready() -> void:
 	current_state = Menu_state.MENU
-	Dialogic.Text.show_textbox()
-	RefrenceNode.MainNode.dialog_main = Dialogic.start("stat_baller")
 	current_memory_state = current_state
 	menu_buttons = get_the_children.get_children()
 	switching_buttons()
+	RefrenceNode.DialogicControl._start_dialog("stat_baller")
 	
 func _process(_delta: float) -> void:
 	#print(current_state)
@@ -89,9 +88,8 @@ func _process(_delta: float) -> void:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
-				Dialogic.Text.show_textbox()
-				RefrenceNode.MainNode.dialog_main = Dialogic.start("stat_baller")
-				dialog_tween(-233,0.1)
+				RefrenceNode.DialogicControl._start_dialog("stat_baller")
+				RefrenceNode.DialogicControl._appear_dialog()
 				menu_container = false
 		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
 		Menu_state.ABILITES:
@@ -291,15 +289,8 @@ func vanish():
 	# put movement here PLS PLS SEE ME OVER HERE
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
-	if RefrenceNode.MainNode.dialog_main != null and !Initiative.action_start:
-		dialog_tween(0,0.1)
 	#Dialogic.Text.hide_textbox()
-
-#dialog vanish
-func dialog_tween(to_where,how_fast):
-	var tween = get_tree().create_tween()
-	tween.tween_property(RefrenceNode.MainNode.dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast)
-
+	RefrenceNode.DialogicControl._vanish_dialog()
 # Disables EVERYTHING
 func all_gone():
 	abilities.process_mode = Node.PROCESS_MODE_DISABLED

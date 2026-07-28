@@ -15,9 +15,10 @@ var _started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Soul.hide()
 	_Press_start_animation(1.25)
 	lotth_tittle_screen.material.set_shader_parameter("work", true);
-	bg.modulate = Color.TRANSPARENT
+	bg_light.modulate = Color.TRANSPARENT
 
 
 func _input(event: InputEvent) -> void:
@@ -61,4 +62,4 @@ func _siluets_out():
 	tween.tween_property(Right_siluette,"position",Vector2(1640,0),3)
 
 func _light_out_BG():
-	bg.modulate = Color.WHITE
+	bg_light.modulate = Color.WHITE

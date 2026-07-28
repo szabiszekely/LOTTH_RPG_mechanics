@@ -1,32 +1,27 @@
 extends Node2D
 class_name BattleMain
 
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var player_group = RefrenceNode.PlayerGroup
 @onready var enemy_group = RefrenceNode.EnemyGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
-@onready var dialog_main
 @export var kb_force = 5.0
 
 func _ready() -> void:
 	initiative._getting_groups(player_group,enemy_group)
 	initiative._get_the_index_with_order()
 	initiative._get_player_and_enemy_spearated()
-	dialog_main = Dialogic.start("player_text_set_up_timeline")
-	dialog_main.register_character(player_group.player[0].Fight_stats.character_speaker,player_group.player[0])
-	dialog_main.register_character(player_group.player[1].Fight_stats.character_speaker,player_group.player[1])
-	dialog_main.register_character(player_group.player[2].Fight_stats.character_speaker,player_group.player[2])
-	dialog_main.register_character(player_group.player[3].Fight_stats.character_speaker,player_group.player[3])
 	player_group._player_start_choosing()
-	
+	RefrenceNode.DialogicControl._begining_setup()
 func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug_button_2"):
 		_full_reset()
 
 	if Input.is_action_just_pressed("debug_button"):
-		print(dialog_main)
+		print(RefrenceNode.DialogicControl.dialog_main)
+		
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
 		#player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])

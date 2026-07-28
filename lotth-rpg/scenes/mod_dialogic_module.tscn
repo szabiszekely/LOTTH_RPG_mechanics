@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8qrfiqq4jg0w"]
+
+[ext_resource type="Script" uid="uid://cpfjpksw1kyn8" path="res://scripts/gd/mod_dialogic_module.gd" id="1_ctvs3"]
+
+[node name="DialogicModule" type="Node"]
+script = ExtResource("1_ctvs3")

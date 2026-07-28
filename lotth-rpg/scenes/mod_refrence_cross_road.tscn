@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bf2h0hpyka6jt"]
 
 [ext_resource type="Script" uid="uid://dpp8tnjl53kyw" path="res://scripts/gd/mod_refrence_cross_road.gd" id="1_cx0b3"]
-[ext_resource type="Resource" uid="uid://dchbp4n1f36hq" path="res://scripts/resources/misaliniouse/rescr_initiative.tres" id="2_3koun"]
+[ext_resource type="Resource" uid="uid://dchbp4n1f36hq" path="res://scripts/resources/misaliniouse/resrc_initiative.tres" id="2_3koun"]
 [ext_resource type="Script" uid="uid://dsyk5en1w40yx" path="res://scripts/resources/misaliniouse/hand_action_functionGroup.gd" id="2_cx0b3"]
 [ext_resource type="Script" uid="uid://cgius8yiqqdp4" path="res://scripts/resources/misaliniouse/hand_ability_functionGroup.gd" id="3_3koun"]
 [ext_resource type="Script" uid="uid://jpnbuuk08dxe" path="res://scripts/resources/misaliniouse/hand_item_functionGroup.gd" id="4_6vetj"]

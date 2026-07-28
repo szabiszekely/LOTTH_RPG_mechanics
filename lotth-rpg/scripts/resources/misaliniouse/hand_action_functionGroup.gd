@@ -7,14 +7,18 @@ var active_dialogue_box
 var source
 var timeline
 var player_seperate
+
+var RefrenceNode:CrossRoad
+
 #When I press an Action Button it will get transfered here and be translate to one of the one that got pressed!
-func _get_button_text_action(Button_text: String, enemy, Source, menu,player):
+func _get_button_text_action(Button_text: String, Source, refrencenode:CrossRoad, enemy, player):
 	enemy_seperate = enemy
 	player_seperate = player
 	source = Source
 	enemy_stats = enemy.Fight_stats
-	menu.vanish()
+	refrencenode.Menu.vanish()
 	switching_stats_check()
+	RefrenceNode = refrencenode
 	#I call the name of the button as a function!
 	print(Button_text)
 	call(Button_text)
@@ -30,14 +34,11 @@ func switching_stats_check():
 	Dialogic.VAR.MAX_EMP = enemy_stats.MAX_EMP
 
 func start_dialog():
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
-	Dialogic.start(timeline)
 	source.initiative.doTrapForLoop = true
-	Dialogic.Text.show_textbox()
-	enemy_seperate.RefrenceNode.MainNode.dialog_main.get_child(0).get_child(0).get_child(0).position.y = -200
-
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	RefrenceNode.DialogicControl._start_dialog(timeline)
+	RefrenceNode.DialogicControl._appear_dialog()
 	
-
 func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	source.initiative.stopLoop.emit()
@@ -68,6 +69,7 @@ func Focus():
 	#print("THIS: ",player_seperate)
 	timeline = "act_focus"
 	start_dialog()	
+
 func Guard():
 	#print("----------------")
 	#print("DEFENDED")
@@ -78,9 +80,9 @@ func Guard():
 	player_seperate.Fight_stats.In_Defense = true
 	
 func Talk():
+	print("got choosen")
 	timeline = "act_Talk"
 	start_dialog()
-	print("Hello o/")
 	enemy_seperate.emp_gained(1)
 	
 
@@ -93,20 +95,17 @@ func Grab():
 func Ball():
 	timeline = "act_Ball"
 	start_dialog()
-	print("He Do be balling")
 	enemy_seperate.emp_gained(2)
 	
 	
 func Sleep():
 	timeline = "act_Sleep"
 	start_dialog()
-	print("Hank shu")
 	enemy_seperate.emp_gained(2)
 	
 	
 func Twirl():
 	timeline = "act_Twirl"
 	start_dialog()
-	print("You span around")
 	enemy_seperate.emp_gained(-1)
 	

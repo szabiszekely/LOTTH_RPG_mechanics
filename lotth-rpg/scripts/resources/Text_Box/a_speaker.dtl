@@ -1,15 +1,19 @@
 [style name="Boxless_Textbox"]
 setting  = ""
-[lspeed=0.1]Can you… [pause=0.2]interact with Us?
-[lspeed=0.1]Are you… [pause=0.2]Here?
+[lspeed=0.1]Can you… [pause=0.2]see Us?
+[lspeed=0.1]You are… [pause=0.2]Here?
 - >Answer<
 [lspeed=0.1]Oh?
 [lspeed=0.1]It seems you Can…
 [lspeed=0.1]I’m... [pause=0.2]Relieved...
 [lspeed=0.05][shake]Allow me to pull you in for a Moment…[/shake]
 [lspeed=0.1]There we Go...
+[lspeed=0.1]...
+[lspeed=0.1]You can see it don't You?
+[lspeed=0.1]Your [pause=0.2][b]SOUL[/b]!
+[lspeed=0.1]A being consistent of light and energy contained in this World!
 [lspeed=0.1]Now… [pause=0.2]speak to Me…
-[lspeed=0.1]How shall we call You?
+[lspeed=0.1]How may we call this... Being?
 label Your_Name
 [text_input text="Your Name:" var="your_name"]
 {{your_name}}...

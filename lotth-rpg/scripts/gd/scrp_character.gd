@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Character_Controller
 
 # this is the main node for all enemies and players
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var focus = $Indicator
 @onready var damage_indicator = preload("res://scenes/con_damage_number_indicator.tscn")

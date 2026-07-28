@@ -1,7 +1,7 @@
 extends Node2D
 class_name Enemy_group
 
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
 @onready var act_options = RefrenceNode.ActButtonHandler

@@ -1,7 +1,7 @@
 extends Node
 class_name Turn_Handler
 
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 # Have to get the position where the characters will move
 # It needs to access the other handlers and scripts that are important
@@ -137,5 +137,5 @@ func _actions(stack):
 	initiative.initiative_index = 0
 	initiative.action_start = false
 	await Engine.get_main_loop().create_timer(2).timeout
-	RefrenceNode.MainNode.dialog_main = Dialogic.start("stat_baller")
+	RefrenceNode.DialogicControl._start_dialog("stat_baller")
 	main_scene._reset()
