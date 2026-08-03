@@ -4,6 +4,7 @@ class_name CrossRoad
 
 @export var MainNode: BattleMain
 @export var TurnHandler: Turn_Handler
+@export var BreakOut: Break_Out
 @export var DialogicControl: DialogicController
 @export var InitiativeHandler: new_Initiative
 @export var ObjFolder: Node2D

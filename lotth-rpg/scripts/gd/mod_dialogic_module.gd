@@ -15,6 +15,7 @@ func _begining_setup():
 
 #and !RefrenceNode.Initiative.action_start
 func _start_dialog(name_of_timeline: String):
+	print("dialog")
 	dialog_main = Dialogic.start(name_of_timeline)
 
 func _vanish_dialog():

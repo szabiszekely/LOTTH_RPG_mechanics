@@ -88,6 +88,7 @@ func _process(_delta: float) -> void:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
+				print("hi")
 				RefrenceNode.DialogicControl._start_dialog("stat_baller")
 				RefrenceNode.DialogicControl._appear_dialog()
 				menu_container = false

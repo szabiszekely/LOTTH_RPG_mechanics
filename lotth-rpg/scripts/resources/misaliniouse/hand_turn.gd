@@ -96,9 +96,7 @@ func _actions(stack):
 			"pass_character":
 				print("Character is unavailable")
 		
-		
 
-		
 		# stops the game until we not use the stopLoop signal
 		if initiative.doTrapForLoop:
 			await initiative.stopLoop
@@ -126,7 +124,7 @@ func _actions(stack):
 					if j[-1] == 0:
 						temp_remover.append(j)
 				for n in temp_remover:
-					print(i[2].Fight_stats.Header_Array)
+					#print(i[2].Fight_stats.Header_Array)
 					i[2].Fight_stats.Header_Array.erase(n[0])
 					i[2].Fight_stats.Stat_Boosts.erase(n)
 				i[2].Fight_stats._Apply_Stats()
@@ -137,5 +135,4 @@ func _actions(stack):
 	initiative.initiative_index = 0
 	initiative.action_start = false
 	await Engine.get_main_loop().create_timer(2).timeout
-	RefrenceNode.DialogicControl._start_dialog("stat_baller")
 	main_scene._reset()

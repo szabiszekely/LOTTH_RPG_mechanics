@@ -14,14 +14,16 @@ func _ready() -> void:
 	initiative._get_player_and_enemy_spearated()
 	player_group._player_start_choosing()
 	RefrenceNode.DialogicControl._begining_setup()
+	_get_all_character_break_out_total()
+	
 func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug_button_2"):
 		_full_reset()
 
 	if Input.is_action_just_pressed("debug_button"):
+		_reset()
 		print(RefrenceNode.DialogicControl.dialog_main)
-		
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
 		#player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
@@ -44,7 +46,6 @@ func _process(_delta: float) -> void:
 func _reset():
 	player_group._get_me_some_of_that_gd_children_player()
 	enemy_group._get_me_some_of_that_gd_children_enemy()
-	#initiative._roll_reset()
 	initiative._getting_all_rolls(initiative.all_rolls,initiative.place_holder_source)
 	initiative._get_the_index_with_order()
 	initiative.all_actions.clear()
@@ -58,13 +59,14 @@ func _reset():
 	for i in player_group.player:
 		i.Bar._reset_action_indicator()
 		i.movement_restriction = false
+	RefrenceNode.DialogicControl._start_dialog("stat_baller")
 
 
 
 func _full_reset():
+	initiative._roll_reset()
 	player_group._get_me_some_of_that_gd_children_player()
 	enemy_group._get_me_some_of_that_gd_children_enemy()
-	initiative._roll_reset()
 	initiative._get_the_index_with_order()
 	initiative.all_actions.clear()
 	for i in initiative.all_rolls.size():
@@ -77,6 +79,12 @@ func _full_reset():
 	for i in player_group.player:
 		i.Bar._reset_action_indicator()
 	
-
-	
+func _get_all_character_break_out_total():
+	var player_break_out_total: int = 0
+	var enemy_break_out_total: int = 0
+	for i in player_group.player:
+		player_break_out_total += 1 + i.Fight_stats.Speed
+	for i in enemy_group.enemies:
+		enemy_break_out_total += 1 + i.Fight_stats.Speed
+	RefrenceNode.BreakOut._break_out_meter_setup(player_break_out_total,enemy_break_out_total)
 	

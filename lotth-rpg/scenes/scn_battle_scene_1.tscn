@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=38 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://scripts/gd/scr_BattleScene.gd" id="1_cx2dr"]
+[ext_resource type="PackedScene" uid="uid://6waecnw8wcrb" path="res://scenes/mod_break_out.tscn" id="2_byh47"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/mod_turn_handler.tscn" id="3_byh47"]
 [ext_resource type="PackedScene" uid="uid://c8qrfiqq4jg0w" path="res://scenes/mod_dialogic_module.tscn" id="3_iowgj"]
@@ -257,9 +258,18 @@ Speed = 1
 [node name="rework" type="Node2D"]
 script = ExtResource("1_cx2dr")
 
-[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_iowgj")]
+[node name="Break_out" parent="." instance=ExtResource("2_byh47")]
+
+[node name="ProgressBar" parent="Break_out" index="0"]
+offset_left = -98.0
+offset_top = -168.0
+offset_right = 86.0
+offset_bottom = -141.0
+
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "BreakOut", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")
 TurnHandler = NodePath("../Turn_Handler")
+BreakOut = NodePath("../Break_out")
 DialogicControl = NodePath("../DialogicModule")
 PlayerGroup = NodePath("../NavigationRegion2D/player_group")
 EnemyGroup = NodePath("../NavigationRegion2D/enemy_group")
@@ -350,5 +360,6 @@ zoom = Vector2(2, 2)
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../Mouse Pointer")
 
+[editable path="Break_out"]
 [editable path="Turn_Handler"]
 [editable path="UI_battle_menu"]

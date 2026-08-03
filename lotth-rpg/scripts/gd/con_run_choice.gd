@@ -41,6 +41,12 @@ func run_disappear():
 	#self.hide()
 	
 	
+
+#the escape sequance is:
+# break_out_value = character 1: (1 + speed) + character 2: (1 + speed) + ect...
+# Total: (break_out_value / 100)
+# mash to increase the break out sequence up to a 100
+	
 func breaking_out_func() -> void:
 	var percentage:float = 1
 	var running_attempt_counter_enemy: float = 0
@@ -63,6 +69,8 @@ func breaking_out_func() -> void:
 	percentage = percentage + running_attempt_counter_player
 	print(percentage)
 	# Run code and precentage check HERE
+
+
 func spare_func() -> void:
 	for enemy in get_menu.enemy_group.enemies:
 		if enemy.Fight_stats.EMP >= enemy.Fight_stats.MAX_EMP:
