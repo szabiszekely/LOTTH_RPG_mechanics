@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://blvji106ulh0d"]
+[gd_scene load_steps=5 format=3 uid="uid://blvji106ulh0d"]
 
 [ext_resource type="Script" uid="uid://cwbykueobcpng" path="res://scripts/gd/con_bag_choice.gd" id="1_jq0df"]
 [ext_resource type="Theme" uid="uid://b1uwt4fr61v7u" path="res://scripts/resources/misaliniouse/UI_theme.tres" id="3_e3rlx"]
 [ext_resource type="Script" uid="uid://dnwp1muk56fau" path="res://scripts/gd/hand_Inventory.gd" id="4_pguct"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqfx2"]
+bg_color = Color(0.4, 0.20933333, 0.14000002, 1)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.61, 0.284667, 0.2196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Bagpack" type="PanelContainer"]
 anchors_preset = 7
@@ -30,6 +40,7 @@ theme = ExtResource("3_e3rlx")
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 20
 theme_override_font_sizes/font_size = 22
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqfx2")
 max_columns = 3
 same_column_width = true
 fixed_column_width = 200

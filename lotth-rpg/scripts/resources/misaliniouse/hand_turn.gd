@@ -1,7 +1,7 @@
 extends Node
 class_name Turn_Handler
 
-@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode: CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 # Have to get the position where the characters will move
 # It needs to access the other handlers and scripts that are important
@@ -70,6 +70,10 @@ func _actions(stack):
 	var stackIndex: int = 0
 	for i in play_out_action:
 		# ECT, ECT
+		
+		for j in player_group.all_p_actions:
+			if j[0] == "run":
+				print("hello ",j)
 		
 		enemy_group._get_me_some_of_that_gd_children_enemy()
 		player_group._get_me_some_of_that_gd_children_player()

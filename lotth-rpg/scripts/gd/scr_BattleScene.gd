@@ -14,7 +14,6 @@ func _ready() -> void:
 	initiative._get_player_and_enemy_spearated()
 	player_group._player_start_choosing()
 	RefrenceNode.DialogicControl._begining_setup()
-	_get_all_character_break_out_total()
 	
 func _process(_delta: float) -> void:
 	
@@ -79,12 +78,4 @@ func _full_reset():
 	for i in player_group.player:
 		i.Bar._reset_action_indicator()
 	
-func _get_all_character_break_out_total():
-	var player_break_out_total: int = 0
-	var enemy_break_out_total: int = 0
-	for i in player_group.player:
-		player_break_out_total += 1 + i.Fight_stats.Speed
-	for i in enemy_group.enemies:
-		enemy_break_out_total += 1 + i.Fight_stats.Speed
-	RefrenceNode.BreakOut._break_out_meter_setup(player_break_out_total,enemy_break_out_total)
 	

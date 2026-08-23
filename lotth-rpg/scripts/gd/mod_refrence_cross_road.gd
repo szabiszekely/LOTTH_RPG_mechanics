@@ -4,7 +4,6 @@ class_name CrossRoad
 
 @export var MainNode: BattleMain
 @export var TurnHandler: Turn_Handler
-@export var BreakOut: Break_Out
 @export var DialogicControl: DialogicController
 @export var InitiativeHandler: new_Initiative
 @export var ObjFolder: Node2D
@@ -25,4 +24,5 @@ class_name CrossRoad
 @export var ItemHandler: Item_handler
 @export var RunHandler: Run_control
 
+var break_out_meter: float = 3.0
 #var Dialog_controller = MainNode.dialog_main.get_child(0).get_child(0).get_child(0)

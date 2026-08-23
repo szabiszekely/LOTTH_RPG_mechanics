@@ -1,11 +1,11 @@
 [gd_scene load_steps=38 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://scripts/gd/scr_BattleScene.gd" id="1_cx2dr"]
-[ext_resource type="PackedScene" uid="uid://6waecnw8wcrb" path="res://scenes/mod_break_out.tscn" id="2_byh47"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/mod_turn_handler.tscn" id="3_byh47"]
 [ext_resource type="PackedScene" uid="uid://c8qrfiqq4jg0w" path="res://scenes/mod_dialogic_module.tscn" id="3_iowgj"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/bg_ground_tilemap.png" id="4_irkjr"]
+[ext_resource type="Script" uid="uid://ceoxffac0ib6m" path="res://scripts/gd/hand_run_turn.gd" id="5_irkjr"]
 [ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/UNUSED_navigation_region_2d.gd" id="5_mh5d7"]
 [ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://scripts/gd/scr_player_group.gd" id="6_oxvkq"]
 [ext_resource type="PackedScene" uid="uid://l5f740mb43yc" path="res://scenes/scn_Player_1.tscn" id="7_wnwgh"]
@@ -258,18 +258,9 @@ Speed = 1
 [node name="rework" type="Node2D"]
 script = ExtResource("1_cx2dr")
 
-[node name="Break_out" parent="." instance=ExtResource("2_byh47")]
-
-[node name="ProgressBar" parent="Break_out" index="0"]
-offset_left = -98.0
-offset_top = -168.0
-offset_right = 86.0
-offset_bottom = -141.0
-
-[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "BreakOut", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_iowgj")]
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")
 TurnHandler = NodePath("../Turn_Handler")
-BreakOut = NodePath("../Break_out")
 DialogicControl = NodePath("../DialogicModule")
 PlayerGroup = NodePath("../NavigationRegion2D/player_group")
 EnemyGroup = NodePath("../NavigationRegion2D/enemy_group")
@@ -280,6 +271,9 @@ BagHandler = NodePath("../UI_battle_menu/Bagpack")
 RunHandler = NodePath("../UI_battle_menu/Run_Panel_choice")
 
 [node name="Turn_Handler" parent="." instance=ExtResource("3_byh47")]
+
+[node name="Run" parent="Turn_Handler" index="3"]
+script = ExtResource("5_irkjr")
 
 [node name="DialogicModule" parent="." instance=ExtResource("3_iowgj")]
 
@@ -360,6 +354,5 @@ zoom = Vector2(2, 2)
 get_the_children = NodePath("MarginContainer/HBoxContainer")
 Mouse_camera_toggler = NodePath("../Mouse Pointer")
 
-[editable path="Break_out"]
 [editable path="Turn_Handler"]
 [editable path="UI_battle_menu"]

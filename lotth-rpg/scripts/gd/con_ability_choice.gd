@@ -2,7 +2,7 @@ extends Control
 class_name Ability_control
 
 # has a node that has all the other important nodes connected through this node
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 
 var card_deck_volume_1 = []

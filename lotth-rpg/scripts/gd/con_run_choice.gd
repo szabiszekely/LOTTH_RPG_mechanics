@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name Run_control
 
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var get_menu = RefrenceNode.Menu
 
@@ -48,26 +48,8 @@ func run_disappear():
 # mash to increase the break out sequence up to a 100
 	
 func breaking_out_func() -> void:
-	var percentage:float = 1
-	var running_attempt_counter_enemy: float = 0
-	var running_attempt_counter_player: float = 0
-	var all_p: int = 0
-	var all_e: int = 0
-	
-	for player in get_menu.player_group.player:
-		all_p = all_p + player.Fight_stats.Speed
-	for enemy in get_menu.player_group.player:
-		all_e = all_e + enemy.Fight_stats.Speed
-	
-	running_attempt_counter_player = all_p * 5
-	running_attempt_counter_enemy = all_e * 10
-	
-	running_attempt_counter_enemy = running_attempt_counter_enemy / 100
-	running_attempt_counter_player = running_attempt_counter_player / 100
-	
-	percentage = percentage - running_attempt_counter_enemy
-	percentage = percentage + running_attempt_counter_player
-	print(percentage)
+	RefrenceNode.all_p_actions.push_back(["atk",2,initiative.sorted_player[player.p_index],0,used_card_name])
+	pass
 	# Run code and precentage check HERE
 
 
