@@ -57,6 +57,9 @@ func Check():
 	#print("----------------")
 	enemy_seperate.Bar.show()
 	#enemy_seperate.Bar.name_tag_container.hide()
+	enemy_seperate.Bar.health_text.hide()
+	enemy_seperate.Bar.energy_text.hide()
+
 	enemy_seperate.Bar.action_remaining.hide()
 	
 	

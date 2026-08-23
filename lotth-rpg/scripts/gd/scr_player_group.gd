@@ -98,7 +98,6 @@ func switch_focus(x, y):
 	initiative.sorted_player[x]._focus_indicator()
 	initiative.sorted_player[y]._unfocus_indicator()
 	
-
 func call_menu_appear():
 	menu.menu_index = 0
 	menu.switching_buttons()

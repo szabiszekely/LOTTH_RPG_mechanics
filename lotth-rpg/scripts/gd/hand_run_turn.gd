@@ -6,7 +6,7 @@ extends Node
 var player_break_out_total: int = 0
 var enemy_break_out_total: int = 0
 
-func _Run_Turn(players):
+func _Run_Turn(list):
 	var instance = preloaded_Break_out.instantiate()
 	
 	instance._break_out_meter_setup(player_break_out_total,enemy_break_out_total,RefrenceNode.break_out_meter)

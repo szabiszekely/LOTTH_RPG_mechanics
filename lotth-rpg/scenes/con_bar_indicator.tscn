@@ -315,7 +315,6 @@ clip_text = true
 script = ExtResource("2_e6dm4")
 
 [node name="Health" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 179.0
 offset_top = 7.0
@@ -345,7 +344,6 @@ clip_text = true
 script = ExtResource("2_e6dm4")
 
 [node name="Energy" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 255.0
 offset_top = 3.0

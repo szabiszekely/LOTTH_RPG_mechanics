@@ -93,7 +93,8 @@ func _actions(stack):
 
 			"act":
 				action._Action_Turn(i)
-
+			"run":
+				run._Run_Turn(i)
 			"TEST":
 				print("WORKING!!")
 				

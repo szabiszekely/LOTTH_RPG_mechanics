@@ -8,6 +8,12 @@ class_name Run_control
 @onready var break_out: Button = $MarginContainer/VBoxContainer/Break_out
 @onready var spare: Button = $MarginContainer/VBoxContainer/Spare
 
+@onready var menu = RefrenceNode.Menu
+@onready var player = RefrenceNode.PlayerGroup
+@onready var enemy = RefrenceNode.EnemyGroup
+@onready var initiative = RefrenceNode.InitiativeHandler
+
+
 func _ready() -> void:
 	# hide it when scene starts!
 	self.hide()
@@ -48,8 +54,11 @@ func run_disappear():
 # mash to increase the break out sequence up to a 100
 	
 func breaking_out_func() -> void:
-	RefrenceNode.all_p_actions.push_back(["atk",2,initiative.sorted_player[player.p_index],0,used_card_name])
-	pass
+	player.all_p_actions.push_back(["run",0])
+	menu.vanish()
+	initiative.sorted_player[player.p_index]._play_out_tick_down()
+	if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
+		player.call_menu_appear()
 	# Run code and precentage check HERE
 
 
