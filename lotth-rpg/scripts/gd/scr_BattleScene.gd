@@ -14,7 +14,8 @@ func _ready() -> void:
 	initiative._get_player_and_enemy_spearated()
 	player_group._player_start_choosing()
 	RefrenceNode.DialogicControl._begining_setup()
-	
+
+
 func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug_button_2"):
@@ -22,7 +23,7 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("debug_button"):
 		_reset()
-		print(RefrenceNode.DialogicControl.dialog_main)
+		#print(RefrenceNode.DialogicControl.dialog_main)
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
 		#player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])

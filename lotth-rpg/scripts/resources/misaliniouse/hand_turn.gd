@@ -62,19 +62,29 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 func _actions(stack):
 	var play_out_action = []
-	for i in initiative.all_rolls:
+	for i in initiative.all_rolls: # sort all characters by initiative
 		for j in stack:
 			if i[-1] == j[2]:
 				play_out_action.append(j)
 
-	var stackIndex: int = 0
 	for i in play_out_action:
+		if i[0] == "run":
+			
+			
+			
+			run._Run_Turn(i)
+
+	var stackIndex: int = 0
+	for i in play_out_action: #go through the list and do what everything does
 		# ECT, ECT
 		
-		for j in player_group.all_p_actions:
-			if j[0] == "run":
-				print("hello ",j)
-		
+		#for j in player_group.all_p_actions:
+			#if j[0] == "run":
+				#print("hello ",j)
+		#for k in enemy_group.all_e_action:
+			#if k[0] == "run":
+				#print("hello ",k)
+
 		enemy_group._get_me_some_of_that_gd_children_enemy()
 		player_group._get_me_some_of_that_gd_children_player()
 
@@ -93,8 +103,6 @@ func _actions(stack):
 
 			"act":
 				action._Action_Turn(i)
-			"run":
-				run._Run_Turn(i)
 			"TEST":
 				print("WORKING!!")
 				

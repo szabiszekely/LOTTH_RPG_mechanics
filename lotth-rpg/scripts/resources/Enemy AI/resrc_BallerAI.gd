@@ -57,7 +57,7 @@ func _EnemyAI(deck):
 	# ENG restoring area
 	# if the AI is low on ENG then it starts to roll for heals
 	# the lower it is, the higher the chance of heal
-	if  energy_restore_bottomline <= enemy_current_ENG and enemy_current_ENG <= energy_restore_upperline: # roll for hael
+	if  energy_restore_bottomline <= enemy_current_ENG and enemy_current_ENG <= energy_restore_upperline: # roll to heal
 		var random_chance = randf_range(0,1)
 		if energy_healing_percentage <= random_chance:
 			enemy_group.all_e_action.push_back(["atk",1,enemy_it_self,enemy_it_self,Defense_deck[0]])
@@ -114,19 +114,20 @@ func _EnemyAI(deck):
 				2: # Mage
 					pass 
 
-		
-		
-		# Kindness route (aka choose random act)
-		if !agro_check:
-			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
-			
-		# Angy ( then attack >:) )
-		else:
-			highest_value = _find_the_highest_value(AbilityScore)
-			for i in AbilityScore:
-				var value = AbilityScore[i]
-				if value == highest_value:
-					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
-					break
-			
+		var random_chance = randf_range(0,1)
+		if random_chance == 1:
+			# Kindness route (aka choose random act)
+			if !agro_check:
+				enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
+				
+			# Angy ( then attack >:) )
+			else:
+				highest_value = _find_the_highest_value(AbilityScore)
+				for i in AbilityScore:
+					var value = AbilityScore[i]
+					if value == highest_value:
+						enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+						break
+		else :
+			enemy_group.all_e_action.push_back(["run",0,enemy_it_self])
 		

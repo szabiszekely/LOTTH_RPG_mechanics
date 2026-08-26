@@ -54,7 +54,7 @@ func run_disappear():
 # mash to increase the break out sequence up to a 100
 	
 func breaking_out_func() -> void:
-	player.all_p_actions.push_back(["run",0])
+	player.all_p_actions.push_back(["run",0,initiative.sorted_player[player.p_index]])
 	menu.vanish()
 	initiative.sorted_player[player.p_index]._play_out_tick_down()
 	if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
