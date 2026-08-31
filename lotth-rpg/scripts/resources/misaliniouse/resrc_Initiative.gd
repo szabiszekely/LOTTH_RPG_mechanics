@@ -11,7 +11,7 @@ var sorted_enemies: Array = []
 var index_order: Array = []
 
 var initiative_index: int = 0
-var timeSpentBetweenTurns: int = 1
+var timeSpentBetweenTurns: int = 0.5
 
 var action_start: bool = false
 var doTrapForLoop: bool = false

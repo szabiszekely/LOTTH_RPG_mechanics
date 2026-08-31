@@ -67,12 +67,21 @@ func _actions(stack):
 			if i[-1] == j[2]:
 				play_out_action.append(j)
 
+
+	var all_characters = []
 	for i in play_out_action:
 		if i[0] == "run":
+			all_characters.append(i)
 			
-			
-			
-			run._Run_Turn(i)
+	run._get_all_character_break_out_total(all_characters)
+	run._Run_Turn()
+
+	# stops the game until we not use the stopLoop signal
+	if initiative.doTrapForLoop:
+		await initiative.stopLoop
+		initiative.doTrapForLoop = false
+	
+	await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns/2).timeout
 
 	var stackIndex: int = 0
 	for i in play_out_action: #go through the list and do what everything does

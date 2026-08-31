@@ -60,6 +60,9 @@ one_shot = true
 [node name="run_timer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.145, 4.145)
+
 [connection signal="timeout" from="mash_wait" to="." method="_mash_waiter"]
 [connection signal="timeout" from="break_out_reducer" to="." method="_on_break_out_reducer_timeout"]
 [connection signal="timeout" from="run_timer" to="." method="_on_run_timer_timeout"]

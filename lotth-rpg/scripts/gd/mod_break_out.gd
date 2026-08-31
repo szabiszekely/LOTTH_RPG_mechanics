@@ -4,8 +4,8 @@ class_name Break_Out
 @export var user_break_out_total: int = 0 ## How much additional help you get per mash. 1 + (UBOT/10) + MB per mash
 @export var opponent_break_out_total: int = 0 ## How much does it reduces your percentage when the reducer time cycle happens. 0.1 + (OBOT/10) + (RB/2)
 @export var masher_bonus:int = 0 ## gives bonus to the masher formula. +X per mash
-@export var reducer_bonus:int = 0 ## gives bonus to the reduction formula. +(X/2) per reduction cycle
-@export var reducer_time_delay:float = 2 ## how fast time passes between reductions.
+@export var reducer_bonus:int = 0 ## gives bonus to the reduction formula. +X per reduction cycle
+@export var reducer_time_delay:float = 0.3 ## how fast time passes between reductions.
 
 @onready var timer: Timer = $mash_wait
 @onready var break_out_reducer: Timer = $break_out_reducer
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 			run_timer.start()
 			_timer_visual()
 		mash_waiter = true
-		progress_bar.value += 1 + (user_break_out_total/10) + masher_bonus
+		progress_bar.value += 1 + (user_break_out_total/5) + masher_bonus
 	if !Input.is_anything_pressed() and mash_waiter and !break_out_timer_end:
 		timer.start()
 	if progress_bar.value == 100:
@@ -57,7 +57,7 @@ func _mash_waiter() -> void:
 	mash_waiter = false
 
 func _on_break_out_reducer_timeout() -> void:
-	progress_bar.value -= 0.1 + (opponent_break_out_total/10) + (reducer_bonus/2)
+	progress_bar.value -= 0.1 + (opponent_break_out_total/5) + reducer_bonus
 	
 func _timer_visual():
 	var tween = get_tree().create_tween()

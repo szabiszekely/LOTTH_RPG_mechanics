@@ -6,7 +6,7 @@ extends Node
 var player_break_out_total: int = 0
 var enemy_break_out_total: int = 0
 
-func _Run_Turn(list):
+func _Run_Turn():
 	RefrenceNode.InitiativeHandler.doTrapForLoop = true
 	var instance = preloaded_Break_out.instantiate()
 	instance.position = RefrenceNode.ProCamera.position
@@ -17,10 +17,12 @@ func _Run_Turn(list):
 	instance.show()
 	
 	
-func _get_all_character_break_out_total():
+func _get_all_character_break_out_total(list_of_all_characters):
+	
 	player_break_out_total = 0
 	enemy_break_out_total = 0
-	for i in RefrenceNode.Players:
-		player_break_out_total += 1 + i.Fight_stats.Speed
-	for i in RefrenceNode.Enemeies:
-		enemy_break_out_total += 1 + i.Fight_stats.Speed
+	for i in list_of_all_characters:
+		if i[2].Fight_stats.Friend_or_Foe == 0:
+			player_break_out_total += 1 + i[2].Fight_stats.Speed
+		else:
+			enemy_break_out_total += 1 + i[2].Fight_stats.Speed

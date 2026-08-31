@@ -114,11 +114,11 @@ func _EnemyAI(deck):
 				2: # Mage
 					pass 
 
-		var random_chance = randf_range(0,1)
+		var random_chance = randi_range(0,1)
 		if random_chance == 1:
 			# Kindness route (aka choose random act)
 			if !agro_check:
-				enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
+				enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Ball",act_panel_choice])
 				
 			# Angy ( then attack >:) )
 			else:

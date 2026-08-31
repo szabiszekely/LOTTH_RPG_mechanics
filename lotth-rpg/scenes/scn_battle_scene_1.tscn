@@ -60,6 +60,8 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_1uqaj")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wtf22"]
+vertices = PackedVector2Array(681, 124.03906, -650.8828, 126.953125, -649.1094, -213, 681, -213)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-670, -234, 702, -234, 702, 145, -672, 148)])
 agent_radius = 21.0
 
