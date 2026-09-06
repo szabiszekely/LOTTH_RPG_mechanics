@@ -11,6 +11,7 @@ var sorted_enemies: Array = []
 var index_order: Array = []
 
 var initiative_index: int = 0
+@warning_ignore("narrowing_conversion")
 var timeSpentBetweenTurns: int = 0.5
 
 var action_start: bool = false
@@ -21,6 +22,7 @@ var group_player
 var place_holder_source
 
 # this helps to stop the looping in the turn_handler
+@warning_ignore("unused_signal")
 signal stopLoop
 
 # this gets the neccesery nodes as references

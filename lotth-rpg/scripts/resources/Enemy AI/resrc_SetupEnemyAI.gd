@@ -90,6 +90,7 @@ func _Player_Point_System():
 		PlayerAgro.set(i,0)
 		PlayerKind.set(i,0)
 # placeholder for an enemy to put its logic here
+@warning_ignore("unused_parameter")
 func _EnemyAI(deck):
 	pass
 
@@ -108,6 +109,7 @@ func _sort_before_self(self_e):
 		else:
 			break
 # this one seperates the players and the enemies for further use
+@warning_ignore("unused_parameter")
 func _same_type_enemy(self_e):
 	for i in before_enemy_turn:
 		for j in initiative.sorted_enemies:
@@ -116,7 +118,9 @@ func _same_type_enemy(self_e):
 			else:
 				before_enemy_turn_player.append(i)
 # switches all the players out for their actions
+@warning_ignore("unused_parameter")
 func _get_actions_player(self_e):
+	@warning_ignore("shadowed_variable")
 	var temp = []
 	for i in enemy_group.p_actions:
 		for j in before_enemy_turn_player:
@@ -126,7 +130,9 @@ func _get_actions_player(self_e):
 	for i in temp: 
 		player_actions.append(i)
 # switches all the enemies out for their actions
+@warning_ignore("unused_parameter")
 func _get_actions_enemy(self_e):
+	@warning_ignore("shadowed_variable")
 	var temp = []
 	for i in enemy_group.p_actions:
 		for j in before_enemy_turn_enemy:
@@ -254,10 +260,14 @@ func _deck_sorting(deck):
 func _attack_card_scoring():
 	for i in Attack_deck:
 		AbilityScore[i] = 0
+		@warning_ignore("shadowed_global_identifier")
 		var str = Data.get_card_damage(i)
 		var cost = int(Data.get_card_energy(i))
+		@warning_ignore("unused_variable", "shadowed_global_identifier")
 		var range
+		@warning_ignore("unused_variable")
 		var bonus_attributes
+		@warning_ignore("unused_variable")
 		var obstacles
 		var STAB = Data.get_card_attack_type(i)
 		
@@ -364,9 +374,11 @@ func strongest_magic_enemy(enemy):
 		temp.append([i,i.Fight_stats.Base_Magical_Attack])
 		BoardState.set("strongest_magic_enemy",temp.max())
 
+@warning_ignore("unused_parameter")
 func closest_player(player):
 	temp.clear()
 	
+@warning_ignore("unused_parameter")
 func players_with_status_effect(player):
 	temp.clear()
 

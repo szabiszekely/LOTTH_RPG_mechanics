@@ -44,6 +44,7 @@ func _process(delta: float) -> void:
 			run_timer.start()
 			_timer_visual()
 		mash_waiter = true
+		@warning_ignore("integer_division")
 		progress_bar.value += 1 + (user_break_out_total/5) + masher_bonus
 	if !Input.is_anything_pressed() and mash_waiter and !break_out_timer_end:
 		timer.start()
@@ -57,6 +58,7 @@ func _mash_waiter() -> void:
 	mash_waiter = false
 
 func _on_break_out_reducer_timeout() -> void:
+	@warning_ignore("integer_division")
 	progress_bar.value -= 0.1 + (opponent_break_out_total/5) + reducer_bonus
 	
 func _timer_visual():

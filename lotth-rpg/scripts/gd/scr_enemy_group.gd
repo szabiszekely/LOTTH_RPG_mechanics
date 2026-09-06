@@ -3,7 +3,7 @@ class_name Enemy_group
 
 @onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
-@onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
+@onready var menu = RefrenceNode.Menu
 @onready var act_options = RefrenceNode.ActButtonHandler
 @onready var menu_system = RefrenceNode.Menu
 @onready var initiative = RefrenceNode.InitiativeHandler
@@ -13,6 +13,7 @@ class_name Enemy_group
 
 var card_againts_enemies
 var item_againts_enemies
+var item_uuid_againts_enemies
 var p_actions
 
 var enemies: Array = []
@@ -108,9 +109,9 @@ func _player_action_to_enemy():
 		menu_system.bag = false
 		_reset_focus()
 		if Data.get_item_emp_type(item_againts_enemies):
-			player.all_p_actions.push_back(["bag",2,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies)])
+			player.all_p_actions.push_back(["bag",2,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies),item_uuid_againts_enemies])
 		else:
-			player.all_p_actions.push_back(["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies)])
+			player.all_p_actions.push_back(["bag",1,initiative.sorted_player[player.p_index],enemies[sub_e_index],item_againts_enemies,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_enemies),item_uuid_againts_enemies])
 		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 			call_menu_appear()

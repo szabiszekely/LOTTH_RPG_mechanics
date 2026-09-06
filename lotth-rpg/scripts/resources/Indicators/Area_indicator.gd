@@ -7,6 +7,7 @@ var area_reference = null
 var collision_reference = null
 var mouse_reference = false
  # update it everyframe!
+@warning_ignore("unused_parameter")
 func update(source, mouse_position, delta,mouse_in):
 	# if refrenced cursor DOES exist than:
 	if cursor_reference != null:
@@ -39,6 +40,7 @@ func set_reference(source):
 	if indicator_reference != null:
 		return
 	#we scale it by range cm * 10 and than we just devid it by 30
+	@warning_ignore("integer_division")
 	var scaleit = range * 10 / 30
 	# getting new sprite down and setting texture to it
 	var sprite_reference = Sprite2D.new()

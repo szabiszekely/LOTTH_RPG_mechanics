@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=4 uid="uid://cnj4khiyopq7m"]
 
-[ext_resource type="Script" uid="uid://d0xrtsg3i626w" path="res://scripts/gd/scr_BattleScene.gd" id="1_cx2dr"]
+[ext_resource type="Script" uid="uid://bjxp4trjj60pn" path="res://scripts/gd/scr_battle_scene_1.gd" id="1_byh47"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/mod_turn_handler.tscn" id="3_byh47"]
 [ext_resource type="PackedScene" uid="uid://c8qrfiqq4jg0w" path="res://scenes/mod_dialogic_module.tscn" id="3_iowgj"]
@@ -258,7 +258,7 @@ Base_Phisical_Attack = 2
 Speed = 1
 
 [node name="rework" type="Node2D"]
-script = ExtResource("1_cx2dr")
+script = ExtResource("1_byh47")
 
 [node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")

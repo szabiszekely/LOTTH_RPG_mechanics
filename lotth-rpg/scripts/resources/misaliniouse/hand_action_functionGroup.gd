@@ -65,18 +65,10 @@ func Check():
 	
 
 func Focus():
-	#print("----------------")
-	#print("You Closed Your eyes and started to focus on " + str(enemy_stats.name) +"!")
-	#print("----------------")
-	#
-	#print("THIS: ",player_seperate)
 	timeline = "act_focus"
 	start_dialog()	
 
 func Guard():
-	#print("----------------")
-	#print("DEFENDED")
-	#print("----------------")
 	player_seperate.Fight_stats.STAT_Resource._Get_Current_Headers(player_seperate.Fight_stats.Header_Array)
 	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
 	player_seperate.Fight_stats._Apply_Stats()

@@ -40,6 +40,7 @@ class_name BallerAI
 # Baller has no items
 
 # This is the ballers AI logic
+@warning_ignore("unused_parameter")
 func _EnemyAI(deck):
 	randomize()
 	# I gather data on a varity stuff (like lowest player, strongest player, weakest enemy, closest player, ect)
@@ -114,20 +115,16 @@ func _EnemyAI(deck):
 				2: # Mage
 					pass 
 
-		var random_chance = randi_range(0,1)
-		if random_chance == 1:
-			# Kindness route (aka choose random act)
-			if !agro_check:
-				enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Ball",act_panel_choice])
-				
-			# Angy ( then attack >:) )
-			else:
-				highest_value = _find_the_highest_value(AbilityScore)
-				for i in AbilityScore:
-					var value = AbilityScore[i]
-					if value == highest_value:
-						enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
-						break
-		else :
-			enemy_group.all_e_action.push_back(["run",0,enemy_it_self])
+		# Kindness route (aka choose random act)
+		if !agro_check:
+			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Ball",act_panel_choice])
+			
+		# Angy ( then attack >:) )
+		else:
+			highest_value = _find_the_highest_value(AbilityScore)
+			for i in AbilityScore:
+				var value = AbilityScore[i]
+				if value == highest_value:
+					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+					break
 		

@@ -88,7 +88,7 @@ func _process(_delta: float) -> void:
 		Menu_state.MENU:
 			current_memory_state = current_state
 			if menu_container == true:
-				print("hi")
+				#print("hi")
 				RefrenceNode.DialogicControl._start_dialog("stat_baller")
 				RefrenceNode.DialogicControl._appear_dialog()
 				menu_container = false
@@ -290,7 +290,6 @@ func vanish():
 	# put movement here PLS PLS SEE ME OVER HERE
 	bagpack_choice.bag_disappear()
 	run_choice.run_disappear()
-	#Dialogic.Text.hide_textbox()
 	RefrenceNode.DialogicControl._vanish_dialog()
 # Disables EVERYTHING
 func all_gone():

@@ -63,8 +63,8 @@ func breaking_out_func() -> void:
 
 
 func spare_func() -> void:
-	for enemy in get_menu.enemy_group.enemies:
-		if enemy.Fight_stats.EMP >= enemy.Fight_stats.MAX_EMP:
+	for i in enemy.enemies:
+		if i.Fight_stats.EMP >= i.Fight_stats.MAX_EMP:
 			print("DONE")
 			# EMP reached, fight end HERE
 		else:

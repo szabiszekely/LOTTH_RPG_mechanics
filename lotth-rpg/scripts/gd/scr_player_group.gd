@@ -3,13 +3,14 @@ class_name Player_group
 
 @onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
-@onready var menu: PanelContainer = $"../../UI_battle_menu/Menu"
+@onready var menu = RefrenceNode.Menu
 @onready var menu_system = RefrenceNode.Menu
 @onready var initiative = RefrenceNode.InitiativeHandler
 @onready var enemy = RefrenceNode.EnemyGroup
 
 
 var item_againts_players
+var item_uuid_againts_players
 var card_againts_players
 
 var p_index: int = 0
@@ -75,7 +76,7 @@ func _process(_delta: float) -> void:
 				
 			if menu_system.bag == true:
 				menu_system.bag = false
-				all_p_actions.push_back(["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players)])
+				all_p_actions.push_back(["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players),item_uuid_againts_players])
 				_reset_focus()
 				initiative.sorted_player[p_index]._play_out_tick_down()
 				if initiative.sorted_player[p_index].PlayOutOptions != 0:

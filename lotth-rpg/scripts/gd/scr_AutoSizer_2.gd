@@ -23,6 +23,7 @@ static func update_font_size_by_height(label: AutoSizeLabel) -> void:
 			push_warning("Could not create a string!")
 			return
 		
+		@warning_ignore("narrowing_conversion")
 		var text_height: int = paragraph.get_size().y
 		
 		if text_height > label.size.y:

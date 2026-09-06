@@ -25,10 +25,11 @@ func _ready() -> void:
 	
 # Bag appears
 func bag_appear():
-	inventory.grab_focus()
 	inventory.select(0)
+	inventory.grab_focus()
 	self.show()
-	inventory.ensure_current_is_visible()
+	var scrollbar = inventory.get_v_scroll_bar()
+	scrollbar.value = 0
 	item_count_check()
 	
 	var tweens = get_tree().create_tween()
@@ -43,27 +44,38 @@ func bag_disappear():
 
 # when you press an item you add it to the quee
 func _on_item_list_item_activated(index: int) -> void:
-	print(item_list)
-	var my_data = Data.get_item_data(item_list[index])
-	print(my_data)
+	#print(item_list)
+	var my_data = Data.get_item_data(item_list[index][0])
+	#print(my_data)
 	menu_system.vanish()
-	item_handler._get_item_and_redirect_it(my_data,menu_system,menu_system.player_group,menu_system.enemy_group)
+	item_handler._get_item_and_redirect_it(my_data,menu_system,menu_system.player_group,menu_system.enemy_group,item_list[index][1])
 
 # remove item from inventory! Currently unused.
-func _remove_item_from_inventory(index):
-	inventory.remove_item(index)
-	item_list.remove_at(index)
-	inventory.select(index)
-	item_count_check()
-	
+func _remove_item_from_inventory(uuid):
+	var index = -1
+	var can_remove = false
+	for i in item_list:
+		index += 1
+		if i[1] == uuid:
+			can_remove = true
+			break
+	if can_remove:
+		inventory.remove_item(index)
+		item_list.remove_at(index)
+		inventory.select(index)
+		item_count_check()
+	else:
+		printerr("WARNING item was not able to be removed by UUID, Please check the cause")
+		printerr("Helpful data: index: ", index, "; can_removed: ", can_remove, "; UUID: ", uuid)
+		
 # add a random item to the bag!
 func _on_add_button_pressed() -> void:
 	var random_item = randi() % 4
 	
-	if not inventory.item_count >= 24:
+	if not inventory.item_count >= 27:
 		inventory.add_slot(random_item)
 		item_list.append(Data.get_item_id(random_item))
-		print(item_list)
+		#print(item_list)
 		no_items.hide()
 		
 	else:
@@ -83,12 +95,25 @@ func _on_save_button_pressed() -> void:
 	
 func _add_random_items():
 	var random_item
-	for place in 10:
+	for place in 27:
 		random_item = randi() % 7
-		if not inventory.item_count >= 24:
+		var uuid = _create_random_uuid()
+		if not inventory.item_count >= 27:
 			inventory.add_slot(random_item)
-			item_list.append(Data.get_item_id(random_item))
+			item_list.append([Data.get_item_id(random_item),uuid])
 			item_count_check()
 			
 		else:
 			print("Item is full!")
+	#print(item_list)
+func _create_random_uuid():
+	var random_uuid = randf_range(0,10000000)
+	if item_list != []:
+		for i in item_list:
+			if i[1] != random_uuid:
+				pass
+			else:
+				_create_random_uuid()
+				break
+
+	return random_uuid

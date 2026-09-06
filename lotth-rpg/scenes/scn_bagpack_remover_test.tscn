@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmwlhr35c70v0"]
+
+[ext_resource type="Script" uid="uid://b6mhkqynechmr" path="res://scripts/gd/scn_bagpack_remover_test.gd" id="1_fhgw1"]
+[ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/scn_UI_battle_menu.tscn" id="2_m7bka"]
+[ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="3_j3qnh"]
+[ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://scripts/gd/scr_player_group.gd" id="4_2i2r8"]
+[ext_resource type="Script" uid="uid://cg06exgelwcxu" path="res://scripts/gd/scr_enemy_group.gd" id="13_svs8n"]
+
+[node name="Bagpack_remover_test" type="Node2D"]
+script = ExtResource("1_fhgw1")
+item_removal = 271863.0
+
+[node name="UI_battle_menu" parent="." instance=ExtResource("2_m7bka")]
+
+[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("get_the_children")]
+get_the_children = NodePath("MarginContainer/HBoxContainer")
+
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler") instance=ExtResource("3_j3qnh")]
+MainNode = NodePath("..")
+PlayerGroup = NodePath("../player_group")
+EnemyGroup = NodePath("../enemy_group")
+Menu = NodePath("../UI_battle_menu/Menu")
+AbiCard = NodePath("../UI_battle_menu/Ability_Card_choice")
+ActButtonHandler = NodePath("../UI_battle_menu/Action_Panel_choice")
+BagHandler = NodePath("../UI_battle_menu/Bagpack")
+RunHandler = NodePath("../UI_battle_menu/Run_Panel_choice")
+
+[node name="player_group" type="Node2D" parent="."]
+script = ExtResource("4_2i2r8")
+
+[node name="enemy_group" type="Node2D" parent="."]
+script = ExtResource("13_svs8n")
+
+[editable path="UI_battle_menu"]

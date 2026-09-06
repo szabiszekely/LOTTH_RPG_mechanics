@@ -32,6 +32,7 @@ func _ready() -> void:
 func _Does_opponent_exist(list:Array,is_this_heal):
 	#Dialogic.end_timeline()
 	var grab_a_different_character
+	@warning_ignore("unused_variable")
 	var count_me_in = 0
 	
 	if list[3] == null:
@@ -72,9 +73,9 @@ func _actions(stack):
 	for i in play_out_action:
 		if i[0] == "run":
 			all_characters.append(i)
-			
-	run._get_all_character_break_out_total(all_characters)
-	run._Run_Turn()
+	if all_characters != []:
+		run._get_all_character_break_out_total(all_characters)
+		run._Run_Turn()
 
 	# stops the game until we not use the stopLoop signal
 	if initiative.doTrapForLoop:
@@ -83,6 +84,7 @@ func _actions(stack):
 	
 	await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns/2).timeout
 
+	@warning_ignore("unused_variable")
 	var stackIndex: int = 0
 	for i in play_out_action: #go through the list and do what everything does
 		# ECT, ECT

@@ -7,6 +7,7 @@ var player_break_out_total: int = 0
 var enemy_break_out_total: int = 0
 
 func _Run_Turn():
+	
 	RefrenceNode.InitiativeHandler.doTrapForLoop = true
 	var instance = preloaded_Break_out.instantiate()
 	instance.position = RefrenceNode.ProCamera.position
