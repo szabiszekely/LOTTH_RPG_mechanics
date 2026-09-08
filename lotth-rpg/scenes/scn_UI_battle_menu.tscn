@@ -185,6 +185,9 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Bagpack"
 script = ExtResource("5_fday4")
 
+[node name="Marker2D" type="Marker2D" parent="Menu/MarginContainer/HBoxContainer/Bagpack"]
+position = Vector2(-3.5652466, 27.869581)
+
 [node name="Run" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3

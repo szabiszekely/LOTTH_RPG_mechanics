@@ -1,12 +1,15 @@
 extends PanelContainer
 class_name Bagpack_controls
 
-@onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
+@onready var RefrenceNode: CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
 @onready var inventory: ItemList = $test/Inventory
 @onready var no_items: Label = $test/Label
 @onready var menu_system = RefrenceNode.Menu
 @onready var item_handler = RefrenceNode.ItemHandler
+@onready var marker_2d: Marker2D = $"../Menu/MarginContainer/HBoxContainer/Bagpack/Marker2D"
+
+const CON_FLYING_WARNING = preload("uid://c6xusk3c2kydl")
 var deleting_item_index: int = 0
 var item_list: Array = []
 # set everything up
@@ -25,15 +28,32 @@ func _ready() -> void:
 	
 # Bag appears
 func bag_appear():
-	inventory.select(0)
-	inventory.grab_focus()
-	self.show()
-	var scrollbar = inventory.get_v_scroll_bar()
-	scrollbar.value = 0
-	item_count_check()
-	
-	var tweens = get_tree().create_tween()
-	tweens.tween_property(self,"position",Vector2(self.position.x,519),0.3).set_trans(Tween.TRANS_QUAD)
+	for i in len(item_list):
+		if inventory.is_item_disabled(i) == false:
+			inventory.select(i)
+			inventory.grab_focus()
+			self.show()
+			var scrollbar = inventory.get_v_scroll_bar()
+			scrollbar.value = 0
+			item_count_check()
+			
+			var tweens = get_tree().create_tween()
+			tweens.tween_property(self,"position",Vector2(self.position.x,519),0.3).set_trans(Tween.TRANS_QUAD)
+			break
+		elif i == len(item_list)-1:
+			var instaance = CON_FLYING_WARNING.instantiate()
+			instaance.position = marker_2d.position
+			RefrenceNode.MainNode.add_child(instaance)
+			RefrenceNode.Menu.menu_index = 3
+			RefrenceNode.Menu.vanish()
+			RefrenceNode.Menu.bag = false
+			RefrenceNode.Menu.switching_buttons()
+			RefrenceNode.Menu.menu_container = true
+			RefrenceNode.Menu.current_state = RefrenceNode.Menu.Menu_state.MENU
+			RefrenceNode.Menu.switching_buttons()
+			RefrenceNode.Menu.bagpack.disabled = true
+			break
+			
 
 # Bag disappear
 func bag_disappear():
@@ -49,24 +69,17 @@ func _on_item_list_item_activated(index: int) -> void:
 	#print(my_data)
 	menu_system.vanish()
 	item_handler._get_item_and_redirect_it(my_data,menu_system,menu_system.player_group,menu_system.enemy_group,item_list[index][1])
-
+	
 # remove item from inventory! Currently unused.
 func _remove_item_from_inventory(uuid):
-	var index = -1
-	var can_remove = false
-	for i in item_list:
-		index += 1
-		if i[1] == uuid:
-			can_remove = true
-			break
-	if can_remove:
-		inventory.remove_item(index)
-		item_list.remove_at(index)
-		inventory.select(index)
+	if _is_uuid_exist(uuid):
+		inventory.remove_item(_uuid_to_index(uuid))
+		item_list.remove_at(_uuid_to_index(uuid))
+		inventory.select(_uuid_to_index(uuid))
 		item_count_check()
 	else:
 		printerr("WARNING item was not able to be removed by UUID, Please check the cause")
-		printerr("Helpful data: index: ", index, "; can_removed: ", can_remove, "; UUID: ", uuid)
+		printerr("Helpful data: index: ", _uuid_to_index(uuid), "; can_removed: ", _is_uuid_exist(uuid), "; UUID: ", uuid)
 		
 # add a random item to the bag!
 func _on_add_button_pressed() -> void:
@@ -117,3 +130,21 @@ func _create_random_uuid():
 				break
 
 	return random_uuid
+
+func _refund_item(uuid):
+	if _is_uuid_exist(uuid):
+		inventory.set_item_disabled(_uuid_to_index(uuid),false)
+		item_count_check()
+
+func _uuid_to_index(uuid):
+	var index = -1
+	for i in item_list:
+		index += 1
+		if i[1] == uuid:
+			return index
+			
+func _is_uuid_exist(uuid):
+		for i in item_list:
+			if i[1] == uuid:
+				return true
+		return false

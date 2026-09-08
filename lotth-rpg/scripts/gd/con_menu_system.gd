@@ -164,8 +164,10 @@ func _input(event: InputEvent) -> void:
 				if player_group.all_p_actions.size() != 0 and menu_can_be_canled == true:
 					menu_can_be_canled = false
 					
+					if player_group.all_p_actions[player_group.all_p_actions.size() - 1][0] == "bag":
+						RefrenceNode.BagHandler._refund_item(player_group.all_p_actions[player_group.all_p_actions.size() - 1][7])
+						bagpack.disabled = false
 					player_group.all_p_actions.remove_at(player_group.all_p_actions.size() - 1)
-					
 					if Initiative.sorted_player[player_group.p_index].PlayOutOptions == Initiative.sorted_player[player_group.p_index].MaxPlayOutOptions:
 						Initiative.switch_order_p(player_group.p_index-1,player_group.p_index)
 						player_group.p_index -= 1
@@ -244,9 +246,9 @@ func _input(event: InputEvent) -> void:
 					abi_container = true
 					current_state = Menu_state.ABILITES
 				elif bag == true:
+					vanish()
 					player_group._reset_focus()
 					menu.show()
-					vanish()
 					bag = false
 					bag_container = true
 					current_state = Menu_state.BAG
