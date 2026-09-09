@@ -109,7 +109,7 @@ func _on_save_button_pressed() -> void:
 func _add_random_items():
 	var random_item
 	for place in 27:
-		random_item = randi() % 7
+		random_item = randi() % 1
 		var uuid = _create_random_uuid()
 		if not inventory.item_count >= 27:
 			inventory.add_slot(random_item)
@@ -142,7 +142,7 @@ func _uuid_to_index(uuid):
 		index += 1
 		if i[1] == uuid:
 			return index
-			
+	return index
 func _is_uuid_exist(uuid):
 		for i in item_list:
 			if i[1] == uuid:

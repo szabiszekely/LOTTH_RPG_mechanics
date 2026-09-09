@@ -109,7 +109,7 @@ func _EnemyAI(deck):
 					#var map = get_world_2d().navigation_map
 					#var p = NavigationServer2D.map_get_closest_point(map,get_global_mouse_position())
 					#nav_agent.target_position = p
-					print((enemy_it_self.global_position - target.global_position).length())
+					#print((enemy_it_self.global_position - target.global_position).length())
 					pass
 					#move_toward(enemy_it_self.global_position)
 				2: # Mage
@@ -117,14 +117,16 @@ func _EnemyAI(deck):
 
 		# Kindness route (aka choose random act)
 		if !agro_check:
-			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Ball",act_panel_choice])
+			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
 			
 		# Angy ( then attack >:) )
 		else:
-			highest_value = _find_the_highest_value(AbilityScore)
-			for i in AbilityScore:
-				var value = AbilityScore[i]
-				if value == highest_value:
-					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
-					break
-		
+			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
+			#
+			#highest_value = _find_the_highest_value(AbilityScore)
+			#for i in AbilityScore:
+				#var value = AbilityScore[i]
+				#if value == highest_value:
+					#enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+					#break
+		#
