@@ -12,7 +12,7 @@ var index_order: Array = []
 
 var initiative_index: int = 0
 @warning_ignore("narrowing_conversion")
-var timeSpentBetweenTurns: int = 0.5
+var timeSpentBetweenTurns: int = 2
 
 var action_start: bool = false
 var doTrapForLoop: bool = false

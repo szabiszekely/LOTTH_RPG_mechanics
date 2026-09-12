@@ -8,9 +8,9 @@ class_name DialogicController
 func _begining_setup():
 	dialog_main = Dialogic.start("player_text_set_up_timeline")
 	dialog_main.register_character(RefrenceNode.PlayerGroup.player[0].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[0])
-	dialog_main.register_character(RefrenceNode.PlayerGroup.player[1].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[1])
-	dialog_main.register_character(RefrenceNode.PlayerGroup.player[2].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[2])
-	dialog_main.register_character(RefrenceNode.PlayerGroup.player[3].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[3])
+	#dialog_main.register_character(RefrenceNode.PlayerGroup.player[1].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[1])
+	#dialog_main.register_character(RefrenceNode.PlayerGroup.player[2].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[2])
+	#dialog_main.register_character(RefrenceNode.PlayerGroup.player[3].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[3])
 
 
 #and !RefrenceNode.Initiative.action_start
@@ -28,6 +28,7 @@ func _appear_dialog():
 #dialog vanish
 func _tween_dialog(to_where,how_fast,hide_or_show):
 	if dialog_main != null:
+		print(dialog_main.get_child(0).get_child(0).get_child(0)," ", to_where," ", how_fast," ", hide_or_show)
 		var tween = get_tree().create_tween()
 		tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast)
 		if hide_or_show:

@@ -12,6 +12,7 @@ var is_this_heal = [9] #random number nobody cares about
 func _Action_Turn(list):
 	match list[1]:
 		0: ## player to enemy
+			print(list[2]," ",list[3])
 			turn_handler._Does_opponent_exist(list,is_this_heal)
 			#"act",0,initiative.sorted_player[player.p_index],enemy.enemies[current_choosen_enemy],i.text,self
 			Action_button_handler._get_button_text_action(list[4],list[5],RefrenceNode,list[3],list[2])

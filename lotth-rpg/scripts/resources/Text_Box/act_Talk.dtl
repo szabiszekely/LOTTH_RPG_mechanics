@@ -1,5 +1,5 @@
 [style name="Normal_Textbox"]
-if {name} == "":
+if {name}   ==   "" or {name} != "":
 	> But nobody is here to talk to you.
 elif {name} == "Baller" or {name} == "Baller Lazier":
 	> You started Talking about your favorite food\

@@ -51,6 +51,7 @@ var enemy_current_ENG
 var enemy_current_HP
 var target
 var highest_value
+var lowest_value
 var break_gambit: bool
 
 var Attack_deck: Array = []
@@ -309,7 +310,8 @@ func _attack_card_scoring():
 # gets me the highest value on a dictionary
 func _find_the_highest_value(dict):
 	return dict.values().max()
-
+func _find_the_lowest_value(dict):
+	return dict.values().min()
 # gets the specific data in _data_analysis
 #region dataAnalitics
 var temp: Array = []

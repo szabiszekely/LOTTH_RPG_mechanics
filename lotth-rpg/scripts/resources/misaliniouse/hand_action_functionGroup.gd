@@ -20,7 +20,7 @@ func _get_button_text_action(Button_text: String, Source, refrencenode:CrossRoad
 	switching_stats_check()
 	RefrenceNode = refrencenode
 	#I call the name of the button as a function!
-	print(Button_text)
+	#print(Button_text)
 	call(Button_text)
 
 # Setting up variables that are inside the Dialogue Node Asset!
@@ -75,7 +75,7 @@ func Guard():
 	player_seperate.Fight_stats.In_Defense = true
 	
 func Talk():
-	print("got choosen")
+	printerr("TALK IS TALKING ",player_seperate, " ",enemy_seperate)
 	timeline = "act_Talk"
 	start_dialog()
 	enemy_seperate.emp_gained(1)

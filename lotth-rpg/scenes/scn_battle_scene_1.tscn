@@ -151,14 +151,20 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
+personality_decrease_modifier_kindness = null
 personality_aggresion = 3
+energy_restore_upperline = null
 energy_healing_percentage = 1.0
+energy_restore_bottomline = null
+stronger_or_weaker = null
+team_player = null
+failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_aihkf"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Baller A"
+name = "Baller"
 Id = 0
 Friend_or_Foe = 1
 MAX_HP = 17
@@ -179,14 +185,20 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
+personality_decrease_modifier_kindness = null
 personality_aggresion = 3
+energy_restore_upperline = null
 energy_healing_percentage = 1.0
+energy_restore_bottomline = null
+stronger_or_weaker = null
+team_player = null
+failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_mo7hs"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Baller B"
+name = "Baller"
 Id = 0
 Friend_or_Foe = 1
 MAX_HP = 17
@@ -207,14 +219,20 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
+personality_decrease_modifier_kindness = null
 personality_aggresion = 3
+energy_restore_upperline = null
 energy_healing_percentage = 1.0
+energy_restore_bottomline = null
+stronger_or_weaker = null
+team_player = null
+failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_t4b5j"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Baller C"
+name = "Baller"
 Id = 0
 Friend_or_Foe = 1
 MAX_HP = 17
@@ -235,14 +253,20 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
+personality_decrease_modifier_kindness = null
 personality_aggresion = 3
+energy_restore_upperline = null
 energy_healing_percentage = 1.0
+energy_restore_bottomline = null
+stronger_or_weaker = null
+team_player = null
+failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_r0suc"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Baller D"
+name = "Baller"
 Id = 0
 Friend_or_Foe = 1
 MAX_HP = 17

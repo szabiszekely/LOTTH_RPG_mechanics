@@ -82,6 +82,7 @@ func act_disappear():
 func action_button_pressed(extra_arg_0: StringName) -> void:
 	for i in list_of_buttons:
 		if i.name == extra_arg_0:
+			print(player.p_index)
 			player.all_p_actions.push_back(["act",0,initiative.sorted_player[player.p_index],enemy.enemies[current_choosen_enemy],i.text,self])
 			menu.vanish()
 			

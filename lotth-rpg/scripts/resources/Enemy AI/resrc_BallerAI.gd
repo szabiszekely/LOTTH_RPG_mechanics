@@ -117,16 +117,23 @@ func _EnemyAI(deck):
 
 		# Kindness route (aka choose random act)
 		if !agro_check:
-			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
+			lowest_value = _find_the_lowest_value(AbilityScore)
+			for i in AbilityScore:
+				var value = AbilityScore[i]
+				if value == lowest_value:
+					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+					break
+
+			#enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
 			
 		# Angy ( then attack >:) )
 		else:
-			enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
-			#
-			#highest_value = _find_the_highest_value(AbilityScore)
-			#for i in AbilityScore:
-				#var value = AbilityScore[i]
-				#if value == highest_value:
-					#enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
-					#break
-		#
+			#enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
+			
+			highest_value = _find_the_highest_value(AbilityScore)
+			for i in AbilityScore:
+				var value = AbilityScore[i]
+				if value == highest_value:
+					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+					break
+		
