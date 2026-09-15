@@ -1,0 +1,157 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmbg8jgse5xr2"]
+
+[ext_resource type="Script" uid="uid://dnwkrawqo4awq" path="res://scripts/gd/con_victory_screen.gd" id="1_ftfsb"]
+[ext_resource type="Texture2D" uid="uid://bm458ig8tofln" path="res://assets/sprite/Projectile/smoke.png" id="2_wsf8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpd26"]
+bg_color = Color(0.4, 0.20500003, 0.14000002, 0.6627451)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41830003, 0.7170434, 0.89, 0.4117647)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 30
+
+[sub_resource type="Gradient" id="Gradient_wsf8o"]
+offsets = PackedFloat32Array(0, 0.48920864, 1)
+colors = PackedColorArray(1, 0.060000002, 0.060000002, 1, 0.17928006, 0.83, 0.033200018, 1, 0, 0.6719998, 0.96, 1)
+
+[node name="Victory Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftfsb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.60266
+offset_top = -270.0
+offset_right = 256.60266
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(250, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fpd26")
+
+[node name="Won" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.775
+offset_top = 18.0
+offset_right = 158.775
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.41830003, 0.7170434, 0.89, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = ">You won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gain" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.10269
+offset_top = 95.0
+offset_right = 250.89731
+offset_bottom = 197.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.41830003, 0.7170434, 0.89, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "> Gain. 100 Gold, 1x Soul, 1x Burger. "
+fit_content = true
+scroll_active = false
+
+[node name="Soul" type="RichTextLabel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.5
+offset_top = -31.0
+offset_right = 30.0
+offset_bottom = -7.363632
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.41830003, 0.7170434, 0.89, 1)
+theme_override_font_sizes/normal_font_size = 16
+text = "0x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" type="RichTextLabel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 483.5
+offset_top = -31.0
+offset_right = 506.0
+offset_bottom = -7.363632
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.41830003, 0.7170434, 0.89, 1)
+theme_override_font_sizes/normal_font_size = 16
+text = "0x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(576, 577)
+emitting = false
+amount = 48
+texture = ExtResource("2_wsf8o")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.04
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 26.6
+initial_velocity_max = 142.55
+damping_max = 3.191
+angle_max = 360.0
+color = Color(0.54, 0.54, 0.54, 0.7411765)
+color_initial_ramp = SubResource("Gradient_wsf8o")
+
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(1058, 577)
+emitting = false
+amount = 48
+texture = ExtResource("2_wsf8o")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.04
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 26.6
+initial_velocity_max = 142.55
+damping_max = 3.191
+angle_max = 360.0
+color = Color(0.54, 0.54, 0.54, 0.7411765)
+color_initial_ramp = SubResource("Gradient_wsf8o")
