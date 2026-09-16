@@ -63,9 +63,20 @@ func breaking_out_func() -> void:
 
 
 func spare_func() -> void:
+	var spared = 0
 	for i in enemy.enemies:
 		if i.Fight_stats.EMP >= i.Fight_stats.MAX_EMP:
-			print("DONE")
-			# EMP reached, fight end HERE
+			print("Done")
+			spared += 1
 		else:
 			print_debug("Can't let them go, they still not reached they Max EMP?")
+	# EMP reached, fight end HERE
+	if spared == len(enemy.enemies):
+		break_out.disabled = true
+		spare.disabled = true
+		spare.release_focus()
+		var instance:Victory_Screen = preload("res://scenes/con_victory_screen.tscn").instantiate()
+		RefrenceNode.UI.add_child(instance)
+		instance.gold_gained = 100 ## Automatic money gain
+		instance._write()
+		instance._victory_screen_fade_in()

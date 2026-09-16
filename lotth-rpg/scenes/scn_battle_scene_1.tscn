@@ -284,7 +284,7 @@ Speed = 1
 [node name="rework" type="Node2D"]
 script = ExtResource("1_byh47")
 
-[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera") instance=ExtResource("2_iowgj")]
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera", "UI") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")
 TurnHandler = NodePath("../Turn_Handler")
 DialogicControl = NodePath("../DialogicModule")
@@ -296,6 +296,7 @@ ActButtonHandler = NodePath("../UI_battle_menu/Action_Panel_choice")
 BagHandler = NodePath("../UI_battle_menu/Bagpack")
 RunHandler = NodePath("../UI_battle_menu/Run_Panel_choice")
 ProCamera = NodePath("../Camera2D")
+UI = NodePath("../UI_battle_menu")
 
 [node name="Turn_Handler" parent="." instance=ExtResource("3_byh47")]
 

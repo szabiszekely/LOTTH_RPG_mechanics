@@ -16,7 +16,7 @@ class_name Break_Out
 var mash_waiter: bool = false
 var first_input:bool = true
 var break_out_timer_end: bool = false
-
+var break_free: bool = true
 var ReferenceNode: CrossRoad
 
 func _break_out_meter_setup(user_bo_total:int,opponent_bo_total:int,break_out_meter:float,refrence_node,masher_b = 0,reducer_b = 0,reducer_ti_de:float = 2):
@@ -48,10 +48,15 @@ func _process(delta: float) -> void:
 		progress_bar.value += 1 + (user_break_out_total/5) + masher_bonus
 	if !Input.is_anything_pressed() and mash_waiter and !break_out_timer_end:
 		timer.start()
-	if progress_bar.value == 100:
+	if progress_bar.value == 100 and break_free:
+		break_free = false 
+		## FIX THIS FIX THIS FIX THIS, DUNNO WHAT DEMON YOU SUMMONED
 		break_out_reducer.stop()
 		run_timer.stop()
-		get_tree().quit()
+		var instance:Victory_Screen = preload("res://scenes/con_victory_screen.tscn").instantiate()
+		ReferenceNode.UI.add_child(instance)
+		instance._write()
+		instance._victory_screen_fade_in()
 
 
 func _mash_waiter() -> void:

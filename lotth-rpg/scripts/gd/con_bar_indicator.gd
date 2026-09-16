@@ -99,7 +99,10 @@ func bar_damage_taken(damage:int):
 						knocked_out_counter_player += 1
 				if knocked_out_counter_player >= len(assined_characters.Initiative.sorted_player):
 					# End of the game
-					print("Enemy wins")
+					var instance = preload("res://scenes/con_fade.tscn").instantiate()
+					assined_characters.RefrenceNode.UI.add_child(instance)
+					instance._fade_in(4)
+					await instance.faded_in
 					get_tree().quit()
 			else:
 				var knocked_out_counter_enemy = 0
@@ -107,9 +110,11 @@ func bar_damage_taken(damage:int):
 					if j.CharacterIsOut == true:
 						knocked_out_counter_enemy += 1
 				if knocked_out_counter_enemy >= len(assined_characters.Initiative.sorted_enemies):
-					# End of the game
-					print("Player wins")
-					get_tree().quit()
+					var instance:Victory_Screen = preload("res://scenes/con_victory_screen.tscn").instantiate()
+					assined_characters.RefrenceNode.UI.add_child(instance)
+					instance.gold_gained = 100 ## Automatic money gain
+					instance._write()
+					instance._victory_screen_fade_in()
 				
 		else:
 			assined_characters.CharacterIsOut = false

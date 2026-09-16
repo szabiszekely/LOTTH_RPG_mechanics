@@ -18,14 +18,14 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_button"):
 		#_reset()
 		#RefrenceNode.DialogicControl._start_dialog("act_Talk")
-		RefrenceNode.PlayerGroup.all_p_actions.push_back(["act",0,RefrenceNode.InitiativeHandler.sorted_player[0],RefrenceNode.EnemyGroup.enemies[0],"Talk",self])
+		#RefrenceNode.PlayerGroup.all_p_actions.push_back(["act",0,RefrenceNode.InitiativeHandler.sorted_player[0],RefrenceNode.EnemyGroup.enemies[0],"Talk",self])
 
 		#print(RefrenceNode.DialogicControl.dialog_main)
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
-		#player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
-		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
-		#player_group.player[2]._take_damage(1,1,enemy_group.enemies[0])
-		#player_group.player[3]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[2]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[3]._take_damage(1,1,enemy_group.enemies[0])
 		##player_group.player[1].global_position.y -= 7.5521784562331/2
 		#player_group.player[1].global_position.x -= 7.5521784562331
 		#var p_kb_dir = (player_group.player[1].global_position - get_global_mouse_position()).normalized()

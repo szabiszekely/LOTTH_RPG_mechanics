@@ -24,5 +24,6 @@ class_name CrossRoad
 @export var ItemHandler: Item_handler
 @export var RunHandler: Run_control
 @export var ProCamera: Camera2D
+@export var UI: CanvasLayer
 var break_out_meter: float = 3.0
 #var Dialog_controller = MainNode.dialog_main.get_child(0).get_child(0).get_child(0)

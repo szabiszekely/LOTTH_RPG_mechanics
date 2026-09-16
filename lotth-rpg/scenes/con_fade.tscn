@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctvnpef2pi7fl"]
+
+[ext_resource type="Script" uid="uid://dbigbp8jfbscg" path="res://scripts/gd/con_fade.gd" id="1_ravbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ravbk"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Fade" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_ravbk")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ravbk")
