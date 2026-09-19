@@ -72,6 +72,9 @@ func spare_func() -> void:
 			print_debug("Can't let them go, they still not reached they Max EMP?")
 	# EMP reached, fight end HERE
 	if spared == len(enemy.enemies):
+		menu.current_state = menu.Menu_state.ALL_GONE
+		menu.vanish()
+		RefrenceNode.DialogicControl._vanish_dialog()
 		break_out.disabled = true
 		spare.disabled = true
 		spare.release_focus()

@@ -175,7 +175,7 @@ Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
-MAX_EMP = 4
+MAX_EMP = 1
 Base_Phisical_Attack = 2
 Speed = 1
 
@@ -209,7 +209,7 @@ Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
-MAX_EMP = 4
+MAX_EMP = 1
 Base_Phisical_Attack = 2
 Speed = 1
 
@@ -243,7 +243,7 @@ Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
-MAX_EMP = 4
+MAX_EMP = 1
 Base_Phisical_Attack = 2
 Speed = 1
 
@@ -277,7 +277,7 @@ Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
-MAX_EMP = 4
+MAX_EMP = 1
 Base_Phisical_Attack = 2
 Speed = 1
 

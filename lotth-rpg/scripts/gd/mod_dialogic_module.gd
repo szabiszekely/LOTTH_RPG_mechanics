@@ -26,14 +26,14 @@ func _appear_dialog():
 
 
 #dialog vanish
-func _tween_dialog(to_where,how_fast,hide_or_show):
+func _tween_dialog(to_where,how_fast,_hide_or_show):
 	if dialog_main != null:
-		print(dialog_main.get_child(0).get_child(0).get_child(0)," ", to_where," ", how_fast," ", hide_or_show)
+		#print(dialog_main.get_child(0).get_child(0).get_child(0)," ", to_where," ", how_fast," ", hide_or_show)
 		var tween = get_tree().create_tween()
 		tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast)
-		if hide_or_show:
-			await tween.finished
-			Dialogic.Text.show_textbox()
-		else:
-			Dialogic.Text.hide_textbox()
-			
+		#if hide_or_show:
+			#Dialogic.Text.show_textbox()
+		#else:
+			#await tween.finished
+			#Dialogic.Text.hide_textbox()
+			#

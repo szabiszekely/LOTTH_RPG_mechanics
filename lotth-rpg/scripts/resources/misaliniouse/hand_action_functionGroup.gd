@@ -37,6 +37,7 @@ func start_dialog():
 	source.initiative.doTrapForLoop = true
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	RefrenceNode.DialogicControl._start_dialog(timeline)
+	await Engine.get_main_loop().create_timer(0.1).timeout
 	RefrenceNode.DialogicControl._appear_dialog()
 	
 func _on_timeline_ended():
@@ -75,7 +76,6 @@ func Guard():
 	player_seperate.Fight_stats.In_Defense = true
 	
 func Talk():
-	printerr("TALK IS TALKING ",player_seperate, " ",enemy_seperate)
 	timeline = "act_Talk"
 	start_dialog()
 	enemy_seperate.emp_gained(1)
