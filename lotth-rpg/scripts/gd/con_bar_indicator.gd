@@ -27,6 +27,7 @@ var all_icon_of_remaining_actions: Array = []
 @onready var textures = [preload("res://assets/sprite/UI/spr_Health_BG.png"),preload("res://assets/sprite/UI/spr_Energy_BG.png"),preload("res://assets/sprite/UI/spr_Health_BG_ADR.png"), preload("res://assets/sprite/UI/spr_Energy_BG_ADR.png")]
 var test_ADR: bool = false
 
+var same_enemy_type = []
 
 func _ready() -> void:
 	for i in assined_characters.MaxPlayOutOptions:
@@ -39,6 +40,9 @@ func _ready() -> void:
 	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
 	name_tag.text = assined_characters.Fight_stats.name
+	#print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
+	print(_are_there_same_enemies(assined_characters.RefrenceNode.Enemeies))
+	#name_tag.text = _name_checker(assined_characters.Fight_stats.name,assined_characters.RefrenceNode.Enemeies)
 # Still ugly, but it works and I do not care about anything else
 # beauty lies in the insides... yeah close enough, but still ugly
 func _process(_delta: float) -> void:
@@ -151,3 +155,26 @@ func _reset_action_indicator():
 func _emp_bar(amount):
 	if not emp_bar == null:
 		self.emp_bar._increase_emp(amount)
+
+# Need to find all the same enemy types
+# if they exists replace their name with A, B, C or D respectivly
+# change the name
+
+func _name_checker(self_person: Character_Controller, all_teammates:Array) -> String:
+	var replaced_name = "ERROR: SOME NAME DID NOT GOT TRANSLATED"
+	replaced_name = self_person.Fight_stats.name
+	for i in len(all_teammates):
+		pass
+		
+	return replaced_name
+
+func _are_there_same_enemies(all_teammates):
+	same_enemy_type = []
+	var all_enemy_types: Dictionary = {}
+	for i in all_teammates:
+		all_enemy_types.set(i.Fight_stats.Id,0)
+	for i in all_teammates:
+		all_enemy_types[i.Fight_stats.Id] += 1
+		
+			
+	return all_enemy_types

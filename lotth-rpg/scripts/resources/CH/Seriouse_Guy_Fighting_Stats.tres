@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_cengl")
 name = "Seriouse Goofy Guy"
-Id = -1
+Id = 999
 Friend_or_Foe = 0
 MAX_HP = 20
 MAX_ENG = 20
@@ -16,9 +16,7 @@ Soul_Type = 2
 Attack_Type = 1
 PlayerDeck = ExtResource("1_mwcj6")
 Defense = 5
-Magic_Defense = 0
 MAX_EMP = 1000
-EMP = 0
 Base_Phisical_Attack = 4
 Base_Magical_Attack = 3
 Speed = 1

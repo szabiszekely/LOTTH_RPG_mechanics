@@ -7,6 +7,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_yl8kg")
 name = "Lil Goofy Guy again"
+Id = 999
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25

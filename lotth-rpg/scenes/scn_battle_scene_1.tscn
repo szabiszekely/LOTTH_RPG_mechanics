@@ -68,7 +68,7 @@ agent_radius = 21.0
 [sub_resource type="Resource" id="Resource_p7hkc"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Lil Goofy Guy 1"
+name = "Lil Goofy Guy"
 character_speaker = ExtResource("9_maoo0")
 Friend_or_Foe = 0
 MAX_HP = 25
@@ -88,7 +88,7 @@ range_in_cm = 15.0
 [sub_resource type="Resource" id="Resource_q1i6w"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Lil Goofy Guy 2"
+name = "Lil Goofy Guy"
 character_speaker = ExtResource("11_j75ph")
 Friend_or_Foe = 0
 MAX_HP = 25
@@ -108,7 +108,7 @@ range_in_cm = 15.0
 [sub_resource type="Resource" id="Resource_4y57x"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Lil Goofy Guy 3"
+name = "Lil Goofy Guy"
 character_speaker = ExtResource("13_a0dkr")
 Friend_or_Foe = 0
 MAX_HP = 25
@@ -128,7 +128,7 @@ range_in_cm = 15.0
 [sub_resource type="Resource" id="Resource_y1qm0"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
-name = "Lil Goofy Guy 4"
+name = "Lil Goofy Guy"
 character_speaker = ExtResource("14_f5jtt")
 Friend_or_Foe = 0
 MAX_HP = 25
