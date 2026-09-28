@@ -84,17 +84,9 @@ func _actions(stack):
 	
 	await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns/2).timeout
 
-	@warning_ignore("unused_variable")
-	var stackIndex: int = 0
+	#@warning_ignore("unused_variable")
+	#var stackIndex: int = 0
 	for i in play_out_action: #go through the list and do what everything does
-		# ECT, ECT
-		
-		#for j in player_group.all_p_actions:
-			#if j[0] == "run":
-				#print("hello ",j)
-		#for k in enemy_group.all_e_action:
-			#if k[0] == "run":
-				#print("hello ",k)
 
 		enemy_group._get_me_some_of_that_gd_children_enemy()
 		player_group._get_me_some_of_that_gd_children_player()
@@ -129,7 +121,7 @@ func _actions(stack):
 		await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns).timeout
 		Menu.vanish()
 		initiative.timeSpentBetweenTurns = baseTiming
-		stackIndex += 1
+		#stackIndex += 1
 	
 	#for i in enemy_group.enemies:
 		#i.EnemyAI._TurnIsOver()
@@ -158,5 +150,5 @@ func _actions(stack):
 	stack.clear()
 	initiative.initiative_index = 0
 	initiative.action_start = false
-	await Engine.get_main_loop().create_timer(2).timeout
+	await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns/2).timeout
 	main_scene._reset()

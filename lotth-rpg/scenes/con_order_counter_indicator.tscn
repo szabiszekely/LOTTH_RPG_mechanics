@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cik4k3fvdqebn"]
+[gd_scene load_steps=7 format=3 uid="uid://cik4k3fvdqebn"]
 
 [ext_resource type="Texture2D" uid="uid://bqtblo8a4vupn" path="res://assets/sprite/UI/Turn_BG.png" id="1_o28hd"]
 [ext_resource type="Script" uid="uid://dv4dr25ic82t0" path="res://scripts/gd/con_order_counter_indicator.gd" id="2_kdxbo"]
+[ext_resource type="Texture2D" uid="uid://doq8y66op1kbh" path="res://assets/sprite/UI/spr_Portrait_BG.png" id="3_aaluu"]
+[ext_resource type="Texture2D" uid="uid://d127ed38mktad" path="res://assets/sprite/UI/spr_Turn_pointer.png" id="3_rnryk"]
+[ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/spr_Portrait_Icon.png" id="4_xxs0y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xx7yl"]
 texture = ExtResource("1_o28hd")
@@ -18,3 +21,171 @@ script = ExtResource("2_kdxbo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="container" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container2" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container2"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container3" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container3"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container4" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container4"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container5" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container5"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container6" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container6"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container7" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container7"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="container8" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aaluu")
+expand_mode = 4
+
+[node name="portait" type="TextureRect" parent="VBoxContainer/container8"]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 7.5
+offset_right = 82.0
+offset_bottom = 47.5
+rotation = 1.5707964
+texture = ExtResource("4_xxs0y")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="SprTurnPointer" type="Sprite2D" parent="."]
+position = Vector2(-3, 54)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("3_rnryk")
+
+[node name="Slide_Points" type="Node2D" parent="."]
+
+[node name="1" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 54)
+
+[node name="2" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 114)
+
+[node name="3" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 174)
+
+[node name="4" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 234)
+
+[node name="5" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 294)
+
+[node name="6" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 354)
+
+[node name="7" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 414)
+
+[node name="8" type="Marker2D" parent="Slide_Points"]
+position = Vector2(-3, 474)
