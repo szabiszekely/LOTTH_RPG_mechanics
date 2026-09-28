@@ -7,10 +7,8 @@ class_name DialogicController
 
 func _begining_setup():
 	dialog_main = Dialogic.start("player_text_set_up_timeline")
-	dialog_main.register_character(RefrenceNode.PlayerGroup.player[0].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[0])
-	#dialog_main.register_character(RefrenceNode.PlayerGroup.player[1].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[1])
-	#dialog_main.register_character(RefrenceNode.PlayerGroup.player[2].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[2])
-	#dialog_main.register_character(RefrenceNode.PlayerGroup.player[3].Fight_stats.character_speaker,RefrenceNode.PlayerGroup.player[3])
+	for i in RefrenceNode.Players:
+		dialog_main.register_character(i.Fight_stats.character_speaker,i)
 
 
 #and !RefrenceNode.Initiative.action_start

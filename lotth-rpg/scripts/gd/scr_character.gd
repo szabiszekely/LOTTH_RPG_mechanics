@@ -188,3 +188,14 @@ func _play_out_actions_up():
 
 func _pass_character():
 	pass
+
+func _seperation_by_id(team:Array) -> Dictionary:
+	var asking_for_the_enemies:Array = []
+	var all_types: Dictionary = {}
+	for i in team:
+		all_types.set(i.Fight_stats.Id,[])
+	for i in team:
+		asking_for_the_enemies = all_types[i.Fight_stats.Id]
+		asking_for_the_enemies.append(i)
+		all_types[i.Fight_stats.Id] = asking_for_the_enemies
+	return all_types

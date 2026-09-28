@@ -27,7 +27,7 @@ var all_icon_of_remaining_actions: Array = []
 @onready var textures = [preload("res://assets/sprite/UI/spr_Health_BG.png"),preload("res://assets/sprite/UI/spr_Energy_BG.png"),preload("res://assets/sprite/UI/spr_Health_BG_ADR.png"), preload("res://assets/sprite/UI/spr_Energy_BG_ADR.png")]
 var test_ADR: bool = false
 
-var same_enemy_type = []
+
 
 func _ready() -> void:
 	for i in assined_characters.MaxPlayOutOptions:
@@ -39,10 +39,19 @@ func _ready() -> void:
 	ADR_bar.hide()
 	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
-	name_tag.text = assined_characters.Fight_stats.name
+	#name_tag.text = assined_characters.Fight_stats.name
 	#print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
-	print(_are_there_same_enemies(assined_characters.RefrenceNode.Enemeies))
-	#name_tag.text = _name_checker(assined_characters.Fight_stats.name,assined_characters.RefrenceNode.Enemeies)
+	if assined_characters.Fight_stats.Friend_or_Foe == 1:
+		var dict_of_enemy = assined_characters._seperation_by_id(assined_characters.RefrenceNode.Enemeies)
+		#print(dict_of_enemy)
+		for i in dict_of_enemy:
+			if len(dict_of_enemy[i]) > 1 and assined_characters in dict_of_enemy[i]:
+				print(dict_of_enemy[i])
+				name_tag.text = _name_checker(assined_characters,dict_of_enemy[i])
+			elif len(dict_of_enemy[i]) == 1 and assined_characters in dict_of_enemy[i]:
+				name_tag.text = assined_characters.Fight_stats.name
+	else:
+		name_tag.text = assined_characters.Fight_stats.name
 # Still ugly, but it works and I do not care about anything else
 # beauty lies in the insides... yeah close enough, but still ugly
 func _process(_delta: float) -> void:
@@ -162,19 +171,13 @@ func _emp_bar(amount):
 
 func _name_checker(self_person: Character_Controller, all_teammates:Array) -> String:
 	var replaced_name = "ERROR: SOME NAME DID NOT GOT TRANSLATED"
+	var who = [" A"," B"," C"," D"]
 	replaced_name = self_person.Fight_stats.name
 	for i in len(all_teammates):
-		pass
-		
-	return replaced_name
+		if assined_characters == all_teammates[i]:
+			if i > 3:
+				replaced_name += str(i+1) + " X"
+			else:
+				replaced_name += who[i]
 
-func _are_there_same_enemies(all_teammates):
-	same_enemy_type = []
-	var all_enemy_types: Dictionary = {}
-	for i in all_teammates:
-		all_enemy_types.set(i.Fight_stats.Id,0)
-	for i in all_teammates:
-		all_enemy_types[i.Fight_stats.Id] += 1
-		
-			
-	return all_enemy_types
+	return replaced_name
