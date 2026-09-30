@@ -159,12 +159,13 @@ expand_mode = 4
 stretch_mode = 4
 
 [node name="SprTurnPointer" type="Sprite2D" parent="."]
-position = Vector2(-3, 54)
+position = Vector2(7, 54)
 rotation = 1.5707964
 scale = Vector2(2, 2)
 texture = ExtResource("3_rnryk")
 
 [node name="Slide_Points" type="Node2D" parent="."]
+position = Vector2(10, 0)
 
 [node name="1" type="Marker2D" parent="Slide_Points"]
 position = Vector2(-3, 54)
