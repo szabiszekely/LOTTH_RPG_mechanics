@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://c3w40nucf3oud"]
+[gd_scene load_steps=117 format=3 uid="uid://c3w40nucf3oud"]
 
 [ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/scr_enemy_control.gd" id="1_pbqx5"]
 [ext_resource type="Texture2D" uid="uid://cyy1lqnxket53" path="res://assets/sprite/Simple Enemie/spr_Portrait_Icon_baller.png" id="2_gg1ba"]
@@ -7,8 +7,16 @@
 [ext_resource type="Resource" uid="uid://dps5ywyu0gs31" path="res://scripts/resources/CH/Baller_Figting_Stats.tres" id="4_ndcdo"]
 [ext_resource type="Texture2D" uid="uid://co1gva2770fyx" path="res://assets/sprite/Simple Enemie/spr_baller_sprite_sheet0280.png" id="5_bdy0d"]
 [ext_resource type="Texture2D" uid="uid://03iikdxlfaja" path="res://assets/sprite/Simple Enemie/spr_Baller_KO.png" id="5_cyr8h"]
+[ext_resource type="Shader" uid="uid://cunpnsww68d3n" path="res://scripts/gdshader/Pixel_Shader.gdshader" id="5_h14ga"]
 [ext_resource type="Texture2D" uid="uid://b02hk34luoif5" path="res://assets/sprite/Simple Enemie/spr_Baller_tired.png" id="7_vev7h"]
+[ext_resource type="Texture2D" uid="uid://cjii3gbml0xmg" path="res://assets/sprite/Items/spike.png" id="10_fvuha"]
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cw2vx"]
+shader = ExtResource("5_h14ga")
+shader_parameter/outline_color = Color(0, 0.4333334, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr128"]
 atlas = ExtResource("5_cyr8h")
@@ -848,16 +856,23 @@ height = 16.666668
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
 size = Vector2(12.2516, 17.7778)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Bar", "cam_target") groups=["Enemy"]]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h14ga"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 177.30002
+spread = 180.0
+gravity = Vector3(0, -98, 0)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Enemy"]]
 collision_layer = 5
 script = ExtResource("1_pbqx5")
 EnemyAI = ExtResource("2_j5hb2")
 Fight_stats = ExtResource("4_ndcdo")
 Turn_portriat = ExtResource("2_gg1ba")
-Bar = NodePath("")
 cam_target = NodePath("PCamTarget")
 
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cw2vx")
 position = Vector2(0, 19)
 sprite_frames = SubResource("SpriteFrames_ineu5")
 animation = &"idle"
@@ -907,3 +922,12 @@ visible = false
 position = Vector2(-3.02646, -11)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_f33j1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(-4, -7)
+amount = 14
+texture = ExtResource("10_fvuha")
+use_fixed_seed = true
+process_material = SubResource("ParticleProcessMaterial_h14ga")

@@ -284,13 +284,14 @@ Speed = 1
 [node name="rework" type="Node2D"]
 script = ExtResource("1_byh47")
 
-[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera", "UI") instance=ExtResource("2_iowgj")]
+[node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "Order", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera", "UI") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")
 TurnHandler = NodePath("../Turn_Handler")
 DialogicControl = NodePath("../DialogicModule")
 PlayerGroup = NodePath("../NavigationRegion2D/player_group")
 EnemyGroup = NodePath("../NavigationRegion2D/enemy_group")
 Menu = NodePath("../UI_battle_menu/Menu")
+Order = NodePath("../UI_battle_menu/Order_counter")
 AbiCard = NodePath("../UI_battle_menu/Ability_Card_choice")
 ActButtonHandler = NodePath("../UI_battle_menu/Action_Panel_choice")
 BagHandler = NodePath("../UI_battle_menu/Bagpack")
@@ -384,3 +385,4 @@ Mouse_camera_toggler = NodePath("../Mouse Pointer")
 
 [editable path="Turn_Handler"]
 [editable path="UI_battle_menu"]
+[editable path="UI_battle_menu/Order_counter"]

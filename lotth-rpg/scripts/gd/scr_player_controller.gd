@@ -37,7 +37,7 @@ func _ready() -> void:
 	instance.assined_characters = self
 	Bar_VContainer.add_child(instance)
 	Bar = instance
-
+	_character_outline_hide()
 	#moving_indicator.Fight_stats = Fight_stats
 	$character_animator.play("idle")
 	#when game start start idle get roll

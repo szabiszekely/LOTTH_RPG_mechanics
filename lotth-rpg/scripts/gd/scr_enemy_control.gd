@@ -17,7 +17,7 @@ func _ready() -> void:
 	instance.hide()
 	bar_container_enemey.add_child(instance)
 	Bar = instance
-
+	_character_outline_hide()
 	$character_animator.play("idle")
 	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler,self)
 	

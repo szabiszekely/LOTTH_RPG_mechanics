@@ -62,19 +62,20 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 
 func _actions(stack):
+	var order_index:int = 0
+	RefrenceNode.Order._show_pointer()
 	var play_out_action = []
 	for i in initiative.all_rolls: # sort all characters by initiative
 		for j in stack:
 			if i[-1] == j[2]:
 				play_out_action.append(j)
 
-
-	var all_characters = []
+	var all_running_characters = []
 	for i in play_out_action:
 		if i[0] == "run":
-			all_characters.append(i)
-	if all_characters != []:
-		run._get_all_character_break_out_total(all_characters)
+			all_running_characters.append(i)
+	if all_running_characters != []:
+		run._get_all_character_break_out_total(all_running_characters)
 		run._Run_Turn()
 
 	# stops the game until we not use the stopLoop signal
@@ -84,10 +85,13 @@ func _actions(stack):
 	
 	await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns/2).timeout
 
+	#print("Initiative: ",initiative.all_rolls,"\n Playout: ",play_out_action)
 	#@warning_ignore("unused_variable")
 	#var stackIndex: int = 0
 	for i in play_out_action: #go through the list and do what everything does
-
+		if initiative.all_rolls[order_index][-1] != i[2]:
+			i[2]._character_outline_show()
+			RefrenceNode.Order._slide_down_the_order(len(initiative.all_rolls))
 		enemy_group._get_me_some_of_that_gd_children_enemy()
 		player_group._get_me_some_of_that_gd_children_player()
 
@@ -146,7 +150,7 @@ func _actions(stack):
 				i[2].Fight_stats._Apply_Stats()
 				i[2].Fight_stats.In_Defense = false
 
-	
+	RefrenceNode.Order._slide_down_the_order(len(initiative.all_rolls))
 	stack.clear()
 	initiative.initiative_index = 0
 	initiative.action_start = false

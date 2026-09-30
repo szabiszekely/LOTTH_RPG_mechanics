@@ -16,6 +16,7 @@ class_name Character_Controller
 @export var Turn_portriat: CompressedTexture2D
 @export var Bar: Bar_system
 @export var cam_target: Node2D
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
 # this 2 is for KO and for dead states
 var CharacterIsOut: bool = false
@@ -199,3 +200,14 @@ func _seperation_by_id(team:Array) -> Dictionary:
 		asking_for_the_enemies.append(i)
 		all_types[i.Fight_stats.Id] = asking_for_the_enemies
 	return all_types
+	
+func _character_outline_show():
+	gpu_particles_2d.emitting = true
+	if Fight_stats.Friend_or_Foe == 1:
+		character_anim.material.set_shader_parameter("outline_color",Color.BLUE)
+	else:
+		character_anim.material.set_shader_parameter("outline_color",Color.RED)
+
+func _character_outline_hide():
+	gpu_particles_2d.emitting = false
+	character_anim.material.set_shader_parameter("outline_color",Color.TRANSPARENT)

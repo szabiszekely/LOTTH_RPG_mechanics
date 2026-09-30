@@ -14,13 +14,15 @@ func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(578,100.0), 0.8).set_trans(Tween.TRANS_EXPO)
 	spr_turn_pointer.position = Vector2(7,54)
-
+	_hide_pointer()
+	
 func _slide_down_the_order(max_member:int):
 	var tween_reset = false
 	if slider_index > max_member-1:
 		slider_index = 0
 		tween_reset = true
 	
+	## Add quee and await until the pointer is at the right place
 	
 	var next_point = slide_points.get_children()[slider_index]
 	var tween = get_tree().create_tween()
@@ -28,4 +30,18 @@ func _slide_down_the_order(max_member:int):
 		tween.tween_property(spr_turn_pointer,"position:y",next_point.position.y,0.2).set_trans(Tween.TRANS_ELASTIC)
 	else:
 		tween.tween_property(spr_turn_pointer,"position:y",next_point.position.y,1.2).set_trans(Tween.TRANS_LINEAR)
+		await tween.finished
+		await get_tree().create_timer(0.3).timeout
+		_hide_pointer()
 	slider_index += 1
+
+func _hide_pointer():
+	spr_turn_pointer.hide()
+
+func _show_pointer():
+	spr_turn_pointer.show()
+
+
+## Pointer Hider
+#func _pointer_reset():
+	#spr_turn_pointer.position = Vector2(7,54)

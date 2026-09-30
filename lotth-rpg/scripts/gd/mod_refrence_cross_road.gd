@@ -10,6 +10,7 @@ class_name CrossRoad
 @export var PlayerGroup: Player_group
 @export var EnemyGroup: Enemy_group
 @export var Menu: Menu_system
+@export var Order: Order_holder
 @onready var Players:
 	get:
 		return PlayerGroup.player

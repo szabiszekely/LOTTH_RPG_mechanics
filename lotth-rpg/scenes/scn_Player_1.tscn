@@ -554,10 +554,11 @@ height = 10.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiwc3"]
 size = Vector2(12.2516, 11.6667)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kgwud"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sn5ec"]
 particle_flag_disable_z = true
 angle_min = 1.0728835e-05
 angle_max = 177.30002
+spread = 180.0
 gravity = Vector3(0, -98, 0)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]
@@ -572,7 +573,7 @@ material = SubResource("ShaderMaterial_sn5ec")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 14
+frame = 8
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -619,6 +620,10 @@ scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_hiwc3")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 z_index = -1
+position = Vector2(-3, 0)
+amount = 14
 texture = ExtResource("10_sn5ec")
-process_material = SubResource("ParticleProcessMaterial_kgwud")
+use_fixed_seed = true
+process_material = SubResource("ParticleProcessMaterial_sn5ec")
