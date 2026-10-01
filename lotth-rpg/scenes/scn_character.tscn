@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjii3gbml0xmg" path="res://assets/sprite/Items/spike.png" id="3_kwko4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s3p7h"]
+resource_local_to_scene = true
 shader = ExtResource("1_kwko4")
 shader_parameter/outline_color = Color(1, 0, 0, 1)
 shader_parameter/blink_color = Color(1, 1, 1, 1)
@@ -285,4 +286,5 @@ position = Vector2(4, 0)
 amount = 14
 texture = ExtResource("3_kwko4")
 use_fixed_seed = true
+seed = 3623430450
 process_material = SubResource("ParticleProcessMaterial_plvx4")

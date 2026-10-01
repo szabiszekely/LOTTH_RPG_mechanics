@@ -202,12 +202,15 @@ func _seperation_by_id(team:Array) -> Dictionary:
 	return all_types
 	
 func _character_outline_show():
-	gpu_particles_2d.emitting = true
+	self.gpu_particles_2d.emitting = true
+	self.gpu_particles_2d.show()
 	if Fight_stats.Friend_or_Foe == 1:
-		character_anim.material.set_shader_parameter("outline_color",Color.BLUE)
+		self.character_anim.material.set_shader_parameter("outline_color",Color.BLUE)
 	else:
-		character_anim.material.set_shader_parameter("outline_color",Color.RED)
+		self.character_anim.material.set_shader_parameter("outline_color",Color.RED)
 
 func _character_outline_hide():
-	gpu_particles_2d.emitting = false
-	character_anim.material.set_shader_parameter("outline_color",Color.TRANSPARENT)
+	self.gpu_particles_2d.emitting = false
+	self.character_anim.material.set_shader_parameter("outline_color",Color.TRANSPARENT)
+	await gpu_particles_2d.finished
+	self.gpu_particles_2d.hide()

@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="12_wuf5g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cw2vx"]
+resource_local_to_scene = true
 shader = ExtResource("5_h14ga")
 shader_parameter/outline_color = Color(0, 0.4333334, 1, 1)
 shader_parameter/blink_color = Color(1, 1, 1, 1)
@@ -930,4 +931,5 @@ position = Vector2(-4, -7)
 amount = 14
 texture = ExtResource("10_fvuha")
 use_fixed_seed = true
+seed = 2235566869
 process_material = SubResource("ParticleProcessMaterial_h14ga")

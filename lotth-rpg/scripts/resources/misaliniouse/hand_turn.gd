@@ -32,8 +32,6 @@ func _ready() -> void:
 func _Does_opponent_exist(list:Array,is_this_heal):
 	#Dialogic.end_timeline()
 	var grab_a_different_character
-	@warning_ignore("unused_variable")
-	var count_me_in = 0
 	
 	if list[3] == null:
 		if list[3] in is_this_heal:
@@ -85,18 +83,22 @@ func _actions(stack):
 	
 	await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns/2).timeout
 
-	#print("Initiative: ",initiative.all_rolls,"\n Playout: ",play_out_action)
 	#@warning_ignore("unused_variable")
 	#var stackIndex: int = 0
+	if play_out_action[0][2] != null or !play_out_action[0][2].CharacterIsOut:
+		play_out_action[0][2]._character_outline_show()
+	
 	for i in play_out_action: #go through the list and do what everything does
-		if initiative.all_rolls[order_index][-1] != i[2]:
-			i[2]._character_outline_show()
-			RefrenceNode.Order._slide_down_the_order(len(initiative.all_rolls))
-		enemy_group._get_me_some_of_that_gd_children_enemy()
-		player_group._get_me_some_of_that_gd_children_player()
+	
+		if i[2] != null or !i[2].CharacterIsOut:
+			if initiative.all_rolls[order_index][-1] != i[2]:
+				i[2]._character_outline_show()
+				RefrenceNode.Order._slide_down_the_order(len(initiative.all_rolls))
+			enemy_group._get_me_some_of_that_gd_children_enemy()
+			player_group._get_me_some_of_that_gd_children_player()
 
 		if i[2] == null or i[2].CharacterIsOut:
-			i = ["pass_character"]
+					i = ["pass_character"]
 		
 		match i[0]:
 			"movement":
@@ -125,6 +127,7 @@ func _actions(stack):
 		await Engine.get_main_loop().create_timer(initiative.timeSpentBetweenTurns).timeout
 		Menu.vanish()
 		initiative.timeSpentBetweenTurns = baseTiming
+		i[2]._character_outline_hide()
 		#stackIndex += 1
 	
 	#for i in enemy_group.enemies:

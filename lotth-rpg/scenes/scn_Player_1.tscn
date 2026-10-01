@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cjii3gbml0xmg" path="res://assets/sprite/Items/spike.png" id="10_sn5ec"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sn5ec"]
+resource_local_to_scene = true
 shader = ExtResource("4_8dm7x")
 shader_parameter/outline_color = Color(1, 0, 0, 1)
 shader_parameter/blink_color = Color(1, 1, 1, 1)
@@ -573,7 +574,7 @@ material = SubResource("ShaderMaterial_sn5ec")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 8
+frame = 14
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -626,4 +627,5 @@ position = Vector2(-3, 0)
 amount = 14
 texture = ExtResource("10_sn5ec")
 use_fixed_seed = true
+seed = 1625658807
 process_material = SubResource("ParticleProcessMaterial_sn5ec")

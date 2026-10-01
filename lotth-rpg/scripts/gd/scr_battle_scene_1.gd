@@ -17,7 +17,8 @@ func _process(_delta: float) -> void:
 		_full_reset()
 
 	if Input.is_action_just_pressed("debug_button"):
-		order_counter._slide_down_the_order(len(RefrenceNode.InitiativeHandler.all_rolls))
+		RefrenceNode.Players[0]._character_outline_show()
+		#order_counter._slide_down_the_order(len(RefrenceNode.InitiativeHandler.all_rolls))
 		#_reset()
 		#RefrenceNode.DialogicControl._start_dialog("act_Talk")
 		#RefrenceNode.PlayerGroup.all_p_actions.push_back(["act",0,RefrenceNode.InitiativeHandler.sorted_player[0],RefrenceNode.EnemyGroup.enemies[0],"Talk",self])
