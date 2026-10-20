@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://fvswwl6w72f8"]
+
+[ext_resource type="Script" uid="uid://dqu26onrscshp" path="res://Testing_folder/test_remembering.gd" id="1_krokx"]
+[ext_resource type="Resource" uid="uid://po2dcodxxvl3" path="res://Testing_folder/resrc_World_Flags.tres" id="2_27org"]
+
+[node name="TestResetRemembering" type="Node2D"]
+script = ExtResource("1_krokx")
+Reset_Remembering = ExtResource("2_27org")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Player_Type_Flags" load_steps=2 format=3 uid="uid://bdpp22yqvumto"]
+
+[ext_resource type="Script" uid="uid://b71vy8dgafokk" path="res://scripts/resources/Type Flags/resrc_Player_Type_Flags.gd" id="1_7jvpx"]
+
+[resource]
+script = ExtResource("1_7jvpx")
+metadata/_custom_type_script = "uid://b71vy8dgafokk"

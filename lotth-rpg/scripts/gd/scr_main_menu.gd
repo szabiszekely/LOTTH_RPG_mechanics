@@ -19,6 +19,7 @@ func _ready() -> void:
 	_Press_start_animation(1.25)
 	lotth_tittle_screen.material.set_shader_parameter("work", true);
 	bg_light.modulate = Color.TRANSPARENT
+	
 
 
 func _input(event: InputEvent) -> void:

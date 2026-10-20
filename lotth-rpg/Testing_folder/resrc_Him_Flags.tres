@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Him_Type_Flags" load_steps=2 format=3 uid="uid://cj4scjv3bm51j"]
+
+[ext_resource type="Script" uid="uid://mc6iva5jokhp" path="res://scripts/resources/Type Flags/resrc_Him_Type_Flags.gd" id="1_ur2rk"]
+
+[resource]
+script = ExtResource("1_ur2rk")
+metadata/_custom_type_script = "uid://mc6iva5jokhp"
