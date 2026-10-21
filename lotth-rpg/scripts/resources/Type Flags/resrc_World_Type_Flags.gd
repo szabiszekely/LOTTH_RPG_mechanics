@@ -50,7 +50,7 @@ func saveWorldTypeFlags(saveWorldDict: Dictionary): ## Save the Flags
 	for i in _get_script_property(): ## Check for all the values
 		var propertyName: String = i.name ## Name of the value
 		var propertyValue = get(propertyName) ## The actual Value
-		if propertyName != "resrc_World_Type_Flags.gd":
+		if propertyName not in ["TypeFlagRoot.gd","resrc_World_Type_Flags.gd"]:
 			saveWorldDict[propertyName] = propertyValue
 	var file = FileAccess.open(WORLD_FLAG_SAVE_FILE,FileAccess.WRITE)
 	file.store_var(saveWorldDict)
@@ -63,7 +63,18 @@ func loadWorldTypeFlags(saveWorldDict: Dictionary): ## Load the flags
 	saveWorldDict = file.get_var()
 	return saveWorldDict
 	
+func loadTypeFlagsToMemory(RestoredPlayer:Dictionary,RestoredHim:Dictionary)->void:
+	RestoredHim = RestoredHim
+	RestoredPlayer = RestoredPlayer
 
+func getTypeFlagsFromMemory(indx: int)->Dictionary:
+	match indx:
+		0:
+			return RestorePlayer
+		1:
+			return RestoreHim
+	return RestorePlayer
+	
 
 # when focused there is a chance you get an item
 # enemies strength + speed vs the players focus stat

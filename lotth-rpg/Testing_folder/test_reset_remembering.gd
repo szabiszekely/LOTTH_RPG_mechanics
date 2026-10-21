@@ -64,6 +64,11 @@ func readAllTypeFlags():
 	World_type_flags.getTypeFlags()
 	print("\n")
 
+func writeAllTypesToMemory(World:Dictionary,player:Dictionary,Him:Dictionary):
+	Him_type_flags.loadTypeFlagsToMemory(player,World)
+	Player_type_flags.loadTypeFlagsToMemory(Him)
+	World_type_flags.loadTypeFlagsToMemory(player,Him)
+
 
 #endregion
 #region World

@@ -17,5 +17,8 @@ func getTypeFlags():
 		if propertyName not in ["resrc_World_Type_Flags.gd","TypeFlagRoot.gd","resrc_Player_Type_Flags.gd","resrc_Him_Type_Flags.gd"]:
 			print(propertyName," ",propertyValue)
 
-func loadOtherTypeFlagsToMemory():
+func loadTypeFlagsToMemory(_Value1,_Value2)->void:
+	pass
+
+func getTypeFlagsFromMemory(_Indx: int):
 	pass

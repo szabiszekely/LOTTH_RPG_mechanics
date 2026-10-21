@@ -26,7 +26,7 @@ func saveHimTypeFlags(saveHimDict: Dictionary): ## Save the Flags
 	for i in _get_script_property():
 		var propertyName: String = i.name
 		var propertyValue = get(propertyName)
-		if propertyName != "resrc_Him_Type_Flags.gd":
+		if propertyName not in ["TypeFlagRoot.gd","resrc_Him_Type_Flags.gd"]:
 			saveHimDict[propertyName] = propertyValue
 	var file = FileAccess.open(HIM_FLAG_SAVE_FILE,FileAccess.WRITE)
 	file.store_var(saveHimDict)
@@ -39,3 +39,14 @@ func loadHimTypeFlags(saveHimDict: Dictionary): ## Load the flags
 	saveHimDict = file.get_var()
 	return saveHimDict
 	
+func loadTypeFlagsToMemory(RestoredPlayer:Dictionary,RestoredWorld:Dictionary)->void:
+	RestoreWorld = RestoredWorld
+	RestoredPlayer = RestoredPlayer
+
+func getTypeFlagsFromMemory(indx: int)->Dictionary:
+	match indx:
+		0:
+			return RestorePlayer
+		1:
+			return RestoreWorld
+	return RestorePlayer

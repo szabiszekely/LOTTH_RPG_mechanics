@@ -21,7 +21,7 @@ func savePlayerTypeFlags(savePlayerDict: Dictionary): ## Save the Flags
 	for i in _get_script_property():
 		var propertyName: String = i.name
 		var propertyValue = get(propertyName)
-		if propertyName != "resrc_Player_Type_Flags.gd":
+		if propertyName not in ["TypeFlagRoot.gd","resrc_Player_Type_Flags.gd"]:
 			savePlayerDict[propertyName] = propertyValue
 	var file = FileAccess.open(PLAYER_FLAG_SAVE_FILE,FileAccess.WRITE)
 	file.store_var(savePlayerDict)
@@ -33,4 +33,9 @@ func loadPlayerTypeFlags(savePlayerDict: Dictionary): ## Load the flags
 	var file = FileAccess.open(PLAYER_FLAG_SAVE_FILE,FileAccess.READ)
 	savePlayerDict = file.get_var()
 	return savePlayerDict
-	
+
+func loadTypeFlagsToMemory(RestoredHim:Dictionary,_NeverUsed: String = "Babeta :D")->void:
+	RestoredHim = RestoredHim
+
+func getTypeFlagsFromMemory(_indx: int)->Dictionary:
+	return RestoreHim
