@@ -15,8 +15,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cw2vx"]
 resource_local_to_scene = true
 shader = ExtResource("5_h14ga")
-shader_parameter/outline_color = Color(0, 0.4333334, 1, 1)
-shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Color(0, 0.92156863, 1, 1)
+shader_parameter/blink_color = Color(0.76862746, 0.92941177, 1, 1)
 shader_parameter/blink_time_scale = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr128"]
@@ -900,8 +900,7 @@ shape = SubResource("CapsuleShape2D_1inbq")
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-3, -54)
-scale = Vector2(3, 3)
+position = Vector2(-3, -38)
 texture = ExtResource("2_htaiq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

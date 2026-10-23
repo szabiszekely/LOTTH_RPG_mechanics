@@ -40,8 +40,11 @@ func loadHimTypeFlags(saveHimDict: Dictionary): ## Load the flags
 	return saveHimDict
 	
 func loadTypeFlagsToMemory(RestoredPlayer:Dictionary,RestoredWorld:Dictionary)->void:
+	RestoredPlayer.erase("RestoreHim")
+	RestoredWorld.erase("RestoreHim")
+	RestoredWorld.erase("RestorePlayer")
 	RestoreWorld = RestoredWorld
-	RestoredPlayer = RestoredPlayer
+	RestorePlayer = RestoredPlayer
 
 func getTypeFlagsFromMemory(indx: int)->Dictionary:
 	match indx:

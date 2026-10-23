@@ -17,18 +17,26 @@ func _start_dialog(name_of_timeline: String):
 	dialog_main = Dialogic.start(name_of_timeline)
 
 func _vanish_dialog():
-		_tween_dialog(0,0.1,true)
+		_tween_dialog(0,0.2,true,380,-350)
 
 func _appear_dialog():
-		_tween_dialog(-233,0.1,false)
+		_tween_dialog(-180.0,0.2,false,407,-420)
 
 
 #dialog vanish
-func _tween_dialog(to_where,how_fast,_hide_or_show):
+func _tween_dialog(to_where,how_fast,_hide_or_show,to_where_right,to_where_left):
 	if dialog_main != null:
 		#print(dialog_main.get_child(0).get_child(0).get_child(0)," ", to_where," ", how_fast," ", hide_or_show)
-		var tween = get_tree().create_tween()
-		tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast)
+		var tween = get_tree().create_tween().set_parallel(true)
+		if _hide_or_show:
+			tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast)
+			tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"offset_right",to_where_right,how_fast)
+			tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"offset_left",to_where_left,how_fast)
+		else:
+			tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"offset_right",to_where_right,how_fast)
+			tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"offset_left",to_where_left,how_fast)
+			tween.tween_property(dialog_main.get_child(0).get_child(0).get_child(0),"position:y",to_where,how_fast).set_delay(0.2)
+			
 		#if hide_or_show:
 			#Dialogic.Text.show_textbox()
 		#else:

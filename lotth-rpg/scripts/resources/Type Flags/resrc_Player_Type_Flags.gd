@@ -35,7 +35,9 @@ func loadPlayerTypeFlags(savePlayerDict: Dictionary): ## Load the flags
 	return savePlayerDict
 
 func loadTypeFlagsToMemory(RestoredHim:Dictionary,_NeverUsed: String = "Babeta :D")->void:
-	RestoredHim = RestoredHim
+	RestoredHim.erase("RestoreWorld")
+	RestoredHim.erase("RestorePlayer")
+	RestoreHim = RestoredHim
 
 func getTypeFlagsFromMemory(_indx: int)->Dictionary:
 	return RestoreHim

@@ -574,7 +574,7 @@ material = SubResource("ShaderMaterial_sn5ec")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 14
+frame = 13
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -595,8 +595,7 @@ shape = SubResource("CapsuleShape2D_hiwc3")
 
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(6, -46)
-scale = Vector2(2, 2)
+position = Vector2(0, -37)
 texture = ExtResource("7_pdrwc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

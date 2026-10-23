@@ -61,11 +61,22 @@ func loadWorldTypeFlags(saveWorldDict: Dictionary): ## Load the flags
 		saveWorldTypeFlags(saveWorldDict)
 	var file = FileAccess.open(WORLD_FLAG_SAVE_FILE,FileAccess.READ)
 	saveWorldDict = file.get_var()
+	for i in saveWorldDict:
+		if i not in ["TypeFlagRoot.gd","resrc_World_Type_Flags.gd"]:
+			for j in _get_script_property():
+				#print(j)
+				if j.name == i:
+					set(j.name,saveWorldDict[i])
+	print(getTypeFlags())
 	return saveWorldDict
 	
 func loadTypeFlagsToMemory(RestoredPlayer:Dictionary,RestoredHim:Dictionary)->void:
-	RestoredHim = RestoredHim
-	RestoredPlayer = RestoredPlayer
+	var temp: Dictionary = {}
+	RestoredPlayer.erase("RestoreHim")
+	RestoredHim.erase("RestoreWorld")
+	RestoredHim.erase("RestorePlayer")
+	RestoreHim = RestoredHim
+	RestorePlayer = RestoredPlayer
 
 func getTypeFlagsFromMemory(indx: int)->Dictionary:
 	match indx:
