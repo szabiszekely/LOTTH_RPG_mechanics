@@ -6,6 +6,8 @@ class_name Order_holder
 @onready var slide_points: Node2D = $Slide_Points
 @onready var spr_turn_pointer: Sprite2D = $SprTurnPointer
 var slider_index:int = 1
+var tween_reset = false
+	
 # this is the UI that is important to add the icons and the turn order to the UIí
 func _ready() -> void:
 	Initiative._getting_all_rolls(Initiative.all_rolls,$VBoxContainer)
@@ -17,10 +19,10 @@ func _ready() -> void:
 	_hide_pointer()
 	
 func _slide_down_the_order(max_member:int):
-	var tween_reset = false
 	if slider_index > max_member-1:
-		slider_index = 0
+		_reset_back_to_the_start()
 		tween_reset = true
+
 	
 	## Add quee and await until the pointer is at the right place
 	
@@ -34,6 +36,9 @@ func _slide_down_the_order(max_member:int):
 		await get_tree().create_timer(0.3).timeout
 		_hide_pointer()
 	slider_index += 1
+
+func _reset_back_to_the_start():
+	slider_index = 0
 
 func _hide_pointer():
 	spr_turn_pointer.hide()

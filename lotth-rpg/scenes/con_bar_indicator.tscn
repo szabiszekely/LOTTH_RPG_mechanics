@@ -1,19 +1,28 @@
-[gd_scene load_steps=17 format=3 uid="uid://des8df6ewmnm7"]
+[gd_scene load_steps=21 format=3 uid="uid://des8df6ewmnm7"]
 
-[ext_resource type="Texture2D" uid="uid://bjlhludno8sn0" path="res://assets/sprite/UI/spr_Name_plate.png" id="1_0kdak"]
 [ext_resource type="Script" uid="uid://ng0hwxugn03s" path="res://scripts/gd/con_bar_indicator.gd" id="1_e6dm4"]
 [ext_resource type="Script" uid="uid://b2mk5lu1vu5mp" path="res://scripts/gd/scr_autosizer.gd" id="2_e6dm4"]
+[ext_resource type="Shader" uid="uid://cunpnsww68d3n" path="res://scripts/gdshader/Pixel_Shader.gdshader" id="2_tq3le"]
+[ext_resource type="Texture2D" uid="uid://sdq1a8p4osxb" path="res://assets/sprite/UI/spr_New_Name_plate.png" id="3_0dp0b"]
 [ext_resource type="Texture2D" uid="uid://c18t041tumpk" path="res://assets/sprite/UI/spr_Health_BG.png" id="3_u207d"]
 [ext_resource type="Texture2D" uid="uid://b2wefr147ijth" path="res://assets/sprite/UI/spr_Energy_BG.png" id="4_yhdwd"]
 [ext_resource type="Shader" uid="uid://b3fhbkheprfpq" path="res://scripts/gdshader/progress_bar.gdshader" id="5_k8pus"]
 [ext_resource type="Script" uid="uid://bhn3gywy1uo55" path="res://scripts/gd/scr_progress_bar.gd" id="6_rdvyn"]
-[ext_resource type="Texture2D" uid="uid://dp3m8pm7j520r" path="res://assets/sprite/UI/spr_Bar_border.png" id="7_uasi5"]
+[ext_resource type="Texture2D" uid="uid://cpyx3as02w1bd" path="res://assets/sprite/UI/spr_New_Bar_border.png" id="10_mmclw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hc74o"]
+shader = ExtResource("2_tq3le")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxmg4"]
-texture = ExtResource("1_0kdak")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
+texture = ExtResource("3_0dp0b")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_122bq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjggw"]
 texture = ExtResource("3_u207d")
@@ -269,12 +278,18 @@ shader_parameter/slant_amount = 0.0
 shader_parameter/scale = 0.0
 shader_parameter/slant_clip_margin = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pkcq"]
+shader = ExtResource("2_tq3le")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3d28"]
-texture = ExtResource("7_uasi5")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
+texture = ExtResource("10_mmclw")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [node name="Bar_System" type="Control"]
 layout_mode = 3
@@ -288,6 +303,7 @@ grow_vertical = 2
 script = ExtResource("1_e6dm4")
 
 [node name="Name_tab" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_hc74o")
 layout_mode = 0
 offset_left = 3.0
 offset_top = 13.0
@@ -315,6 +331,7 @@ clip_text = true
 script = ExtResource("2_e6dm4")
 
 [node name="Health" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_122bq")
 layout_mode = 0
 offset_left = 179.0
 offset_top = 7.0
@@ -410,6 +427,7 @@ offset_bottom = 61.0
 script = ExtResource("6_rdvyn")
 
 [node name="Bar_Border" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_2pkcq")
 layout_mode = 0
 offset_top = 38.0
 offset_right = 313.0

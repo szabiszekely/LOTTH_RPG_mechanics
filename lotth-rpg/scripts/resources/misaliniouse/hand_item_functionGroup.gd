@@ -15,7 +15,7 @@ func _get_item_and_redirect_it(item_name,menu,player,enemy,item_id):
 	enemy_handeler = enemy
 	item_data = item_name
 	item_uuid = item_id
-	print(item_id," ",item_uuid)
+	#print(item_id," ",item_uuid)
 	#print(item_data)
 	call(item_data["Name"])
 

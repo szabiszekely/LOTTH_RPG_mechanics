@@ -146,7 +146,7 @@ func _fade_away_death():
 				index += 1
 		Initiative.sorted_enemies.erase(self)
 		Initiative.sorted_player.erase(self)
-		print(Initiative.sorted_enemies," ",Initiative.sorted_player)
+		#print(Initiative.sorted_enemies," ",Initiative.sorted_player)
 		Initiative.doTrapForLoop = true
 		character_anim.pause()
 		var soul_fire = preload("res://scenes/con_soul_fire_indicator.tscn").instantiate()

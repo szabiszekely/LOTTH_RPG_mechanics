@@ -107,7 +107,6 @@ func get_item_stats_exists(Name: String):
 	for i in content["Items"]:
 		if Name == i["Name"]:
 			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
-			print(stats)
 			if stats != [0.0,0.0,0.0,0.0,0.0]:
 				return true
 			else:

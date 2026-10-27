@@ -89,8 +89,7 @@ func Distracting_Beauty():
 func Throw_Away_Joke():
 	var find_index = attacker_index.Fight_stats.PlayerDeck.Deck.find("Throw Away Joke")
 	attacker_index.Fight_stats.PlayerDeck.Deck.remove_at(find_index)
-	print(attacker_index.Fight_stats.PlayerDeck.Deck)
-
+	
 func Spin_Roll():
 	pass
 

@@ -19,6 +19,7 @@ class_name Bar_system
 @onready var action_remaining: HBoxContainer = $Action_remaining
 @onready var health_pos: Marker2D = $Health_pos
 @onready var energy_pos: Marker2D = $Energy_pos
+@onready var bar_border: Panel = $Bar_Border
 
 
 @onready var action_indicator = preload("res://scenes/con_action_indicator.tscn")
@@ -181,3 +182,13 @@ func _name_checker(self_person: Character_Controller, all_teammates:Array) -> St
 				replaced_name += who[i]
 
 	return replaced_name
+
+func _flash_all_start():
+	_turn_flash_start_border()
+	_turn_flash_start_name()
+
+func _turn_flash_start_border():
+	bar_border.material.set_shader_parameter("outline_color",Color.WHITE)
+
+func _turn_flash_start_name():
+	name_tag_container.material.set_shader_parameter("outline_color",Color.WHITE)
