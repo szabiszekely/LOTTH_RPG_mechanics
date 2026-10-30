@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 func _slide_down_the_order(max_member:int):
 	if slider_index > max_member-1:
-		_reset_back_to_the_start()
+		slider_index = 0
 		tween_reset = true
 
 	
@@ -39,6 +39,10 @@ func _slide_down_the_order(max_member:int):
 
 func _reset_back_to_the_start():
 	slider_index = 0
+	tween_reset = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(spr_turn_pointer,"position:y",slide_points.get_children()[slider_index].position.y,1.2).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished
 
 func _hide_pointer():
 	spr_turn_pointer.hide()
