@@ -25,7 +25,8 @@ func _appear_dialog():
 
 #dialog vanish
 func _tween_dialog(to_where,how_fast,_hide_or_show,to_where_right,to_where_left):
-	if dialog_main != null:
+	#print(dialog_main.name)
+	if dialog_main != null and dialog_main.name == "DialogicLayout_NormalTextbox":
 		#print(dialog_main.get_child(0).get_child(0).get_child(0)," ", to_where," ", how_fast," ", hide_or_show)
 		var tween = get_tree().create_tween().set_parallel(true)
 		if _hide_or_show:

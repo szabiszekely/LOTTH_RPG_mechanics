@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://divhpilh40087"]
+
+[ext_resource type="Script" uid="uid://dr8ldj1suvey2" path="res://Testing_folder/test_heal_indicator.gd" id="1_wja2e"]
+
+[node name="test_heal_indicator" type="Node2D"]
+script = ExtResource("1_wja2e")

@@ -135,6 +135,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Run")
 focus_neighbor_right = NodePath("../Action")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("3_4xss1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
@@ -148,6 +149,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Abilities")
 focus_neighbor_right = NodePath("../Movement")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_koyoc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
@@ -162,6 +164,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Action")
 focus_neighbor_right = NodePath("../Bagpack")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fday4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
@@ -176,6 +179,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Movement")
 focus_neighbor_right = NodePath("../Run")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("3_4xss1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
@@ -192,6 +196,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Bagpack")
 focus_neighbor_right = NodePath("../Abilities")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("3_4xss1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7dry1")
@@ -223,6 +228,7 @@ offset_top = -70.0
 offset_right = 108.0
 offset_bottom = -70.0
 scale = Vector2(0.95, 0.95)
+mouse_filter = 2
 
 [node name="Bagpack" parent="." instance=ExtResource("10_4fxo3")]
 z_index = -1
@@ -231,12 +237,14 @@ offset_top = 3.0
 offset_right = 351.0
 offset_bottom = 358.0
 scale = Vector2(0.97, 0.97)
+mouse_filter = 2
 
 [node name="Run_Panel_choice" parent="." instance=ExtResource("2_82t3g")]
 offset_left = 1043.0
 offset_top = 845.0
 offset_right = 1197.0
 offset_bottom = 1036.0
+mouse_filter = 2
 
 [node name="Order_counter" parent="." instance=ExtResource("5_180k0")]
 anchors_preset = 8

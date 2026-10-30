@@ -37,11 +37,13 @@ theme_override_constants/separation = 30
 [node name="Break_out" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Spare")
+mouse_filter = 2
 text = "Break out"
 
 [node name="Spare" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Break_out")
+mouse_filter = 2
 text = "Spare"
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]

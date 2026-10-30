@@ -64,12 +64,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
@@ -77,6 +79,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button4" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
@@ -84,12 +87,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button5" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button6" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
@@ -97,6 +102,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button7" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
@@ -104,12 +110,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button8" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button9" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
@@ -117,6 +125,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/Grid 1_2"]
@@ -136,12 +145,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
@@ -150,6 +161,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../../../Next_Previouse_Page")
 focus_next = NodePath("../../Grid 1_2/Button")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button4" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
@@ -157,12 +169,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button5" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button6" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
@@ -171,6 +185,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../../../Next_Previouse_Page")
 focus_next = NodePath("../Button")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button7" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
@@ -178,12 +193,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button8" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Button9" type="Button" parent="PanelContainer/MarginContainer/Grid 2_2"]
@@ -191,6 +208,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../../../Next_Previouse_Page")
+mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/Grid 2_2"]

@@ -38,16 +38,19 @@ columns = 3
 layout_mode = 2
 focus_neighbor_right = NodePath("../top_left")
 focus_neighbor_bottom = NodePath("../focus")
+mouse_filter = 2
 text = "Check"
 
 [node name="top_left" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 
 [node name="top_right" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 alignment = 0
 
@@ -56,32 +59,38 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../check")
 focus_neighbor_right = NodePath("../middle_left")
 focus_neighbor_bottom = NodePath("../guard")
+mouse_filter = 2
 text = "Focus"
 
 [node name="middle_left" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 
 [node name="middle_right" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 alignment = 0
 
 [node name="guard" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 text = "Guard"
 
 [node name="bottom_left" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 alignment = 0
 
 [node name="bottom_right" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 alignment = 0
 

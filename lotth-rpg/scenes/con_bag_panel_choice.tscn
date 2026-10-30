@@ -36,6 +36,7 @@ theme_override_constants/margin_bottom = 150
 
 [node name="Inventory" type="ItemList" parent="test"]
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("3_e3rlx")
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 20

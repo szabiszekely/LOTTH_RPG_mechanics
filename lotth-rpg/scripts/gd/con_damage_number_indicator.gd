@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var attack_indicator: Sprite2D = $Attack_indicator
 @onready var damage_number: Label = $Label
+@onready var heal_particle: GPUParticles2D = $GPUParticles2D
 const ATTACK_INDICATOR_BLOCKED = preload("uid://dnjxtougq2he1")
 const ATTACK_INDICATOR_NEGATIVE = preload("uid://cf3cwg7h21m8m")
 
@@ -79,3 +80,10 @@ func true_taken_damage(hit):
 	tweens.tween_property(self,"modulate",Color.TRANSPARENT,1.3).set_trans(Tween.TRANS_QUAD)
 	await tweens.finished
 	self.queue_free()
+
+func helaing_taken(hit):
+	#var tweens = get_tree().create_tween()
+	heal_particle.amount = hit
+	heal_particle.emission_sphere_radius = int(hit/2) * 5
+	heal_particle
+	pass

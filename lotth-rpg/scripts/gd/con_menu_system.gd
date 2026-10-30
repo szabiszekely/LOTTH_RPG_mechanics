@@ -262,28 +262,7 @@ func _input(event: InputEvent) -> void:
 				current_state = Menu_state.CHOOSING_ENEMIES
 				#print("Hi")
 	# disables all the UI stuff and you can look around
-	if event.is_action_pressed("Cam_change"):
-		if Mouse_camera_toggler.camera_toggle == true:
-			vanish()
-			current_state = Menu_state.ALL_GONE
-		else:
-			pass
-			#back_to_normal()
-			#match current_memory_state:
-				#Menu_state.ABILITES:
-					#abi_container = true
-				#Menu_state.ACTIONS:
-					#act_container = true
-				#Menu_state.MOVEMENT:
-					#move_container = true
-				#Menu_state.BAG:
-					#bag_container = true
-				#Menu_state.RUN:
-					#run_container = true
-				#
-				#
-			#current_state = current_memory_state
-
+	
 # hides the UI (Kinda...)
 func vanish():
 	menu.hide()

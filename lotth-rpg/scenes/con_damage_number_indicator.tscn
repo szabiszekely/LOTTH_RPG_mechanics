@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1qv0jnx6ca1n"]
+[gd_scene load_steps=7 format=3 uid="uid://b1qv0jnx6ca1n"]
 
 [ext_resource type="Script" uid="uid://g7j7ajp5jp3c" path="res://scripts/gd/con_damage_number_indicator.gd" id="1_7momn"]
 [ext_resource type="Texture2D" uid="uid://doqipbkiexdhn" path="res://assets/sprite/UI/spr_Attack_indicator_sprite_sheet_with_true_damage.png" id="2_7aaev"]
+[ext_resource type="Texture2D" uid="uid://cnlugydnposbx" path="res://assets/sprite/UI/spr_energy_heal_indicator.png" id="3_1kcus"]
 
 [sub_resource type="FontVariation" id="FontVariation_hty4a"]
 variation_embolden = 2.0
@@ -14,6 +15,13 @@ font_color = Color(0.97, 0.97, 0.97, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0.096, 0.1312, 0.16, 0.917647)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_py5eo"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector3(0, -98, 0)
 
 [node name="Attack_indicator" type="Node2D"]
 script = ExtResource("1_7momn")
@@ -40,3 +48,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.82, 2.82)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, 0)
+texture = ExtResource("3_1kcus")
+process_material = SubResource("ParticleProcessMaterial_py5eo")
