@@ -149,7 +149,7 @@ func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 					HP_bar.increase_bar_value(1)
 					assined_characters.Fight_stats.HP += 1
 					await get_tree().create_timer(0.15).timeout
-
+	assined_characters._comprassed_heal_damage(health_gain,heal_eng_or_health)
 func _set_name_tag(value:String)->void:
 	name_tag.text = value
 

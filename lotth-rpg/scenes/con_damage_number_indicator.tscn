@@ -50,6 +50,7 @@ metadata/_edit_use_anchors_ = true
 zoom = Vector2(2.82, 2.82)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(53, 0)
+emitting = false
 texture = ExtResource("3_1kcus")
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_py5eo")

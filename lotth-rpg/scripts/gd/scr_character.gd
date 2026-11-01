@@ -136,6 +136,12 @@ func _comprassed_take_damage(card:bool,hit):
 	await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
 	_camera_off()
 
+func _comprassed_heal_damage(hit, health_or_eng):
+	var got_heal = damage_indicator.instantiate()
+	got_heal.healing_or_damaging = true
+	self.add_child(got_heal)
+	got_heal.helaing_taken(hit,health_or_eng)
+	
 # long ass fade away animation
 func _fade_away_death():
 		var index = 0

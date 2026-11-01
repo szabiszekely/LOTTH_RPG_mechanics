@@ -5,13 +5,18 @@ extends Node2D
 @onready var heal_particle: GPUParticles2D = $GPUParticles2D
 const ATTACK_INDICATOR_BLOCKED = preload("uid://dnjxtougq2he1")
 const ATTACK_INDICATOR_NEGATIVE = preload("uid://cf3cwg7h21m8m")
+var healing_or_damaging: bool = false ## false = damage, true = healing
 
 # set everything up when it is spawned
 func _ready() -> void:
-	attack_indicator.scale = Vector2(1.2,1.2)
-	damage_number.visible_characters = 4
-	damage_number.modulate = Color.TRANSPARENT
-	attack_indicator.frame = 0
+	if !healing_or_damaging:
+		attack_indicator.scale = Vector2(1.2,1.2)
+		damage_number.visible_characters = 4
+		damage_number.modulate = Color.TRANSPARENT
+		attack_indicator.frame = 0
+	else:
+		attack_indicator.queue_free()
+		damage_number.queue_free()
 
 # when called we define the damage of our hit
 func taken_damage(hit):
@@ -81,9 +86,17 @@ func true_taken_damage(hit):
 	await tweens.finished
 	self.queue_free()
 
-func helaing_taken(hit):
-	#var tweens = get_tree().create_tween()
+func helaing_taken(hit,type: int):
+	
+	match type:
+		1:
+			heal_particle.texture = preload("uid://cnlugydnposbx")
+		2:
+			heal_particle.texture = preload("uid://i7qicssm28hx")
+	
 	heal_particle.amount = hit
-	heal_particle.emission_sphere_radius = int(hit/2) * 5
-	heal_particle
-	pass
+	heal_particle.process_material.emission_sphere_radius = clamp(int(hit/2) * 5,1,15) 
+	heal_particle.emitting = true
+	await heal_particle.finished
+	self.queue_free()
+	
