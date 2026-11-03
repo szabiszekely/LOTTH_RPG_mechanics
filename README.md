@@ -3,4 +3,4 @@
 
 This is (or was) an early concept of the mechanic.
 
-Use Godot 4.4 to after downloading the project and in godot just import it and from there everything should be working correctily!
+USE Godot 4.5.2 after downloading, Everything in the project relize on this version and in godot just import it and from there everything should be working correctily!
