@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=41 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://bjxp4trjj60pn" path="res://scripts/gd/scr_battle_scene_1.gd" id="1_byh47"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
@@ -13,11 +13,14 @@
 [ext_resource type="Resource" uid="uid://bv1ssilnspy62" path="res://scripts/resources/Text_Box/Alex.dch" id="9_maoo0"]
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/resrc_Basic_stats.gd" id="10_3bun2"]
 [ext_resource type="Resource" uid="uid://bo7kw3v2nra6b" path="res://scripts/resources/Text_Box/Myna.dch" id="11_j75ph"]
-[ext_resource type="Texture2D" uid="uid://do4mcmq0nu2su" path="res://assets/sprite/Player 2/spr_Portrait_Icon.png" id="12_ko4ly"]
 [ext_resource type="Resource" uid="uid://co36r3liwrti8" path="res://scripts/resources/Text_Box/Huba.dch" id="13_a0dkr"]
+[ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/spr_Portrait_Icon.png" id="13_oxvkq"]
+[ext_resource type="Texture2D" uid="uid://cc7obgis0s0ab" path="res://assets/sprite/Player/spr_Portrait_Icon_diff2.png" id="14_mh5d7"]
 [ext_resource type="Script" uid="uid://cg06exgelwcxu" path="res://scripts/gd/scr_enemy_group.gd" id="15_qkqdd"]
 [ext_resource type="PackedScene" uid="uid://c3w40nucf3oud" path="res://scenes/scn_Baller_enemy.tscn" id="16_lsh8y"]
+[ext_resource type="Texture2D" uid="uid://b1dtiuko3vgnp" path="res://assets/sprite/Player/spr_Portrait_Icon_diff3.png" id="16_oxvkq"]
 [ext_resource type="Script" uid="uid://cx5ba8cqethcy" path="res://scripts/resources/Enemy AI/resrc_BallerAI.gd" id="17_ait1m"]
+[ext_resource type="Texture2D" uid="uid://dlp4fw7qrjfsv" path="res://assets/sprite/Player/spr_Portrait_Icon_diff.png" id="17_wnwgh"]
 [ext_resource type="Resource" uid="uid://b5rud4uqx1g0a" path="res://scripts/resources/Decks/Baller_deck.tres" id="18_ok83x"]
 [ext_resource type="Texture2D" uid="uid://cyrxfj2klqis7" path="res://assets/sprite/Simple Enemie/spr_Portrait_Icon_baller_different.png" id="19_6yonr"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/scn_UI_battle_menu.tscn" id="20_aqp4o"]
@@ -324,25 +327,43 @@ script = ExtResource("5_mh5d7")
 script = ExtResource("6_oxvkq")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
-position = Vector2(-127, -2)
+position = Vector2(-204, -2)
 Fight_stats = SubResource("Resource_p7hkc")
 MaxPlayOutOptions = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/player_group/Player"]
+position = Vector2(0, 15)
+texture = ExtResource("13_oxvkq")
+
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
-position = Vector2(-203, -3)
+position = Vector2(-125, -3)
 Fight_stats = SubResource("Resource_q1i6w")
-Turn_portriat = ExtResource("12_ko4ly")
+Turn_portriat = ExtResource("14_mh5d7")
 MaxPlayOutOptions = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="NavigationRegion2D/player_group/Player2"]
+position = Vector2(0, 17)
+texture = ExtResource("14_mh5d7")
 
 [node name="Player3" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
-position = Vector2(-123, 75)
+position = Vector2(-200, 75)
 Fight_stats = SubResource("Resource_4y57x")
+Turn_portriat = ExtResource("16_oxvkq")
 MaxPlayOutOptions = 1
 
+[node name="Sprite2D3" type="Sprite2D" parent="NavigationRegion2D/player_group/Player3"]
+position = Vector2(0, 15)
+texture = ExtResource("16_oxvkq")
+
 [node name="Player5" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
-position = Vector2(-201, 77)
+position = Vector2(-123, 77)
 Fight_stats = SubResource("Resource_iowgj")
+Turn_portriat = ExtResource("17_wnwgh")
 MaxPlayOutOptions = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="NavigationRegion2D/player_group/Player5"]
+position = Vector2(0, 14)
+texture = ExtResource("17_wnwgh")
 
 [node name="enemy_group" type="Node2D" parent="NavigationRegion2D"]
 script = ExtResource("15_qkqdd")
@@ -374,13 +395,10 @@ Turn_portriat = ExtResource("19_6yonr")
 MaxPlayOutOptions = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2, -149)
+position = Vector2(2, -136)
 zoom = Vector2(2, 2)
 
 [node name="UI_battle_menu" parent="." instance=ExtResource("20_aqp4o")]
-
-[node name="Menu" parent="UI_battle_menu" index="0" node_paths=PackedStringArray("get_the_children")]
-get_the_children = NodePath("MarginContainer/HBoxContainer")
 
 [node name="Bar_container_player" parent="UI_battle_menu" index="6"]
 offset_top = 617.0

@@ -51,23 +51,23 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
 			if sub_index > 0:
 				sub_index -= 1
-				switch_focus(sub_index, sub_index+1)
+				switch_player_focus(sub_index, sub_index+1)
 			else:
 				sub_index = player.size() -1
-				switch_focus(sub_index,0)
+				switch_player_focus(sub_index,0)
 		
-		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
+		elif Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
 			if sub_index < player.size() - 1:
 				sub_index += 1
-				switch_focus(sub_index, sub_index-1)
+				switch_player_focus(sub_index, sub_index-1)
 			else:
 				sub_index = 0
-				switch_focus(sub_index,player.size() - 1)
+				switch_player_focus(sub_index,player.size() - 1)
 		
-		if Input.is_action_just_pressed("ui_accept") and start_choosing == true:
+		elif Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			if menu_system.abi == true and start_choosing == true:
 				menu_system.abi = false
-				all_p_actions.push_back(["atk",1,initiative.sorted_player[p_index],player[sub_index],card_againts_players])
+				all_p_actions.push_back(["atk",1,player[p_index],player[sub_index],card_againts_players])
 				_reset_focus()
 				menu.vanish()
 				initiative.sorted_player[p_index]._play_out_tick_down()
@@ -77,7 +77,7 @@ func _process(_delta: float) -> void:
 			if menu_system.bag == true:
 				menu_system.bag = false
 
-				all_p_actions.push_back(["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players),item_uuid_againts_players])
+				all_p_actions.push_back(["bag",0,player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players),item_uuid_againts_players])
 				_reset_focus()
 				initiative.sorted_player[p_index]._play_out_tick_down()
 				if initiative.sorted_player[p_index].PlayOutOptions != 0:
@@ -97,9 +97,9 @@ func _reset_focus():
 	for play in player:
 		play._unfocus_indicator()
 
-func switch_focus(x, y):
-	initiative.sorted_player[x]._focus_indicator()
-	initiative.sorted_player[y]._unfocus_indicator()
+func switch_player_focus(x, y):
+	player[x]._focus_indicator()
+	player[y]._unfocus_indicator()
 	
 func call_menu_appear():
 	menu.menu_index = 0

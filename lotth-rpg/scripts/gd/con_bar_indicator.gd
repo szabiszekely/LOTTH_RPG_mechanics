@@ -44,19 +44,8 @@ func _ready() -> void:
 	ADR_bar.hide()
 	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
-	#name_tag.text = assined_characters.Fight_stats.name
 	#print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
-	if assined_characters.Fight_stats.Friend_or_Foe == 1:
-		var dict_of_enemy = assined_characters._seperation_by_id(assined_characters.RefrenceNode.Enemeies)
-		#print(dict_of_enemy)
-		for i in dict_of_enemy:
-			if len(dict_of_enemy[i]) > 1 and assined_characters in dict_of_enemy[i]:
-				print(dict_of_enemy[i])
-				name_tag.text = _name_checker(assined_characters,dict_of_enemy[i])
-			elif len(dict_of_enemy[i]) == 1 and assined_characters in dict_of_enemy[i]:
-				name_tag.text = assined_characters.Fight_stats.name
-	else:
-		name_tag.text = assined_characters.Fight_stats.name
+	_visual_name()
 # Still ugly, but it works and I do not care about anything else
 # beauty lies in the insides... yeah close enough, but still ugly
 func _process(_delta: float) -> void:
@@ -106,6 +95,7 @@ func bar_damage_taken(damage:int):
 			tweens.tween_property(health_text,"position",Vector2(health_pos.position.x,health_text.position.y),0.05).set_trans(Tween.TRANS_BOUNCE)
 			assined_characters.Fight_stats.HP -= 1
 			await get_tree().create_timer(0.32).timeout
+		
 		# if the HP is bellow 0 then I just turn on CharacterIsOut
 		if assined_characters.Fight_stats.HP <= 0:
 			assined_characters.Fight_stats.HP = 0
@@ -198,3 +188,16 @@ func _show_enemy_indicator():
 
 func _hide_enemy_indicator():
 	enemy_indicator.hide()
+
+func _visual_name():
+	if assined_characters.Fight_stats.Friend_or_Foe == 1:
+		var dict_of_enemy = assined_characters._seperation_by_id(assined_characters.RefrenceNode.Enemeies)
+		#print(dict_of_enemy)
+		for i in dict_of_enemy:
+			if len(dict_of_enemy[i]) > 1 and assined_characters in dict_of_enemy[i]:
+				print(dict_of_enemy[i])
+				name_tag.text = _name_checker(assined_characters,dict_of_enemy[i])
+			elif len(dict_of_enemy[i]) == 1 and assined_characters in dict_of_enemy[i]:
+				name_tag.text = assined_characters.Fight_stats.name
+	else:
+		name_tag.text = assined_characters.Fight_stats.name
