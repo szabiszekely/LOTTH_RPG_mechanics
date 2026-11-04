@@ -47,23 +47,22 @@ func _process(_delta: float) -> void:
 
 	
 	if start_choosing == true :
+		var previouse_sub_index = sub_index
 		# same as with the enemy, one set goes upwards in the chain, the other goes down and it loops
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
 			if sub_index > 0:
 				sub_index -= 1
-				switch_player_focus(sub_index, sub_index+1)
 			else:
 				sub_index = player.size() -1
-				switch_player_focus(sub_index,0)
+				
+			switch_player_focus(sub_index, previouse_sub_index)
 		
 		elif Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
 			if sub_index < player.size() - 1:
 				sub_index += 1
-				switch_player_focus(sub_index, sub_index-1)
 			else:
 				sub_index = 0
-				switch_player_focus(sub_index,player.size() - 1)
-		
+			switch_player_focus(sub_index, previouse_sub_index)
 		elif Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			if menu_system.abi == true and start_choosing == true:
 				menu_system.abi = false
@@ -87,8 +86,8 @@ func _process(_delta: float) -> void:
 
 func _start_choosing():
 	_reset_focus()
-	initiative.sorted_player[0]._focus_indicator()
-	
+	sub_index = player.find(initiative.sorted_player[p_index])
+	player[player.find(initiative.sorted_player[p_index])]._focus_indicator()
 	start_choosing = true
 
 func _reset_focus():

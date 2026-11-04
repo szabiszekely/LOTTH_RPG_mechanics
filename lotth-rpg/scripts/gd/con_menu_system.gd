@@ -150,6 +150,7 @@ func _process(_delta: float) -> void:
 		Menu_state.CHOOSING_PLAYERS:
 			current_memory_state = current_state
 			if choose_player_container == true:
+				player_group._reset_focus()
 				player_group._start_choosing()
 				choose_player_container = false
 		# disables every menu and every interaction
