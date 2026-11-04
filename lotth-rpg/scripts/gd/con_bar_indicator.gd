@@ -20,6 +20,8 @@ class_name Bar_system
 @onready var health_pos: Marker2D = $Health_pos
 @onready var energy_pos: Marker2D = $Energy_pos
 @onready var bar_border: Panel = $Bar_Border
+@onready var enemy_indicator: Sprite2D = $Enemy
+@onready var player_indicator: Sprite2D = $Player
 
 
 @onready var action_indicator = preload("res://scenes/con_action_indicator.tscn")
@@ -31,6 +33,8 @@ var test_ADR: bool = false
 
 
 func _ready() -> void:
+	enemy_indicator.hide()
+	player_indicator.hide()
 	for i in assined_characters.MaxPlayOutOptions:
 		var instance = action_indicator.instantiate()
 		all_icon_of_remaining_actions.append(instance)
@@ -183,12 +187,14 @@ func _name_checker(self_person: Character_Controller, all_teammates:Array) -> St
 
 	return replaced_name
 
-func _flash_all_start():
-	_turn_flash_start_border()
-	_turn_flash_start_name()
+func _show_player_indicator():
+	player_indicator.show()
 
-func _turn_flash_start_border():
-	bar_border.material.set_shader_parameter("outline_color",Color.WHITE)
+func _hide_player_indicator():
+	player_indicator.hide()
+	
+func _show_enemy_indicator():
+	enemy_indicator.show()
 
-func _turn_flash_start_name():
-	name_tag_container.material.set_shader_parameter("outline_color",Color.WHITE)
+func _hide_enemy_indicator():
+	enemy_indicator.hide()

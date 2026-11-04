@@ -61,6 +61,10 @@ func _play_animator_energy_hit():
 func _focus_indicator():
 	focus.show()
 	_camera_on()
+	if Fight_stats.Friend_or_Foe == 1:
+		Bar._show_enemy_indicator()
+	else:
+		Bar._show_player_indicator()
 
 # focuses the camera on the character
 func _camera_on():
@@ -69,6 +73,10 @@ func _camera_on():
 func _unfocus_indicator():
 	focus.hide()
 	_camera_off()
+	if Fight_stats.Friend_or_Foe == 1:
+		Bar._hide_enemy_indicator()
+	else:
+		Bar._hide_player_indicator()
 	
 func _camera_off():
 	cam_target.enabled = false

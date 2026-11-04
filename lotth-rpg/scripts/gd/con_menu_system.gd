@@ -6,7 +6,7 @@ class_name Menu_system
 # Export values !
 @onready var enemy_group = RefrenceNode.EnemyGroup
 @onready var player_group = RefrenceNode.PlayerGroup
-@export var get_the_children: HBoxContainer
+@onready var get_the_children: HBoxContainer = $MarginContainer/HBoxContainer
 @export var Mouse_camera_toggler: Mouse_Camera
 @onready var Initiative = RefrenceNode.InitiativeHandler
 @onready var Main_node = RefrenceNode.MainNode

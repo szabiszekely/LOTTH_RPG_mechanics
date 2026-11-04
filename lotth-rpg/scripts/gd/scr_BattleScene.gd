@@ -7,6 +7,14 @@ class_name BattleMain
 @onready var enemy_group = RefrenceNode.EnemyGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
 
+
+func _ready() -> void:
+	initiative._getting_groups(player_group,enemy_group)
+	initiative._get_the_index_with_order()
+	initiative._get_player_and_enemy_spearated()
+	player_group._player_start_choosing()
+	RefrenceNode.DialogicControl._begining_setup()
+
 func _reset():
 	player_group._get_me_some_of_that_gd_children_player()
 	enemy_group._get_me_some_of_that_gd_children_enemy()

@@ -3,13 +3,6 @@ extends BattleMain
 @export var kb_force = 5.0
 @onready var order_counter: Order_holder = $UI_battle_menu/Order_counter
 
-func _ready() -> void:
-	initiative._getting_groups(player_group,enemy_group)
-	initiative._get_the_index_with_order()
-	initiative._get_player_and_enemy_spearated()
-	player_group._player_start_choosing()
-	RefrenceNode.DialogicControl._begining_setup()
-
 
 func _process(_delta: float) -> void:
 	

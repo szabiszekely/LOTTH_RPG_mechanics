@@ -69,7 +69,6 @@ func _ready() -> void:
 	self.hide()
 	
 	
-	
 func abi_appear():
 	# when we appear the menu we sign the characters deck to this
 	deck = initiative.sorted_player[player.p_index].Fight_stats.PlayerDeck.Deck

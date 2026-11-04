@@ -1,11 +1,15 @@
 extends Node2D
 
 @onready var attack_indicator: Sprite2D = $Attack_indicator
-@onready var damage_number: Label = $Label
+@onready var damage_number: Label = $damage_number
+@onready var health_number: Label = $health_number
+@onready var energy_number: Label = $energy_number
 @onready var heal_particle: GPUParticles2D = $GPUParticles2D
 const ATTACK_INDICATOR_BLOCKED = preload("uid://dnjxtougq2he1")
 const ATTACK_INDICATOR_NEGATIVE = preload("uid://cf3cwg7h21m8m")
 var healing_or_damaging: bool = false ## false = damage, true = healing
+@export var fade_color:Color
+var tween:Tween
 
 # set everything up when it is spawned
 func _ready() -> void:
@@ -14,6 +18,8 @@ func _ready() -> void:
 		damage_number.visible_characters = 4
 		damage_number.modulate = Color.TRANSPARENT
 		attack_indicator.frame = 0
+		health_number.queue_free()
+		energy_number.queue_free()
 	else:
 		attack_indicator.queue_free()
 		damage_number.queue_free()
@@ -77,7 +83,6 @@ func true_taken_damage(hit):
 	await tweens.finished
 	await get_tree().create_timer(0.2).timeout
 	
-	
 	tweens = get_tree().create_tween()
 	tweens.set_parallel()
 	tweens.tween_property(self,"position",Vector2(self.position.x,self.position.y - 50),1.68).set_trans(Tween.TRANS_LINEAR)
@@ -86,12 +91,45 @@ func true_taken_damage(hit):
 	await tweens.finished
 	self.queue_free()
 
-func helaing_taken(hit,type: int):
+
+
+func add_floating_label(label: Label, text:String):
+	label.text = text
+	label.z_index = 10
+	# speed up the previous animation (if any)
+	if tween and tween.is_running():
+		tween.set_speed_scale(2.0)
 	
+	tween = create_tween()
+	tween.set_parallel(true) # all parallel by default now
+	
+	# Move the label up and on a random side
+	var x = randf_range(-50, 50)
+	var y = -20.0
+	
+	tween.tween_property(label,"position:x", x, 1.0).as_relative()
+
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label,"position:y", y, 1.0).as_relative()
+
+	# Change the label color and fade it out
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "modulate", fade_color, 0.5).set_delay(0.5)
+	tween.tween_property(label, "self_modulate:a", 0.0, 0.2).set_delay(0.8)
+	
+	# chain() is the opposite of parallel()
+	tween.chain().tween_callback(label.queue_free) # delete label
+
+
+func helaing_taken(hit,type: int):
 	match type:
 		1:
+			health_number.queue_free()
+			add_floating_label(energy_number,str(hit))
 			heal_particle.texture = preload("uid://cnlugydnposbx")
 		2:
+			energy_number.queue_free()
+			add_floating_label(health_number,str(hit))
 			heal_particle.texture = preload("uid://i7qicssm28hx")
 	
 	heal_particle.amount = hit
