@@ -117,6 +117,7 @@ func _physics_process(delta: float) -> void:
 func _your_turn_on_set_up():
 	PlayOutOptions = MaxPlayOutOptions
 	_camera_on()
+	menu._enable_focus()
 	menu.menu_index = 0
 	menu.switching_buttons()
 	menu.show()

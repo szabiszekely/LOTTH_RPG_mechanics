@@ -74,27 +74,22 @@ var bag = false
 
 
 func _ready() -> void:
-	current_state = Menu_state.MENU
-	current_memory_state = current_state
+	_disable_focus()
 	menu_buttons = get_the_children.get_children()
-	switching_buttons()
 	RefrenceNode.DialogicControl._start_dialog("stat_baller")
 	
 func _process(_delta: float) -> void:
 	#print(current_state)
-	
+	current_memory_state = current_state
 	match current_state:
 		# bring up the menu and a static dialouge box
 		Menu_state.MENU:
-			current_memory_state = current_state
 			if menu_container == true:
-				#print("hi")
 				RefrenceNode.DialogicControl._start_dialog("stat_baller")
 				RefrenceNode.DialogicControl._appear_dialog()
 				menu_container = false
 		# Bring up the abilities and replaces all of the empty buttons with the ones in the current player deck
 		Menu_state.ABILITES:
-			current_memory_state = current_state
 			if abi_container == true:
 				abi = true
 				menu.show()
@@ -103,14 +98,12 @@ func _process(_delta: float) -> void:
 				abi_container = false
 		# brings up the actions already appearing with all the enemy act options
 		Menu_state.ACTIONS:
-			current_memory_state = current_state
 			if act_container == true:
 				menu.show()
 				action_choice.act_appear()
 				act_container = false
 		# allows the player to move in a ellipses
 		Menu_state.MOVEMENT:
-			current_memory_state = current_state
 			if move_container:
 				move_container = false
 				var instance = preload("res://scenes/con_movement_area.tscn").instantiate()
@@ -127,28 +120,24 @@ func _process(_delta: float) -> void:
 
 		# brings up the bagpack menu
 		Menu_state.BAG:
-			current_memory_state = current_state
 			if bag_container == true:
 				bag = true
 				menu.show()
 				bagpack_choice.bag_appear()
 				bag_container = false
 		Menu_state.RUN:
-			current_memory_state = current_state
 			if run_container == true:
 				menu.show()
 				run_choice.run_appear()
 				run_container = false
 		
 		Menu_state.CHOOSING_ENEMIES:
-			current_memory_state = current_state
 			if choose_enemy_container == true:
 				player_group._reset_focus()
 				enemy_group._start_choosing()
 				choose_enemy_container = false
 		
 		Menu_state.CHOOSING_PLAYERS:
-			current_memory_state = current_state
 			if choose_player_container == true:
 				player_group._reset_focus()
 				player_group._start_choosing()
@@ -286,6 +275,20 @@ func all_gone():
 	run_choice.process_mode = Node.PROCESS_MODE_DISABLED
 	enemy_group._reset_focus()
 	player_group._reset_focus()
+
+func _disable_focus():
+	abilities.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	action.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	movement.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	bagpack.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	run.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	
+func _enable_focus():
+	abilities.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
+	action.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
+	movement.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
+	bagpack.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
+	run.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
 
 # Brings back everything
 func back_to_normal():

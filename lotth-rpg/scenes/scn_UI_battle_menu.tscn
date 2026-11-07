@@ -157,6 +157,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Action"
 script = ExtResource("5_fday4")
+setting_position = 225.0
 
 [node name="Movement" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 visible = false
@@ -173,6 +174,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_osco5")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Movement"
 script = ExtResource("5_fday4")
+setting_position = 361.0
 
 [node name="Bagpack" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -187,6 +189,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_83ulq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h407m")
 text = "Bagpack"
 script = ExtResource("5_fday4")
+setting_position = 451.0
 
 [node name="Marker2D" type="Marker2D" parent="Menu/MarginContainer/HBoxContainer/Bagpack"]
 position = Vector2(-3.5652466, 27.869581)
@@ -206,6 +209,7 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Break"
 script = ExtResource("5_fday4")
+setting_position = 677.0
 
 [node name="Action_Panel_choice" parent="." instance=ExtResource("1_ypt22")]
 z_index = -1
