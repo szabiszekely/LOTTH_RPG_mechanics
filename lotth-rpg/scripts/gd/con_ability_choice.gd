@@ -11,6 +11,9 @@ var page_turn = false
 @onready var grid_1_2: GridContainer = $"PanelContainer/MarginContainer/Grid 1_2"
 @onready var grid_2_2: GridContainer = $"PanelContainer/MarginContainer/Grid 2_2"
 @onready var card: TextureRect = $Card
+@onready var text: PanelContainer = $Text
+@onready var card_text: RichTextLabel = $"Text/MarginContainer/Card Text"
+
 # all the possible 18 buttons that can appear in the ability system
 #region New Code Region
 @onready var button: Button = $"PanelContainer/MarginContainer/Grid 1_2/Button"
@@ -150,6 +153,7 @@ func focused() -> void:
 	var get_name_of_button = get_viewport().gui_get_focus_owner().text
 	var get_the_card = "res://assets/sprite/Ability Cards/" + str(get_name_of_button) + ".png"
 	card.texture = load(get_the_card)
+	card_text.text = Data.get_card_description(get_name_of_button)
 	
 # breaking card means you don't have enough eng but enough attempts can still result in a use, 
 #if the need is dire

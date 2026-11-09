@@ -24,7 +24,7 @@
   "Hp": 0,
   "Eng": 0,
   "T.Dmg": 0,
-  "Dmg": 2,
+  "Dmg": 3,
   "Emp": 0,
   "Atk_Type": "Melee",
   "Def": 0,
@@ -155,7 +155,8 @@
   "Range": "Target",
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "How FAR did you just hit that guy!?"
  },
  {
   "Name": "Funny Magic",
@@ -169,7 +170,8 @@
   "Range": "Target",
   "Type": "Magic",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "Does this sound funny to you?"
  },
  {
   "Name": "Agressive Stomp",
@@ -183,7 +185,8 @@
   "Range": "Target",
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "Shake the ground it self!"
  },
  {
   "Name": "Byecicle",
@@ -197,7 +200,8 @@
   "Range": 4,
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "10% to deal +2 damage"
  },
  {
   "Name": "Curved Slash",
@@ -211,7 +215,8 @@
   "Range": 4,
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "Just a simple slash nothin much to say!"
  },
  {
   "Name": "Dual Wielding",
@@ -225,7 +230,8 @@
   "Range": 4,
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "It does extra damage based on what kind of item you holding in your hand!"
  },
  {
   "Name": "Thunder Song",
@@ -239,7 +245,8 @@
   "Range": 20,
   "Type": "Magic",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "There is a 20% to miss the target"
  },
  {
   "Name": "Healling care",
@@ -253,7 +260,8 @@
   "Range": "Self",
   "Type": "Magic",
   "Eng_or_Hp": 1,
-  "Ability_Type": "Effect"
+  "Ability_Type": "Effect",
+  "Description": "HEAL THY SELF! +14 ENG"
  },
  {
   "Name": "Arcane Feather",
@@ -267,7 +275,8 @@
   "Range": 13,
   "Type": "Magic",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "Shoot a magical feather like a ninja star!"
  },
  {
   "Name": "Broken Shooter",
@@ -281,7 +290,8 @@
   "Range": "Target",
   "Type": "Range",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "It's broken in another way"
  },
  {
   "Name": "Curse Of Mya",
@@ -295,7 +305,8 @@
   "Range": 10,
   "Type": "Magic",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Attributes"
+  "Ability_Type": "Attributes",
+  "Description": "Curses an enemy with -1 B.DMG for 2 turn!"
  },
  {
   "Name": "Distracting Beauty",
@@ -309,7 +320,8 @@
   "Range": "Self",
   "Type": "Magic",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Effect"
+  "Ability_Type": "Effect",
+  "Description": "Create a realistic recreation of you! The enemy can't even tell the difference! (the distraction vanishes after 1 hit)"
  },
  {
   "Name": "Throw Away Joke",
@@ -323,7 +335,8 @@
   "Range": "Target",
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": "Throw it at your enemies! Gone after one use!"
  },
  {
   "Name": "Spin Roll",
@@ -337,7 +350,8 @@
   "Range": 8,
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": 0
  },
  {
   "Name": "Spike Dive",
@@ -351,7 +365,8 @@
   "Range": 10,
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": 0
  },
  {
   "Name": "Bite",
@@ -365,21 +380,23 @@
   "Range": 4,
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Atk"
+  "Ability_Type": "Atk",
+  "Description": 0
  },
  {
   "Name": "Spike Fortress",
   "Dmg": 0,
   "T.Dmg": 0,
   "Eng": 0,
-  "Eng_healed": 4,
+  "Eng_healed": 0,
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,
   "Range": "Self",
   "Type": "Melee",
-  "Eng_or_Hp": 1,
-  "Ability_Type": "Defense"
+  "Eng_or_Hp": 0,
+  "Ability_Type": "Defense",
+  "Description": 0
  },
  {
   "Name": "Scream",
@@ -393,7 +410,8 @@
   "Range": "Target",
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Attributes"
+  "Ability_Type": "Attributes",
+  "Description": 0
  },
  {
   "Name": "Growl",
@@ -407,7 +425,8 @@
   "Range": "Self",
   "Type": "Melee",
   "Eng_or_Hp": 0,
-  "Ability_Type": "Attributes"
+  "Ability_Type": "Attributes",
+  "Description": 0
  }
 ]
 }

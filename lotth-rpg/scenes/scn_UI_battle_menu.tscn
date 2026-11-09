@@ -227,10 +227,10 @@ grow_vertical = 0
 scale = Vector2(0.97, 0.97)
 
 [node name="Ability_Card_choice" parent="." instance=ExtResource("11_jdhws")]
-offset_left = 108.00001
-offset_top = -70.0
-offset_right = 108.0
-offset_bottom = -70.0
+offset_left = 26.0
+offset_top = -68.0
+offset_right = 26.0
+offset_bottom = -68.0
 scale = Vector2(0.95, 0.95)
 mouse_filter = 2
 

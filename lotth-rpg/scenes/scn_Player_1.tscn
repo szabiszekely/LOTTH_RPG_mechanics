@@ -574,7 +574,7 @@ material = SubResource("ShaderMaterial_sn5ec")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 13
+frame = 8
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {

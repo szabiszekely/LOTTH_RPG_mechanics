@@ -212,6 +212,14 @@ func get_card_hp_healed(Name:String):
 	for i in content["Abilities"]:
 		if Name == i["Name"]:
 			return i["Hp_healed"]
+			
+func get_card_description(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			if i["Description"] != "0":
+				return i["Description"]
+			else:
+				return "You got a card you should suppose to Have!"
 
 # SAVES THE GAME-------------------------------------------
 
