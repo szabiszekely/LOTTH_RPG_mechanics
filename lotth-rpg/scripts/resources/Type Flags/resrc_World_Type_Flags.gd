@@ -25,12 +25,7 @@ var RestoreHim: Dictionary
 """
 "Name": [Alive?]
 """
-var EnemyBeastiery: Dictionary = {
-	"Poshanko": 0, ## Baller 1
-	"Bertece": 0, ## Baller 2
-	"Neo Bombi": 0, ## Baler 3
-	"Hurutka": 0, ## Baller 4
-}
+var EnemyBeastiery: Dictionary = {}
 
 ## Player Alive?
 """
@@ -44,7 +39,6 @@ var PlayerBeastiery: Dictionary = {
 	"Huba":0,
 	"Levi":0
 }
-
 
 func saveWorldTypeFlags(saveWorldDict: Dictionary): ## Save the Flags
 	for i in _get_script_property(): ## Check for all the values
@@ -69,7 +63,14 @@ func loadWorldTypeFlags(saveWorldDict: Dictionary): ## Load the flags
 					set(j.name,saveWorldDict[i])
 	print(getTypeFlags())
 	return saveWorldDict
-	
+
+## THIS ONE IS UNFINISHED! IN THE FUTURE FINISH IT
+"""
+This is confusing even to my now self
+I want to get rid of the Restore bit and store the other values inside
+the Dict, to the memory RestoreHim and RestorePlayer
+for the Temp dict, I have no clue you might as well delete it.
+"""
 func loadTypeFlagsToMemory(RestoredPlayer:Dictionary,RestoredHim:Dictionary)->void:
 	var temp: Dictionary = {}
 	RestoredPlayer.erase("RestoreHim")
@@ -85,6 +86,10 @@ func getTypeFlagsFromMemory(indx: int)->Dictionary:
 		1:
 			return RestoreHim
 	return RestorePlayer
+	
+func updateEnemyBeastiery(withWhat:Enemy, isItAlive: int):
+	if !EnemyBeastiery.has(str(withWhat)):
+		EnemyBeastiery[withWhat] = isItAlive
 	
 
 # when focused there is a chance you get an item

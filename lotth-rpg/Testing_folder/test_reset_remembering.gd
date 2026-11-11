@@ -1,5 +1,5 @@
 extends Resource
-class_name Reset_Rembering
+class_name Reset_Remembering
 
 """
 SO this is important, how this will work will make or break the game.

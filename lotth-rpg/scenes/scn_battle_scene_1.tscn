@@ -1,10 +1,14 @@
-[gd_scene load_steps=41 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=49 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://bjxp4trjj60pn" path="res://scripts/gd/scr_battle_scene_1.gd" id="1_byh47"]
+[ext_resource type="Script" uid="uid://mc6iva5jokhp" path="res://scripts/resources/Type Flags/resrc_Him_Type_Flags.gd" id="2_3bun2"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/mod_turn_handler.tscn" id="3_byh47"]
 [ext_resource type="PackedScene" uid="uid://c8qrfiqq4jg0w" path="res://scenes/mod_dialogic_module.tscn" id="3_iowgj"]
+[ext_resource type="Script" uid="uid://b71vy8dgafokk" path="res://scripts/resources/Type Flags/resrc_Player_Type_Flags.gd" id="3_j75ph"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/bg_ground_tilemap.png" id="4_irkjr"]
+[ext_resource type="Script" uid="uid://d3aeopvlcofqg" path="res://scripts/resources/Type Flags/resrc_World_Type_Flags.gd" id="4_ko4ly"]
+[ext_resource type="Script" uid="uid://88xxinootpgd" path="res://Testing_folder/test_reset_remembering.gd" id="5_a0dkr"]
 [ext_resource type="Script" uid="uid://ceoxffac0ib6m" path="res://scripts/gd/hand_run_turn.gd" id="5_irkjr"]
 [ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/UNUSED_navigation_region_2d.gd" id="5_mh5d7"]
 [ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://scripts/gd/scr_player_group.gd" id="6_oxvkq"]
@@ -25,6 +29,25 @@
 [ext_resource type="Texture2D" uid="uid://cyrxfj2klqis7" path="res://assets/sprite/Simple Enemie/spr_Portrait_Icon_baller_different.png" id="19_6yonr"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/scn_UI_battle_menu.tscn" id="20_aqp4o"]
 [ext_resource type="Texture2D" uid="uid://ccno3uytf1q74" path="res://assets/sprite/BG and Tile/Background.png" id="22_byh47"]
+
+[sub_resource type="Resource" id="Resource_f5jtt"]
+script = ExtResource("2_3bun2")
+metadata/_custom_type_script = "uid://mc6iva5jokhp"
+
+[sub_resource type="Resource" id="Resource_qkqdd"]
+script = ExtResource("3_j75ph")
+metadata/_custom_type_script = "uid://b71vy8dgafokk"
+
+[sub_resource type="Resource" id="Resource_lsh8y"]
+script = ExtResource("4_ko4ly")
+metadata/_custom_type_script = "uid://d3aeopvlcofqg"
+
+[sub_resource type="Resource" id="Resource_ait1m"]
+script = ExtResource("5_a0dkr")
+World_type_flags = SubResource("Resource_lsh8y")
+Him_type_flags = SubResource("Resource_f5jtt")
+Player_type_flags = SubResource("Resource_qkqdd")
+metadata/_custom_type_script = "uid://88xxinootpgd"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1uqaj"]
 texture = ExtResource("4_irkjr")
@@ -286,6 +309,7 @@ Speed = 1
 
 [node name="rework" type="Node2D"]
 script = ExtResource("1_byh47")
+var_Reset_Remembering = SubResource("Resource_ait1m")
 
 [node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "Order", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera", "UI") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")

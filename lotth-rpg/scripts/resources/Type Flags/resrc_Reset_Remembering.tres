@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Reset_Rembering" load_steps=5 format=3 uid="uid://beq7jycr33587"]
+
+[ext_resource type="Resource" uid="uid://c68kdiu0rg2r2" path="res://scripts/resources/Type Flags/resrc_Type_Flag_Him.tres" id="1_w8spk"]
+[ext_resource type="Resource" uid="uid://blte6o4fnp6rc" path="res://scripts/resources/Type Flags/resrc_Type_Flag_Player.tres" id="2_4hgcs"]
+[ext_resource type="Resource" uid="uid://d12ftudr2ewj8" path="res://scripts/resources/Type Flags/resrc_Type_Flag_World.tres" id="3_j24o5"]
+[ext_resource type="Script" uid="uid://88xxinootpgd" path="res://Testing_folder/test_reset_remembering.gd" id="4_v25q8"]
+
+[resource]
+script = ExtResource("4_v25q8")
+World_type_flags = ExtResource("3_j24o5")
+Him_type_flags = ExtResource("1_w8spk")
+Player_type_flags = ExtResource("2_4hgcs")
+metadata/_custom_type_script = "uid://88xxinootpgd"

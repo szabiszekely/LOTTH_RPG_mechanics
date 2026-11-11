@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://fvswwl6w72f8"]
+[gd_scene load_steps=4 format=3 uid="uid://fvswwl6w72f8"]
 
 [ext_resource type="Script" uid="uid://dqu26onrscshp" path="res://Testing_folder/test_remembering.gd" id="1_krokx"]
-[ext_resource type="Resource" uid="uid://po2dcodxxvl3" path="res://Testing_folder/resrc_World_Flags.tres" id="2_27org"]
+[ext_resource type="Script" uid="uid://88xxinootpgd" path="res://Testing_folder/test_reset_remembering.gd" id="2_27org"]
+
+[sub_resource type="Resource" id="Resource_h3qjo"]
+script = ExtResource("2_27org")
+metadata/_custom_type_script = "uid://88xxinootpgd"
 
 [node name="TestResetRemembering" type="Node2D"]
 script = ExtResource("1_krokx")
-Reset_Remembering = ExtResource("2_27org")
+var_Reset_Remembering = SubResource("Resource_h3qjo")

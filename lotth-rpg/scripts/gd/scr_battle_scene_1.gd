@@ -1,16 +1,15 @@
 extends BattleMain
 
-@export var kb_force = 5.0
-@onready var order_counter: Order_holder = $UI_battle_menu/Order_counter
-
+#@export var kb_force = 5.0
 
 func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug_button_2"):
-		_full_reset()
-
+		#_full_reset()
+		pass
 	if Input.is_action_just_pressed("debug_button"):
-		RefrenceNode.Players[0]._character_outline_show()
+		var_Reset_Remembering.readWorldTypeFlags()
+		#RefrenceNode.Players[0]._character_outline_show()
 		#order_counter._slide_down_the_order(len(RefrenceNode.InitiativeHandler.all_rolls))
 		#_reset()
 		#RefrenceNode.DialogicControl._start_dialog("act_Talk")
@@ -28,6 +27,7 @@ func _process(_delta: float) -> void:
 		#var e_kb_dir = (enemy_group.enemies[0].global_position - get_global_mouse_position()).normalized()
 		#player_group.player[1]._apply_kb(p_kb_dir,kb_force,0.12)
 		#enemy_group.enemies[0]._apply_kb(e_kb_dir,kb_force,0.12)
+		pass
 	if Input.is_action_just_pressed("debug_button_3"):
 		#player_group.player[1].global_position.y += 7.5521784562331/2
 		#player_group.player[1].global_position.x += 7.5521784562331

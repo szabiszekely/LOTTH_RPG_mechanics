@@ -6,14 +6,16 @@ class_name BattleMain
 @onready var player_group = RefrenceNode.PlayerGroup
 @onready var enemy_group = RefrenceNode.EnemyGroup
 @onready var initiative = RefrenceNode.InitiativeHandler
-
+@export var var_Reset_Remembering: Reset_Remembering
 
 func _ready() -> void:
+	var_Reset_Remembering.World_type_flags.updateEnemyBeastiery(enemy_group.enemies[1],0)
 	initiative._getting_groups(player_group,enemy_group)
 	initiative._get_the_index_with_order()
 	initiative._get_player_and_enemy_spearated()
 	player_group._player_start_choosing()
 	RefrenceNode.DialogicControl._begining_setup()
+	
 
 func _reset():
 	player_group._get_me_some_of_that_gd_children_player()
