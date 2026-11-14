@@ -20,9 +20,7 @@ func _input(event: InputEvent) -> void:
 		var_Reset_Remembering.readAllTypeFlags()
 
 	if event.is_action_pressed("debug_button_2"):
-		DirAccess.remove_absolute(var_Reset_Remembering.World_type_flags.WORLD_FLAG_SAVE_FILE)
-		DirAccess.remove_absolute(var_Reset_Remembering.Him_type_flags.HIM_FLAG_SAVE_FILE)
-		DirAccess.remove_absolute(var_Reset_Remembering.Player_type_flags.PLAYER_FLAG_SAVE_FILE)
+		pass
 	if event.is_action_pressed("debug_button_3"):
 		var_Reset_Remembering.shadowLoadFlagsWorld()
 		#print(var_Reset_Remembering.saveHimDict)

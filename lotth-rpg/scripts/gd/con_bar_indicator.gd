@@ -44,6 +44,8 @@ func _ready() -> void:
 	ADR_bar.hide()
 	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
+	ENG_bar.update_segment_count(assined_characters.Fight_stats.MAX_ENG)
+	HP_bar.update_segment_count(assined_characters.Fight_stats.MAX_HP)
 	#print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
 	_visual_name()
 # Still ugly, but it works and I do not care about anything else
@@ -100,6 +102,9 @@ func bar_damage_taken(damage:int):
 		if assined_characters.Fight_stats.HP <= 0:
 			assined_characters.Fight_stats.HP = 0
 			assined_characters.CharacterIsOut = true
+			if assined_characters.Fight_stats.Friend_or_Foe != 0:
+				assined_characters.RefrenceNode.MainNode.var_Reset_Remembering.World_type_flags.updateBeastiery(assined_characters.RefrenceNode.EnemyGroup.enemies[0].Fight_stats["Sid"],1)
+				assined_characters.RefrenceNode.MainNode.var_Reset_Remembering.shadowSaveFlagsWorld()
 			if assined_characters.Fight_stats.Friend_or_Foe == 0:
 				var knocked_out_counter_player = 0
 				for j in assined_characters.Initiative.sorted_player:
@@ -144,6 +149,7 @@ func bar_health_restored(health_gain:int,heal_eng_or_health: int):
 					assined_characters.Fight_stats.HP += 1
 					await get_tree().create_timer(0.15).timeout
 	assined_characters._comprassed_heal_damage(health_gain,heal_eng_or_health)
+
 func _set_name_tag(value:String)->void:
 	name_tag.text = value
 
@@ -195,7 +201,7 @@ func _visual_name():
 		#print(dict_of_enemy)
 		for i in dict_of_enemy:
 			if len(dict_of_enemy[i]) > 1 and assined_characters in dict_of_enemy[i]:
-				print(dict_of_enemy[i])
+				#print(dict_of_enemy[i])
 				name_tag.text = _name_checker(assined_characters,dict_of_enemy[i])
 			elif len(dict_of_enemy[i]) == 1 and assined_characters in dict_of_enemy[i]:
 				name_tag.text = assined_characters.Fight_stats.name

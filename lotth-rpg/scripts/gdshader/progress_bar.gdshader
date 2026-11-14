@@ -20,9 +20,9 @@ uniform int bar_mode : hint_enum("Solid", "RGB", "Health Bar", "Rainbow Wave", "
 //** How the progress bar fills: Discrete (segments), Fade (fade in and out), Pour (fluid-like) */
 uniform int fill_mode : hint_enum("Discrete", "Fade", "Pour") = 0;
 //** Number of segments in the progress bar */
-uniform int segment_count : hint_range(1, 100) = 12;
+uniform int segment_count : hint_range(1, 1000) = 12;
 //** Fill amount for discrete mode (number of segments filled) */
-uniform int discrete_fill_amount : hint_range(0, 100) = 12;
+uniform int discrete_fill_amount : hint_range(0, 1000) = 12;
 //** Fill amount for fade mode (0.0 to 1.0) */
 uniform float fade_fill_amount : hint_range(0.0, 1.0) = 1.0;
 //** Fill amount for pour mode (0.0 to 1.0) */

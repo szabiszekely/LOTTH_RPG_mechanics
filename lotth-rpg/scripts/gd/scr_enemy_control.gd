@@ -10,18 +10,23 @@ const BAR_SYSTEM = preload("res://scenes/con_bar_indicator.tscn")
 
 
 func _ready() -> void:
-	 #hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
-	roll_of_the_luck()
-	var instance = BAR_SYSTEM.instantiate()
-	instance.assined_characters = self
-	instance.hide()
-	bar_container_enemey.add_child(instance)
-	Bar = instance
-	_character_outline_hide()
-	$character_animator.play("idle")
-	EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler,self)
+	_ready_and_delete()
+	_character_setup()
 	
 	
+	if !CharacterIsOut:
+		_hp_and_eng_to_max()
+		#hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
+		roll_of_the_luck()
+		var instance = BAR_SYSTEM.instantiate()
+		instance.assined_characters = self
+		instance.hide()
+		bar_container_enemey.add_child(instance)
+		Bar = instance
+		_character_outline_hide()
+		$character_animator.play("idle")
+		EnemyAI._setup(enemy,RefrenceNode.PlayerGroup,Initiative,RefrenceNode.MainNode,RefrenceNode.ActButtonHandler,self)
+
 func _process(_delta: float) -> void:
 	#FOR Now when it's their turn, they choose a random attack, but if a player cancle's then their action get rerolled
 	if your_turn:

@@ -1,14 +1,11 @@
-[gd_scene load_steps=49 format=4 uid="uid://cnj4khiyopq7m"]
+[gd_scene load_steps=42 format=4 uid="uid://cnj4khiyopq7m"]
 
 [ext_resource type="Script" uid="uid://bjxp4trjj60pn" path="res://scripts/gd/scr_battle_scene_1.gd" id="1_byh47"]
-[ext_resource type="Script" uid="uid://mc6iva5jokhp" path="res://scripts/resources/Type Flags/resrc_Him_Type_Flags.gd" id="2_3bun2"]
 [ext_resource type="PackedScene" uid="uid://bf2h0hpyka6jt" path="res://scenes/mod_refrence_cross_road.tscn" id="2_iowgj"]
+[ext_resource type="Resource" uid="uid://po2dcodxxvl3" path="res://Testing_folder/resrc_World_Flags.tres" id="2_wnwgh"]
 [ext_resource type="PackedScene" uid="uid://b00vxr8wtbm0f" path="res://scenes/mod_turn_handler.tscn" id="3_byh47"]
 [ext_resource type="PackedScene" uid="uid://c8qrfiqq4jg0w" path="res://scenes/mod_dialogic_module.tscn" id="3_iowgj"]
-[ext_resource type="Script" uid="uid://b71vy8dgafokk" path="res://scripts/resources/Type Flags/resrc_Player_Type_Flags.gd" id="3_j75ph"]
 [ext_resource type="Texture2D" uid="uid://cf2tb8fdqyibn" path="res://assets/sprite/BG and Tile/bg_ground_tilemap.png" id="4_irkjr"]
-[ext_resource type="Script" uid="uid://d3aeopvlcofqg" path="res://scripts/resources/Type Flags/resrc_World_Type_Flags.gd" id="4_ko4ly"]
-[ext_resource type="Script" uid="uid://88xxinootpgd" path="res://Testing_folder/test_reset_remembering.gd" id="5_a0dkr"]
 [ext_resource type="Script" uid="uid://ceoxffac0ib6m" path="res://scripts/gd/hand_run_turn.gd" id="5_irkjr"]
 [ext_resource type="Script" uid="uid://dvbmpv5vnbn2t" path="res://scripts/gd/UNUSED_navigation_region_2d.gd" id="5_mh5d7"]
 [ext_resource type="Script" uid="uid://1ptjq2cq8aux" path="res://scripts/gd/scr_player_group.gd" id="6_oxvkq"]
@@ -29,25 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://cyrxfj2klqis7" path="res://assets/sprite/Simple Enemie/spr_Portrait_Icon_baller_different.png" id="19_6yonr"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/scn_UI_battle_menu.tscn" id="20_aqp4o"]
 [ext_resource type="Texture2D" uid="uid://ccno3uytf1q74" path="res://assets/sprite/BG and Tile/Background.png" id="22_byh47"]
-
-[sub_resource type="Resource" id="Resource_f5jtt"]
-script = ExtResource("2_3bun2")
-metadata/_custom_type_script = "uid://mc6iva5jokhp"
-
-[sub_resource type="Resource" id="Resource_qkqdd"]
-script = ExtResource("3_j75ph")
-metadata/_custom_type_script = "uid://b71vy8dgafokk"
-
-[sub_resource type="Resource" id="Resource_lsh8y"]
-script = ExtResource("4_ko4ly")
-metadata/_custom_type_script = "uid://d3aeopvlcofqg"
-
-[sub_resource type="Resource" id="Resource_ait1m"]
-script = ExtResource("5_a0dkr")
-World_type_flags = SubResource("Resource_lsh8y")
-Him_type_flags = SubResource("Resource_f5jtt")
-Player_type_flags = SubResource("Resource_qkqdd")
-metadata/_custom_type_script = "uid://88xxinootpgd"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1uqaj"]
 texture = ExtResource("4_irkjr")
@@ -96,6 +74,7 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy"
 character_speaker = ExtResource("9_maoo0")
+Sid = 0
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -116,6 +95,7 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy"
 character_speaker = ExtResource("11_j75ph")
+Sid = 1
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -136,6 +116,7 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy"
 character_speaker = ExtResource("13_a0dkr")
+Sid = 2
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -156,6 +137,7 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy again"
 Id = 999
+Sid = 3
 Friend_or_Foe = 0
 MAX_HP = 25
 MAX_ENG = 25
@@ -177,14 +159,8 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
-personality_decrease_modifier_kindness = null
 personality_aggresion = 3
-energy_restore_upperline = null
 energy_healing_percentage = 1.0
-energy_restore_bottomline = null
-stronger_or_weaker = null
-team_player = null
-failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_aihkf"]
@@ -192,12 +168,12 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Baller"
 Id = 0
+Sid = 100
 Friend_or_Foe = 1
 MAX_HP = 17
 MAX_ENG = 17
 HP = 17
 ENG = 17
-Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
@@ -211,14 +187,8 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
-personality_decrease_modifier_kindness = null
 personality_aggresion = 3
-energy_restore_upperline = null
 energy_healing_percentage = 1.0
-energy_restore_bottomline = null
-stronger_or_weaker = null
-team_player = null
-failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_mo7hs"]
@@ -226,12 +196,12 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Baller"
 Id = 0
+Sid = 101
 Friend_or_Foe = 1
 MAX_HP = 17
 MAX_ENG = 17
 HP = 17
 ENG = 17
-Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
@@ -245,14 +215,8 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
-personality_decrease_modifier_kindness = null
 personality_aggresion = 3
-energy_restore_upperline = null
 energy_healing_percentage = 1.0
-energy_restore_bottomline = null
-stronger_or_weaker = null
-team_player = null
-failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_t4b5j"]
@@ -260,12 +224,12 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Baller"
 Id = 1
+Sid = 102
 Friend_or_Foe = 1
 MAX_HP = 17
 MAX_ENG = 17
 HP = 17
 ENG = 17
-Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
@@ -279,14 +243,8 @@ script = ExtResource("17_ait1m")
 angy_personality_bonus = 3
 dice_goal_number = 5
 personality_decrease_modifier_agression = 1.2
-personality_decrease_modifier_kindness = null
 personality_aggresion = 3
-energy_restore_upperline = null
 energy_healing_percentage = 1.0
-energy_restore_bottomline = null
-stronger_or_weaker = null
-team_player = null
-failiure_increase_number = null
 metadata/_custom_type_script = "uid://cx5ba8cqethcy"
 
 [sub_resource type="Resource" id="Resource_r0suc"]
@@ -294,12 +252,12 @@ resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Baller"
 Id = 0
+Sid = 103
 Friend_or_Foe = 1
 MAX_HP = 17
 MAX_ENG = 17
 HP = 17
 ENG = 17
-Attack_Type = 1
 Enemy_AI_type = "Angry"
 PlayerDeck = ExtResource("18_ok83x")
 Defense = 2
@@ -309,7 +267,7 @@ Speed = 1
 
 [node name="rework" type="Node2D"]
 script = ExtResource("1_byh47")
-var_Reset_Remembering = SubResource("Resource_ait1m")
+var_Reset_Remembering = ExtResource("2_wnwgh")
 
 [node name="RefrenceCrossRoad" parent="." node_paths=PackedStringArray("MainNode", "TurnHandler", "DialogicControl", "PlayerGroup", "EnemyGroup", "Menu", "Order", "AbiCard", "ActButtonHandler", "BagHandler", "RunHandler", "ProCamera", "UI") instance=ExtResource("2_iowgj")]
 MainNode = NodePath("..")
@@ -352,6 +310,7 @@ script = ExtResource("6_oxvkq")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-204, -2)
+CharacterName = "Alex"
 Fight_stats = SubResource("Resource_p7hkc")
 MaxPlayOutOptions = 1
 
@@ -361,6 +320,7 @@ texture = ExtResource("13_oxvkq")
 
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-125, -3)
+CharacterName = "Myna"
 Fight_stats = SubResource("Resource_q1i6w")
 Turn_portriat = ExtResource("14_mh5d7")
 MaxPlayOutOptions = 1
@@ -371,6 +331,7 @@ texture = ExtResource("14_mh5d7")
 
 [node name="Player3" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-200, 75)
+CharacterName = "Levi"
 Fight_stats = SubResource("Resource_4y57x")
 Turn_portriat = ExtResource("16_oxvkq")
 MaxPlayOutOptions = 1
@@ -381,6 +342,7 @@ texture = ExtResource("16_oxvkq")
 
 [node name="Player5" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-123, 77)
+CharacterName = "Huba"
 Fight_stats = SubResource("Resource_iowgj")
 Turn_portriat = ExtResource("17_wnwgh")
 MaxPlayOutOptions = 1
@@ -395,12 +357,14 @@ script = ExtResource("15_qkqdd")
 [node name="Enemy" parent="NavigationRegion2D/enemy_group" instance=ExtResource("16_lsh8y")]
 position = Vector2(117, 3)
 EnemyAI = SubResource("Resource_6hxp8")
+CharacterName = "Baller_test1"
 Fight_stats = SubResource("Resource_aihkf")
 MaxPlayOutOptions = 1
 
 [node name="Enemy2" parent="NavigationRegion2D/enemy_group" instance=ExtResource("16_lsh8y")]
 position = Vector2(170, 2)
 EnemyAI = SubResource("Resource_lh1mx")
+CharacterName = "Baller_test2"
 Fight_stats = SubResource("Resource_mo7hs")
 Turn_portriat = ExtResource("19_6yonr")
 MaxPlayOutOptions = 1
@@ -408,12 +372,14 @@ MaxPlayOutOptions = 1
 [node name="Enemy3" parent="NavigationRegion2D/enemy_group" instance=ExtResource("16_lsh8y")]
 position = Vector2(122, 70)
 EnemyAI = SubResource("Resource_dt3sk")
+CharacterName = "Baller_test3"
 Fight_stats = SubResource("Resource_t4b5j")
 MaxPlayOutOptions = 1
 
 [node name="Enemy4" parent="NavigationRegion2D/enemy_group" instance=ExtResource("16_lsh8y")]
 position = Vector2(175, 71)
 EnemyAI = SubResource("Resource_mag4a")
+CharacterName = "Baller_test4"
 Fight_stats = SubResource("Resource_r0suc")
 Turn_portriat = ExtResource("19_6yonr")
 MaxPlayOutOptions = 1

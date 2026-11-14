@@ -102,7 +102,7 @@ func _EnemyAI(deck):
 				
 		if can_move:
 			can_move = false
-			match enemy_it_self.Fight_stats.Attack_Type:
+			match enemy_it_self.Fight_stats.Attack_Type_A:
 				0: # Melee
 					pass
 				1: # Range

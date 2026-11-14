@@ -55,6 +55,11 @@ func shadowLoadFlagsAll()->void:
 	shadowLoadFlagsHim()
 	shadowLoadFlagsPlayer()
 
+func shadowRemoveAllAbsolutePath():
+	shadowRemoveHimPath()
+	shadowRemoveWorldPath()
+	shadowRemovePlayerPath()
+
 func readAllTypeFlags():
 	print("Him: ")
 	Him_type_flags.getTypeFlags()
@@ -79,14 +84,15 @@ func shadowSaveFlagsWorld()->void:
 func shadowLoadFlagsWorld()->void:
 	saveWorldDict = World_type_flags.loadWorldTypeFlags(saveWorldDict)
 
+func shadowRemoveWorldPath():
+	DirAccess.remove_absolute(World_type_flags.WORLD_FLAG_SAVE_FILE)
+
 func modifyWorldTypeFlagAt(nameOfTheFlag: String, modification: int) -> void:
 	World_type_flags.set(nameOfTheFlag,modification)
 	shadowSaveFlagsAll()
 
 func checkWorldTypeFlagAt(nameOfTheFlag: String, result: int) -> bool:
 	return saveWorldDict[nameOfTheFlag] == result
-
-
 
 func readWorldTypeFlags():
 	World_type_flags.getTypeFlags()
@@ -98,6 +104,9 @@ func shadowSaveFlagsHim()->void:
 
 func shadowLoadFlagsHim()->void:
 	Him_type_flags.loadHimTypeFlags(saveHimDict)
+
+func shadowRemoveHimPath():
+	DirAccess.remove_absolute(Him_type_flags.HIM_FLAG_SAVE_FILE)
 
 func modifyHimTypeFlagAt(nameOfTheFlag: String, modification: int) -> void:
 	Him_type_flags.set(nameOfTheFlag,modification)
@@ -117,6 +126,9 @@ func shadowSaveFlagsPlayer()->void:
 
 func shadowLoadFlagsPlayer()->void:
 	Player_type_flags.loadPlayerTypeFlags(savePlayerDict)
+
+func shadowRemovePlayerPath():
+	DirAccess.remove_absolute(Player_type_flags.PLAYER_FLAG_SAVE_FILE)
 
 func modifyPlayerTypeFlagAt(nameOfTheFlag: String, modification: int) -> void:
 	Player_type_flags.set(nameOfTheFlag,modification)

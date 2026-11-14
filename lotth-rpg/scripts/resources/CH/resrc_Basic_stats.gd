@@ -5,13 +5,16 @@ extends Resource
 @export var name: String ##Name of the Character
 @export var character_speaker: DialogicCharacter ##portait, name, everything the character needs
 @export var Id: int = -1 ##ID of the Enemy
+@export var Sid: int = -1 ##Soul ID of the character, if a character has the same SID that means if that character dies, than it vanishes with it.
 @export_enum("Friend","Enemy") var Friend_or_Foe ##Determines that which side of the character is on
 @export var MAX_HP: int ##Adjustable Max HP
 @export var MAX_ENG: int ##Adjustable Max ENG
 @export var HP: int ##Determines how much HP does the character currently has
 @export var ENG: int ##Determines how much ENG does the character currently has
 @export_enum("Normal","Player","Feeling","Dream","Memory","Justice") var Soul_Type: int ##Categorized Soul types!
-@export_enum("Melee","Range","Magic") var Attack_Type: int ##Categorized First Attack types
+@export_enum("Melee","Range","Magic","Debuffer") var Attack_Type_A: int ##Categorized First Attack types
+@export_enum("Null","Melee","Range","Magic","Debuffer") var Attack_Type_D: int ##Categorized First Attack types
+@export_enum("Null","Melee","Range","Magic","Debuffer") var Attack_Type_S: int ##Categorized First Attack types
 @export_enum("Natural","Angry","Scared","Primal","Loyal","Random","Parasitic","Determined","Athletic","Strategic","Advanced","HigherBeing") var Enemy_AI_type: String = "Normal" ##Tells the enemy how to handle data from the players and helps to determen the best move
 @export var PlayerDeck: Deck_builder ##Custmozieable deck
 @export var Defense: int ##Every Defense is -1 from a Phisical attack
@@ -19,7 +22,7 @@ extends Resource
 @export var MAX_EMP: int ##Determines how much Emphaty an enemy needs before spareable
 @export var EMP: int ##Current adjusting Emphaty
 #@export var Skadoodle: int = 0 ##The ability to steal items
-@export var Focus: int = 0 ##The ability to focus on an someone
+@export var Focus: int = 0 ##The ability to focus on a someone
 #@export var Persuade: int = 0 #The ablitiy to talk down someone from fighting
 @export var Base_Phisical_Attack: int 
 @export var Base_Magical_Attack: int
@@ -47,10 +50,10 @@ func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Str
 
 	var Attacker_Base_Phisical_Strengh:int = Source.Temp_BP_A
 	var Attacker_Base_Magic_Strengh:int = Source.Temp_BM_A
-	var Attacker_ATK_type:int = Source.Attack_Type
+	var Attacker_ATK_type:int = Source.Attack_Type_A
 	var Reciver_Defense:int = Target.Temp_Def
 	var Reciver_Magic_Defense:int = Target.Temp_M_Def
-	var Reciver_ATK_type:int = Target.Attack_Type
+	var Reciver_ATK_type:int = Target.Attack_Type_A
 	
 	#the damage type and the bonus damage values
 	var Damage_Type = 0

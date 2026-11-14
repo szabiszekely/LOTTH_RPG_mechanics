@@ -9,7 +9,14 @@ class_name BattleMain
 @export var var_Reset_Remembering: Reset_Remembering
 
 func _ready() -> void:
-	var_Reset_Remembering.World_type_flags.updateEnemyBeastiery(enemy_group.enemies[1],0)
+	#var_Reset_Remembering.shadowLoadFlagsWorld()
+#
+	#for i in enemy_group.enemies:
+		#var fs = i.Fight_stats
+		#if !var_Reset_Remembering.World_type_flags.isInEnemyBeastiery(fs):
+			#var_Reset_Remembering.World_type_flags.updateEnemyBeastiery(fs,0)
+		#
+			
 	initiative._getting_groups(player_group,enemy_group)
 	initiative._get_the_index_with_order()
 	initiative._get_player_and_enemy_spearated()

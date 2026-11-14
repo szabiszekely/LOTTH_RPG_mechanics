@@ -31,17 +31,23 @@ var movement_restriction = false
 
 
 func _ready() -> void:
+	_ready_and_delete()
+	_character_setup()
 	
-	$AnimationTree.active = true
-	var instance = BAR_SYSTEM.instantiate()
-	instance.assined_characters = self
-	Bar_VContainer.add_child(instance)
-	Bar = instance
-	_character_outline_hide()
-	#moving_indicator.Fight_stats = Fight_stats
-	$character_animator.play("idle")
-	#when game start start idle get roll
-	roll_of_the_luck()
+	
+	if !CharacterIsOut:
+		_hp_and_eng_to_max()
+		$AnimationTree.active = true
+		var instance = BAR_SYSTEM.instantiate()
+		instance.assined_characters = self
+		
+		Bar_VContainer.add_child(instance)
+		Bar = instance
+		_character_outline_hide()
+		#moving_indicator.Fight_stats = Fight_stats
+		$character_animator.play("idle")
+		#when game start start idle get roll
+		roll_of_the_luck()
 
 #func _physics_process(delta: float) -> void:
 	#if Initiative.doTrapForLoop: 
@@ -116,7 +122,7 @@ func _physics_process(delta: float) -> void:
 			
 func _your_turn_on_set_up():
 	PlayOutOptions = MaxPlayOutOptions
-	_camera_on()
+	#_camera_on()
 	menu._enable_focus()
 	menu.menu_index = 0
 	menu.switching_buttons()
@@ -127,7 +133,7 @@ func _your_turn_on_set_up():
 		turn_pos = global_position
 
 func _your_turn_off_set_up():
-	_camera_off()
+	#_camera_off()
 	#player_switch_off()
 	menu.vanish()
 	$character_animator.self_modulate = Color.WHITE

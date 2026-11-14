@@ -10,12 +10,14 @@ class_name Character_Controller
 @onready var Initiative = RefrenceNode.InitiativeHandler
 @onready var menu = RefrenceNode.Menu
 @onready var character_anim: AnimatedSprite2D = $character_animator
+@onready var Bar: Bar_system
 
-@export var speed:int = 400
+#@export var speed:int = 400
+#@export var cam_target: Node2D
+@export var CharacterName: String
 @export var Fight_stats: Fighting_Stats
 @export var Turn_portriat: CompressedTexture2D
-@export var Bar: Bar_system
-@export var cam_target: Node2D
+
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
 # this 2 is for KO and for dead states
@@ -50,6 +52,29 @@ var your_turn = false:
 			_your_turn_off_set_up()
 
 
+func _ready_and_delete():
+	if RefrenceNode.MainNode.var_Reset_Remembering.World_type_flags.getValueBeastiery(Fight_stats["Sid"]) == 1:
+		self.queue_free()
+		CharacterIsOut = true
+		RefrenceNode.EnemyGroup._get_me_some_of_that_gd_children_enemy()
+		RefrenceNode.PlayerGroup._get_me_some_of_that_gd_children_player()
+		
+
+func _hp_and_eng_to_max():
+	Fight_stats.HP = Fight_stats.MAX_HP
+	Fight_stats.ENG = Fight_stats.MAX_ENG
+
+func _character_setup():
+	var characterDict: Dictionary = Data.get_character_data(CharacterName)
+
+	for i in characterDict:
+		if i != "CName":
+			if characterDict[i] is String:
+				Fight_stats[str(i)] = characterDict[i]
+			else:
+				Fight_stats[str(i)] = int(characterDict[i])
+
+
 #plays either health hit animation or energy drain animation!
 func _play_animator_health_hit():
 	$animator.play("hit")
@@ -60,26 +85,26 @@ func _play_animator_energy_hit():
 # used to grab focus indicator on characters!
 func _focus_indicator():
 	focus.show()
-	_camera_on()
+	#_camera_on()
 	if Fight_stats.Friend_or_Foe == 1:
 		Bar._show_enemy_indicator()
 	else:
 		Bar._show_player_indicator()
 
 # focuses the camera on the character
-func _camera_on():
-	cam_target.enabled = true
+#func _camera_on():
+	#cam_target.enabled = true
 
 func _unfocus_indicator():
 	focus.hide()
-	_camera_off()
+	#_camera_off()
 	if Fight_stats.Friend_or_Foe == 1:
 		Bar._hide_enemy_indicator()
 	else:
 		Bar._hide_player_indicator()
 	
-func _camera_off():
-	cam_target.enabled = false
+#func _camera_off():
+	#cam_target.enabled = false
 #take damage function is here to make everything work what is conected to health or energy!
 
 # this is where all the damage gets split apart for all the other functions to be handled
@@ -140,9 +165,9 @@ func _comprassed_take_damage(card:bool,hit):
 	else:
 		got_damage.taken_damage(hit)
 	
-	_camera_on()
-	await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
-	_camera_off()
+	#_camera_on()
+	#await Engine.get_main_loop().create_timer(Initiative.timeSpentBetweenTurns/2).timeout
+	#_camera_off()
 
 func _comprassed_heal_damage(hit, health_or_eng):
 	var got_heal = damage_indicator.instantiate()

@@ -3,16 +3,23 @@ extends Node
 var content : Dictionary
 #Save file we have
 const  SAVE_FILE = "user://itemsavelist.dat"
-#storing data
+const RESRC_WORLD_FLAGS = preload("uid://po2dcodxxvl3")
 
+#storing data
 func _ready() -> void:
+	RESRC_WORLD_FLAGS.shadowLoadFlagsWorld()
 	
+		
 	
 	var file = FileAccess.open("res://scripts/data/dsheet_LOTTH_database.json",FileAccess.READ)
 	
 	content = JSON.parse_string(file.get_as_text())
 	
 	file.close()
+	for i in content["Character"]:
+		var fs = int(i["Sid"])
+		if !RESRC_WORLD_FLAGS.World_type_flags.isInBeastiery(fs):
+			RESRC_WORLD_FLAGS.World_type_flags.updateBeastiery(int(fs),0)
 
  
 # Item-------------------------------------------
@@ -220,6 +227,21 @@ func get_card_description(Name:String):
 				return i["Description"]
 			else:
 				return "You got a card you should suppose to Have!"
+
+# Characters -------------------------------------------
+
+func get_character_data(Name:String):
+	for i in content["Character"]:
+		if Name == i["CName"]:
+			return i
+
+func get_character_sid(Name:String):
+	for i in content["Character"]:
+		if Name == i["Sid"]:
+			return i
+			
+#func get_character_dict():
+	#return content["Character"]
 
 # SAVES THE GAME-------------------------------------------
 

@@ -21,24 +21,14 @@ var RestorePlayer: Dictionary
 ## Him Restorations
 var RestoreHim: Dictionary
 
-## Enemies Alive?
-"""
-"Name": [Alive?]
-"""
-var EnemyBeastiery: Dictionary = {}
-
-## Player Alive?
+## Who is Alive?
 """
 "Name": [Alive?]
 
 Alive? 0: Yes; 1: No
 """
-var PlayerBeastiery: Dictionary = {
-	"Alex":0,
-	"Myna":0,
-	"Huba":0,
-	"Levi":0
-}
+var Beastiery: Dictionary = {}
+
 
 func saveWorldTypeFlags(saveWorldDict: Dictionary): ## Save the Flags
 	for i in _get_script_property(): ## Check for all the values
@@ -61,7 +51,7 @@ func loadWorldTypeFlags(saveWorldDict: Dictionary): ## Load the flags
 				#print(j)
 				if j.name == i:
 					set(j.name,saveWorldDict[i])
-	print(getTypeFlags())
+	#print(getTypeFlags())
 	return saveWorldDict
 
 ## THIS ONE IS UNFINISHED! IN THE FUTURE FINISH IT
@@ -87,10 +77,14 @@ func getTypeFlagsFromMemory(indx: int)->Dictionary:
 			return RestoreHim
 	return RestorePlayer
 	
-func updateEnemyBeastiery(withWhat:Enemy, isItAlive: int):
-	if !EnemyBeastiery.has(str(withWhat)):
-		EnemyBeastiery[withWhat] = isItAlive
-	
+func updateBeastiery(withWhat, isItAlive: int):
+	Beastiery[withWhat] = isItAlive
+
+func isInBeastiery(withWhat):
+	return Beastiery.has(withWhat)
+
+func getValueBeastiery(withWhat):
+	return Beastiery[withWhat]
 
 # when focused there is a chance you get an item
 # enemies strength + speed vs the players focus stat

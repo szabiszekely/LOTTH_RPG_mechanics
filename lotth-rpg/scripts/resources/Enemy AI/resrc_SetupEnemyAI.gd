@@ -303,7 +303,7 @@ func _attack_card_scoring():
 			var forward_cost:
 				AbilityScore[i] -= forward_cost * 2
 		
-		if STAB == enemy_it_self.Fight_stats.Attack_Type:
+		if STAB == enemy_it_self.Fight_stats.Attack_Type_A:
 			AbilityScore[i] += 5 + enemy_it_self.Fight_stats.Base_Phisical_Attack + enemy_it_self.Fight_stats.Base_Magical_Attack
 		else:
 			AbilityScore[i] += 3
