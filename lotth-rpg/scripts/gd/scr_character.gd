@@ -13,7 +13,7 @@ class_name Character_Controller
 @onready var Bar: Bar_system
 
 #@export var speed:int = 400
-#@export var cam_target: Node2D
+@export var cam_target: Node2D
 @export var CharacterName: String
 @export var Fight_stats: Fighting_Stats
 @export var Turn_portriat: CompressedTexture2D
@@ -56,8 +56,6 @@ func _ready_and_delete():
 	if RefrenceNode.MainNode.var_Reset_Remembering.World_type_flags.getValueBeastiery(Fight_stats["Sid"]) == 1:
 		self.queue_free()
 		CharacterIsOut = true
-		RefrenceNode.EnemyGroup._get_me_some_of_that_gd_children_enemy()
-		RefrenceNode.PlayerGroup._get_me_some_of_that_gd_children_player()
 		
 
 func _hp_and_eng_to_max():

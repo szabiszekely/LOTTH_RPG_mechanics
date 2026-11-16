@@ -4,11 +4,8 @@ extends BattleMain
 
 func _process(_delta: float) -> void:
 	
-	if Input.is_action_just_pressed("debug_button_2"):
-		var_Reset_Remembering.World_type_flags.updateBeastiery(enemy_group.enemies[0].Fight_stats["Sid"],1)
-		var_Reset_Remembering.shadowSaveFlagsWorld()
-		
 	if Input.is_action_just_pressed("debug_button"):
+		print("Printing all info about the Flags: ")
 		var_Reset_Remembering.readWorldTypeFlags()
 		#RefrenceNode.Players[0]._character_outline_show()
 		#order_counter._slide_down_the_order(len(RefrenceNode.InitiativeHandler.all_rolls))
@@ -28,7 +25,14 @@ func _process(_delta: float) -> void:
 		#player_group.player[1]._apply_kb(p_kb_dir,kb_force,0.12)
 		#enemy_group.enemies[0]._apply_kb(e_kb_dir,kb_force,0.12)
 		pass
+
+	if Input.is_action_just_pressed("debug_button_2"):
+		print("Releasing the first enemy in the list: ")
+		var_Reset_Remembering.World_type_flags.updateBeastiery(enemy_group.enemies[0].Fight_stats["Sid"],1)
+		var_Reset_Remembering.shadowSaveFlagsWorld()
+		
 	if Input.is_action_just_pressed("debug_button_3"):
+		print("Removing the Savefiles from Directory: ")
 		var_Reset_Remembering.shadowRemoveWorldPath()
 		#player_group.player[1].global_position.y += 7.5521784562331/2
 		#player_group.player[1].global_position.x += 7.5521784562331
@@ -36,5 +40,8 @@ func _process(_delta: float) -> void:
 		#player_group.player[1].queue_free()
 		pass
 	if Input.is_action_just_pressed("1"):
-		for i in var_Reset_Remembering.World_type_flags.EnemyBeastiery:
-			i.get_script().get_script_property_list()
+		pass
+		#for i in var_Reset_Remembering.World_type_flags.EnemyBeastiery:
+			#i.get_script().get_script_property_list()
+		#RefrenceNode.EnemyGroup._get_me_some_of_that_gd_children_enemy()
+		#RefrenceNode.PlayerGroup._get_me_some_of_that_gd_children_player()

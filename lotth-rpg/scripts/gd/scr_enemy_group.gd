@@ -28,6 +28,7 @@ var enemy_turn_end = false
 
 func _ready() -> void:
 	_get_me_some_of_that_gd_children_enemy()
+	_get_second_children()
 	
 # if its the enemies turn then I set up everything here
 func _start_enemy_section(player_actions):
@@ -84,6 +85,8 @@ func _process(_delta: float) -> void:
 
 func _player_action_to_enemy():
 	# the enemy has its own act options other than check,focus and guard and than that is send to act_options where it gets added!
+
+		
 	if menu_system.act == true:
 		menu_system.act = false
 		menu_system.current_state = menu_system.Menu_state.ACTIONS
@@ -144,6 +147,10 @@ func call_menu_appear():
 	menu.switching_buttons()
 	menu.current_state = menu.Menu_state.MENU
 
+func _get_second_children():
+	await get_tree().process_frame
+	_get_me_some_of_that_gd_children_enemy()
+	
 # callable function to get all the children even after the _ready function
 func _get_me_some_of_that_gd_children_enemy():
 	enemies = get_children()

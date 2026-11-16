@@ -25,7 +25,7 @@ var player_turn_end = false
 
 func _ready() -> void:
 	_get_me_some_of_that_gd_children_player()
-
+	_get_second_children()
 # we setup the players to start their turn
 func _player_start_choosing():
 	
@@ -104,6 +104,11 @@ func call_menu_appear():
 	menu.menu_index = 0
 	menu.switching_buttons()
 	menu.current_state = menu.Menu_state.MENU
+
+func _get_second_children():
+	await get_tree().process_frame
+	_get_me_some_of_that_gd_children_player()
+
 
 func _get_me_some_of_that_gd_children_player():
 	player = get_children()
