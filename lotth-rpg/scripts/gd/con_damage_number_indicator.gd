@@ -132,7 +132,8 @@ func helaing_taken(hit,type: int):
 			add_floating_label(health_number,str(hit))
 			heal_particle.texture = preload("uid://i7qicssm28hx")
 	
-	heal_particle.amount = hit
+	heal_particle.amount = clamp(hit,1,30)
+	print(clamp(int(hit/2) * 5,1,15))
 	heal_particle.process_material.emission_sphere_radius = clamp(int(hit/2) * 5,1,15) 
 	heal_particle.emitting = true
 	await heal_particle.finished

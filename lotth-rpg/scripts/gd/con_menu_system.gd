@@ -147,12 +147,13 @@ func _process(_delta: float) -> void:
 			all_gone()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and menu_can_be_canled and player_group.all_moves_p != len(player_group.all_p_actions):
+		menu_can_be_canled = false
 		match current_state:
 			# goes back to the previous player
 			Menu_state.MENU:
-				if player_group.all_p_actions.size() != 0 and menu_can_be_canled == true:
-					menu_can_be_canled = false
+				if player_group.all_p_actions.size() != 0:
+					
 					
 					if player_group.all_p_actions[player_group.all_p_actions.size() - 1][0] == "bag":
 						RefrenceNode.BagHandler._refund_item(player_group.all_p_actions[player_group.all_p_actions.size() - 1][7])
@@ -164,11 +165,10 @@ func _input(event: InputEvent) -> void:
 						await get_tree().create_timer(0.3).timeout
 						Initiative.sorted_player[player_group.p_index].PlayOutOptions = 1
 						Initiative.sorted_player[player_group.p_index]._play_out_actions_up()
-						menu_can_be_canled = true
+						
 					else:
 						Initiative.sorted_player[player_group.p_index]._play_out_tick_up()
-						await get_tree().create_timer(0.3).timeout
-						menu_can_be_canled = true
+						
 					Initiative.sorted_player[player_group.p_index]._menu_cancle_return_pos()
 						
 					menu_container = true
@@ -251,6 +251,9 @@ func _input(event: InputEvent) -> void:
 				act = true
 				current_state = Menu_state.CHOOSING_ENEMIES
 				#print("Hi")
+		#await get_tree().create_timer(0.3).timeout
+		
+		menu_can_be_canled = true
 	# disables all the UI stuff and you can look around
 	
 # hides the UI (Kinda...)

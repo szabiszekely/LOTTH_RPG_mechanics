@@ -102,9 +102,7 @@ func bar_damage_taken(damage:int):
 		if assined_characters.Fight_stats.HP <= 0:
 			assined_characters.Fight_stats.HP = 0
 			assined_characters.CharacterIsOut = true
-			if assined_characters.Fight_stats.Friend_or_Foe != 0:
-				assined_characters.RefrenceNode.MainNode.var_Reset_Remembering.World_type_flags.updateBeastiery(assined_characters.RefrenceNode.EnemyGroup.enemies[0].Fight_stats["Sid"],1)
-				assined_characters.RefrenceNode.MainNode.var_Reset_Remembering.shadowSaveFlagsWorld()
+			
 			if assined_characters.Fight_stats.Friend_or_Foe == 0:
 				var knocked_out_counter_player = 0
 				for j in assined_characters.Initiative.sorted_player:

@@ -388,7 +388,7 @@
   "Dmg": 0,
   "T.Dmg": 0,
   "Eng": 0,
-  "Eng_healed": 0,
+  "Eng_healed": 10,
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,

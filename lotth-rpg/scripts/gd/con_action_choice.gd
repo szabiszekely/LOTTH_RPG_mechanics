@@ -90,6 +90,7 @@ func action_button_pressed(extra_arg_0: StringName) -> void:
 		# AND FIND A BETTER SOLUTION (IF THE SUSOECTED BUG IS SQUISHED PLS DELETE THIS MASSAGE)
 		# THANK YOU!
 		# side note: thanks for clarifying which bug it is, very helpful comment I have to say :)
+		# Oh wow I think I know finally :)
 			initiative.sorted_player[player.p_index]._play_out_tick_down()
 			if initiative.sorted_player[player.p_index].PlayOutOptions != 0:
 					enemy.call_menu_appear()

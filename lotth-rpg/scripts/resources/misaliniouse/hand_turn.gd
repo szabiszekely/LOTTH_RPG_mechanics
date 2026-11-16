@@ -60,6 +60,7 @@ func _Does_opponent_exist(list:Array,is_this_heal):
 
 
 func _actions(stack):
+	Menu.menu_can_be_canled = false
 	var play_out_action = [] ## all characters action in initiative order
 	var all_running_characters = [] ## all running characters
 	RefrenceNode.Order._show_pointer()
@@ -152,4 +153,5 @@ func _actions(stack):
 	main_scene._reset()
 	await Engine.get_main_loop().create_timer(1.5).timeout
 	RefrenceNode.Order._reset_back_to_the_start()
+	Menu.menu_can_be_canled = true
 	#-------------------------------------------

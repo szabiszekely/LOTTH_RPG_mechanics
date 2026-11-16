@@ -175,6 +175,8 @@ func _comprassed_heal_damage(hit, health_or_eng):
 	
 # long ass fade away animation
 func _fade_away_death():
+		RefrenceNode.MainNode.var_Reset_Remembering.World_type_flags.updateBeastiery(self.Fight_stats["Sid"],1)
+		RefrenceNode.MainNode.var_Reset_Remembering.shadowSaveFlagsWorld()
 		var index = 0
 		for i in Initiative.all_rolls:
 			if self == i[-1]:
@@ -200,6 +202,7 @@ func _fade_away_death():
 		tween2.tween_property(soul_fire,"modulate",Color.WHITE,3)
 		await tween.finished
 		Initiative.stopLoop.emit()
+		
 		self.queue_free()
 		Bar.queue_free()
 

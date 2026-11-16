@@ -5,8 +5,8 @@ extends BattleMain
 func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug_button"):
-		print("Printing all info about the Flags: ")
-		var_Reset_Remembering.readWorldTypeFlags()
+		#print("Printing all info about the Flags: ")
+		#var_Reset_Remembering.readWorldTypeFlags()
 		#RefrenceNode.Players[0]._character_outline_show()
 		#order_counter._slide_down_the_order(len(RefrenceNode.InitiativeHandler.all_rolls))
 		#_reset()
@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		#RefrenceNode.PlayerGroup.all_p_actions.push_back(["act",0,RefrenceNode.InitiativeHandler.sorted_player[0],RefrenceNode.EnemyGroup.enemies[0],"Talk",self])
 		#print(RefrenceNode.DialogicControl.dialog_main)
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
-		#player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
+		player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[2]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[3]._take_damage(1,1,enemy_group.enemies[0])
