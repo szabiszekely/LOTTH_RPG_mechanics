@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://bio6jtqwn30c7"
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s3p7h"]
 resource_local_to_scene = true
 shader = ExtResource("1_ye5j6")
-shader_parameter/outline_color = Color(1, 0, 0, 1)
+shader_parameter/outline_color = Color(0, 0.92156863, 1, 1)
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_time_scale = 0.0
 

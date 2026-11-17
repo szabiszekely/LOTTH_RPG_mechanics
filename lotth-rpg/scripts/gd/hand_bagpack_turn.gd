@@ -11,8 +11,8 @@ extends Node
 # that the player does want to heal, then it helps to pick a different player,
 # instead the dead guy in the battlefield 
 var is_this_heal = [0]
-# bag, player, from, to, item, menu, is it stat?, item_uuid
-# ["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players),item_uuid]
+# bag, player, from, to, item, menu, is it stat?, item_uuid, turn timer
+# ["bag",0,initiative.sorted_player[p_index],player[sub_index],item_againts_players,menu.bagpack_choice,Data.get_item_stats_exists(item_againts_players),item_uuid,Data.get_item_turn_timer(item_againts_enemies)]
 func _Bagpack_Turn(list):
 	# this checks for if the current guy, who we are letting through the turn, is alive
 	# or dead/KOd
@@ -35,6 +35,6 @@ func _Bagpack_Turn(list):
 	# stats for self
 	if list[6]:
 		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
-		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",1,Data.get_item_stats_types(Data.get_item_stats(list[4]))))
+		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[8],Data.get_item_stats_types(Data.get_item_stats(list[4]))))
 		list[3].Fight_stats._Apply_Stats()
 	RefrenceNode.BagHandler._remove_item_from_inventory(list[7])

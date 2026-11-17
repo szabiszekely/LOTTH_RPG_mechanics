@@ -141,4 +141,4 @@ func _Apply_Stats(): ## Hello
 	Temp_BP_A += Base_Phisical_Attack + Sum_BPA
 	Temp_BM_A += Base_Magical_Attack + Sum_BMA
 	Temp_Sped += Speed + Sum_SP
-	
+	print(Stat_Boosts)

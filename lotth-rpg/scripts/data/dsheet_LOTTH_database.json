@@ -16,7 +16,7 @@
   "BM_Attack": 0,
   "Speed": 0,
   "Number_Of_turn": 0,
-  "Description": "Beef jerky or maybe I jerked my beef?"
+  "Description": "Beef jerky or maybe I jerked my beef? Restores 4 ENG"
  },
  {
   "Id": 1,
@@ -70,7 +70,7 @@
   "BM_Attack": 0,
   "Speed": 0,
   "Number_Of_turn": 0,
-  "Description": "An apple a day keeps the programming bugs away"
+  "Description": "An apple a day keeps the programming bugs away. Restores 3 ENG"
  },
  {
   "Id": 4,
@@ -88,7 +88,7 @@
   "BM_Attack": 0,
   "Speed": 0,
   "Number_Of_turn": 0,
-  "Description": "Heals much as it shows"
+  "Description": "Heals much as it shows. Heals 4 HP"
  },
  {
   "Id": 5,
@@ -105,7 +105,7 @@
   "BP_Attack": -1,
   "BM_Attack": 0,
   "Speed": 0,
-  "Number_Of_turn": 0,
+  "Number_Of_turn": 1,
   "Description": "Spike from the opponent, The opponent looses 1 Phisical ATK"
  },
  {
@@ -389,7 +389,7 @@
   "Hp": 0,
   "Hp_healed": 0,
   "Emp": 0,
-  "Range": 12,
+  "Range": "Target",
   "Type": "Magic",
   "Eng_or_Hp": 0,
   "Ability_Type": "Attributes",
@@ -398,8 +398,8 @@
   "BP_Attack": -1,
   "BM_Attack": 0,
   "Speed": 0,
-  "Number_Of_turn": 2,
-  "Description": "Curses an enemy with -1 B.DMG for 2 turn!",
+  "Number_Of_turn": 1,
+  "Description": "Curses an enemy with -1 B.DMG for 1 turn!",
   "Need_func": 0
  },
  {

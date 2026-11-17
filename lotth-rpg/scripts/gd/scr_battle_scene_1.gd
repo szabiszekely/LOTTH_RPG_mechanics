@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 		#player_group.player[1].queue_free()
 		pass
 	if Input.is_action_just_pressed("1"):
-		pass
+		print(Data.get_item_turn_timer("Spike"))
 		#for i in var_Reset_Remembering.World_type_flags.EnemyBeastiery:
 			#i.get_script().get_script_property_list()
 		#RefrenceNode.EnemyGroup._get_me_some_of_that_gd_children_enemy()

@@ -3,7 +3,7 @@ class_name Stat_Increases
 
 var header_ids: Array = []
 # Defense,Magic_Defense,Base_Phisical_Attack,Base_Magical_Attack,Speed
-var All_stats: Array
+@export var All_stats: Array
 
 # header for id stuff?
 # return [header,{stat1:value,stat2:value}, remaining]

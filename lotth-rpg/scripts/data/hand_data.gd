@@ -125,6 +125,11 @@ func get_item_stats(Name: String):
 			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
 			return stats
 
+func get_item_turn_timer(Name:String):
+	for i in content["Items"]:
+		if Name == i["Name"]:
+			return i["Number_Of_turn"]
+
 #	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
 
 func get_item_stats_types(list:Array):
@@ -235,6 +240,27 @@ func get_card_func_need(Name:String):
 				return true
 			else:
 				return false
+
+func get_card_stats_exists(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
+			if stats != [0.0,0.0,0.0,0.0,0.0]:
+				return true
+			else:
+				return false
+
+func get_card_stats(Name: String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			var stats = [i["Def"],i["M_Def"],i["BP_Attack"],i["BM_Attack"],i["Speed"]]
+			return stats
+
+func get_card_turn_timer(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			return i["Number_Of_turn"]
+
 
 # Characters -------------------------------------------
 

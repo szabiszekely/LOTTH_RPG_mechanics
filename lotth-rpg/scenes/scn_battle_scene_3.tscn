@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dc0an8kqtxeoe"]
+[gd_scene load_steps=31 format=4 uid="uid://dc0an8kqtxeoe"]
 
 [ext_resource type="Script" uid="uid://bjxp4trjj60pn" path="res://scripts/gd/scr_battle_scene_1.gd" id="1_spa3h"]
 [ext_resource type="Resource" uid="uid://po2dcodxxvl3" path="res://Testing_folder/resrc_World_Flags.tres" id="2_snfvy"]
@@ -18,6 +18,8 @@
 [ext_resource type="Resource" uid="uid://bo7kw3v2nra6b" path="res://scripts/resources/Text_Box/Myna.dch" id="15_w3ti8"]
 [ext_resource type="PackedScene" uid="uid://bvqagukia7spt" path="res://scenes/scn_dummy.tscn" id="16_21xai"]
 [ext_resource type="Texture2D" uid="uid://cc7obgis0s0ab" path="res://assets/sprite/Player/spr_Portrait_Icon_diff2.png" id="16_spa3h"]
+[ext_resource type="Resource" uid="uid://d2kvvm3tcx5ag" path="res://scripts/resources/Decks/Dummy_deck.tres" id="19_snfvy"]
+[ext_resource type="Shader" uid="uid://cunpnsww68d3n" path="res://scripts/gdshader/Pixel_Shader.gdshader" id="19_spa3h"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/scn_UI_battle_menu.tscn" id="20_60rvu"]
 [ext_resource type="Texture2D" uid="uid://ccno3uytf1q74" path="res://assets/sprite/BG and Tile/Background.png" id="21_uio60"]
 
@@ -110,6 +112,19 @@ Base_Magical_Attack = 1
 Speed = 2
 range_in_cm = 15.0
 
+[sub_resource type="Resource" id="Resource_xcniu"]
+script = ExtResource("13_wtl4i")
+Friend_or_Foe = null
+PlayerDeck = ExtResource("19_snfvy")
+metadata/_custom_type_script = "uid://bio6jtqwn30c7"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yv2hc"]
+resource_local_to_scene = true
+shader = ExtResource("19_spa3h")
+shader_parameter/outline_color = Color(0, 0.92156863, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
 [node name="rework" type="Node2D"]
 script = ExtResource("1_spa3h")
 var_Reset_Remembering = ExtResource("2_snfvy")
@@ -190,6 +205,10 @@ script = ExtResource("15_fagal")
 
 [node name="Character" parent="NavigationRegion2D/enemy_group" instance=ExtResource("16_21xai")]
 position = Vector2(107, 19)
+Fight_stats = SubResource("Resource_xcniu")
+
+[node name="character_animator" parent="NavigationRegion2D/enemy_group/Character" index="0"]
+material = SubResource("ShaderMaterial_yv2hc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -136)
@@ -215,5 +234,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("21_uio60")
 
 [editable path="Turn_Handler"]
+[editable path="NavigationRegion2D/enemy_group/Character"]
 [editable path="UI_battle_menu"]
 [editable path="UI_battle_menu/Order_counter"]
