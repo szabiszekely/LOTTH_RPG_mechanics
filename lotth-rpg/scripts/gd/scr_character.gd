@@ -15,8 +15,11 @@ class_name Character_Controller
 #@export var speed:int = 400
 @export var cam_target: Node2D
 @export var CharacterName: String
+@export var Local_or_Global_Stats: bool = true
 @export var Fight_stats: Fighting_Stats
 @export var Turn_portriat: CompressedTexture2D
+# this is the maximum of option chocie a character can have
+@export var MaxPlayOutOptions: int = 2
 
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
@@ -36,8 +39,6 @@ var PlayOutOptions: int = 2:
 		if value <= 0:
 			_on_to_the_next_guy()
 		
-# this is the maximum of option chocie a character can have
-@export var MaxPlayOutOptions: int = 2
 
 # this sets up the character to their turn
 var your_turn = false:
@@ -58,13 +59,9 @@ func _ready_and_delete():
 		CharacterIsOut = true
 		
 
-func _hp_and_eng_to_max():
-	Fight_stats.HP = Fight_stats.MAX_HP
-	Fight_stats.ENG = Fight_stats.MAX_ENG
 
 func _character_setup():
 	var characterDict: Dictionary = Data.get_character_data(CharacterName)
-
 	for i in characterDict:
 		if i != "CName":
 			if characterDict[i] is String:
@@ -73,12 +70,6 @@ func _character_setup():
 				Fight_stats[str(i)] = int(characterDict[i])
 
 
-#plays either health hit animation or energy drain animation!
-func _play_animator_health_hit():
-	$animator.play("hit")
-
-func _play_animator_energy_hit():
-	$animator.play("eng_hit")
 
 # used to grab focus indicator on characters!
 func _focus_indicator():

@@ -1,0 +1,165 @@
+[gd_scene load_steps=28 format=3 uid="uid://bvqagukia7spt"]
+
+[ext_resource type="Script" uid="uid://bkgxjyxp2gurg" path="res://scripts/gd/scr_enemy_control.gd" id="1_541il"]
+[ext_resource type="Shader" uid="uid://cunpnsww68d3n" path="res://scripts/gdshader/Pixel_Shader.gdshader" id="1_ye5j6"]
+[ext_resource type="Resource" uid="uid://gjyfo3idmw2b" path="res://scripts/resources/Enemy AI/BaseDummyAI.tres" id="2_18tof"]
+[ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/resrc_Basic_stats.gd" id="2_yafyx"]
+[ext_resource type="Texture2D" uid="uid://bkeeqjwy0n727" path="res://assets/sprite/Simple Enemie/spr_Current_Enemy_indicator.png" id="3_0w57u"]
+[ext_resource type="Texture2D" uid="uid://dfwr31h7nnn3h" path="res://assets/sprite/Dummy Enemie/Dummy_portrait.png" id="3_18tof"]
+[ext_resource type="Resource" uid="uid://d2kvvm3tcx5ag" path="res://scripts/resources/Decks/Dummy_deck.tres" id="3_rxn1g"]
+[ext_resource type="Texture2D" uid="uid://cjii3gbml0xmg" path="res://assets/sprite/Items/spike.png" id="4_541il"]
+[ext_resource type="Texture2D" uid="uid://dbhvvvv5ygrfs" path="res://assets/sprite/Dummy Enemie/Dummy.png" id="5_rxn1g"]
+[ext_resource type="Script" uid="uid://d2hyfpaleka42" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="10_rxn1g"]
+
+[sub_resource type="Resource" id="Resource_s4kws"]
+script = ExtResource("2_yafyx")
+Friend_or_Foe = null
+PlayerDeck = ExtResource("3_rxn1g")
+metadata/_custom_type_script = "uid://bio6jtqwn30c7"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3p7h"]
+resource_local_to_scene = true
+shader = ExtResource("1_ye5j6")
+shader_parameter/outline_color = Color(1, 0, 0, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_541il"]
+atlas = ExtResource("5_rxn1g")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anak7"]
+atlas = ExtResource("5_rxn1g")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yafyx"]
+atlas = ExtResource("5_rxn1g")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ineu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_541il")
+}],
+"loop": true,
+"name": &"KOd",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anak7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yafyx")
+}],
+"loop": true,
+"name": &"tired",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f33j1"]
+size = Vector2(17.0588, 12.3529)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vqyih"]
+animation = &"KOd"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ctdhs"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6vew"]
+animation = &"tired"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gjc1s"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xqu45"]
+advance_mode = 2
+advance_expression = "Bar.ENG_bar.get_current_value() <= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0lgag"]
+advance_mode = 2
+advance_expression = "Bar.ENG_bar.get_current_value() > 0
+"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lyht5"]
+advance_mode = 2
+advance_expression = "Bar.HP_bar.get_current_value() <= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7i7dh"]
+advance_mode = 2
+advance_expression = "Bar.HP_bar.get_current_value() > 0
+"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_agadp"]
+states/KOd/node = SubResource("AnimationNodeAnimation_vqyih")
+states/KOd/position = Vector2(560, 218)
+states/idle/node = SubResource("AnimationNodeAnimation_ctdhs")
+states/idle/position = Vector2(435, 76)
+states/tired/node = SubResource("AnimationNodeAnimation_u6vew")
+states/tired/position = Vector2(358, 213)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gjc1s"), "idle", "tired", SubResource("AnimationNodeStateMachineTransition_xqu45"), "tired", "idle", SubResource("AnimationNodeStateMachineTransition_0lgag"), "tired", "KOd", SubResource("AnimationNodeStateMachineTransition_lyht5"), "KOd", "tired", SubResource("AnimationNodeStateMachineTransition_7i7dh")]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_plvx4"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 177.30002
+spread = 180.0
+gravity = Vector3(0, -98, 0)
+
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("cam_target")]
+collision_layer = 4
+script = ExtResource("1_541il")
+EnemyAI = ExtResource("2_18tof")
+cam_target = NodePath("PCamTarget")
+CharacterName = "Dummy_Test"
+Fight_stats = SubResource("Resource_s4kws")
+Turn_portriat = ExtResource("3_18tof")
+MaxPlayOutOptions = 1
+
+[node name="character_animator" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_s3p7h")
+position = Vector2(0, 11.2355)
+sprite_frames = SubResource("SpriteFrames_ineu5")
+animation = &"KOd"
+speed_scale = 4.0
+offset = Vector2(0, -27.315)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1.3, -4.2645)
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_f33j1")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_agadp")
+advance_expression_base_node = NodePath("..")
+
+[node name="Indicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -30)
+texture = ExtResource("3_0w57u")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(4, 0)
+amount = 14
+texture = ExtResource("4_541il")
+use_fixed_seed = true
+seed = 3623430450
+process_material = SubResource("ParticleProcessMaterial_plvx4")
+
+[node name="PCamTarget" type="Node2D" parent="."]
+script = ExtResource("10_rxn1g")
+radius = 150.0
+enabled = false
+priority = 1

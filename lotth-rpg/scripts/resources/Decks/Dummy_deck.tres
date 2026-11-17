@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Deck_builder" load_steps=2 format=3 uid="uid://d2kvvm3tcx5ag"]
+
+[ext_resource type="Script" uid="uid://gxjjhkmtudgi" path="res://scripts/resources/Decks/resrc_Decks.gd" id="1_dsu3d"]
+
+[resource]
+script = ExtResource("1_dsu3d")
+Deck = PackedStringArray("Do Nothing")
+metadata/_custom_type_script = "uid://gxjjhkmtudgi"

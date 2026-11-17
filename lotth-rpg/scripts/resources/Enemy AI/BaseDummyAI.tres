@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DummyAI" load_steps=2 format=3 uid="uid://gjyfo3idmw2b"]
+
+[ext_resource type="Script" uid="uid://bwv0e6mq4w0an" path="res://scripts/resources/Enemy AI/resrc_DummyAI.gd" id="1_c0xdf"]
+
+[resource]
+script = ExtResource("1_c0xdf")
+metadata/_custom_type_script = "uid://bwv0e6mq4w0an"

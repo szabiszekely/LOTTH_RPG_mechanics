@@ -32,15 +32,14 @@ var movement_restriction = false
 
 func _ready() -> void:
 	_ready_and_delete()
-	_character_setup()
+	if Local_or_Global_Stats:
+		_character_setup()
 	
 	
 	if !CharacterIsOut:
-		_hp_and_eng_to_max()
 		$AnimationTree.active = true
 		var instance = BAR_SYSTEM.instantiate()
 		instance.assined_characters = self
-		
 		Bar_VContainer.add_child(instance)
 		Bar = instance
 		_character_outline_hide()

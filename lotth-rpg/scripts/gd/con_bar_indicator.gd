@@ -33,6 +33,7 @@ var test_ADR: bool = false
 
 
 func _ready() -> void:
+	_hp_and_eng_to_max()
 	enemy_indicator.hide()
 	player_indicator.hide()
 	for i in assined_characters.MaxPlayOutOptions:
@@ -45,11 +46,11 @@ func _ready() -> void:
 	ENG_bar.material.set_shader_parameter("segment_count",assined_characters.Fight_stats.MAX_ENG)
 	HP_bar.material.set_shader_parameter("segment_count",assined_characters.Fight_stats.MAX_HP)
 	
-	#ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
-	#HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
-	#ENG_bar.update_segment_count(assined_characters.Fight_stats.MAX_ENG)
-	#HP_bar.update_segment_count(assined_characters.Fight_stats.MAX_HP)
-	##print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
+	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
+	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
+	ENG_bar.update_segment_count(assined_characters.Fight_stats.MAX_ENG)
+	HP_bar.update_segment_count(assined_characters.Fight_stats.MAX_HP)
+	#print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
 	_visual_name()
 # Still ugly, but it works and I do not care about anything else
 # beauty lies in the insides... yeah close enough, but still ugly
@@ -166,6 +167,11 @@ func _reset_action_indicator():
 func _emp_bar(amount):
 	if not emp_bar == null:
 		self.emp_bar._increase_emp(amount)
+
+func _hp_and_eng_to_max():
+	assined_characters.Fight_stats.HP = assined_characters.Fight_stats.MAX_HP
+	assined_characters.Fight_stats.ENG = assined_characters.Fight_stats.MAX_ENG
+
 
 # Need to find all the same enemy types
 # if they exists replace their name with A, B, C or D respectivly

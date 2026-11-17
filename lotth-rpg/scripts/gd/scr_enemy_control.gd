@@ -11,11 +11,11 @@ const BAR_SYSTEM = preload("res://scenes/con_bar_indicator.tscn")
 
 func _ready() -> void:
 	_ready_and_delete()
-	_character_setup()
+	if Local_or_Global_Stats:
+		_character_setup()
 	
 	
 	if !CharacterIsOut:
-		_hp_and_eng_to_max()
 		#hiding the health bar, playing the idle animation, rolling with the speed dice, and a lot more!
 		roll_of_the_luck()
 		var instance = BAR_SYSTEM.instantiate()

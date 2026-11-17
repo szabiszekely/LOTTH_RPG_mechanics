@@ -27,7 +27,8 @@ func _get_what_ability_got_used(Name_of_Ability_Card,Menu,enemy_group,player_gro
 	# this replaces all the abilities " " (spaces) with "_" (underscores) so we can uses them as function 
 	# and call them!
 	var correct_string = Name_of_Ability_Card.replace(" ","_")
-	call(correct_string)
+	if Data.get_card_func_need(Name_of_Ability_Card):
+		call(correct_string)
 
 
 func _player_set_up_for_attack():
@@ -39,22 +40,11 @@ func _player_set_up_for_attack():
 	attacker_index.skill.indicator.set_reference(attacker_index)
 
 # really basic callable function for testing purposes
-func Pass():
-	pass
-
-func Agressive_Stomp():
-	pass
-	
-func Mile_Punch():
-	pass
-
 func Byecicle():
 	attacker_index.skill = preload("res://scripts/resources/Indicators/Skill/FireSwarm.tres")
 	_player_set_up_for_attack()
 	menu_system.Initiative.timeSpentBetweenTurns = 7
 	
-func Curved_Slash():
-	pass
 
 # most of these functions are gonna be custome but for near future me, I will explain this one!
 # when you activate it as a range capped funtion you will load the correct skill in this case FireBall.tres
@@ -65,20 +55,9 @@ func Dual_Wielding():
 	_player_set_up_for_attack()
 	menu_system.Initiative.timeSpentBetweenTurns = 7
 
-func Funny_Magic():
-	pass
-
 func Thunder_Song():
 	attacker_index.skill = preload("res://scripts/resources/Indicators/Skill/AreaBoom.tres")
 	_player_set_up_for_attack()
-func Healling_care():
-	pass
-
-func Arcane_Feather():
-	pass
-
-func Broken_Shooter():
-	pass
 
 func Curse_Of_Mya():
 	pass
@@ -90,13 +69,7 @@ func Throw_Away_Joke():
 	var find_index = attacker_index.Fight_stats.PlayerDeck.Deck.find("Throw Away Joke")
 	attacker_index.Fight_stats.PlayerDeck.Deck.remove_at(find_index)
 	
-func Spin_Roll():
-	pass
-
 func Spike_Dive():
-	pass
-
-func Bite():
 	pass
 
 func Spike_Fortress():
@@ -107,3 +80,6 @@ func Scream():
 
 func Growl():
 	pass
+
+#func Do_Nothing():
+	#pass

@@ -228,6 +228,14 @@ func get_card_description(Name:String):
 			else:
 				return "You got a card you should suppose to Have!"
 
+func get_card_func_need(Name:String):
+	for i in content["Abilities"]:
+		if Name == i["Name"]:
+			if i["Need_func"] == 1:
+				return true
+			else:
+				return false
+
 # Characters -------------------------------------------
 
 func get_character_data(Name:String):

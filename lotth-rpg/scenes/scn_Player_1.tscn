@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://l5f740mb43yc"]
+[gd_scene load_steps=79 format=3 uid="uid://l5f740mb43yc"]
 
 [ext_resource type="Script" uid="uid://cnkp5cr0aflw3" path="res://scripts/gd/scr_player_controller.gd" id="1_1byu4"]
 [ext_resource type="Texture2D" uid="uid://cspybnmfucf5g" path="res://assets/sprite/Player/spr_Player_Sprite_Sheet.png" id="1_u1ato"]
@@ -386,36 +386,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_g3rl5"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_av0wi"]
-resource_name = "eng_hit"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.6), Vector2(1, 1), Vector2(1, 0.6), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ev0j6"]
-resource_name = "hit"
-step = 0.1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4d3b"]
-_data = {
-&"RESET": SubResource("Animation_g3rl5"),
-&"eng_hit": SubResource("Animation_av0wi"),
-&"hit": SubResource("Animation_ev0j6")
-}
-
 [sub_resource type="Animation" id="Animation_x2ymp"]
 resource_name = "KOd"
 length = 3.0
@@ -524,19 +494,21 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_15u76"]
 advance_mode = 2
-advance_expression = "Bar.ENG_bar.material.get_shader_parameter(\"value\") <= 0"
+advance_expression = "Bar.ENG_bar.get_current_value() <= 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hiwc3"]
 advance_mode = 2
-advance_expression = "Bar.ENG_bar.material.get_shader_parameter(\"value\") > 0"
+advance_expression = "Bar.ENG_bar.get_current_value() > 0
+"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q737x"]
 advance_mode = 2
-advance_expression = "Bar.HP_bar.material.get_shader_parameter(\"value\") > 0"
+advance_expression = "Bar.HP_bar.get_current_value() > 0
+"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s0g1m"]
 advance_mode = 2
-advance_expression = "Bar.HP_bar.material.get_shader_parameter(\"value\") <= 0"
+advance_expression = "Bar.HP_bar.get_current_value() <= 0"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kmnsa"]
 states/KOd/node = SubResource("AnimationNodeAnimation_rx64k")
@@ -565,21 +537,15 @@ gravity = Vector3(0, -98, 0)
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cam_target") groups=["Player"]]
 collision_layer = 5
 script = ExtResource("1_1byu4")
+cam_target = NodePath("PCamTarget")
 Fight_stats = ExtResource("3_ompdf")
 Turn_portriat = ExtResource("4_lp857")
-cam_target = NodePath("PCamTarget")
 
 [node name="character_animator" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_sn5ec")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xeeho")
 animation = &"idle"
-frame = 8
-
-[node name="animator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_j4d3b")
-}
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
