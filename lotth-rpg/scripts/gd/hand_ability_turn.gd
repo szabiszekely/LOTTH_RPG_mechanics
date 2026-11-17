@@ -31,7 +31,7 @@ func _Ability_Turn(list:Array):
 			list[2]._use_card_and_lose_eng(list[4])
 			list[3]._use_card_and_gain_eng(list[4],Data.get_card_eng_or_hp(list[4]))
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[2],list[3])
-		2: ## its is for skills
+		2: ## it is for skills
 			turn_handler.initiative.doTrapForLoop = true
 			list[2]._use_card_and_lose_eng(list[4])
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[2],list[3])

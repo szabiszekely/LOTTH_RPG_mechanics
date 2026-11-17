@@ -42,11 +42,14 @@ func _ready() -> void:
 	energy_changed()
 	health_changed()
 	ADR_bar.hide()
-	ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
-	HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
-	ENG_bar.update_segment_count(assined_characters.Fight_stats.MAX_ENG)
-	HP_bar.update_segment_count(assined_characters.Fight_stats.MAX_HP)
-	#print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
+	ENG_bar.material.set_shader_parameter("segment_count",assined_characters.Fight_stats.MAX_ENG)
+	HP_bar.material.set_shader_parameter("segment_count",assined_characters.Fight_stats.MAX_HP)
+	
+	#ENG_bar.set_max_value(assined_characters.Fight_stats.MAX_ENG)
+	#HP_bar.set_max_value(assined_characters.Fight_stats.MAX_HP)
+	#ENG_bar.update_segment_count(assined_characters.Fight_stats.MAX_ENG)
+	#HP_bar.update_segment_count(assined_characters.Fight_stats.MAX_HP)
+	##print(_name_checker(assined_characters,assined_characters.RefrenceNode.Enemeies))
 	_visual_name()
 # Still ugly, but it works and I do not care about anything else
 # beauty lies in the insides... yeah close enough, but still ugly

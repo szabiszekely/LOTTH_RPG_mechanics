@@ -66,6 +66,7 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../../../Next_Previouse_Page")
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
+text = "basd"
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/Grid 1_2"]
 layout_mode = 2

@@ -62,7 +62,7 @@ the Dict, to the memory RestoreHim and RestorePlayer
 for the Temp dict, I have no clue you might as well delete it.
 """
 func loadTypeFlagsToMemory(RestoredPlayer:Dictionary,RestoredHim:Dictionary)->void:
-	var temp: Dictionary = {}
+	var _temp: Dictionary = {}
 	RestoredPlayer.erase("RestoreHim")
 	RestoredHim.erase("RestoreWorld")
 	RestoredHim.erase("RestorePlayer")

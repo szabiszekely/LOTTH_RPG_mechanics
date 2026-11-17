@@ -69,28 +69,16 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-440, -19, 420, -19, 428, 116, -437, 114)])
 agent_radius = 21.0
 
-[sub_resource type="Resource" id="Resource_p7hkc"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_wnwgh"]
 script = ExtResource("10_3bun2")
-name = "Lil Goofy Guy"
+name = "Alex"
 character_speaker = ExtResource("9_maoo0")
-Sid = 0
-Friend_or_Foe = 0
-MAX_HP = 25
-MAX_ENG = 25
-HP = 25
-ENG = 25
-Soul_Type = 1
+Sid = 1
+Friend_or_Foe = null
 PlayerDeck = ExtResource("8_sa2bn")
-Defense = 4
-Magic_Defense = 4
-MAX_EMP = 1000
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 1
-Speed = 2
-range_in_cm = 15.0
+metadata/_custom_type_script = "uid://bio6jtqwn30c7"
 
-[sub_resource type="Resource" id="Resource_q1i6w"]
+[sub_resource type="Resource" id="Resource_sa2bn"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy"
@@ -111,7 +99,7 @@ Base_Magical_Attack = 1
 Speed = 2
 range_in_cm = 15.0
 
-[sub_resource type="Resource" id="Resource_4y57x"]
+[sub_resource type="Resource" id="Resource_maoo0"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy"
@@ -132,7 +120,7 @@ Base_Magical_Attack = 1
 Speed = 2
 range_in_cm = 15.0
 
-[sub_resource type="Resource" id="Resource_iowgj"]
+[sub_resource type="Resource" id="Resource_3bun2"]
 resource_local_to_scene = true
 script = ExtResource("10_3bun2")
 name = "Lil Goofy Guy again"
@@ -310,8 +298,8 @@ script = ExtResource("6_oxvkq")
 
 [node name="Player" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-204, -2)
-CharacterName = "Alex"
-Fight_stats = SubResource("Resource_p7hkc")
+CharacterName = "Myna"
+Fight_stats = SubResource("Resource_wnwgh")
 MaxPlayOutOptions = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/player_group/Player"]
@@ -321,7 +309,7 @@ texture = ExtResource("13_oxvkq")
 [node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-125, -3)
 CharacterName = "Myna"
-Fight_stats = SubResource("Resource_q1i6w")
+Fight_stats = SubResource("Resource_sa2bn")
 Turn_portriat = ExtResource("14_mh5d7")
 MaxPlayOutOptions = 1
 
@@ -332,7 +320,7 @@ texture = ExtResource("14_mh5d7")
 [node name="Player3" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-200, 75)
 CharacterName = "Levi"
-Fight_stats = SubResource("Resource_4y57x")
+Fight_stats = SubResource("Resource_maoo0")
 Turn_portriat = ExtResource("16_oxvkq")
 MaxPlayOutOptions = 1
 
@@ -343,7 +331,7 @@ texture = ExtResource("16_oxvkq")
 [node name="Player5" parent="NavigationRegion2D/player_group" instance=ExtResource("7_wnwgh")]
 position = Vector2(-123, 77)
 CharacterName = "Huba"
-Fight_stats = SubResource("Resource_iowgj")
+Fight_stats = SubResource("Resource_3bun2")
 Turn_portriat = ExtResource("17_wnwgh")
 MaxPlayOutOptions = 1
 

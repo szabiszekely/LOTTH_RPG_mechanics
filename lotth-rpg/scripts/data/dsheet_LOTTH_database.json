@@ -459,7 +459,7 @@
   "Sid": 1,
   "Friend_or_Foe": 0,
   "MAX_HP": 30,
-  "MAX_ENG": 35,
+  "MAX_ENG": 0, 
   "Soul_Type": 2,
   "Attack_Type_A": 0,
   "Attack_Type_D": 3,
