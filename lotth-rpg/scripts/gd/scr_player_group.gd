@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("ui_accept") and start_choosing == true:
 			if menu_system.abi == true and start_choosing == true:
 				menu_system.abi = false
-				all_p_actions.push_back(["atk",1,player[p_index],player[sub_index],card_againts_players])
+				all_p_actions.push_back(["atk",1,player[p_index],player[sub_index],card_againts_players,Data.get_card_stats_exists(card_againts_players),Data.get_card_turn_timer(card_againts_players)])
 				_reset_focus()
 				menu.vanish()
 				initiative.sorted_player[p_index]._play_out_tick_down()

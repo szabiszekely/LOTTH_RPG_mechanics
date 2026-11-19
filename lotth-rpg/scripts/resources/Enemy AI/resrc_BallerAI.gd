@@ -61,7 +61,7 @@ func _EnemyAI(deck):
 	if  energy_restore_bottomline <= enemy_current_ENG and enemy_current_ENG <= energy_restore_upperline: # roll to heal
 		var random_chance = randf_range(0,1)
 		if energy_healing_percentage <= random_chance:
-			enemy_group.all_e_action.push_back(["atk",1,enemy_it_self,enemy_it_self,Defense_deck[0]])
+			enemy_group.all_e_action.push_back(["atk",1,enemy_it_self,enemy_it_self,Defense_deck[0],Data.get_card_stats_exists(Defense_deck[0]),Data.get_card_turn_timer(Defense_deck[0])])
 			increase_failed_heal_percentage = 0
 			break_gambit = true
 		else:
@@ -69,7 +69,7 @@ func _EnemyAI(deck):
 			pass
 	# how ever if the enemy is on the bottomline then it will heal reguardless of any optimal chances
 	elif energy_restore_bottomline > enemy_current_ENG: # garandteed heal
-		enemy_group.all_e_action.push_back(["atk",1,enemy_it_self,enemy_it_self,Defense_deck[0]])
+		enemy_group.all_e_action.push_back(["atk",1,enemy_it_self,enemy_it_self,Defense_deck[0],Data.get_card_stats_exists(Defense_deck[0]),Data.get_card_turn_timer(Defense_deck[0])])
 		break_gambit = true
 		
 	# there is this gambit if the enemy already choosen lets say... heal then don't override it with attack
@@ -121,7 +121,7 @@ func _EnemyAI(deck):
 			for i in AbilityScore:
 				var value = AbilityScore[i]
 				if value == lowest_value:
-					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i,Data.get_card_stats_exists(i),Data.get_card_turn_timer(i)])
 					break
 
 			#enemy_group.all_e_action.push_back(["act",0,enemy_it_self,enemy_it_self,"Talk",act_panel_choice])
@@ -134,6 +134,6 @@ func _EnemyAI(deck):
 			for i in AbilityScore:
 				var value = AbilityScore[i]
 				if value == highest_value:
-					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i])
+					enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,i,Data.get_card_stats_exists(i),Data.get_card_turn_timer(i)])
 					break
 		

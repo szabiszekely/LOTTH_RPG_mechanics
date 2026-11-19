@@ -3,9 +3,9 @@ class_name BattleMain
 
 @onready var RefrenceNode:CrossRoad = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
 
-@onready var player_group = RefrenceNode.PlayerGroup
-@onready var enemy_group = RefrenceNode.EnemyGroup
-@onready var initiative = RefrenceNode.InitiativeHandler
+@onready var player_group: Player_group = RefrenceNode.PlayerGroup
+@onready var enemy_group: Enemy_group = RefrenceNode.EnemyGroup
+@onready var initiative: new_Initiative = RefrenceNode.InitiativeHandler
 @export var var_Reset_Remembering: Reset_Remembering
 
 func _ready() -> void:

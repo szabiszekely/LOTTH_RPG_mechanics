@@ -101,7 +101,7 @@ func _player_action_to_enemy():
 	# signed to a ability button
 	if menu_system.abi == true:
 		menu_system.abi = false
-		player.all_p_actions.push_back(["atk",0,initiative.sorted_player[player.p_index],enemies[sub_e_index],card_againts_enemies])
+		player.all_p_actions.push_back(["atk",0,initiative.sorted_player[player.p_index],enemies[sub_e_index],card_againts_enemies,Data.get_card_stats_exists(card_againts_enemies),Data.get_card_turn_timer(card_againts_enemies)])
 		_reset_focus()
 		initiative.sorted_player[player.p_index]._play_out_tick_down()
 		if initiative.sorted_player[player.p_index].PlayOutOptions != 0:

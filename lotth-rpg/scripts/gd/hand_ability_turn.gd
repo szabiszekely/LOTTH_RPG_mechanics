@@ -14,6 +14,9 @@ extends Node
 # instead the dead guy in the battlefield 
 var is_this_heal = [1]
 # this is where the ability will get processed up
+
+#player.all_p_actions.push_back(["atk",0,initiative.sorted_player[player.p_index],enemies[sub_e_index],card_againts_enemies])
+# atk, which, from, to, card, is it a status?, turn timer
 func _Ability_Turn(list:Array):
 	# this checks for if the current guy, who we are letting through the turn, is alive
 	# or dead/KOd
@@ -35,3 +38,10 @@ func _Ability_Turn(list:Array):
 			turn_handler.initiative.doTrapForLoop = true
 			list[2]._use_card_and_lose_eng(list[4])
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[2],list[3])
+
+	if list[5]:
+		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
+		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[6],Data.get_stats_types(Data.get_card_stats(list[4]))))
+		list[3].Fight_stats._Apply_Stats()
+
+	

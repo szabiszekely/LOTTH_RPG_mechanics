@@ -21,6 +21,32 @@ func _ready() -> void:
 		if !RESRC_WORLD_FLAGS.World_type_flags.isInBeastiery(fs):
 			RESRC_WORLD_FLAGS.World_type_flags.updateBeastiery(int(fs),0)
 
+# Miscellaneous
+
+#	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
+func get_stats_types(list:Array):
+	var dict: Dictionary = {
+		1:["Def",0,true],
+		2:["M_Def",0,true],
+		3:["BP_Attack",0,true],
+		4:["BM_Attack",0,true],
+		5:["Speed",0,true]
+		}
+	var temp_dict: Dictionary = {}
+	var stat_list: Array = ["Def","M_Def","BP_Attack","BM_Attack","Speed"]
+	var index = 0
+	for i in list:
+		if i != 0:
+			dict[index+1] = [stat_list[index],i,true if i < 0 else false]
+			#dict[stat_list[index]] = i
+		index += 1
+	index = 1
+	for i in dict:
+		if dict[i][1] != 0:
+			temp_dict[index] = dict[i]
+			index += 1
+	return temp_dict
+
  
 # Item-------------------------------------------
 
@@ -130,30 +156,6 @@ func get_item_turn_timer(Name:String):
 		if Name == i["Name"]:
 			return i["Number_Of_turn"]
 
-#	player_seperate.Fight_stats._Database_append(player_seperate.Fight_stats.STAT_Resource._Stat_change("Turn",1,{1:["Def",1,true]}))
-
-func get_item_stats_types(list:Array):
-	var dict: Dictionary = {
-		1:["Def",0,true],
-		2:["M_Def",0,true],
-		3:["BP_Attack",0,true],
-		4:["BM_Attack",0,true],
-		5:["Speed",0,true]
-		}
-	var temp_dict: Dictionary = {}
-	var stat_list: Array = ["Def","M_Def","BP_Attack","BM_Attack","Speed"]
-	var index = 0
-	for i in list:
-		if i != 0:
-			dict[index+1] = [stat_list[index],i,true if i < 0 else false]
-			#dict[stat_list[index]] = i
-		index += 1
-	index = 1
-	for i in dict:
-		if dict[i][1] != 0:
-			temp_dict[index] = dict[i]
-			index += 1
-	return temp_dict
 		
 # Actions-------------------------------------------
 

@@ -32,10 +32,10 @@ func _Stat_change(Limitation: String,Limitation_number: int,What_Stats: Dictiona
 			is_turn = -1
 	for i in What_Stats:
 		if What_Stats[i][2]:
-			_Buff(What_Stats[i])
+			_Debuff(What_Stats[i])
 
 		else:
-			_Debuff(What_Stats[i])
+			_Buff(What_Stats[i])
 	
 	if not is_turn <= 0:
 		return [random_header_id,All_stats,is_turn]

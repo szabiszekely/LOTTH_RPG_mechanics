@@ -16,4 +16,4 @@ func _EnemyAI(deck):
 	# I give every card a score which help the AI decide which card to use
 	_attack_card_scoring()
 
-	enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,deck[0]])
+	enemy_group.all_e_action.push_back(["atk",0,enemy_it_self,target,deck[0],Data.get_card_stats_exists(deck[0]),Data.get_card_turn_timer(deck[0])])

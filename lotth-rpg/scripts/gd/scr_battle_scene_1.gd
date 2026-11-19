@@ -14,7 +14,15 @@ func _process(_delta: float) -> void:
 		#RefrenceNode.PlayerGroup.all_p_actions.push_back(["act",0,RefrenceNode.InitiativeHandler.sorted_player[0],RefrenceNode.EnemyGroup.enemies[0],"Talk",self])
 		#print(RefrenceNode.DialogicControl.dialog_main)
 		#player_group.all_p_actions.push_back(["TEST",1,self,self,1,1])
-		player_group.player[0]._take_damage(1,1,enemy_group.enemies[0])
+		print(enemy_group.enemies[0].Fight_stats["Stat_Boosts"])
+		print(Data.get_card_stats("Leader Aura"))
+		enemy_group.enemies[0].Fight_stats.STAT_Resource._Get_Current_Headers(enemy_group.enemies[0].Fight_stats.Header_Array)
+		enemy_group.enemies[0].Fight_stats._Database_append(enemy_group.enemies[0].Fight_stats.STAT_Resource._Stat_change("Turn",4,Data.get_stats_types(Data.get_card_stats("Leader Aura"))))
+		enemy_group.enemies[0].Fight_stats._Apply_Stats()
+		print(enemy_group.enemies[0].Fight_stats["Stat_Boosts"])
+
+		player_group.player[0]._take_damage(15,0,enemy_group.enemies[0])
+		
 		#player_group.player[1]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[2]._take_damage(1,1,enemy_group.enemies[0])
 		#player_group.player[3]._take_damage(1,1,enemy_group.enemies[0])

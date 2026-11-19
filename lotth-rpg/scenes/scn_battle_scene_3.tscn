@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dc0an8kqtxeoe"]
+[gd_scene load_steps=27 format=4 uid="uid://dc0an8kqtxeoe"]
 
 [ext_resource type="Script" uid="uid://bjxp4trjj60pn" path="res://scripts/gd/scr_battle_scene_1.gd" id="1_spa3h"]
 [ext_resource type="Resource" uid="uid://po2dcodxxvl3" path="res://Testing_folder/resrc_World_Flags.tres" id="2_snfvy"]
@@ -15,9 +15,7 @@
 [ext_resource type="Script" uid="uid://bio6jtqwn30c7" path="res://scripts/resources/CH/resrc_Basic_stats.gd" id="13_wtl4i"]
 [ext_resource type="Texture2D" uid="uid://dndhilqw6qlwf" path="res://assets/sprite/Player/spr_Portrait_Icon.png" id="14_w6jpk"]
 [ext_resource type="Script" uid="uid://cg06exgelwcxu" path="res://scripts/gd/scr_enemy_group.gd" id="15_fagal"]
-[ext_resource type="Resource" uid="uid://bo7kw3v2nra6b" path="res://scripts/resources/Text_Box/Myna.dch" id="15_w3ti8"]
 [ext_resource type="PackedScene" uid="uid://bvqagukia7spt" path="res://scenes/scn_dummy.tscn" id="16_21xai"]
-[ext_resource type="Texture2D" uid="uid://cc7obgis0s0ab" path="res://assets/sprite/Player/spr_Portrait_Icon_diff2.png" id="16_spa3h"]
 [ext_resource type="Resource" uid="uid://d2kvvm3tcx5ag" path="res://scripts/resources/Decks/Dummy_deck.tres" id="19_snfvy"]
 [ext_resource type="Shader" uid="uid://cunpnsww68d3n" path="res://scripts/gdshader/Pixel_Shader.gdshader" id="19_spa3h"]
 [ext_resource type="PackedScene" uid="uid://bokwx0ajkfdcy" path="res://scenes/scn_UI_battle_menu.tscn" id="20_60rvu"]
@@ -73,44 +71,6 @@ Sid = 1
 Friend_or_Foe = null
 PlayerDeck = ExtResource("11_o85kr")
 metadata/_custom_type_script = "uid://bio6jtqwn30c7"
-
-[sub_resource type="Resource" id="Resource_snfvy"]
-resource_local_to_scene = true
-script = ExtResource("13_wtl4i")
-name = "Lil Goofy Guy"
-character_speaker = ExtResource("15_w3ti8")
-Sid = 1
-Friend_or_Foe = 0
-MAX_HP = 25
-MAX_ENG = 25
-Soul_Type = 1
-PlayerDeck = ExtResource("11_o85kr")
-Defense = 4
-Magic_Defense = 4
-MAX_EMP = 1000
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 1
-Speed = 2
-range_in_cm = 15.0
-
-[sub_resource type="Resource" id="Resource_w3ti8"]
-resource_local_to_scene = true
-script = ExtResource("13_wtl4i")
-name = "Lil Goofy Guy"
-character_speaker = ExtResource("15_w3ti8")
-Sid = 1
-Friend_or_Foe = 0
-MAX_HP = 25
-MAX_ENG = 25
-Soul_Type = 1
-PlayerDeck = ExtResource("11_o85kr")
-Defense = 4
-Magic_Defense = 4
-MAX_EMP = 1000
-Base_Phisical_Attack = 2
-Base_Magical_Attack = 1
-Speed = 2
-range_in_cm = 15.0
 
 [sub_resource type="Resource" id="Resource_xcniu"]
 script = ExtResource("13_wtl4i")
@@ -177,28 +137,6 @@ MaxPlayOutOptions = 1
 [node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/player_group/Player"]
 position = Vector2(0, 15)
 texture = ExtResource("14_w6jpk")
-
-[node name="Player2" parent="NavigationRegion2D/player_group" instance=ExtResource("10_4y07g")]
-position = Vector2(-125, -1)
-CharacterName = "Myna"
-Fight_stats = SubResource("Resource_snfvy")
-Turn_portriat = ExtResource("16_spa3h")
-MaxPlayOutOptions = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="NavigationRegion2D/player_group/Player2"]
-position = Vector2(0, 17)
-texture = ExtResource("16_spa3h")
-
-[node name="Player3" parent="NavigationRegion2D/player_group" instance=ExtResource("10_4y07g")]
-position = Vector2(-125, 61)
-CharacterName = "Myna"
-Fight_stats = SubResource("Resource_w3ti8")
-Turn_portriat = ExtResource("16_spa3h")
-MaxPlayOutOptions = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="NavigationRegion2D/player_group/Player3"]
-position = Vector2(0, 17)
-texture = ExtResource("16_spa3h")
 
 [node name="enemy_group" type="Node2D" parent="NavigationRegion2D"]
 script = ExtResource("15_fagal")

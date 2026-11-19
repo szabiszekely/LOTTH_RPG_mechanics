@@ -102,10 +102,10 @@
   "Atk_Type": "Ranged",
   "Def": 0,
   "M_Def": 0,
-  "BP_Attack": -1,
+  "BP_Attack": -5,
   "BM_Attack": 0,
   "Speed": 0,
-  "Number_Of_turn": 1,
+  "Number_Of_turn": 2,
   "Description": "Spike from the opponent, The opponent looses 1 Phisical ATK"
  },
  {
@@ -931,7 +931,7 @@
  },
  {
   "Name": "Do Nothing",
-  "Dmg": 0,
+  "Dmg": 10,
   "T.Dmg": 0,
   "Eng": 0,
   "Eng_healed": 0,
@@ -944,10 +944,10 @@
   "Ability_Type": "Atk",
   "Def": 0,
   "M_Def": 0,
-  "BP_Attack": 0,
-  "BM_Attack": 0,
+  "BP_Attack": -5,
+  "BM_Attack": -5,
   "Speed": 0,
-  "Number_Of_turn": 0,
+  "Number_Of_turn": 2,
   "Description": 0,
   "Need_func": 0
  }

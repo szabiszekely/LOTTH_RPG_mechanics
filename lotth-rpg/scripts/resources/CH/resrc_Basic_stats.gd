@@ -57,6 +57,8 @@ func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Str
 	var Reciver_Magic_Defense:int = Target.Temp_M_Def
 	var Reciver_ATK_type:int = Target.Attack_Type_A
 	
+	print(Attacker_Base_Phisical_Strengh,"\n", Attacker_Base_Magic_Strengh,"\n", Attacker_ATK_type,"\n", Reciver_Defense,"\n", Reciver_Magic_Defense,"\n", Reciver_ATK_type)
+	
 	#the damage type and the bonus damage values
 	var Damage_Type = 0
 	var Damage_bonus = 0
@@ -118,11 +120,11 @@ func _Database_append(What_to_add):
 
 
 func _Apply_Stats(): ## Hello
-	Temp_Def = 0
-	Temp_M_Def = 0
-	Temp_BP_A = 0
-	Temp_BM_A = 0
-	Temp_Sped = 0
+	#Temp_Def = 0
+	#Temp_M_Def = 0
+	#Temp_BP_A = 0
+	#Temp_BM_A = 0
+	#Temp_Sped = 0
 	var Sum_Def = 0
 	var Sum_M_Def = 0
 	var Sum_BPA = 0

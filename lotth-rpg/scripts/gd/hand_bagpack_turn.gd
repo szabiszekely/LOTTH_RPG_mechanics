@@ -35,6 +35,6 @@ func _Bagpack_Turn(list):
 	# stats for self
 	if list[6]:
 		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
-		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[8],Data.get_item_stats_types(Data.get_item_stats(list[4]))))
+		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[8],Data.get_stats_types(Data.get_item_stats(list[4]))))
 		list[3].Fight_stats._Apply_Stats()
 	RefrenceNode.BagHandler._remove_item_from_inventory(list[7])
