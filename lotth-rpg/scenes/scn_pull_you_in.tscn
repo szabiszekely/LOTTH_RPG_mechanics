@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://brmk7fief2i5j"]
+
+[ext_resource type="Shader" path="res://scripts/gdshader/pull_you_in.gdshader" id="1_8dfox"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ihfa"]
+shader = ExtResource("1_8dfox")
+shader_parameter/warp = 0.0
+shader_parameter/tunnel = 0.0
+shader_parameter/flash = 0.0
+shader_parameter/opacity = 1.0
+shader_parameter/travel = 0.0
+shader_parameter/auto_speed = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/shake = 0.0
+shader_parameter/star_density = 80.0
+shader_parameter/star_amount = 0.65
+shader_parameter/streak_length = 0.4
+shader_parameter/star_thickness = 0.0025
+shader_parameter/star_brightness = 1.4
+shader_parameter/star_color = Color(0.92, 0.96, 1, 1)
+shader_parameter/tail_color = Color(0.3, 0.55, 1, 1)
+shader_parameter/core_color = Color(0.35, 0.6, 1, 1)
+shader_parameter/tunnel_color = Color(0.1, 0.3, 0.9, 1)
+shader_parameter/background_color = Color(0, 0, 0.025, 1)
+shader_parameter/core_strength = 0.210000009975
+
+[node name="Pull you in" type="Panel"]
+material = SubResource("ShaderMaterial_4ihfa")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

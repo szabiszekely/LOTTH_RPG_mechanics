@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://lpoqdcu5h7ot"]
+
+[ext_resource type="Shader" uid="uid://byfeuvd0j5lne" path="res://scripts/gdshader/pull_you_in.gdshader" id="1_7yb4g"]
+
+[resource]
+shader = ExtResource("1_7yb4g")
+shader_parameter/warp = 0.0
+shader_parameter/tunnel = 0.0
+shader_parameter/flash = 0.0
+shader_parameter/opacity = 1.0
+shader_parameter/travel = 0.305
+shader_parameter/auto_speed = 0.0
+shader_parameter/center = Vector2(0.5, 0.635)
+shader_parameter/shake = 0.0
+shader_parameter/star_density = 49.846001417685
+shader_parameter/star_amount = 1.0
+shader_parameter/streak_length = 0.05000000074506
+shader_parameter/star_thickness = 0.00450000021375
+shader_parameter/star_brightness = 0.0
+shader_parameter/star_color = Color(0.92, 0.96, 1, 1)
+shader_parameter/tail_color = Color(0.3, 0.55, 1, 1)
+shader_parameter/core_color = Color(0.35, 0.6, 1, 1)
+shader_parameter/tunnel_color = Color(0.1, 0.3, 0.9, 1)
+shader_parameter/background_color = Color(0.03529412, 0.06666667, 0.101960786, 1)
+shader_parameter/core_strength = 0.0

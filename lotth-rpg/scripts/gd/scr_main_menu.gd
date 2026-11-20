@@ -15,6 +15,7 @@ var _started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Soul.hide()
 	_Press_start_animation(1.25)
 	lotth_tittle_screen.material.set_shader_parameter("work", true);
@@ -64,3 +65,7 @@ func _siluets_out():
 
 func _light_out_BG():
 	bg_light.modulate = Color.WHITE
+
+
+func _on_dialogic_signal(argument:String):
+	print(argument)
