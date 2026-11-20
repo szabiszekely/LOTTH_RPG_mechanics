@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 		print(enemy_group.enemies[0].Fight_stats["Stat_Boosts"])
 		print(Data.get_card_stats("Leader Aura"))
 		enemy_group.enemies[0].Fight_stats.STAT_Resource._Get_Current_Headers(enemy_group.enemies[0].Fight_stats.Header_Array)
-		enemy_group.enemies[0].Fight_stats._Database_append(enemy_group.enemies[0].Fight_stats.STAT_Resource._Stat_change("Turn",4,Data.get_stats_types(Data.get_card_stats("Leader Aura"))))
+		enemy_group.enemies[0].Fight_stats._Database_append(enemy_group.enemies[0].Fight_stats.STAT_Resource._Stat_change("Turn",1,Data.get_stats_types(Data.get_card_stats("Leader Aura"))))
 		enemy_group.enemies[0].Fight_stats._Apply_Stats()
 		print(enemy_group.enemies[0].Fight_stats["Stat_Boosts"])
 

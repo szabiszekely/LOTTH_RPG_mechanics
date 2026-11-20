@@ -3,6 +3,7 @@ class_name new_Initiative
 
 # bunch of setup variables
 @export var bg_container = Texture2D
+@export var timeSpentBetweenTurns: float = 1
 
 var all_rolls: Array = []
 var all_actions: Array = []
@@ -12,7 +13,6 @@ var index_order: Array = []
 
 var initiative_index: int = 0
 @warning_ignore("narrowing_conversion")
-var timeSpentBetweenTurns: int = 1
 
 var action_start: bool = false
 var doTrapForLoop: bool = false

@@ -31,12 +31,8 @@ func _Stat_change(Limitation: String,Limitation_number: int,What_Stats: Dictiona
 		"ROB": # Rest Of Battle
 			is_turn = -1
 	for i in What_Stats:
-		if What_Stats[i][2]:
-			_Debuff(What_Stats[i])
+		_Buff_Debuff(What_Stats[i])
 
-		else:
-			_Buff(What_Stats[i])
-	
 	if not is_turn <= 0:
 		return [random_header_id,All_stats,is_turn]
 	return [random_header_id,All_stats,is_turn]
@@ -44,7 +40,7 @@ func _Stat_change(Limitation: String,Limitation_number: int,What_Stats: Dictiona
 # key 			value
 # index	[Stat,much,buff_debuff]
 
-func _Buff(What_Stats):
+func _Buff_Debuff(What_Stats):
 	match What_Stats[0]:
 		"Def":
 			All_stats[0] += What_Stats[1]
@@ -56,17 +52,3 @@ func _Buff(What_Stats):
 			All_stats[3] += What_Stats[1]
 		"Speed":
 			All_stats[4] += What_Stats[1]
-
-	
-func _Debuff(What_Stats):
-	match What_Stats[0]:
-		"Def":
-			All_stats[0] -= What_Stats[1]
-		"M_Def":
-			All_stats[1] -= What_Stats[1]
-		"BP_Attack":
-			All_stats[2] -= What_Stats[1]
-		"BM_Attack":
-			All_stats[3] -= What_Stats[1]
-		"Speed":
-			All_stats[4] -= What_Stats[1]

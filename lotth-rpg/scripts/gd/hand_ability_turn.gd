@@ -29,19 +29,30 @@ func _Ability_Turn(list:Array):
 			else:
 				list[3]._take_damage(Data.get_card_damage(list[4]),Data.get_card_attack_type(list[4]),list[2])
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[4],list[2])
+			if list[5]:
+				Stat_changes(list[3],list[4],list[6])
+
 			
 		1: ## it is for team heals/buffs
 			list[2]._use_card_and_lose_eng(list[4])
 			list[3]._use_card_and_gain_eng(list[4],Data.get_card_eng_or_hp(list[4]))
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[2],list[3])
+			if list[5]:
+				Stat_changes(list[3],list[4],list[6])
+
 		2: ## it is for skills
 			turn_handler.initiative.doTrapForLoop = true
 			list[2]._use_card_and_lose_eng(list[4])
 			ability_func._get_what_ability_got_used(list[4],Menu,enemy_group,player_group,list[2],list[3])
 
-	if list[5]:
-		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
-		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[6],Data.get_stats_types(Data.get_card_stats(list[4]))))
-		list[3].Fight_stats._Apply_Stats()
+
+		#list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
+		#list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[6],Data.get_stats_types(Data.get_card_stats(list[4]))))
+		#list[3].Fight_stats._Apply_Stats()
+func Stat_changes(Who,item_name,turn):
+	# stats for self
+	Who.Fight_stats.STAT_Resource._Get_Current_Headers(Who.Fight_stats.Header_Array)
+	Who.Fight_stats._Database_append(Who.Fight_stats.STAT_Resource._Stat_change("Turn",turn,Data.get_stats_types(Data.get_card_stats(item_name))))
+	Who.Fight_stats._Apply_Stats()
 
 	

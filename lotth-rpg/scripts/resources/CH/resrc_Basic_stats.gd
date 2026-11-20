@@ -35,14 +35,75 @@ var EMP: int ##Current adjusting Emphaty
 
 var Stat_Boosts: Array = []
 var Header_Array: Array = []
-var Temp_Def = Defense
-var Temp_M_Def = Magic_Defense
-var Temp_BP_A = Base_Phisical_Attack
-var Temp_BM_A = Base_Magical_Attack
-var Temp_Sped = Speed
+var Temp_Def = 0
+var Temp_M_Def = 0
+var Temp_BP_A = 0
+var Temp_BM_A = 0
+var Temp_Speed = 0
 var In_Defense: bool = false
 
 func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Strengh:int, Card_Type:int)->int:
+	
+	# Attacker STR, Magic and attack type
+	var Attacker_Base_Phisical_Strengh:int = Source.Base_Phisical_Attack + Source.Temp_BP_A
+	var Attacker_Base_Magic_Strengh:int = Source.Base_Magical_Attack + Source.Temp_BM_A
+	var Attacker_ATK_type:int = Source.Attack_Type_A
+	
+	# Defender's Defense, Magical Defense and attack type
+	var Reciver_Defense:int = Target.Defense + Target.Temp_Def
+	var Reciver_Magic_Defense:int = Target.Magic_Defense + Target.Temp_M_Def 
+	var Reciver_ATK_type:int = Target.Attack_Type_A 
+
+
+	
+	#the damage type and the bonus damage values
+	var Damage_Type = 0
+	var Damage_bonus = 0
+	
+#region Damage Type
+	# if they have the same number than nothing happens 0 type bonus!
+	if Reciver_ATK_type == Card_Type:
+		Damage_Type = 0
+		#print("no advan")
+		
+	# if the attacker has a type advantage than get an attack buff
+	# aka if the damage dealer has a bigger number OR the own type is 2 and the dealer is 0 than the attack dealer gets +1 damage!
+	elif Reciver_ATK_type == 0 and Card_Type == 1 or Reciver_ATK_type == 1 and Card_Type == 2 or Reciver_ATK_type == 2 and Card_Type == 0:
+		Damage_Type = 1
+		#print("advantage")
+	
+	# however if this the self type is higher than the dealers attack will be down by 1
+	elif Reciver_ATK_type == 1 and Card_Type == 0 or Reciver_ATK_type == 2 and Card_Type == 1 or Reciver_ATK_type == 0 and Card_Type == 2: 
+		Damage_Type = -1
+		#print("bad advantage")
+#endregion
+	
+#region STAB
+	if Card_Type == Attacker_ATK_type:
+		Damage_bonus = 1
+	else:
+		Damage_bonus = -1
+#endregion
+	
+#region Damage Calc
+	# Card: 6 dmg + (Player Dmg: 3 - Enemy Def: 2 + (Attacker Damage Type Bonuse: 0) + (Attacker Stab Bonus: 0))
+	# 6 + (1(0) = 7
+	# the formula for the Total_damage!
+	var Total_damage
+	if Card_Type == 2: # Magic
+		Total_damage =  Attacker_Base_Magic_Strengh + (Attacker_Card_Strengh - Reciver_Magic_Defense + (Damage_Type)+(Damage_bonus))
+	else:
+		Total_damage =  Attacker_Base_Phisical_Strengh + (Attacker_Card_Strengh - Reciver_Defense + (Damage_Type)+(Damage_bonus))
+	# and if the total_damage is smaller than 0 than we round it up to 1 so you don't deal negative or 0 damage! 
+	if Total_damage <= 0 and !In_Defense:
+		Total_damage = 1
+	elif Total_damage <= 0 and In_Defense:
+		Total_damage = 0
+	return Total_damage
+#endregion
+
+
+func _Damage_Taken_old(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Strengh:int, Card_Type:int)->int:
 	if Stat_Boosts == []:
 		Target.Temp_Def = Target.Defense
 		Target.Temp_M_Def = Target.Magic_Defense
@@ -57,7 +118,6 @@ func _Damage_Taken(Source:Fighting_Stats,Target:Fighting_Stats,Attacker_Card_Str
 	var Reciver_Magic_Defense:int = Target.Temp_M_Def
 	var Reciver_ATK_type:int = Target.Attack_Type_A
 	
-	print(Attacker_Base_Phisical_Strengh,"\n", Attacker_Base_Magic_Strengh,"\n", Attacker_ATK_type,"\n", Reciver_Defense,"\n", Reciver_Magic_Defense,"\n", Reciver_ATK_type)
 	
 	#the damage type and the bonus damage values
 	var Damage_Type = 0
@@ -120,11 +180,11 @@ func _Database_append(What_to_add):
 
 
 func _Apply_Stats(): ## Hello
-	#Temp_Def = 0
-	#Temp_M_Def = 0
-	#Temp_BP_A = 0
-	#Temp_BM_A = 0
-	#Temp_Sped = 0
+	Temp_Def = 0
+	Temp_M_Def = 0
+	Temp_BP_A = 0
+	Temp_BM_A = 0
+	Temp_Speed = 0
 	var Sum_Def = 0
 	var Sum_M_Def = 0
 	var Sum_BPA = 0
@@ -138,9 +198,8 @@ func _Apply_Stats(): ## Hello
 		Sum_BMA += i[1][3]
 		Sum_SP += i[1][4]
 		
-	Temp_Def += Defense + Sum_Def
-	Temp_M_Def += Magic_Defense + Sum_M_Def
-	Temp_BP_A += Base_Phisical_Attack + Sum_BPA
-	Temp_BM_A += Base_Magical_Attack + Sum_BMA
-	Temp_Sped += Speed + Sum_SP
-	print(Stat_Boosts)
+	Temp_Def += Sum_Def
+	Temp_M_Def += Sum_M_Def
+	Temp_BP_A += Sum_BPA
+	Temp_BM_A += Sum_BMA
+	Temp_Speed += Sum_SP

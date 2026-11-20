@@ -2,7 +2,7 @@ extends PanelContainer
 class_name Order_holder
 
 @onready var RefrenceNode = get_tree().get_root().get_child(-1).get_node("RefrenceCrossRoad")
-@onready var Initiative = RefrenceNode.InitiativeHandler
+@onready var Initiative: new_Initiative = RefrenceNode.InitiativeHandler
 @onready var slide_points: Node2D = $Slide_Points
 @onready var spr_turn_pointer: Sprite2D = $SprTurnPointer
 var slider_index:int = 1

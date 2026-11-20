@@ -133,7 +133,8 @@ func roll_of_the_luck():
 	var roll = Fight_stats.Speed + Fight_stats._Initiative()
 	# this is where the rolls and other stats that needs them to be determend are stored
 	# first is that are they enemy or not, than they roll!, than they speed, and finally they portrait and name!
-	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Fight_stats.Speed,Turn_portriat,self]
+	var Speed = Fight_stats.Speed + Fight_stats.Temp_Speed
+	var initiative_peronality = [Fight_stats.Friend_or_Foe,roll,Speed,Turn_portriat,self]
 	Initiative.all_rolls.append(initiative_peronality)
 
 func _play_out_tick_down():

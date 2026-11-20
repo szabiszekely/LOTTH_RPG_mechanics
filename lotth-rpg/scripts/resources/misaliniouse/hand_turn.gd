@@ -21,7 +21,7 @@ class_name Turn_Handler
 @onready var movement: Node = $Movement
 
 
-var baseTiming: int
+var baseTiming: float
 
 # [Key , Sub_Key , From Character ,To Character, Data 1, Data 2, Data 3]
 # ["attack", 2 , Player1, Player2, HP]

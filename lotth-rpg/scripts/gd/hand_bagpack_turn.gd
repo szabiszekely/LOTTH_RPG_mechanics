@@ -23,18 +23,24 @@ func _Bagpack_Turn(list):
 				list[3].Bar.bar_health_restored(Data.get_item_hp(list[4]),2)
 			else:
 				list[3].Bar.bar_health_restored(Data.get_item_eng(list[4]),1)
-				
+			if list[6]:
+				Stat_changes(list[3],list[4],list[8])
+
 				
 		1: ## this is for the attacking items
 			if Data.get_item_damage_type(list[4]) == true:
 				list[3]._take_true_damage(Data.get_item_t_dmg(list[4]))
 			else:
 				list[3]._take_damage(Data.get_item_dmg(list[4]),Data.get_item_atk_type(list[4]),list[2])
+			if list[6]:
+				Stat_changes(list[3],list[4],list[8])
+
 		2:
 			list[3].emp_gained(Data.get_item_emp(list[4]))
-	# stats for self
-	if list[6]:
-		list[3].Fight_stats.STAT_Resource._Get_Current_Headers(list[3].Fight_stats.Header_Array)
-		list[3].Fight_stats._Database_append(list[3].Fight_stats.STAT_Resource._Stat_change("Turn",list[8],Data.get_stats_types(Data.get_item_stats(list[4]))))
-		list[3].Fight_stats._Apply_Stats()
 	RefrenceNode.BagHandler._remove_item_from_inventory(list[7])
+
+func Stat_changes(Who,item_name,turn):
+	# stats for self
+	Who.Fight_stats.STAT_Resource._Get_Current_Headers(Who.Fight_stats.Header_Array)
+	Who.Fight_stats._Database_append(Who.Fight_stats.STAT_Resource._Stat_change("Turn",turn,Data.get_stats_types(Data.get_item_stats(item_name))))
+	Who.Fight_stats._Apply_Stats()

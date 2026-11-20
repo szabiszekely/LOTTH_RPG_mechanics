@@ -37,8 +37,7 @@ func get_stats_types(list:Array):
 	var index = 0
 	for i in list:
 		if i != 0:
-			dict[index+1] = [stat_list[index],i,true if i < 0 else false]
-			#dict[stat_list[index]] = i
+			dict[index+1] = [stat_list[index],i]
 		index += 1
 	index = 1
 	for i in dict:
